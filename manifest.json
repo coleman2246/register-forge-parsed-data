@@ -403,5 +403,14 @@
     "filename": "PCA9555.pdf",
     "category": "peripheral",
     "family": "GPIO Expander"
+  },
+  {
+    "device": "PG251 USXGMII",
+    "vendor": "Xilinx",
+    "description": "USXGMII Ethernet subsystem product guide",
+    "source_url": "https://www.mouser.com/datasheet/2/903/pg251-usxgmii-1596487.pdf",
+    "filename": "pg251-usxgmii.pdf",
+    "category": "peripheral",
+    "family": "Ethernet PHY"
   }
 ]
