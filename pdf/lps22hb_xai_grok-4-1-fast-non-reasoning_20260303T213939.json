@@ -1,0 +1,1358 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "LPS22HB",
+  "description": "MEMS nano barometric pressure sensor, 260\u20131260 hPa, I2C/SPI",
+  "vendor": "STMicroelectronics",
+  "source": "LPS22HB.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.waveshare.com/w/upload/2/20/Lps22hb.pdf",
+  "peripherals": {
+    "Device ID": [
+      {
+        "name": "WHO_AM_I",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": "0xB1",
+        "description": "Device ID register",
+        "fields": [
+          {
+            "name": "WHO_AM_I",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 177,
+            "description": "Device identification code",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          37,
+          38,
+          39,
+          40,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Control": [
+      {
+        "name": "CTRL_REG1",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Control register 1",
+        "fields": [
+          {
+            "name": "ODR",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output data rate selection",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DIFF_EN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Differential pressure enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RES",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Resolution mode",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BDU",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Block data update",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AUTO_ZERO",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Auto-zero enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESET_AZ",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reset auto-zero",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "EN_BIT",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          37,
+          38,
+          39,
+          40,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CTRL_REG2",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": "0x01",
+        "description": "Control register 2",
+        "fields": [
+          {
+            "name": "BOOT",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reboot memory content. Default value: 0",
+            "enum_values": {
+              "0": "normal mode",
+              "1": "reboot memory content"
+            },
+            "source": "llm_consistent"
+          },
+          {
+            "name": "FIFO_EN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO enable. Default value: 0",
+            "enum_values": {
+              "0": "disable",
+              "1": "enable"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "STOP_ON_FTH",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Stop on FIFO watermark. Enable FIFO watermark level use. Default value: 0",
+            "enum_values": {
+              "0": "disable",
+              "1": "enable"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IF_ADD_INC",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Register address automatically incremented during a multiple byte access with a serial interface. Default value: 1",
+            "enum_values": {
+              "0": "disable",
+              "1": "enable"
+            },
+            "source": "llm_consistent"
+          },
+          {
+            "name": "I2C_DIS",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Disable I^2 C interface. Default value: 0",
+            "enum_values": {
+              "0": "I^2 C enabled",
+              "1": "I^2 C disabled"
+            },
+            "source": "llm_consistent"
+          },
+          {
+            "name": "SWRESET",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Software reset. Default value: 0",
+            "enum_values": {
+              "0": "normal mode",
+              "1": "software reset"
+            },
+            "source": "llm_consistent"
+          },
+          {
+            "name": "RSVD",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ONE_SHOT",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "One-shot enable. Default value: 0",
+            "enum_values": {
+              "0": "idle mode",
+              "1": "a new dataset is acquired"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          37,
+          38,
+          39,
+          40,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CTRL_REG3",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Control register 3",
+        "fields": [
+          {
+            "name": "PP_OD",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Push-pull/open drain",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "OH_EN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Open-drain high enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "OL_EN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Open-drain low enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IH_EN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt high enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IL_EN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt low enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "P_WTM_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Pressure watermark enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "P_OVR_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Pressure overrun enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DRDY_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Data ready enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          37,
+          38,
+          39,
+          40,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Interrupt": [
+      {
+        "name": "INTERRUPT_CFG",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt mode for pressure acquisition configuration.",
+        "fields": [
+          {
+            "name": "AUTORIFP",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable AUTORIFP: function. Default value: 0 (0: normal mode; 1: AutoRifP enabled)",
+            "enum_values": {
+              "0": "normal mode",
+              "1": "AutoRifP enabled"
+            },
+            "source": "llm_consistent"
+          },
+          {
+            "name": "RESET_ARP",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reset AutoRifP function. Default value: 0 (0: normal mode; 1: reset AutoRifP function)",
+            "enum_values": {
+              "0": "normal mode",
+              "1": "reset AutoRifP function"
+            },
+            "source": "llm_verified"
+          },
+          {
+            "name": "AUTOZERO",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable Autozero function. Default value: 0 (0: normal mode; 1: Autozero enabled)",
+            "enum_values": {
+              "0": "normal mode",
+              "1": "Autozero enabled"
+            },
+            "source": "llm_verified"
+          },
+          {
+            "name": "RESET_AZ",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reset Autozero function. Default value: 0 (0: normal mode; 1: reset Autozero function)",
+            "enum_values": {
+              "0": "normal mode",
+              "1": "reset Autozero function"
+            },
+            "source": "llm_verified"
+          },
+          {
+            "name": "DIFF_EN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable interrupt generation. Default value: 0 (0: interrupt generation disabled; 1: interrupt generation enabled)",
+            "enum_values": {
+              "0": "interrupt generation disabled",
+              "1": "interrupt generation enabled"
+            },
+            "source": "llm_verified"
+          },
+          {
+            "name": "LIR",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Latch interrupt request to the INT_SOURCE (25h) register. Default value: 0 (0: interrupt request not latched; 1: interrupt request latched)",
+            "enum_values": {
+              "0": "interrupt request not latched",
+              "1": "interrupt request latched"
+            },
+            "source": "llm_verified"
+          },
+          {
+            "name": "PLE",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable interrupt generation on pressure low event. Default value: 0 (0: disable interrupt request; 1: enable interrupt request on pressure value lower than preset threshold)",
+            "enum_values": {
+              "0": "disable interrupt request",
+              "1": "enable interrupt request on pressure low"
+            },
+            "source": "llm_verified"
+          },
+          {
+            "name": "PHE",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable interrupt generation on pressure high event. Default value: 0 (0: disable interrupt request; 1: enable interrupt request on pressure value higher than preset threshold)",
+            "enum_values": {
+              "0": "disable interrupt request",
+              "1": "enable interrupt request on pressure high"
+            },
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "THS_P_L",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Pressure threshold register low byte",
+        "fields": [
+          {
+            "name": "THS_P_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Pressure threshold value LSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "THS_P_H",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Pressure threshold register high byte",
+        "fields": [
+          {
+            "name": "THS_P_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Pressure threshold value MSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34,
+          35,
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "INT_SOURCE",
+        "address": "0x25",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Interrupt source",
+        "fields": [
+          {
+            "name": "BOOT_STATUS",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "If '1' indicates that the Boot (Reboot) phase is running.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "IA",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Interrupt active. (0: no interrupt has been generated; 1: one or more interrupt events have been generated).",
+            "enum_values": {
+              "0": "no interrupt",
+              "1": "interrupt active"
+            },
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PL",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Differential pressure Low. (0: no interrupt has been generated; 1: low differential pressure event has occurred).",
+            "enum_values": {
+              "0": "no interrupt",
+              "1": "low pressure"
+            },
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PH",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Differential pressure High. (0: no interrupt has been generated; 1: high differential pressure event has occurred).",
+            "enum_values": {
+              "0": "no interrupt",
+              "1": "high pressure"
+            },
+            "source": "llm_consistent"
+          },
+          {
+            "name": "RSVD_6_3",
+            "bit_high": 6,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "FIFO": [
+      {
+        "name": "FIFO_CTRL",
+        "address": "0x14",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "FIFO control register",
+        "fields": [
+          {
+            "name": "FTH",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO threshold level",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FMODE",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO mode selection",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "F_MODE",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO operating mode",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "FIFO_STATUS",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "FIFO status register",
+        "fields": [
+          {
+            "name": "FTH",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "FIFO full",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "WTM",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "FIFO watermark",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "OVR",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "FIFO overrun",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "EMPTY",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "FIFO empty",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "N",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Number of unread samples",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Reference Pressure": [
+      {
+        "name": "REF_P_XL",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Reference pressure value XL",
+        "fields": [
+          {
+            "name": "REF_P_XL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reference pressure XL",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "REF_P_L",
+        "address": "0x16",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Reference pressure value L",
+        "fields": [
+          {
+            "name": "REF_P_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reference pressure L",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "REF_P_H",
+        "address": "0x17",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Reference pressure value H",
+        "fields": [
+          {
+            "name": "REF_P_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reference pressure H",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Reference Sensitivity": [
+      {
+        "name": "RPDS_L",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Reference pressure difference sensitivity L",
+        "fields": [
+          {
+            "name": "RPDS_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "RPDS low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "RPDS_H",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Reference pressure difference sensitivity H",
+        "fields": [
+          {
+            "name": "RPDS_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "RPDS high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Status": [
+      {
+        "name": "STATUS",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Status register",
+        "fields": [
+          {
+            "name": "T_OR",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature data overrun. (0: no overrun has occurred; 1: a new data for temperature has overwritten the previous data)",
+            "enum_values": {
+              "0": "no overrun",
+              "1": "overrun"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "P_OR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Pressure data overrun. (0: no overrun has occurred; 1: new data for pressure has overwritten the previous data)",
+            "enum_values": {
+              "0": "no overrun",
+              "1": "overrun"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "T_DA",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature data available. (0: new data for temperature is not yet available; 1: a new temperature data is generated)",
+            "enum_values": {
+              "0": "not available",
+              "1": "available"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "P_DA",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Pressure data available. (0: new data for pressure is not yet available; 1: a new pressure data is generated)",
+            "enum_values": {
+              "0": "not available",
+              "1": "available"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_3_2",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Outputs": [
+      {
+        "name": "PRESS_OUT_XL",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Pressure output XL",
+        "fields": [
+          {
+            "name": "PRESS_OUT_XL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Pressure output XL",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "PRESS_OUT_L",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Pressure output L",
+        "fields": [
+          {
+            "name": "PRESS_OUT_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Pressure output L",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "PRESS_OUT_H",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Pressure output H",
+        "fields": [
+          {
+            "name": "PRESS_OUT_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Pressure output H",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          47,
+          48,
+          49
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TEMP_OUT_L",
+        "address": "0x2B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Temperature output L",
+        "fields": [
+          {
+            "name": "TEMP_OUT_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Temperature output L",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          47,
+          48,
+          49
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TEMP_OUT_H",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Temperature output H",
+        "fields": [
+          {
+            "name": "TEMP_OUT_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Temperature output H",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          47,
+          48,
+          49
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Configuration": [
+      {
+        "name": "RES_CONF",
+        "address": "0x1A",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Low-power mode configuration",
+        "fields": [
+          {
+            "name": "LC_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Low current mode enable. Default 0 0: Normal mode (low-noise mode); 1: Low-current mode.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "LPFP_RES",
+        "address": "0x33",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Low-pass filter reset register",
+        "fields": [
+          {
+            "name": "LPFP_RES",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Low-pass filter reset",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          47,
+          48,
+          49
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-04T02:39:39.920090+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 23,
+        "by_confidence": {
+          "high": 23,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 0,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 66,
+        "by_source": {
+          "evidence_verified": 44,
+          "llm_consistent": 11,
+          "synthetic": 5,
+          "llm_verified": 6
+        }
+      },
+      "peripherals": {
+        "total": 9,
+        "by_name": {
+          "Device ID": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Control": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Interrupt": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "FIFO": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Reference Pressure": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Reference Sensitivity": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Status": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Outputs": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Configuration": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 46,
+        "batches_total": 9,
+        "batches_sent": 9,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": []
+      },
+      "evidence": {
+        "fields_with_evidence": 46,
+        "fields_verified": 46,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 21
+      }
+    }
+  }
+}

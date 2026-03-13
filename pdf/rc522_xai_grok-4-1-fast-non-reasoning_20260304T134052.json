@@ -1,0 +1,3366 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "RC522",
+  "description": "RFID reader/writer (MFRC522)",
+  "vendor": "NXP",
+  "source": "RC522.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf",
+  "peripherals": {
+    "Command and Control": [
+      {
+        "name": "COMMAND_REG",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": "0x20",
+        "description": "Starts and stops command execution",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RCV_OFF",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "analog part of the receiver is switched off",
+            "enum_values": {
+              "1": "analog part of the receiver is switched off"
+            },
+            "source": "llm_unverified"
+          },
+          {
+            "name": "POWER_DOWN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Soft power-down mode entered",
+            "enum_values": {
+              "1": "Soft power-down mode entered",
+              "0": "MFRC522 starts the wake up procedure"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COMMAND",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "activates a command based on the Command value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          32,
+          33,
+          34
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "COM_IRQ_REG",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": "0x14",
+        "description": "Interrupt request bits. All bits cleared by software.",
+        "fields": [
+          {
+            "name": "SET1",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "W",
+            "reset_value": null,
+            "description": "set=1: marked bits are set; set=0: marked bits are cleared",
+            "enum_values": {
+              "0": "marked bits cleared",
+              "1": "marked bits set"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX_IRQ",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "set after last bit of transmitted data sent out",
+            "enum_values": {
+              "1": "set after TX complete"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_IRQ",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "set at end of valid data stream (if RxNoErr=1, only when FIFO has data)",
+            "enum_values": {
+              "1": "receiver data stream end"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IDLE_IRQ",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "set when command terminates or changes to Idle command",
+            "enum_values": {
+              "1": "command idle"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HI_ALERT_IRQ",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "HiAlert event latched (reset by Set1 bit)",
+            "enum_values": {
+              "1": "HiAlert event"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LO_ALERT_IRQ",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "LoAlert event latched (reset by Set1 bit)",
+            "enum_values": {
+              "1": "LoAlert event"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ERR_IRQ",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "set when any ErrorReg bit is set",
+            "enum_values": {
+              "1": "error occurred"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TIMER_IRQ",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "set when timer reaches zero",
+            "enum_values": {
+              "1": "timer expired"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "DIV_IRQ_REG",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": "x0h",
+        "description": "Interrupt request bits. All bits cleared by software.",
+        "fields": [
+          {
+            "name": "SET2",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "W",
+            "reset_value": null,
+            "description": "set=1: marked bits set; set=0: marked bits cleared",
+            "enum_values": {
+              "0": "marked bits cleared",
+              "1": "marked bits set"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MFIN_ACT_IRQ",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "MFIN is active this interrupt is set when either a rising or falling signal edge is detected",
+            "enum_values": {
+              "1": "MFIN active"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CRC_IRQ",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "the CalcCRC command is active and all data is processed",
+            "enum_values": {
+              "1": "CRC complete"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_6_5",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ERROR_REG",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Error bit register showing error status of last command executed.",
+        "fields": [
+          {
+            "name": "WR_ERR",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "R",
+            "reset_value": 0,
+            "description": "write error to FIFO during MFAuthent or TX/RX timing",
+            "enum_values": {
+              "1": "FIFO write error"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TEMP_ERR",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "R",
+            "reset_value": 0,
+            "description": "overheating detected (antenna drivers off)",
+            "enum_values": {
+              "1": "temperature error"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "BUFFER_OVFL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "R",
+            "reset_value": 0,
+            "description": "FIFO buffer overflow",
+            "enum_values": {
+              "1": "buffer overflow"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COLL_ERR",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "R",
+            "reset_value": 0,
+            "description": "bit collision detected (valid only at 106 kBd anticollision)",
+            "enum_values": {
+              "1": "collision error"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CRC_ERR",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "R",
+            "reset_value": 0,
+            "description": "CRC calculation failed (when RxCRCEn=1)",
+            "enum_values": {
+              "1": "CRC error"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PARITY_ERR",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "R",
+            "reset_value": 0,
+            "description": "parity check failed (106 kBd only)",
+            "enum_values": {
+              "1": "parity error"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PROTOCOL_ERR",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "incorrect SOF or byte count in MFAuthent",
+            "enum_values": {
+              "1": "protocol error"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          41,
+          42,
+          43,
+          44
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "STATUS1_REG",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": "0x21",
+        "description": "Contains status bits of the CRC, interrupt and FIFO buffer.",
+        "fields": [
+          {
+            "name": "reserved",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "CRCOk",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "R",
+            "reset_value": null,
+            "description": "the CRC result is zero for data transmission and reception, the CRCOk bit is undefined: use the ErrorReg register's CRCErr bit indicates the status of the CRCcoprocessor, during calculation the value changes to logic 0, when the calculation is done correctly the value changes to logic 1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "CRCReady",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": null,
+            "description": "the CRC calculation has finished only valid for the CRC coprocessor calculation using the CalcCRC command",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "IRq",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "R",
+            "reset_value": null,
+            "description": "indicates if any interrupt source requests attention with respect to the setting of the interrupt enable bits: see the ComIEnReg and DivIEnReg registers",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TRunning",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "R",
+            "reset_value": null,
+            "description": "MFRC522's timer unit is running, i.e. the timer will decrement the TCounterValReg register with the next timer clock Remark: in gated mode, the TRunning bit is set to logic 1 when the timer is enabled by TModeReg register's TGated[1:0] bits; this bit is not influenced by the gated signal",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "HiAlert",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "R",
+            "reset_value": null,
+            "description": "the number of bytes stored in the FIFO buffer corresponds to equation: example: FIFO length = 60, WaterLevel = 4 \u2192 HiAlert = 1 FIFO length = 59, WaterLevel = 4 \u2192 HiAlert = 0 HiAlert 64 FIFOLength -\uf029 \uf028 WaterLevel \uf0a3 =",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "LoAlert",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "the number of bytes stored in the FIFO buffer corresponds to equation: example: FIFO length = 4, WaterLevel = 4 \u2192 LoAlert = 1 FIFO length = 5, WaterLevel = 4 \u2192 LoAlert = 0 LoAlert FIFOLength WaterLevel \uf0a3 =",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "RSVD_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          58,
+          59,
+          60
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "STATUS2_REG",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Contains status bits of the receiver, transmitter and data mode detector.",
+        "fields": [
+          {
+            "name": "TempSensClear",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "clears the temperature error if the temperature is below the alarm limit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_FORCE_HS",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "I^2C-bus input filter settings",
+            "enum_values": {
+              "0": "protocol used",
+              "1": "High-speed mode"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "reserved",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "MFCrypto1On",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "MIFARE Crypto1 unit is switched on",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ModemState",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "state of the transmitter and receiver state machines",
+            "enum_values": {
+              "0b000": "idle",
+              "0b001": "wait for StartSend",
+              "0b010": "TxWait",
+              "0b011": "transmitting",
+              "0b100": "RxWait",
+              "0b101": "wait for data",
+              "0b110": "receiving"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          39,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CONTROL_REG",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "Miscellaneous control bits.",
+        "fields": [
+          {
+            "name": "T_STOP_NOW",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "timer stops immediately reading this bit always returns it to logic0",
+            "enum_values": {
+              "1": "stop"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "T_START_NOW",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "timer starts immediately reading this bit always returns it to logic 0",
+            "enum_values": {
+              "1": "start"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RX_LAST_BITS",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "indicates the number of valid bits in the last received byte if this value is 000b, the whole byte is valid",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          41,
+          42,
+          43,
+          44
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Interrupt": [
+      {
+        "name": "COM_IEN_REG",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": "0x80",
+        "description": "Control bits to enable and disable the passing of interrupt requests",
+        "fields": [
+          {
+            "name": "IRQ_INV",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "signal on pin IRQ is inverted with respect to the Status1Reg register's IRq bit",
+            "enum_values": {
+              "1": "signal on pin IRQ is inverted",
+              "0": "signal on pin IRQ is equal to the IRq bit"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX_IEN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the transmitter interrupt request (TxIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_IEN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the receiver interrupt request (RxIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IDLE_IEN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the idle interrupt request (IdleIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HI_ALERT_IEN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the high alert interrupt request (HiAlertIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LO_ALERT_IEN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the low alert interrupt request (LoAlertIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ERR_IEN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the error interrupt request (ErrIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TIMER_IEN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the timer interrupt request (TimerIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "DIV_IEN_REG",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Control bits to enable and disable the passing of interrupt requests.",
+        "fields": [
+          {
+            "name": "IRQ_PUSH_PULL",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "pin IRQ is a standard CMOS output pin when 1, open-drain when 0",
+            "enum_values": {
+              "0": "open-drain output pin",
+              "1": "standard CMOS output pin"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MFIN_ACT_IEN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the MFIN active interrupt request to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CRC_IEN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the CRC interrupt request to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_6_5",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "FIFO": [
+      {
+        "name": "FIFO_DATA_REG",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": "0xXX",
+        "description": "Input and output of 64 byte FIFO buffer.",
+        "fields": [
+          {
+            "name": "FIFO_DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "data input and output port for the internal 64-byte FIFO buffer",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          41,
+          42,
+          43,
+          44
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "FIFO_LEVEL_REG",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FIFO level register with FlushBuffer and FIFOLevel[6:0]",
+        "fields": [
+          {
+            "name": "FLUSH_BUFFER",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reset FIFO buffer pointers",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FIFO_LEVEL",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Number of bytes stored in FIFO buffer",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          41,
+          42,
+          43,
+          44
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "WATER_LEVEL_REG",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": "0x08",
+        "description": "Defines the level for FIFO under- and overflow warning.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "WATER_LEVEL",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 8,
+            "description": "defines a warning level to indicate a FIFO buffer overflow or underflow",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          41,
+          42,
+          43,
+          44
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Timer": [
+      {
+        "name": "TMODEREG",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Defines the higher 4 bits of the TPrescaler value and timer mode settings.",
+        "fields": [
+          {
+            "name": "TAUTO",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "timer starts automatically at the end of the transmission in all communication modes at all speeds",
+            "enum_values": {
+              "0": "indicates that the timer is not influenced by the protocol",
+              "1": "timer starts automatically at the end of the transmission"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TGATED",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "internal timer is running in gated mode",
+            "enum_values": {
+              "0b00": "non-gated mode",
+              "0b01": "gated by pin MFIN",
+              "0b10": "gated by pin AUX1",
+              "0b11": "-"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TAUTO_RESTART",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "timer automatically restarts its count-down from the 16-bit timer reload value instead of counting down to zero",
+            "enum_values": {
+              "0": "timer decrements to 0 and the ComIrqReg register's TimerIRq bit is set to logic 1",
+              "1": "timer automatically restarts"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TPRESCALER_HI",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "defines the higher 4 bits of the TPrescaler value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          61,
+          62
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "T_PRESCALER_REG",
+        "address": "0x2B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Timer prescaler low register TPrescaler_Lo[7:0]",
+        "fields": [
+          {
+            "name": "T_PRESCALER_LO",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Timer prescaler low 8 bits",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          63,
+          64,
+          65
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "T_RELOAD_REG_HI",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Timer reload register high byte TReloadVal_Hi[7:0]",
+        "fields": [
+          {
+            "name": "T_RELOAD_VAL_HI",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Timer reload value high byte",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "TRELOAD_REG",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "TReloadReg (higher bits) register",
+        "fields": [
+          {
+            "name": "TRELOAD_VAL_HI",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "defines the higher 8 bits of the 16-bit timer reload value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          63,
+          64,
+          65
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "T_RELOAD_REG_LO",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Timer reload register low byte TReloadVal_Lo[7:0]",
+        "fields": [
+          {
+            "name": "T_RELOAD_VAL_LO",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Timer reload value low byte",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "TRELOAD_REG",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "TReloadReg (lower bits) register",
+        "fields": [
+          {
+            "name": "TRELOAD_VAL_LO",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "defines the lower 8 bits of the 16-bit timer reload value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          63,
+          64,
+          65
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "T_COUNTER_VAL_REG_HI",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Timer counter value register high byte",
+        "fields": [
+          {
+            "name": "T_COUNTER_VAL_HI",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Current timer value high byte",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TCOUNTER_VAL_REG",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TCounterValReg (higher bits) register",
+        "fields": [
+          {
+            "name": "TCOUNTER_VAL_HI",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "timer value higher 8 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          63,
+          64,
+          65
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "T_COUNTER_VAL_REG_LO",
+        "address": "0x2F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Timer counter value register low byte",
+        "fields": [
+          {
+            "name": "T_COUNTER_VAL_LO",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Current timer value low byte",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TCOUNTER_VAL_REG",
+        "address": "0x2F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TCounterValReg (lower bits) register",
+        "fields": [
+          {
+            "name": "TCOUNTER_VAL_LO",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "timer value lower 8 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          63,
+          64,
+          65
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "TX": [
+      {
+        "name": "TX_MODE_REG",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Defines the data rate during transmission.",
+        "fields": [
+          {
+            "name": "TX_CRC_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "enables CRC generation during data transmission Remark: can only be set to logic 0 at 106 kBd",
+            "enum_values": {
+              "1": "enable"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX_SPEED",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the bit rate during data transmission the MFRC522 handles transfer speeds up to 848 kBd",
+            "enum_values": {
+              "0b000": "106 kBd",
+              "0b001": "212 kBd",
+              "0b010": "424 kBd",
+              "0b011": "848 kBd",
+              "0b100": "reserved",
+              "0b101": "reserved",
+              "0b110": "reserved",
+              "0b111": "reserved"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INV_MOD",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "modulation of transmitted data is inverted",
+            "enum_values": {
+              "1": "inverted"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          45,
+          46,
+          47
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TX_CONTROL_REG",
+        "address": "0x14",
+        "size_bits": 8,
+        "reset_value": "0x80",
+        "description": "Controls the logical behavior of the antenna driver pins TX1 and TX2.",
+        "fields": [
+          {
+            "name": "INV_TX2_RF_ON",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "output signal on pin TX2 inverted when driver TX2 is enabled",
+            "enum_values": {
+              "1": "inverted"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INV_TX1_RF_ON",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "output signal on pin TX1 inverted when driver TX1 is enabled",
+            "enum_values": {
+              "1": "inverted"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INV_TX2_RF_OFF",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "output signal on pin TX2 inverted when driver TX2 is disabled",
+            "enum_values": {
+              "1": "inverted"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INV_TX1_RF_OFF",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "output signal on pin TX1 inverted when driver TX1 is disabled",
+            "enum_values": {
+              "1": "inverted"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX2_CW",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "output signal on pin TX2 continuously delivers the unmodulated 13.56 MHz energy carrier",
+            "enum_values": {
+              "0": "modulate the 13.56 MHz energy carrier",
+              "1": "continuously delivers unmodulated carrier"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TX2_RF_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "output signal on pin TX2 delivers the 13.56 MHz energy carrier modulated by the transmission data",
+            "enum_values": {
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX1_RF_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "output signal on pin TX1 delivers the 13.56 MHz energy carrier modulated by the transmission data",
+            "enum_values": {
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          48,
+          49,
+          50
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TX_ASK_REG",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Controls transmit modulation settings.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FORCE_100_ASK",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "forces a 100 %ASK modulation independent of the ModGsPReg register setting",
+            "enum_values": {
+              "1": "forces a 100 %ASK modulation independent of the ModGsPReg register setting"
+            },
+            "source": "agent_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          48,
+          49,
+          50
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "duplicate field name 'RESERVED'"
+        ]
+      },
+      {
+        "name": "TX_SEL",
+        "address": "0x16",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "Selects the internal sources for the analog module.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "DRIVER_SEL",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "selects the input of drivers TX1 and TX2",
+            "enum_values": {
+              "0b00": "3-state; in soft power-down the drivers are only in 3-state mode if the DriverSel[1:0] value is set to 3-state mode",
+              "0b01": "modulation signal (envelope) from the internal encoder, Miller pulse encoded",
+              "0b10": "modulation signal (envelope) from pin MFIN",
+              "0b11": "HIGH; the HIGH level depends on the setting of bits InvTx1RFOn/InvTx1RFOff and InvTx2RFOn/InvTx2RFOff"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MFOUT_SEL",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "selects the input for pin MFOUT",
+            "enum_values": {
+              "0b0000": "3-state",
+              "0b0001": "LOW",
+              "0b0010": "HIGH",
+              "0b0011": "test bus signal as defined by the TestSel1Reg register's TstBusBitSel[2:0] value",
+              "0b0100": "modulation signal (envelope) from the internal encoder, Miller pulse encoded",
+              "0b0101": "serial data stream to be transmitted, data stream before Miller encoder",
+              "0b0110": "reserved",
+              "0b0111": "serial data stream received, data stream after Manchester decoder",
+              "0b1000": "reserved",
+              "0b1001": "reserved",
+              "0b1010": "reserved",
+              "0b1011": "reserved",
+              "0b1100": "reserved",
+              "0b1101": "reserved",
+              "0b1110": "reserved",
+              "0b1111": "reserved"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MOD_WIDTH_REG",
+        "address": "0x24",
+        "size_bits": 8,
+        "reset_value": "0x26",
+        "description": "Sets the modulation width",
+        "fields": [
+          {
+            "name": "MOD_WIDTH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the width of the Miller modulation as multiples of the carrier frequency (ModWidth + 1 / f_clk ) the maximum value is half the bit period",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          58,
+          59,
+          60
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "RX": [
+      {
+        "name": "RX_MODE_REG",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Defines the data rate during reception.",
+        "fields": [
+          {
+            "name": "RX_CRC_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "enables the CRC calculation during reception Remark: can only be set to logic 0 at 106 kBd",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_SPEED",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "defines the bit rate while receiving data the MFRC522 handles transfer speeds up to 848 kBd",
+            "enum_values": {
+              "0b000": "106 kBd",
+              "0b001": "212 kBd",
+              "0b010": "424 kBd",
+              "0b011": "848 kBd",
+              "0b100": "reserved",
+              "0b101": "reserved",
+              "0b110": "reserved",
+              "0b111": "reserved"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_NO_ERR",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "an invalid received data stream (less than 4 bits received) will be ignored and the receiver remains active",
+            "enum_values": {
+              "1": "ignore invalid data"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_MULTIPLE",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "able to receive more than one data frame only valid for data rates above 106 kBd",
+            "enum_values": {
+              "0": "receiver is deactivated after receiving a data frame",
+              "1": "able to receive more than one data frame"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          48,
+          49,
+          50
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "RX_SEL",
+        "address": "0x17",
+        "size_bits": 8,
+        "reset_value": "0x84",
+        "description": "Selects internal receiver settings.",
+        "fields": [
+          {
+            "name": "UART_SEL",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "selects the input of the contactless UART",
+            "enum_values": {
+              "0b00": "constant LOW",
+              "0b01": "Manchester with subcarrier from pin MFIN",
+              "0b10": "modulated signal from the internal analog module, default",
+              "0b11": "NRZ coding without subcarrier from pin MFIN which is only valid for transfer speeds above 106 kBd"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_WAIT",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "after data transmission the activation of the receiver is delayed for RxWait bit-clocks, during this 'frame guard time' any signal on pin RX is ignored",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "RX_THRESHOLD_REG",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "selects thresholds for the bit decoder",
+        "fields": [],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30,
+          31
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "RX_THRESHOLD",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": "0x84",
+        "description": "Selects thresholds for the bit decoder.",
+        "fields": [
+          {
+            "name": "MIN_LEVEL",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the minimum signal strength at the decoder input that will be accepted",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "COLL_LEVEL",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the minimum signal strength at the decoder input that must be reached by the weaker half-bit of the Manchester encoded signal to generate a bit-collision",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          66,
+          67,
+          68
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "RxThresholdReg",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "",
+        "fields": [
+          {
+            "name": "Symbol",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "MinLevel[3:0]",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CollLevel[2:0]",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "RSVD_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_6_3",
+            "bit_high": 6,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "fields 'Symbol' [7:7] and 'MinLevel[3:0]' [7:7] overlap"
+        ]
+      },
+      {
+        "name": "DEMOD",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": "0x4D",
+        "description": "Defines demodulator settings.",
+        "fields": [
+          {
+            "name": "ADD_IQ",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the use of I and Q channel during reception Remark: the FixIQ bit must be set to logic 0 to enable the following settings:",
+            "enum_values": {
+              "0b00": "selects the stronger channel",
+              "0b01": "selects the stronger channel and freezes the selected channel during communication",
+              "0b10": "reserved",
+              "0b11": "reserved"
+            },
+            "source": "llm_consistent"
+          },
+          {
+            "name": "FIX_IQ",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if AddIQ[1:0] are set to X0b, the reception is fixed to I channel if AddIQ[1:0] are set to X1b, the reception is fixed to Q channel",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "TPRESCAL_EVEN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Available on RC522 version 1.0 and version 2.0: If set to logic 0 the following formula is used to calculate the timer frequency of the prescaler: f_timer = 13.56 MHz / (2*TPreScaler+1). Only available on version 2.0: If set to logic 1 the following formula is used to calculate the timer frequency of the prescaler: f_timer = 13.56 MHz / (2*TPreScaler+2). Default TPrescalEven bit is logic 0, find more information on the prescaler in Section 8.5.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TAU_RCV",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "changes the time-constant of the internal PLL during data reception Remark: if set to 00b the PLL is frozen during data reception",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TAU_SYNC",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "changes the time-constant of the internal PLL during burst",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          51,
+          52,
+          53,
+          54
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "RFCFG_REG",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": "0x48",
+        "description": "Configures the receiver gain",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RX_GAIN",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the receiver's signal voltage gain factor",
+            "enum_values": {
+              "0": "18 dB",
+              "1": "23 dB",
+              "2": "18 dB",
+              "3": "23 dB",
+              "4": "33 dB",
+              "5": "38 dB",
+              "6": "43 dB",
+              "7": "48 dB"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          58,
+          59,
+          60
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "duplicate field name 'RESERVED'"
+        ]
+      }
+    ],
+    "MIFARE": [
+      {
+        "name": "MF_TX_REG",
+        "address": "0x1C",
+        "size_bits": 8,
+        "reset_value": "0x62",
+        "description": "Controls MIFARE communication transmit parameters",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TX_WAIT",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "additional response time",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          55,
+          56,
+          57
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MF_RX_REG",
+        "address": "0x1D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "MIFARE receive register with parity control",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "PARITY_DISABLE",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "generation of the parity bit for transmission and the parity check for receiving is switched off the received parity bit is handled like a data bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED_3_0",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          55,
+          56,
+          57
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "CRC": [
+      {
+        "name": "CRC_RESULT_REG",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Higher byte of CRC calculation result",
+        "fields": [
+          {
+            "name": "CRC_RESULT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "CRC result higher byte",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          58,
+          59,
+          60
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "CRC_RESULT_REG_HIGH",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": "0xFF",
+        "description": "CRCResultReg higher bits - MSB of CRC calculation",
+        "fields": [
+          {
+            "name": "CRC_RESULT_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 255,
+            "description": "CRC result MSB bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          55,
+          56,
+          57
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CRCResultReg",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "",
+        "fields": [
+          {
+            "name": "Symbol",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CRCResultMSB[7:0]",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "R",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "fields 'Symbol' [7:7] and 'CRCResultMSB[7:0]' [7:7] overlap"
+        ]
+      },
+      {
+        "name": "CRC_RESULT_REG",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower byte of CRC calculation result",
+        "fields": [
+          {
+            "name": "CRC_RESULT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "CRC result lower byte",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          58,
+          59,
+          60
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "CRCResultReg",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "",
+        "fields": [
+          {
+            "name": "Symbol",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CRCResultLSB[7:0]",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "R",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "fields 'Symbol' [7:7] and 'CRCResultLSB[7:0]' [7:7] overlap"
+        ]
+      }
+    ],
+    "Bit Framing": [
+      {
+        "name": "BIT_FRAMING_REG",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Adjustments for bit-oriented frames.",
+        "fields": [
+          {
+            "name": "START_SEND",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "starts the transmission of data only valid in combination with the Transceive command",
+            "enum_values": {
+              "1": "start"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_ALIGN",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "used for reception of bit-oriented frames: defines the bit position for the first bit received to be stored in the FIFO buffer",
+            "enum_values": {
+              "0b000": "LSB at bit 0",
+              "0b001": "LSB at bit 1",
+              "0b111": "LSB at bit 7"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TX_LAST_BITS",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "used for transmission of bit oriented frames: defines the number of bits of the last byte that will be transmitted 000b indicates that all bits of the last byte will be transmitted",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          41,
+          42,
+          43,
+          44
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "COLL_REG",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": "0xXX",
+        "description": "Defines the first bit-collision detected on the RF interface.",
+        "fields": [
+          {
+            "name": "VALUES_AFTER_COLL",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "all received bits will be cleared after a collision only used during bitwise anticollision at 106 kBd, otherwise it is set to logic 1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "COLL_POS_NOT_VALID",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 1,
+            "description": "no collision detected or the position of the collision is out of the range of CollPos[4:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COLL_POS",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "shows the bit position of the first detected collision in a received frame only data bits are interpreted",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          45,
+          46,
+          47
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Mode": [
+      {
+        "name": "MODE_REG",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": "0x3F",
+        "description": "Defines general mode settings for transmitting and receiving.",
+        "fields": [
+          {
+            "name": "MSB_FIRST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "CRC coprocessor calculates the CRC with MSB first in the CRCResultReg register the values for the CRCResultMSB[7:0] bits and the CRCResultLSB[7:0] bits are bit reversed",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TX_WAIT_RF",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "transmitter can only be started if an RF field is generated",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "POL_MFIN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the polarity of pin MFIN",
+            "enum_values": {
+              "0": "active LOW",
+              "1": "active HIGH"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "CRC_PRESET",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the preset value for the CRCcoprocessor for the CalcCRC command",
+            "enum_values": {
+              "0b00": "0000h",
+              "0b01": "6363h",
+              "0b10": "A671h",
+              "0b11": "FFFFh"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          45,
+          46,
+          47
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "RF Driver": [
+      {
+        "name": "GSN_REG",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "NMOS conductance configuration register",
+        "fields": [
+          {
+            "name": "CWGsN",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the conductance of the output n-driver during periods without modulation which can be used to regulate the output power and subsequently current consumption and operating distance Remark: the conductance value is binary-weighted during soft Power-down mode the highest bit is forced to logic 1 value is only used if driver TX1 or TX2 is switched on",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "ModGsN",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the conductance of the output n-driver during periods without modulation which can be used to regulate the modulation index Remark: the conductance value is binary weighted during soft Power-down mode the highest bit is forced to logic 1 value is only used if driver TX1 or TX2 is switched on",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          58,
+          59,
+          60
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "CW_GSP_REG",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": "0x20",
+        "description": "Defines the conductance of the p-driver output during periods of no modulation",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "CW_GSP",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the conductance of the p-driver output which can be used to regulate the output power and subsequently current consumption and operating distance",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          58,
+          59,
+          60
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MOD_GSP_REG",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": "0x20",
+        "description": "Defines the conductance of the p-driver output during modulation.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "MOD_GSP",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the conductance of the p-driver output during modulation which can be used to regulate the modulation index",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          61,
+          62
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Test and Debug": [
+      {
+        "name": "TEST_SEL1_REG",
+        "address": "0x31",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "General test signal configuration",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TST_BUS_BIT_SEL",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "selects a test bus signal which is output at pin MFOUT",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          63,
+          64,
+          65
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TEST_SEL2",
+        "address": "0x32",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "General test signal configuration and PRBS control.",
+        "fields": [
+          {
+            "name": "TST_BUS_FLIP",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "test bus is mapped to the parallel port in the following order: TstBusBit4,TstBusBit3, TstBusBit2, TstBusBit6, TstBusBit5, TstBusBit0",
+            "enum_values": {
+              "0": "Normal order",
+              "1": "Flipped order: TstBusBit4,TstBusBit3,TstBusBit2,TstBusBit6,TstBusBit5,TstBusBit0"
+            },
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PRBS9",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "starts and enables the PRBS9 sequence according to ITU-TO150",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PRBS15",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "starts and enables the PRBS15 sequence according to ITU-TO150",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "TEST_BUS_SEL",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "selects the test bus",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          83,
+          84,
+          85,
+          86,
+          87
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TEST_PIN_EN",
+        "address": "0x33",
+        "size_bits": 8,
+        "reset_value": "0x80",
+        "description": "Enables the test bus pin output driver.",
+        "fields": [
+          {
+            "name": "RS232_LINE_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "serial UART lines MX and DTRQ are disabled when 0",
+            "enum_values": {
+              "0": "Disabled",
+              "1": "Enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TEST_PIN_EN",
+            "bit_high": 6,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "enables the output driver on one of the data pins D1 to D7 which outputs a test signal",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          66,
+          67,
+          68
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TEST_PIN_VALUE",
+        "address": "0x34",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Defines the HIGH and LOW values for the test port D1 to D7 when it is used as I/O.",
+        "fields": [
+          {
+            "name": "USE_IO",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "enables the I/O functionality for the test port",
+            "enum_values": {
+              "0": "Test mode",
+              "1": "I/O mode"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TEST_PIN_VALUE",
+            "bit_high": 6,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "defines the value of the test port when it is used as I/O",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          66,
+          67,
+          68
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TEST_BUS",
+        "address": "0x35",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Shows the status of the internal test bus.",
+        "fields": [
+          {
+            "name": "TEST_BUS",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "shows the status of the internal test bus",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          66,
+          67,
+          68
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "AUTO_TEST",
+        "address": "0x36",
+        "size_bits": 8,
+        "reset_value": "0x40",
+        "description": "Controls the digital self-test.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for production tests",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "AMP_RCV",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "internal signal processing in the receiver chain is performed non-linearly",
+            "enum_values": {
+              "0": "Linear",
+              "1": "Non-linear"
+            },
+            "source": "llm_unverified"
+          },
+          {
+            "name": "RFT",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for production tests",
+            "enum_values": null,
+            "source": "llm_unverified"
+          },
+          {
+            "name": "SELF_TEST",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "enables the digital self test",
+            "enum_values": {
+              "0b0000": "Disabled (default)",
+              "0b1001": "Enabled"
+            },
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          83,
+          84,
+          85,
+          86,
+          87
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "VERSION_REG",
+        "address": "0x37",
+        "size_bits": 8,
+        "reset_value": "0x91",
+        "description": "Shows the MFRC522 software version.",
+        "fields": [
+          {
+            "name": "CHIPTYPE",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 9,
+            "description": "'9' stands for MFRC522",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "VERSION",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "'1' stands for MFRC522 version 1.0 and '2' stands for MFRC522 version 2.0.",
+            "enum_values": {
+              "0b0001": "MFRC522 version 1.0",
+              "0b0010": "MFRC522 version 2.0"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          70
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ANALOG_TEST_REG",
+        "address": "0x38",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Determines the analog output test signal at, and status of, pins AUX1 and AUX2.",
+        "fields": [
+          {
+            "name": "ANALOG_SEL_AUX1",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "controls pin AUX1",
+            "enum_values": {
+              "0b0000": "3-state",
+              "0b0001": "output of TestDAC1 (AUX1), output of TestDAC2 (AUX2)",
+              "0b0010": "test signal Corr1",
+              "0b0011": "reserved",
+              "0b0100": "DAC: test signal MinLevel",
+              "0b0101": "DAC: test signal ADC_I",
+              "0b0110": "DAC: test signal ADC_Q",
+              "0b0111": "reserved",
+              "0b1000": "reserved, test signal for production test",
+              "0b1001": "reserved",
+              "0b1010": "HIGH",
+              "0b1011": "LOW",
+              "0b1100": "TxActive: at 106 kBd: HIGH during Start bit, Data bit, Parity and CRC at 212 kBd: 424 kBd and 848 kBd: HIGH during data and",
+              "0b1101": "CRC RxActive: at 106 kBd: HIGH during Data bit, Parity and CRC",
+              "0b1110": "at 212 kBd: 424 kBd and 848 kBd: HIGH during data and CRC subcarrier detected:",
+              "0b1111": "data and CRC test bus bit as defined by the TestSel1Reg register's TstBusBitSel[2:0] bits"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ANALOG_SEL_AUX2",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "controls pin AUX2 (see bit descriptions for AUX1)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          83,
+          84,
+          85,
+          86,
+          87
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TEST_DAC1_REG",
+        "address": "0x39",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Defines the test value for TestDAC1.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for production tests, reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TEST_DAC1",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the test value for TestDAC1 output of DAC1 can be routed to AUX1 by setting value AnalogSelAux1[3:0] to 0001b in the AnalogTestReg register",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          70
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TEST_DAC2_REG",
+        "address": "0x3A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Defines the test value for TestDAC2.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TEST_DAC2",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "defines the test value for TestDAC2 output of DAC2 can be routed to AUX2 by setting value AnalogSelAux2[3:0] to 0001b in the AnalogTestReg register",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          70
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TEST_ADC_REG",
+        "address": "0x3B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Shows the values of ADC I and Q channels.",
+        "fields": [
+          {
+            "name": "ADC_I",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ADC I channel value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ADC_Q",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ADC Q channel value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          70
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "UART": [
+      {
+        "name": "SERIAL_SPEED_REG",
+        "address": "0x1F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Register to set UART transfer speed using BR_T0[2:0] and BR_T1[4:0] factors",
+        "fields": [
+          {
+            "name": "BR_T1",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "BR_T1[4:0] factor for UART baud rate (33 to 64 range)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BR_T0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "BR_T0[2:0] factor for UART baud rate (1,1,2,4,8,16,32,64)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          55,
+          56,
+          57
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-04T18:40:52.911194+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 59,
+        "by_confidence": {
+          "high": 47,
+          "medium": 9,
+          "low": 3
+        },
+        "with_quality_issues": 5,
+        "empty_descriptions": 3
+      },
+      "fields": {
+        "total": 181,
+        "by_source": {
+          "synthetic": 42,
+          "llm_unverified": 9,
+          "evidence_verified": 108,
+          "llm_verified": 6,
+          "llm_consistent": 8,
+          "agent_verified": 8
+        }
+      },
+      "peripherals": {
+        "total": 13,
+        "by_name": {
+          "Command and Control": {
+            "registers": 7,
+            "confidence": {
+              "high": 6,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Interrupt": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "FIFO": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Timer": {
+            "registers": 10,
+            "confidence": {
+              "high": 7,
+              "medium": 3,
+              "low": 0
+            }
+          },
+          "TX": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "RX": {
+            "registers": 7,
+            "confidence": {
+              "high": 5,
+              "medium": 1,
+              "low": 1
+            }
+          },
+          "MIFARE": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "CRC": {
+            "registers": 5,
+            "confidence": {
+              "high": 1,
+              "medium": 2,
+              "low": 2
+            }
+          },
+          "Bit Framing": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Mode": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "RF Driver": {
+            "registers": 3,
+            "confidence": {
+              "high": 2,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Test and Debug": {
+            "registers": 11,
+            "confidence": {
+              "high": 10,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "UART": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 50,
+        "batches_total": 29,
+        "batches_sent": 27,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 14,
+        "warnings_detail": [
+          "duplicate address 0x2C: 'T_RELOAD_REG_HI' and 'TRELOAD_REG'",
+          "duplicate address 0x2D: 'T_RELOAD_REG_LO' and 'TRELOAD_REG'",
+          "duplicate address 0x2E: 'T_COUNTER_VAL_REG_HI' and 'TCOUNTER_VAL_REG'",
+          "duplicate address 0x2F: 'T_COUNTER_VAL_REG_LO' and 'TCOUNTER_VAL_REG'",
+          "TX_ASK_REG (0x15): duplicate field name 'RESERVED'",
+          "duplicate address 0x18: 'RX_THRESHOLD_REG' and 'RX_THRESHOLD'",
+          "duplicate address 0x18: 'RX_THRESHOLD_REG' and 'RxThresholdReg'",
+          "RxThresholdReg (0x18): fields 'Symbol' [7:7] and 'MinLevel[3:0]' [7:7] overlap",
+          "RFCFG_REG (0x26): duplicate field name 'RESERVED'",
+          "duplicate address 0x21: 'CRC_RESULT_REG' and 'CRC_RESULT_REG_HIGH'",
+          "duplicate address 0x21: 'CRC_RESULT_REG' and 'CRCResultReg'",
+          "CRCResultReg (0x21): fields 'Symbol' [7:7] and 'CRCResultMSB[7:0]' [7:7] overlap",
+          "duplicate address 0x22: 'CRC_RESULT_REG' and 'CRCResultReg'",
+          "CRCResultReg (0x22): fields 'Symbol' [7:7] and 'CRCResultLSB[7:0]' [7:7] overlap"
+        ]
+      },
+      "evidence": {
+        "fields_with_evidence": 149,
+        "fields_verified": 147,
+        "fields_unverified": 2,
+        "fields_bit_mismatch": 2,
+        "regs_upgraded": 47
+      }
+    }
+  }
+}

@@ -1,0 +1,343 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "INA219",
+  "description": "Bidirectional current/power monitor",
+  "vendor": "Texas Instruments",
+  "source": "INA219.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/ina219.pdf",
+  "peripherals": {
+    "Configuration": [
+      {
+        "name": "CONFIGURATION",
+        "address": "0x00",
+        "size_bits": 16,
+        "reset_value": "0x399F",
+        "description": "Configuration register sets reset, bus voltage range, PGA gain, ADC resolution/averaging, and operating mode",
+        "fields": [
+          {
+            "name": "RST",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reset Bit. Setting this bit to '1' generates a system reset that is the same as power-on reset. Resets all registers to default values; this bit self-clears.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "BRNG",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Bus Voltage Range. 0 = 16V FSR, 1 = 32V FSR (default value)",
+            "enum_values": {
+              "0": "16V FSR",
+              "1": "32V FSR"
+            },
+            "source": "llm_unverified"
+          },
+          {
+            "name": "PG",
+            "bit_high": 12,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "PGA (Shunt Voltage Only). Sets PGA gain and range. Note that the PGA defaults to \u00f78 (320mV range).",
+            "enum_values": {
+              "0b00": "1, \u00b140 mV",
+              "0b01": "/2, \u00b180 mV",
+              "0b10": "/4, \u00b1160 mV",
+              "0b11": "/8, \u00b1320 mV"
+            },
+            "source": "llm_verified"
+          },
+          {
+            "name": "BADC",
+            "bit_high": 10,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "BADC Bus ADC Resolution/Averaging. These bits adjust the Bus ADC resolution (9-, 10-, 11-, or 12-bit) or set the number of samples used when averaging results for the Bus Voltage Register (02h).",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "SADC",
+            "bit_high": 6,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "SADC Shunt ADC Resolution/Averaging. These bits adjust the Shunt ADC resolution (9-, 10-, 11-, or 12-bit) or set the number of samples used when averaging results for the Shunt Voltage Register (01h).",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "MODE",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 7,
+            "description": "Operating mode selection",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "low",
+        "quality_issues": []
+      },
+      {
+        "name": "CALIBRATION",
+        "address": "0x05",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Sets full-scale range and LSB of current and power measurements. Overall system calibration.",
+        "fields": [
+          {
+            "name": "CAL",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Calibration value.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          14,
+          15,
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Measurements": [
+      {
+        "name": "SHUNT_VOLTAGE",
+        "address": "0x01",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Shunt voltage measurement data.",
+        "fields": [
+          {
+            "name": "SV",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Shunt voltage measurement data.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "BUS_VOLTAGE",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Bus voltage measurement data.",
+        "fields": [
+          {
+            "name": "CNVR",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Conversion ready flag.",
+            "enum_values": null,
+            "source": "llm_unverified"
+          },
+          {
+            "name": "BUSV",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Bus voltage measurement data.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          14,
+          15,
+          16,
+          17
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "POWER",
+        "address": "0x03",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Power measurement data.",
+        "fields": [
+          {
+            "name": "POWER",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power measurement data.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          14,
+          15,
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CURRENT",
+        "address": "0x04",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Contains the value of the current flowing through the shunt resistor.",
+        "fields": [
+          {
+            "name": "CURRENT",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current measurement data.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          14,
+          15,
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-04T02:26:14.385428+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 6,
+        "by_confidence": {
+          "high": 4,
+          "medium": 1,
+          "low": 1
+        },
+        "with_quality_issues": 0,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 13,
+        "by_source": {
+          "evidence_verified": 6,
+          "synthetic": 1,
+          "llm_unverified": 3,
+          "llm_verified": 3
+        }
+      },
+      "peripherals": {
+        "total": 2,
+        "by_name": {
+          "Configuration": {
+            "registers": 2,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 1
+            }
+          },
+          "Measurements": {
+            "registers": 4,
+            "confidence": {
+              "high": 3,
+              "medium": 1,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 10,
+        "batches_total": 9,
+        "batches_sent": 8,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": []
+      },
+      "evidence": {
+        "fields_with_evidence": 9,
+        "fields_verified": 6,
+        "fields_unverified": 3,
+        "fields_bit_mismatch": 2,
+        "regs_upgraded": 4
+      }
+    }
+  }
+}

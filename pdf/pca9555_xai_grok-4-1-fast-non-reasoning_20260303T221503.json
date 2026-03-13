@@ -1,0 +1,897 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "PCA9555",
+  "description": "16-bit I2C I/O port expander with interrupt and open-drain outputs",
+  "vendor": "NXP Semiconductors",
+  "source": "PCA9555.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.nxp.com/docs/en/data-sheet/PCA9555.pdf",
+  "peripherals": {
+    "Port 0": [
+      {
+        "name": "INPUT_PORT_0",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Input port 0 register. Reads the current logic levels on port 0 pins.",
+        "fields": [
+          {
+            "name": "IO0_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO0_7 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO0_6 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO0_5 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO0_4 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO0_3 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO0_2 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO0_1 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO0_0 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "OUTPUT_PORT_0",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Output port 0 register. Latched output values for port 0 pins.",
+        "fields": [
+          {
+            "name": "IO0_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO0_7 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO0_6 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO0_5 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO0_4 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO0_3 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO0_2 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO0_1 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO0_0 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "POLARITY_INVERSION_PORT_0",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Polarity Inversion port 0 register. Inverts polarity of input port 0 register.",
+        "fields": [
+          {
+            "name": "IO0_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO0_7 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO0_6 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO0_5 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO0_4 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO0_3 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO0_2 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO0_1 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO0_0 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CONFIGURATION_PORT_0",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Configuration port 0 register. Sets IO direction for port 0 pins (0=output, 1=input).",
+        "fields": [
+          {
+            "name": "IO0_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO0_7 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO0_6 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO0_5 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO0_4 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO0_3 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO0_2 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO0_1 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO0_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO0_0 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Port 1": [
+      {
+        "name": "INPUT_PORT_1",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Input port 1 register. Reads the current logic levels on port 1 pins.",
+        "fields": [
+          {
+            "name": "IO1_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO1_7 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO1_6 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO1_5 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO1_4 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO1_3 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO1_2 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO1_1 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Logic level of IO1_0 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "OUTPUT_PORT_1",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Output port 1 register. Latched output values for port 1 pins.",
+        "fields": [
+          {
+            "name": "IO1_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO1_7 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO1_6 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO1_5 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO1_4 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO1_3 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO1_2 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO1_1 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output value for IO1_0 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "POLARITY_INVERSION_PORT_1",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Polarity Inversion port 1 register. Inverts polarity of input port 1 register.",
+        "fields": [
+          {
+            "name": "IO1_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO1_7 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO1_6 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO1_5 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO1_4 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO1_3 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO1_2 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO1_1 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Polarity inversion for IO1_0 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CONFIGURATION_PORT_1",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Configuration port 1 register. Sets IO direction for port 1 pins (0=output, 1=input).",
+        "fields": [
+          {
+            "name": "IO1_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO1_7 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO1_6 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO1_5 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO1_4 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO1_3 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO1_2 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO1_1 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IO1_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Configuration for IO1_0 pin",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-04T03:15:03.721857+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 8,
+        "by_confidence": {
+          "high": 8,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 0,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 64,
+        "by_source": {
+          "evidence_verified": 64
+        }
+      },
+      "peripherals": {
+        "total": 2,
+        "by_name": {
+          "Port 0": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Port 1": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 7,
+        "batches_sent": 3,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": []
+      },
+      "evidence": {
+        "fields_with_evidence": 64,
+        "fields_verified": 64,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 8
+      }
+    }
+  }
+}

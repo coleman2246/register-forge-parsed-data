@@ -1,0 +1,407 @@
+[
+  {
+    "device": "AD9364",
+    "vendor": "Analog Devices",
+    "description": "RF agile transceiver",
+    "source_url": "https://www.analog.com/media/cn/technical-documentation/user-guides/ad9364_register_map_reference_manual_ug-672.pdf",
+    "filename": "AD9364.pdf",
+    "category": "peripheral",
+    "family": "RF Transceiver"
+  },
+  {
+    "device": "ADXL345",
+    "vendor": "Analog Devices",
+    "description": "3-axis digital accelerometer",
+    "source_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/adxl345.pdf",
+    "filename": "ADXL345.pdf",
+    "category": "peripheral",
+    "family": "Accelerometer"
+  },
+  {
+    "device": "DS18B20",
+    "vendor": "Analog Devices",
+    "description": "1-Wire digital temperature sensor",
+    "source_url": "https://cdn-shop.adafruit.com/datasheets/DS18B20.pdf",
+    "filename": "DS18B20.pdf",
+    "category": "peripheral",
+    "family": "Temperature Sensor"
+  },
+  {
+    "device": "DS3231",
+    "vendor": "Analog Devices",
+    "description": "Extremely accurate RTC",
+    "source_url": "https://cdn.sparkfun.com/datasheets/Dev/Beagle/DS3231M.pdf",
+    "filename": "DS3231.pdf",
+    "category": "peripheral",
+    "family": "RTC"
+  },
+  {
+    "device": "MAX31855",
+    "vendor": "Analog Devices",
+    "description": "Thermocouple-to-digital converter",
+    "source_url": "https://cdn-shop.adafruit.com/datasheets/MAX31855.pdf",
+    "filename": "MAX31855.pdf",
+    "category": "peripheral",
+    "family": "Thermocouple ADC"
+  },
+  {
+    "device": "MAX96716A",
+    "vendor": "Analog Devices",
+    "description": "GMSL2 deserializer",
+    "source_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/max96716a.pdf",
+    "filename": "MAX96716A.pdf",
+    "category": "peripheral",
+    "family": "GMSL Deserializer"
+  },
+  {
+    "device": "TSL2591",
+    "vendor": "ams-OSRAM",
+    "description": "High dynamic range light sensor",
+    "source_url": "https://docs.rs-online.com/df3d/0900766b814cdbc5.pdf",
+    "filename": "TSL2591.pdf",
+    "category": "peripheral",
+    "family": "Light Sensor"
+  },
+  {
+    "device": "BME280",
+    "vendor": "Bosch Sensortec",
+    "description": "Humidity, pressure, and temperature sensor",
+    "source_url": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf",
+    "filename": "BME280.pdf",
+    "category": "peripheral",
+    "family": "Environmental Sensor"
+  },
+  {
+    "device": "BMP180",
+    "vendor": "Bosch Sensortec",
+    "description": "Digital pressure sensor",
+    "source_url": "https://cdn-shop.adafruit.com/datasheets/BST-BMP180-DS000-09.pdf",
+    "filename": "BMP180.pdf",
+    "category": "peripheral",
+    "family": "Pressure Sensor"
+  },
+  {
+    "device": "BMP280",
+    "vendor": "Bosch Sensortec",
+    "description": "Digital pressure and temperature sensor",
+    "source_url": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pdf",
+    "filename": "BMP280.pdf",
+    "category": "peripheral",
+    "family": "Pressure Sensor"
+  },
+  {
+    "device": "BNO055",
+    "vendor": "Bosch Sensortec",
+    "description": "9-axis orientation sensor",
+    "source_url": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bno055-ds000.pdf",
+    "filename": "BNO055.pdf",
+    "category": "peripheral",
+    "family": "IMU"
+  },
+  {
+    "device": "HMC5883L",
+    "vendor": "Honeywell",
+    "description": "3-axis digital compass/magnetometer",
+    "source_url": "https://cdn-shop.adafruit.com/datasheets/HMC5883L_3-Axis_Digital_Compass_IC.pdf",
+    "filename": "HMC5883L.pdf",
+    "category": "peripheral",
+    "family": "Magnetometer"
+  },
+  {
+    "device": "MPU-6050",
+    "vendor": "InvenSense (TDK)",
+    "description": "6-axis IMU (3-axis gyroscope + 3-axis accelerometer) with I2C interface",
+    "source_url": "https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf",
+    "filename": "MPU6050.pdf",
+    "category": "peripheral",
+    "family": "IMU"
+  },
+  {
+    "device": "MLX90614",
+    "vendor": "Melexis",
+    "description": "Non-contact infrared thermometer",
+    "source_url": "https://www.melexis.com/-/media/files/documents/datasheets/mlx90614-datasheet-melexis.pdf",
+    "filename": "MLX90614.pdf",
+    "category": "peripheral",
+    "family": "Temperature Sensor"
+  },
+  {
+    "device": "MMC5603",
+    "vendor": "MEMSIC",
+    "description": "3-axis magnetic sensor",
+    "source_url": "https://www.memsic.com/Public/Uploads/uploadfile/files/20220119/MMC5603NJDatasheetRev.B.pdf",
+    "filename": "MMC5603.pdf",
+    "category": "peripheral",
+    "family": "Magnetometer"
+  },
+  {
+    "device": "MCP23017",
+    "vendor": "Microchip",
+    "description": "16-bit I/O expander",
+    "source_url": "https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf",
+    "filename": "MCP23017.pdf",
+    "category": "peripheral",
+    "family": "GPIO Expander"
+  },
+  {
+    "device": "MCP2515",
+    "vendor": "Microchip",
+    "description": "CAN controller with SPI",
+    "source_url": "https://ww1.microchip.com/downloads/en/DeviceDoc/MCP2515-Stand-Alone-CAN-Controller-with-SPI-20001801J.pdf",
+    "filename": "MCP2515.pdf",
+    "category": "peripheral",
+    "family": "CAN Controller"
+  },
+  {
+    "device": "PCF8591",
+    "vendor": "NXP",
+    "description": "8-bit A/D and D/A converter",
+    "source_url": "https://www.nxp.com/docs/en/data-sheet/PCF8591.pdf",
+    "filename": "PCF8591.pdf",
+    "category": "peripheral",
+    "family": "ADC/DAC"
+  },
+  {
+    "device": "PN532",
+    "vendor": "NXP",
+    "description": "NFC/RFID controller",
+    "source_url": "https://www.nxp.com/docs/en/nxp/data-sheets/PN532_C1.pdf",
+    "filename": "PN532.pdf",
+    "category": "peripheral",
+    "family": "NFC/RFID"
+  },
+  {
+    "device": "RC522",
+    "vendor": "NXP",
+    "description": "RFID reader/writer (MFRC522)",
+    "source_url": "https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf",
+    "filename": "RC522.pdf",
+    "category": "peripheral",
+    "family": "NFC/RFID"
+  },
+  {
+    "device": "QMC5883L",
+    "vendor": "QST",
+    "description": "3-axis magnetic sensor",
+    "source_url": "https://datasheet.lcsc.com/lcsc/2012221837_QST-QMC5883L_C976032.pdf",
+    "filename": "QMC5883L.pdf",
+    "category": "peripheral",
+    "family": "Magnetometer"
+  },
+  {
+    "device": "SSD1306",
+    "vendor": "Solomon Systech",
+    "description": "OLED controller",
+    "source_url": "https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf",
+    "filename": "SSD1306.pdf",
+    "category": "peripheral",
+    "family": "Display Controller"
+  },
+  {
+    "device": "LIS3MDL",
+    "vendor": "STMicroelectronics",
+    "description": "3-axis magnetometer",
+    "source_url": "https://www.st.com/resource/en/datasheet/lis3mdl.pdf",
+    "filename": "LIS3MDL.pdf",
+    "category": "peripheral",
+    "family": "Magnetometer"
+  },
+  {
+    "device": "LSM6DS3",
+    "vendor": "STMicroelectronics",
+    "description": "6-axis IMU (accel + gyro)",
+    "source_url": "https://www.st.com/resource/en/datasheet/lsm6ds3.pdf",
+    "filename": "LSM6DS3.pdf",
+    "category": "peripheral",
+    "family": "IMU"
+  },
+  {
+    "device": "TCS34725",
+    "vendor": "TAOS",
+    "description": "Color light-to-digital converter",
+    "source_url": "https://cdn-shop.adafruit.com/datasheets/TCS34725.pdf",
+    "filename": "TCS34725.pdf",
+    "category": "peripheral",
+    "family": "Light Sensor"
+  },
+  {
+    "device": "TSL2561",
+    "vendor": "TAOS",
+    "description": "Light-to-digital converter",
+    "source_url": "https://cdn-shop.adafruit.com/datasheets/TSL2561.pdf",
+    "filename": "TSL2561.pdf",
+    "category": "peripheral",
+    "family": "Light Sensor"
+  },
+  {
+    "device": "ADS1115",
+    "vendor": "Texas Instruments",
+    "description": "16-bit precision ADC",
+    "source_url": "https://www.ti.com/lit/ds/symlink/ads1115.pdf",
+    "filename": "ADS1115.pdf",
+    "category": "peripheral",
+    "family": "ADC"
+  },
+  {
+    "device": "INA219",
+    "vendor": "Texas Instruments",
+    "description": "Bidirectional current/power monitor",
+    "source_url": "https://www.ti.com/lit/ds/symlink/ina219.pdf",
+    "filename": "INA219.pdf",
+    "category": "peripheral",
+    "family": "Current Monitor"
+  },
+  {
+    "device": "TMP117",
+    "vendor": "Texas Instruments",
+    "description": "High-accuracy digital temperature sensor",
+    "source_url": "https://www.ti.com/lit/ds/symlink/tmp117.pdf",
+    "filename": "TMP117.pdf",
+    "category": "peripheral",
+    "family": "Temperature Sensor"
+  },
+  {
+    "device": "VEML7700",
+    "vendor": "Vishay",
+    "description": "High accuracy ambient light sensor",
+    "source_url": "https://www.vishay.com/docs/84286/veml7700.pdf",
+    "filename": "VEML7700.pdf",
+    "category": "peripheral",
+    "family": "Light Sensor"
+  },
+  {
+    "device": "PCA9685",
+    "vendor": "NXP Semiconductors",
+    "description": "16-channel 12-bit PWM Fm+ I2C LED/servo driver",
+    "source_url": "https://www.nxp.com/docs/en/data-sheet/PCA9685.pdf",
+    "filename": "PCA9685.pdf",
+    "category": "peripheral",
+    "family": "PWM Driver"
+  },
+  {
+    "device": "VL53L0X",
+    "vendor": "STMicroelectronics",
+    "description": "Time-of-flight ranging sensor, up to 2m range, I2C interface",
+    "source_url": "https://cdn.sparkfun.com/assets/8/9/9/a/6/VL53L0X_DS.pdf",
+    "filename": "VL53L0X.pdf",
+    "category": "peripheral",
+    "family": "ToF Sensor"
+  },
+  {
+    "device": "LSM9DS1",
+    "vendor": "STMicroelectronics",
+    "description": "iNEMO 9-axis IMU: 3D accelerometer + 3D gyroscope + 3D magnetometer, I2C/SPI",
+    "source_url": "https://cdn.sparkfun.com/assets/learn_tutorials/3/7/3/LSM9DS1_Datasheet.pdf",
+    "filename": "LSM9DS1.pdf",
+    "category": "peripheral",
+    "family": "IMU"
+  },
+  {
+    "device": "LPS22HB",
+    "vendor": "STMicroelectronics",
+    "description": "MEMS nano barometric pressure sensor, 260\u20131260 hPa, I2C/SPI",
+    "source_url": "https://www.waveshare.com/w/upload/2/20/Lps22hb.pdf",
+    "filename": "LPS22HB.pdf",
+    "category": "peripheral",
+    "family": "Pressure Sensor"
+  },
+  {
+    "device": "INA260",
+    "vendor": "Texas Instruments",
+    "description": "Precision digital current, voltage, and power monitor, I2C/SMBus",
+    "source_url": "https://www.ti.com/lit/ds/symlink/ina260.pdf",
+    "filename": "INA260.pdf",
+    "category": "peripheral",
+    "family": "Current Monitor"
+  },
+  {
+    "device": "INA3221",
+    "vendor": "Texas Instruments",
+    "description": "26V triple-channel 13-bit I2C shunt current and bus voltage monitor",
+    "source_url": "https://www.ti.com/lit/ds/symlink/ina3221.pdf",
+    "filename": "INA3221.pdf",
+    "category": "peripheral",
+    "family": "Current Monitor"
+  },
+  {
+    "device": "TCA9548A",
+    "vendor": "Texas Instruments",
+    "description": "Low-voltage 8-channel I2C switch/multiplexer with reset",
+    "source_url": "https://www.ti.com/lit/ds/symlink/tca9548a.pdf",
+    "filename": "TCA9548A.pdf",
+    "category": "peripheral",
+    "family": "I2C Mux"
+  },
+  {
+    "device": "TMP102",
+    "vendor": "Texas Instruments",
+    "description": "Low-power digital temperature sensor, \u00b10.5\u00b0C accuracy, I2C/SMBus",
+    "source_url": "https://www.ti.com/lit/ds/symlink/tmp102.pdf",
+    "filename": "TMP102.pdf",
+    "category": "peripheral",
+    "family": "Temperature Sensor"
+  },
+  {
+    "device": "CC1101",
+    "vendor": "Texas Instruments",
+    "description": "Low-power sub-1 GHz RF transceiver for ISM/SRD bands, SPI interface",
+    "source_url": "https://www.ti.com/lit/ds/symlink/cc1101.pdf",
+    "filename": "CC1101.pdf",
+    "category": "peripheral",
+    "family": "RF Transceiver"
+  },
+  {
+    "device": "MCP9808",
+    "vendor": "Microchip Technology",
+    "description": "\u00b10.5\u00b0C maximum accuracy digital I2C temperature sensor",
+    "source_url": "https://ww1.microchip.com/downloads/en/DeviceDoc/MCP9808-0.5C-Maximum-Accuracy-Digital-Temperature-Sensor-Data-Sheet-DS20005095B.pdf",
+    "filename": "MCP9808.pdf",
+    "category": "peripheral",
+    "family": "Temperature Sensor"
+  },
+  {
+    "device": "ICM-20948",
+    "vendor": "InvenSense (TDK)",
+    "description": "9-axis MEMS IMU (gyro + accel + AK09916 magnetometer), I2C/SPI",
+    "source_url": "https://invensense.tdk.com/wp-content/uploads/2021/10/DS-000189-ICM-20948-v1.5.pdf",
+    "filename": "ICM20948.pdf",
+    "category": "peripheral",
+    "family": "IMU"
+  },
+  {
+    "device": "APDS-9960",
+    "vendor": "Broadcom",
+    "description": "Digital proximity, ambient light, RGB, and gesture sensor, I2C",
+    "source_url": "https://cdn.sparkfun.com/assets/learn_tutorials/3/2/1/Avago-APDS-9960-datasheet.pdf",
+    "filename": "APDS9960.pdf",
+    "category": "peripheral",
+    "family": "Light Sensor"
+  },
+  {
+    "device": "CCS811",
+    "vendor": "ams-OSRAM",
+    "description": "Ultra-low power digital VOC/CO2 air quality sensor, I2C",
+    "source_url": "https://cdn.sparkfun.com/assets/2/4/2/9/6/CCS811_Datasheet.pdf",
+    "filename": "CCS811.pdf",
+    "category": "peripheral",
+    "family": "Gas Sensor"
+  },
+  {
+    "device": "W5500",
+    "vendor": "WIZnet",
+    "description": "Hardwired TCP/IP embedded Ethernet controller, SPI interface, 100Mbps",
+    "source_url": "https://docs.wiznet.io/img/products/w5500/w5500_ds_v109k.pdf",
+    "filename": "W5500.pdf",
+    "category": "peripheral",
+    "family": "Ethernet Controller"
+  },
+  {
+    "device": "PCA9555",
+    "vendor": "NXP Semiconductors",
+    "description": "16-bit I2C I/O port expander with interrupt and open-drain outputs",
+    "source_url": "https://www.nxp.com/docs/en/data-sheet/PCA9555.pdf",
+    "filename": "PCA9555.pdf",
+    "category": "peripheral",
+    "family": "GPIO Expander"
+  }
+]

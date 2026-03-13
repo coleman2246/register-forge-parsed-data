@@ -1,0 +1,704 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "TSL2561",
+  "description": "Light-to-digital converter",
+  "vendor": "TAOS",
+  "source": "TSL2561.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/TSL2561.pdf",
+  "peripherals": {
+    "Control": [
+      {
+        "name": "COMMAND",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Specifies register address for subsequent read/write operations",
+        "fields": [
+          {
+            "name": "CMD",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Select command register. Must write as 1.",
+            "enum_values": null,
+            "source": "llm_unverified"
+          },
+          {
+            "name": "CLEAR",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "W1C",
+            "reset_value": 0,
+            "description": "Interrupt clear. Clears any pending interrupt. Self clearing.",
+            "enum_values": null,
+            "source": "llm_unverified"
+          },
+          {
+            "name": "WORD",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SMB Write/Read Word Protocol indicator",
+            "enum_values": null,
+            "source": "llm_unverified"
+          },
+          {
+            "name": "BLOCK",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Block Write/Read Protocol indicator",
+            "enum_values": null,
+            "source": "llm_unverified"
+          },
+          {
+            "name": "ADDRESS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Register Address selects specific control/status register",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20,
+          25,
+          26
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "TIMING",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": "0x02",
+        "description": "Controls integration time and gain of ADC channels. Common for both channels.",
+        "fields": [
+          {
+            "name": "RESV",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "GAIN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "0: low gain (1x), 1: high gain (16x).",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MANUAL",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Manual timing control. 1: begin integration, 0: stop. Valid when INTEG=11.",
+            "enum_values": null,
+            "source": "llm_unverified"
+          },
+          {
+            "name": "RESV_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "INTEG",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Integration time selection.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      }
+    ],
+    "ADC Data": [
+      {
+        "name": "DATA0LOW",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "ADC channel 0 lower byte",
+        "fields": [
+          {
+            "name": "DATA0LOW",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ADC channel 0 lower byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "DATA0HIGH",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "ADC channel 0 upper byte",
+        "fields": [
+          {
+            "name": "DATA0HIGH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ADC channel 0 upper byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "DATA1LOW",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "ADC channel 1 lower byte",
+        "fields": [
+          {
+            "name": "DATA1LOW",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ADC channel 1 lower byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "DATA1HIGH",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "ADC channel 1 upper byte",
+        "fields": [
+          {
+            "name": "DATA1HIGH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ADC channel 1 upper byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Channel 0 Thresholds": [
+      {
+        "name": "THRESHLOWLOW",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "ADC channel 0 lower byte of the low threshold",
+        "fields": [
+          {
+            "name": "THRESHLOWLOW",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ADC channel 0 lower byte of the low threshold",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "THRESHLOWHIGH",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "ADC channel 0 upper byte of the low threshold",
+        "fields": [
+          {
+            "name": "THRESHLOWHIGH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ADC channel 0 upper byte of the low threshold",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "THRESHHIGHLOW",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "ADC channel 0 lower byte of the high threshold",
+        "fields": [
+          {
+            "name": "THRESHHIGHLOW",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ADC channel 0 lower byte of the high threshold",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "THRESHHIGHHIGH",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "ADC channel 0 upper byte of the high threshold",
+        "fields": [
+          {
+            "name": "THRESHHIGHHIGH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ADC channel 0 upper byte of the high threshold",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Interrupt": [
+      {
+        "name": "INTERRUPT",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Interrupt Control Register",
+        "fields": [
+          {
+            "name": "RESV",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INTR",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "INTR Control Select. This field determines mode of interrupt logic according to Table 9.",
+            "enum_values": {
+              "0b00": "Interrupt output disabled",
+              "0b01": "Level Interrupt",
+              "0b10": "SMBAlert compliant",
+              "0b11": "Test Mode: Sets interrupt and functions as mode 10"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PERSIST",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Interrupt persistence. Controls rate of interrupts to the host processor as shown in Table 10.",
+            "enum_values": {
+              "0b0000": "Every ADC cycle generates interrupt",
+              "0b0001": "Any value outside of threshold range",
+              "0b0010": "2 integration time periods out of range",
+              "0b0011": "3 integration time periods out of range",
+              "0b0100": "4 integration time periods out of range",
+              "0b0101": "5 integration time periods out of range",
+              "0b0110": "6 integration time periods out of range",
+              "0b0111": "7 integration time periods out of range",
+              "0b1000": "8 integration time periods out of range",
+              "0b1001": "9 integration time periods out of range",
+              "0b1010": "10 integration time periods out of range",
+              "0b1011": "11 integration time periods out of range",
+              "0b1100": "12 integration time periods out of range",
+              "0b1101": "13 integration time periods out of range",
+              "0b1110": "14 integration time periods out of range",
+              "0b1111": "15 integration time periods out of range"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "INTERRUPT",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Interrupt control",
+        "fields": [],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13,
+          14,
+          15
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      }
+    ],
+    "System": [
+      {
+        "name": "ID",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "ID Register provides the value for both the part number and silicon revision number",
+        "fields": [
+          {
+            "name": "PARTNO",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Part Number Identification: field value 0000 = TSL2560, field value 0001 = TSL2561",
+            "enum_values": {
+              "0b0000": "TSL2560",
+              "0b0001": "TSL2561"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "REVNO",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Revision number identification",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Factory": [
+      {
+        "name": "CRC",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Factory test - not a user register",
+        "fields": [],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13,
+          14,
+          15
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      }
+    ],
+    "Statistics": [
+      {
+        "name": "--",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "--",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "--",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "--",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": []
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-04T03:06:47.366582+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 16,
+        "by_confidence": {
+          "high": 10,
+          "medium": 6,
+          "low": 0
+        },
+        "with_quality_issues": 0,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 25,
+        "by_source": {
+          "llm_unverified": 6,
+          "llm_verified": 2,
+          "evidence_verified": 15,
+          "manifest_only": 2
+        }
+      },
+      "peripherals": {
+        "total": 7,
+        "by_name": {
+          "Control": {
+            "registers": 2,
+            "confidence": {
+              "high": 0,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "ADC Data": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Channel 0 Thresholds": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Interrupt": {
+            "registers": 2,
+            "confidence": {
+              "high": 1,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "System": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Factory": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Statistics": {
+            "registers": 2,
+            "confidence": {
+              "high": 0,
+              "medium": 2,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 20,
+        "batches_total": 10,
+        "batches_sent": 9,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": []
+      },
+      "evidence": {
+        "fields_with_evidence": 15,
+        "fields_verified": 15,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 11
+      }
+    }
+  }
+}

@@ -1,0 +1,470 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "BMP180",
+  "description": "Digital pressure sensor",
+  "vendor": "Bosch Sensortec",
+  "source": "BMP180.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/BST-BMP180-DS000-09.pdf",
+  "peripherals": {
+    "ADC Output": [
+      {
+        "name": "OUT_MSB",
+        "address": "0xF6",
+        "size_bits": 8,
+        "reset_value": "0x80",
+        "description": "Most significant byte of ADC output",
+        "fields": [
+          {
+            "name": "ADC_OUT_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 128,
+            "description": "adc_out_msb<7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF6 not found in register summary table"
+        ]
+      },
+      {
+        "name": "OUT_LSB",
+        "address": "0xF7",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Least significant byte of ADC output",
+        "fields": [
+          {
+            "name": "ADC_OUT_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "adc_out_lsb<7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF7 not found in register summary table"
+        ]
+      },
+      {
+        "name": "OUT_XLSB",
+        "address": "0xF8",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Least significant byte of ADC output",
+        "fields": [
+          {
+            "name": "ADC_OUT_XLSB",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "adc_out_xlsb<7:3>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSV",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF8 not found in register summary table"
+        ]
+      }
+    ],
+    "Control": [
+      {
+        "name": "CTRL_MEAS",
+        "address": "0xF4",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Measurement control register",
+        "fields": [
+          {
+            "name": "OSS",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Oversampling ratio control",
+            "enum_values": {
+              "0b00": "single",
+              "0b01": "2x",
+              "0b10": "4x",
+              "0b11": "8x"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SCO",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Start of conversion",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MEAS_CTRL",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Measurement control",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          21
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "System": [
+      {
+        "name": "ID",
+        "address": "0xD0",
+        "size_bits": 8,
+        "reset_value": "0x55",
+        "description": "Chip ID register",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 85,
+            "description": "Chip ID fixed to 0x55",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xD0 not found in register summary table"
+        ]
+      },
+      {
+        "name": "SOFT_RESET",
+        "address": "0xE0",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Soft reset register (write only)",
+        "fields": [
+          {
+            "name": "RESET",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Soft reset value 0xB6",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xE0 not found in register summary table"
+        ]
+      }
+    ],
+    "Calibration EEPROM": [
+      {
+        "name": "EEPROM_DATA",
+        "address": "0xAA",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Start of E^2PROM calibration data registers",
+        "fields": [
+          {
+            "name": "EEPROM_DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Calibration data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": 22,
+        "dim_increment": 1,
+        "page": null,
+        "source_pages": [
+          13,
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xAA not found in register summary table"
+        ]
+      },
+      {
+        "name": "AC6_MSB",
+        "address": "0xB4",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Calibration coefficient AC6 MSB",
+        "fields": [
+          {
+            "name": "AC6",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "AC6 calibration coefficient MSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13,
+          21
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Statistics": [
+      {
+        "name": "0x2E",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "0x2e",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "0x34",
+        "address": "0x34",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "0x34",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "0x74",
+        "address": "0x74",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "0x74",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": []
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-04T01:41:29.568074+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 11,
+        "by_confidence": {
+          "high": 8,
+          "medium": 3,
+          "low": 0
+        },
+        "with_quality_issues": 6,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 14,
+        "by_source": {
+          "evidence_verified": 11,
+          "manifest_only": 3
+        }
+      },
+      "peripherals": {
+        "total": 5,
+        "by_name": {
+          "ADC Output": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Control": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "System": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Calibration EEPROM": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Statistics": {
+            "registers": 3,
+            "confidence": {
+              "high": 0,
+              "medium": 3,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 5,
+        "batches_total": 4,
+        "batches_sent": 2,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": []
+      },
+      "evidence": {
+        "fields_with_evidence": 12,
+        "fields_verified": 12,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 8
+      }
+    }
+  }
+}

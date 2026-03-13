@@ -1,0 +1,4552 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "BNO055",
+  "description": "9-axis orientation sensor",
+  "vendor": "Bosch Sensortec",
+  "source": "BNO055.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bno055-ds000.pdf",
+  "peripherals": {
+    "System/ID": [
+      {
+        "name": "ACC_OFFSET_X_LSB",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Accelerometer offset X LSB",
+        "fields": [
+          {
+            "name": "ACC_OFFSET_X_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer offset X LSB value",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26,
+          27,
+          33,
+          34,
+          35,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          75,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          102,
+          103
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "CHIP_ID",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": "0xA0",
+        "description": "Chip identification register",
+        "fields": [
+          {
+            "name": "BNO055_CHIP_ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 160,
+            "description": "Chip identification code, read-only fixed value 0xA0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          26,
+          27,
+          33,
+          34,
+          35,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          75,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          102,
+          103
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_ID",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": "0xFB",
+        "description": "Accelerometer chip identification register",
+        "fields": [
+          {
+            "name": "ACC_CHIP_ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 251,
+            "description": "Chip ID of the Accelerometer device, read-only fixed value 0xFB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          27,
+          55,
+          58,
+          60,
+          61,
+          75,
+          86,
+          87,
+          103
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MAG_ID",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": "0x32",
+        "description": "Magnetometer chip identification register",
+        "fields": [
+          {
+            "name": "MAG_CHIP_ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 50,
+            "description": "Chip ID of the Magnetometer device, read-only fixed value 0x32",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          27,
+          60,
+          103
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_ID",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": "0x0F",
+        "description": "Gyroscope chip identification register",
+        "fields": [
+          {
+            "name": "GYRO_CHIP_ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 15,
+            "description": "Chip ID of the Gyroscope device, read-only fixed value 0x0F",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          27,
+          58,
+          59,
+          60,
+          61,
+          103
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SW_REV_ID_LSB",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Software revision ID LSB register",
+        "fields": [
+          {
+            "name": "SW_REVISION_ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Lower byte of SW Revision ID, read-only fixed value depending on SW revision",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          27,
+          58,
+          61,
+          103
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SW_REV_ID_MSB",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": "0x03",
+        "description": "SW Revision ID MSB register",
+        "fields": [
+          {
+            "name": "SW_REVISION_ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 3,
+            "description": "Upper byte of SW Revision ID <15:8>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          27,
+          61,
+          103
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "BL_REV_ID",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": "0x15",
+        "description": "Bootloader version register",
+        "fields": [
+          {
+            "name": "BOOTLOADER_VERSION",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 21,
+            "description": "Bootloader version",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          27,
+          61,
+          103
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "PAGE_ID",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Page identification register",
+        "fields": [
+          {
+            "name": "PAGE_ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Page ID",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          27,
+          61,
+          87,
+          103
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Accelerometer_Config": [
+      {
+        "name": "ACC_CONFIG",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": "0x0D",
+        "description": "Accelerometer configuration register",
+        "fields": [
+          {
+            "name": "ACC_PWR_MODE",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Accelerometer power mode",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACC_BW",
+            "bit_high": 4,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 5,
+            "description": "Accelerometer bandwidth",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACC_RANGE",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Accelerometer range",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          62,
+          87
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_SLEEP_CONFIG",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Accelerometer sleep configuration register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SLP_DURATION",
+            "bit_high": 4,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sleep duration for accelerometer low power mode",
+            "enum_values": {
+              "0b0000": "0.5 ms",
+              "0b0001": "0.5 ms",
+              "0b0010": "0.5 ms",
+              "0b0011": "0.5 ms",
+              "0b0100": "0.5 ms",
+              "0b0101": "0.5 ms",
+              "0b0110": "1 ms",
+              "0b0111": "2 ms",
+              "0b1000": "4 ms",
+              "0b1001": "6 ms",
+              "0b1010": "10 ms",
+              "0b1011": "25 ms",
+              "0b1100": "50 ms",
+              "0b1101": "100 ms",
+              "0b1110": "500 ms",
+              "0b1111": "1000 ms"
+            },
+            "source": "llm_verified"
+          },
+          {
+            "name": "SLP_MODE",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer sleep timer mode",
+            "enum_values": {
+              "0": "Event driven time-base mode"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          63,
+          89
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Magnetometer_Config": [
+      {
+        "name": "MAG_CONFIG",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": "0x27",
+        "description": "Magnetometer configuration register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "MAG_POWER_MODE",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "MAG_Power_mode <1:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MAG_OPR_MODE",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "MAG_OPR_Mode <1:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MAG_DATA_OUTPUT_RATE",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "MAG_Data_output_rate <2:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          62,
+          87,
+          103
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_DATA_X_MSB",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Accelerometer X data MSB",
+        "fields": [
+          {
+            "name": "ACCELERATION_DATA_X",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Upper byte of X axis Acceleration data <15:8>",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          62,
+          87,
+          103
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "MAG_CONFIG",
+        "address": "0x3C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Magnetometer configuration register",
+        "fields": [
+          {
+            "name": "MAG_ODR",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Data output rate selection",
+            "enum_values": {
+              "0b000": "2Hz",
+              "0b001": "6Hz",
+              "0b010": "8Hz",
+              "0b011": "10Hz",
+              "0b100": "15Hz",
+              "0b101": "20Hz",
+              "0b110": "25Hz",
+              "0b111": "30Hz"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MAG_OPMODE",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Operation mode selection",
+            "enum_values": {
+              "0b00": "Low Power",
+              "0b01": "Regular",
+              "0b10": "Enhanced Regular",
+              "0b11": "High Accuracy"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MAG_POWER_MODE",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Power mode selection",
+            "enum_values": {
+              "0b00": "Normal",
+              "0b01": "Sleep",
+              "0b10": "Suspend",
+              "0b11": "Force Mode"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Gyroscope_Config": [
+      {
+        "name": "GYR_CONFIG_0",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": "0x38",
+        "description": "Gyroscope configuration register 0",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "GYR_BANDWIDTH",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 7,
+            "description": "GYR_Bandwidth <2:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYR_RANGE",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "GYR_Range <2:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          58,
+          62,
+          88,
+          103
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_DATA_Y_LSB",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Accelerometer Y data LSB",
+        "fields": [
+          {
+            "name": "ACCELERATION_DATA_Y",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Lower byte of Y axis Acceleration data <7:0>",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          58,
+          62,
+          88,
+          103
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_CONFIG_1",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gyroscope configuration register 1",
+        "fields": [
+          {
+            "name": "RSVD_7_4",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "GYR_POWER_MODE",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "GYR_Power_Mode <2:0> Read: current selected power mode Write: can only be changed in sensor mode, see section 3.5.3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          58,
+          59,
+          62,
+          88
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_SLEEP_CONFIG",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gyroscope sleep configuration register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "AUTO_SLP_DURATION",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Auto sleep duration <2:0>",
+            "enum_values": {
+              "0b000": "Not allowed",
+              "0b001": "4 ms",
+              "0b010": "5 ms",
+              "0b011": "8 ms",
+              "0b100": "10 ms",
+              "0b101": "15 ms",
+              "0b110": "20 ms",
+              "0b111": "40 ms"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLP_DURATION",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sleep duration <2:0>",
+            "enum_values": {
+              "0b000": "2 ms",
+              "0b001": "4 ms",
+              "0b010": "5 ms",
+              "0b011": "8 ms",
+              "0b100": "10 ms",
+              "0b101": "15 ms",
+              "0b110": "18 ms",
+              "0b111": "20 ms"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          59,
+          63,
+          90
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_CONFIG_0",
+        "address": "0x3A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope configuration register 0",
+        "fields": [
+          {
+            "name": "GYR_RANGE",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Range selection",
+            "enum_values": {
+              "0b000": "2000 dps",
+              "0b001": "1000 dps",
+              "0b010": "500 dps",
+              "0b011": "250 dps",
+              "0b100": "125 dps"
+            },
+            "source": "llm_unverified"
+          },
+          {
+            "name": "GYR_BW",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Bandwidth selection",
+            "enum_values": {
+              "0b000": "523Hz",
+              "0b001": "230Hz",
+              "0b010": "116Hz",
+              "0b011": "47Hz",
+              "0b100": "23Hz",
+              "0b101": "12Hz",
+              "0b110": "64Hz",
+              "0b111": "32Hz"
+            },
+            "source": "llm_unverified"
+          },
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          50,
+          75
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      }
+    ],
+    "Interrupt": [
+      {
+        "name": "INT_MSK",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt mask register",
+        "fields": [
+          {
+            "name": "ACC_NM",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer any motion interrupt mask",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACC_AM",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer high G interrupt mask",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACC_HIGH_G",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer high G interrupt mask",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYR_DRDY",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyro data ready interrupt mask",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYR_HIGH_RATE",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyro high rate interrupt mask",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYRO_AM",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyro any motion interrupt mask",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MAG_DRDY",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Mag data ready interrupt mask",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACC_BSX_DRDY",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer Bosch data ready interrupt mask",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          56,
+          58,
+          59,
+          60,
+          63,
+          91
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MAG_DATA_X_MSB",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Upper byte of X axis magnetometer data",
+        "fields": [
+          {
+            "name": "MAGNETOMETER_DATA_X_15_8",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Magnetometer Data X <15:8>",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          56,
+          58,
+          59,
+          60,
+          63,
+          91
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "INT_EN",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt enable register",
+        "fields": [
+          {
+            "name": "ACC_NM",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer any motion interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACC_AM",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer high G interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACC_HIGH_G",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer high G interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYR_DRDY",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyro data ready interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYR_HIGH_RATE",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyro high rate interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYRO_AM",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyro any motion interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MAG_DRDY",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Mag data ready interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACC_BSX_DRDY",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer Bosch data ready interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          56,
+          64,
+          92
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MAG_DATA_Y_LSB",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Lower byte of Y axis Magnetometer data",
+        "fields": [
+          {
+            "name": "MAGNETOMETER_DATA_Y",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Magnetometer Data Y <7:0>",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          56,
+          64,
+          92
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      }
+    ],
+    "Accel_Interrupt": [
+      {
+        "name": "ACC_AM_THRES",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": "0x14",
+        "description": "Accelerometer any motion threshold register",
+        "fields": [
+          {
+            "name": "ACC_AM_THRESHOLD",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 20,
+            "description": "Accelerometer any motion threshold",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          58,
+          61,
+          64,
+          92
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "MAG_DATA_Y_MSB",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Upper byte of Y axis Magnetometer data",
+        "fields": [
+          {
+            "name": "MAGNETOMETER_DATA_Y",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Magnetometer Data Y <15:8>",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          58,
+          61,
+          64,
+          92
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_INT_SETTINGS",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": "0x03",
+        "description": "Accelerometer interrupt settings register",
+        "fields": [
+          {
+            "name": "HG_Z_AXIS",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Select Z axis for high-G interrupt",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HG_Y_AXIS",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Select Y axis for high-G interrupt",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HG_X_AXIS",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Select X axis for high-G interrupt",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AM_NM_Z_AXIS",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Select Z axis for any motion or no motion interrupt",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AM_NM_Y_AXIS",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Select Y axis for any motion or no motion interrupt",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AM_NM_X_AXIS",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Select X axis for any motion or no motion interrupt",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AM_DUR",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "Any motion interrupt duration",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          64,
+          93
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_HG_DURATION",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": "0x0F",
+        "description": "Accelerometer high G duration register",
+        "fields": [
+          {
+            "name": "ACC_HIGH_G_DURATION",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 15,
+            "description": "Accelerometer high G duration",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          64,
+          93
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "MAG_DATA_Z_MSB",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Upper byte of Z axis Magnetometer data",
+        "fields": [
+          {
+            "name": "MAGNETOMETER_DATA_Z",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Magnetometer Data Z <15:8>",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          64,
+          93
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_HG_THRES",
+        "address": "0x14",
+        "size_bits": 8,
+        "reset_value": "0x80",
+        "description": "Accelerometer High G Threshold",
+        "fields": [
+          {
+            "name": "ACC_HG_THRES",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 128,
+            "description": "Threshold used high-g interrupt. The threshold value is dependent on the accelerometer range selected in the ACC_Config register. 1 LSB = 7.81 mg (2-g range)^1 LSB = 15.63 mg (4-g range) 1 LSB = 31.25 mg (8-g range) 1 LSB = 62.5 mg (16-g range)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          59,
+          65,
+          93
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_NM_THRES",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": "0x32",
+        "description": "Accelerometer NO/SLOW motion threshold",
+        "fields": [
+          {
+            "name": "ACC_NM_THRES",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 50,
+            "description": "Threshold used for the Slow motion or no motion interrupt. The threshold value is dependent on the accelerometer range selected in the ACC_Config register. 1 LSB = 3.91 mg (2-g range) 1 LSB = 7.81 mg (4-g range) 1 LSB = 15.63 mg (8-g range) 1 LSB = 31.25 mg (16-g range)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          58,
+          61,
+          65,
+          94
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Gyro_Interrupt": [
+      {
+        "name": "GYR_INT_SETTING",
+        "address": "0x17",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gyroscope interrupt settings for high rate and any motion filters and axis enables",
+        "fields": [
+          {
+            "name": "HR_FILT",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "'1' ('0') selects unfiltered (filtered) data for high rate interrupt",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AM_FILT",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "'1' ('0') selects unfiltered (filtered) data for any motion interrupt",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HR_Z_AXIS",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1' ('0') enables (disables) high rate interrupt for z -axis",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HR_Y_AXIS",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1' ('0') enables (disables) high rate interrupt for y-axis",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HR_X_AXIS",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1' ('0') enables (disables) high rate interrupt for x -axis",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AM_Z_AXIS",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1' ('0') enables (disables) any motion interrupt for z -axis",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AM_Y_AXIS",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1' ('0') enables (disables) any motion interrupt for y-axis",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AM_X_AXIS",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1' ('0') enables (disables) any motion interrupt for x -axis",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          65,
+          95
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_HR_X_SET",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": "0x01",
+        "description": "Gyroscope high rate X axis threshold and hysteresis settings",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "HR_X_THRES_HYST",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "High rate hysteresis for X axis = (255 + 256 * HR_X_THRES_HYST) *4 LSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HR_X_THRESHOLD",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "High rate threshold for gyroscope X axis. 1 LSB = 62.5\u00b0/s in 2000\u00b0/s-range",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          66,
+          95
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_DUR_X",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": "0x37",
+        "description": "Gyroscope high rate X duration setting",
+        "fields": [
+          {
+            "name": "HR_X_DURATION",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 55,
+            "description": "High rate duration = (1 + HR_X_Duration)*2.5ms",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          58,
+          66,
+          96
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_HR_Y_SET",
+        "address": "0x1A",
+        "size_bits": 8,
+        "reset_value": "0x01",
+        "description": "Gyroscope high rate Y axis threshold and hysteresis settings",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "HR_Y_THRES_HYST",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "High rate hysteresis for Y axis = (255 + 256 * HR_Y_THRES_HYST) *4 LSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HR_Y_THRESHOLD",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "High rate threshold for gyroscope Y axis. 1 LSB = 62.5\u00b0/s in 2000\u00b0/s-range",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          66,
+          96
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_DUR_Y",
+        "address": "0x1B",
+        "size_bits": 8,
+        "reset_value": "0x37",
+        "description": "Gyroscope high rate Y duration setting",
+        "fields": [
+          {
+            "name": "HR_Y_DURATION",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 55,
+            "description": "High rate duration = (1 + HR_Y_Duration)*2.5ms",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          66,
+          96
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_HR_Z_SET",
+        "address": "0x1C",
+        "size_bits": 8,
+        "reset_value": "0x01",
+        "description": "Gyroscope high rate Z axis threshold and hysteresis settings",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "HR_Z_THRES_HYST",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "High rate hysteresis for Z axis = (255 + 256 * HR_Z_THRES_HYST) *4 LSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED2",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "HR_Z_THRESHOLD",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "High rate threshold for gyroscope Z axis. 1 LSB = 62.5\u00b0/s in 2000\u00b0/s-range",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67,
+          97
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_DUR_Z",
+        "address": "0x1D",
+        "size_bits": 8,
+        "reset_value": "0x73",
+        "description": "Gyroscope Z-axis high rate duration register",
+        "fields": [
+          {
+            "name": "HR_Z_DURATION",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 115,
+            "description": "High rate duration = (1 + HR_Z_Duration)*2.5ms",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67,
+          97
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_AM_THRES",
+        "address": "0x1E",
+        "size_bits": 8,
+        "reset_value": "0x20",
+        "description": "Gyroscope any motion threshold register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "GYRO_ANY_MOTION_THRES",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 32,
+            "description": "Any motion threshold for gyroscope interrupt. 1 LSB = 1 \u00b0/s in 2000\u00b0/s-range",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67,
+          97
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_AM_SET",
+        "address": "0x1F",
+        "size_bits": 8,
+        "reset_value": "0x14",
+        "description": "Gyroscope any motion settings register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "AWAKE_DURATION",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Awake duration: 0=8 samples, 1=16 samples, 2=32 samples, 3=64 samples",
+            "enum_values": {
+              "0": "8 samples",
+              "1": "16 samples",
+              "2": "32 samples",
+              "3": "64 samples"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLOPE_SAMPLES",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Any motion interrupt triggers if [Slope Samples + 1]*4 consecutive data points above threshold",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67,
+          98
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Unit_Sel": [
+      {
+        "name": "UNIT_SEL",
+        "address": "0x3B",
+        "size_bits": 8,
+        "reset_value": "0x80",
+        "description": "Unit selection register",
+        "fields": [
+          {
+            "name": "ORI_ANDROID_WINDOWS",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "0: Windows orientation, 1: Android orientation",
+            "enum_values": {
+              "0": "Windows orientation",
+              "1": "Android orientation"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TEMP_UNIT",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "0: Celsius, 1: Fahrenheit",
+            "enum_values": {
+              "0": "Celsius",
+              "1": "Fahrenheit"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "EUL_UNIT",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "0: Degrees, 1: Radians",
+            "enum_values": {
+              "0": "Degrees",
+              "1": "Radians"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYR_UNIT",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "0: dps, 1: rps",
+            "enum_values": {
+              "0": "dps",
+              "1": "rps"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACC_UNIT",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "0: m/s^2, 1: mg",
+            "enum_values": {
+              "0": "m/s^2",
+              "1": "mg"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          75
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Mag_Data": [
+      {
+        "name": "MAG_DATA_X_LSB",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Lower byte of X axis magnetometer data",
+        "fields": [
+          {
+            "name": "MAGNETOMETER_DATA_X_7_0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Magnetometer Data X <7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          63
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Quaternion_Data": [
+      {
+        "name": "QUA_DATA_W_LSB",
+        "address": "0x20",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Quaternion data W LSB register",
+        "fields": [
+          {
+            "name": "QUATERNION_DATA_W_7_0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Lower byte of w axis Quaternion data, read only",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          68
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "QUA_DATA_W_MSB",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Quaternion Data W MSB register",
+        "fields": [
+          {
+            "name": "QUATERNION_DATA_W_15_8",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Upper byte of w axis Quaternion data, read only",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          68
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "QUA_DATA_X_LSB",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Quaternion Data X LSB register",
+        "fields": [
+          {
+            "name": "QUATERNION_DATA_X_7_0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Lower byte of X axis Quaternion data, read only",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          68
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "QUA_DATA_X_MSB",
+        "address": "0x23",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Quaternion Data X MSB register",
+        "fields": [
+          {
+            "name": "QUATERNION_DATA_X_15_8",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Upper byte of X axis Quaternion data, read only",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          68
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "QUA_DATA_Y_LSB",
+        "address": "0x24",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Quaternion Data Y LSB register",
+        "fields": [
+          {
+            "name": "QUATERNION_DATA_Y_7_0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Lower byte of Y axis Quaternion data, read only",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26,
+          27,
+          56,
+          69
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "QUA_DATA_Y_MSB",
+        "address": "0x25",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Quaternion Data Y MSB register",
+        "fields": [
+          {
+            "name": "QUATERNION_DATA_Y_15_8",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Upper byte of Y axis Quaternion data, read only",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "QUA_DATA_Z_LSB",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Quaternion Data Z LSB register",
+        "fields": [
+          {
+            "name": "QUATERNION_DATA_Z",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Lower byte of Z axis Quaternion data, read only",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "QUA_DATA_Z_MSB",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Quaternion Data Z MSB register",
+        "fields": [
+          {
+            "name": "QUATERNION_DATA_Z",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Upper byte of Z axis Quaternion data, read only",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Linear_Accel_Data": [
+      {
+        "name": "LIA_DATA_X_LSB",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Linear Acceleration Data X LSB register",
+        "fields": [
+          {
+            "name": "LINEAR_ACCELERATION_DATA_X",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Lower byte of X axis Linear Acceleration data, read only",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          70,
+          100,
+          102
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "LIA_DATA_X_MSB",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Linear Acceleration Data X MSB register",
+        "fields": [
+          {
+            "name": "LINEAR_ACCELERATION_DATA_X",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Upper byte of X axis Linear Acceleration data, read only",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          70,
+          100
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "LIA_DATA_Y_LSB",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Linear Acceleration Data Y LSB register",
+        "fields": [
+          {
+            "name": "LINEAR_ACCELERATION_DATA_Y",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Lower byte of Y axis Linear Acceleration data, read only",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          70
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "LIA_DATA_Y_MSB",
+        "address": "0x2B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Linear Acceleration Data Y MSB register",
+        "fields": [
+          {
+            "name": "LINEAR_ACCELERATION_DATA_Y_15_8",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Upper byte of Y axis Linear Acceleration data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          70
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "LIA_DATA_Z_LSB",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Linear Acceleration Data Z LSB register",
+        "fields": [
+          {
+            "name": "LINEAR_ACCELERATION_DATA_Z_7_0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Lower byte of Z axis Linear Acceleration data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          71
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "LIA_DATA_Z_MSB",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Linear Acceleration Data Z MSB register",
+        "fields": [
+          {
+            "name": "LINEAR_ACCELERATION_DATA_Z_15_8",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Upper byte of Z axis Linear Acceleration data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          71
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Gravity_Data": [
+      {
+        "name": "GRV_DATA_X_LSB",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gravity Vector Data X LSB register",
+        "fields": [
+          {
+            "name": "GRAVITY_VECTOR_DATA_X_7_0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Lower byte of X axis Gravity Vector data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          71
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GRV_DATA_X_MSB",
+        "address": "0x2F",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gravity Vector Data X MSB register",
+        "fields": [
+          {
+            "name": "GRAVITY_VECTOR_DATA_X_15_8",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Upper byte of X axis Gravity Vector data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          71
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GRV_DATA_Y_LSB",
+        "address": "0x30",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gravity vector data Y lower byte",
+        "fields": [
+          {
+            "name": "GRV_DATA_Y",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Lower byte of Y axis Gravity Vector data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          72
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GRV_DATA_Y_MSB",
+        "address": "0x31",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gravity vector data Y upper byte",
+        "fields": [
+          {
+            "name": "GRV_DATA_Y",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Upper byte of Y axis Gravity Vector data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          72
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GRV_DATA_Z_LSB",
+        "address": "0x32",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gravity vector data Z lower byte",
+        "fields": [
+          {
+            "name": "GRV_DATA_Z",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Lower byte of Z axis Gravity Vector data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          58,
+          60,
+          72
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "System Control": [
+      {
+        "name": "CALIB_STAT",
+        "address": "0x35",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Calibration status register for system, gyro, accel, and mag",
+        "fields": [
+          {
+            "name": "SYS_CALIB_STATUS",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current system calibration status. Read: 3 indicates fully calibrated; 0 indicates not calibrated",
+            "enum_values": {
+              "0b00": "Not calibrated",
+              "0b11": "Fully calibrated"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYR_CALIB_STATUS",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current offset calibration status of Gyroscope. Read: 3 indicates fully calibrated; 0 indicates not calibrated",
+            "enum_values": {
+              "0b00": "Not calibrated",
+              "0b11": "Fully calibrated"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACC_CALIB_STATUS",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current offset calibration status of Accelerometer. Read: 3 indicates fully calibrated; 0 indicates not calibrated",
+            "enum_values": {
+              "0b00": "Not calibrated",
+              "0b11": "Fully calibrated"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MAG_CALIB_STATUS",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current offset calibration status of Magnetometer. Read: 3 indicates fully calibrated; 0 indicates not calibrated",
+            "enum_values": {
+              "0b00": "Not calibrated",
+              "0b11": "Fully calibrated"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          73
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ST_RESULT",
+        "address": "0x36",
+        "size_bits": 8,
+        "reset_value": "0x0F",
+        "description": "Self-test result register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ST_MCU",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Microcontroller self-test result. Read: 1 indicates test passed; 0 indicates test failed",
+            "enum_values": {
+              "0": "Test failed",
+              "1": "Test passed"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ST_GYR",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Gyroscope self-test result. Read: 1 indicates test passed; 0 indicates test failed",
+            "enum_values": {
+              "0": "Test failed",
+              "1": "Test passed"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ST_MAG",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Magnetometer self-test result. Read: 1 indicates test passed; 0 indicates test failed",
+            "enum_values": {
+              "0": "Test failed",
+              "1": "Test passed"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ST_ACC",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Accelerometer self-test result. Read: 1 indicates test passed; 0 indicates test failed",
+            "enum_values": {
+              "0": "Test failed",
+              "1": "Test passed"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          50,
+          73
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "INT_STA",
+        "address": "0x37",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt status register",
+        "fields": [
+          {
+            "name": "ACC_NM",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Status of Accelerometer no motion or slow motion interrupt. Read: 1 indicates interrupt triggered",
+            "enum_values": {
+              "0": "No interrupt",
+              "1": "Interrupt triggered"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACC_AM",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Status of Accelerometer any motion interrupt. Read: 1 indicates interrupt triggered",
+            "enum_values": {
+              "0": "No interrupt",
+              "1": "Interrupt triggered"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACC_HIGH_G",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Status of Accelerometer high-g interrupt. Read: 1 indicates interrupt triggered",
+            "enum_values": {
+              "0": "No interrupt",
+              "1": "Interrupt triggered"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYR_DRDY",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Status of gyroscope data ready interrupt. Read: 1 indicates interrupt triggered",
+            "enum_values": {
+              "0": "No interrupt",
+              "1": "Interrupt triggered"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYR_HIGH_RATE",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Status of gyroscope high rate interrupt. Read: 1 indicates interrupt triggered",
+            "enum_values": {
+              "0": "No interrupt",
+              "1": "Interrupt triggered"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYRO_AM",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Status of gyroscope any motion interrupt. Read: 1 indicates interrupt triggered",
+            "enum_values": {
+              "0": "No interrupt",
+              "1": "Interrupt triggered"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MAG_DRDY",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Status of magnetometer data ready interrupt. Read: 1 indicates interrupt triggered",
+            "enum_values": {
+              "0": "No interrupt",
+              "1": "Interrupt triggered"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACC_BSX_DRDY",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Status of Accelerometer/BSX data ready interrupt. Read: 1 indicates interrupt triggered",
+            "enum_values": {
+              "0": "No interrupt",
+              "1": "Interrupt triggered"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          74
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SYS_CLK_STATUS",
+        "address": "0x38",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "System clock status register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "R",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "ST_MAIN_CLK",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "0 = Free to configure the CLK SRC (External or Internal), 1 = in Configuration state",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          59,
+          74
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "SYS_STATUS",
+        "address": "0x39",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "System status register",
+        "fields": [
+          {
+            "name": "System Status Code",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Read: 0 System idle, 1 System Error, 2 Initializing peripherals 3 System Initialization 4 Executing selftest, 5 Sensor fusion algorithm running, 6 System running without fusion algorithm",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          76
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "OPR_MODE",
+        "address": "0x3D",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "Operation mode register",
+        "fields": [
+          {
+            "name": "OPERATION_MODE",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Operation Mode <3:0>: See Table 3-5 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          76
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "PWR_MODE",
+        "address": "0x3E",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Power mode register",
+        "fields": [
+          {
+            "name": "POWER_MODE",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power Mode <1:0>: See Table 3-1 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_7_2",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          76
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SYS_TRIGGER",
+        "address": "0x3F",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "System trigger register",
+        "fields": [
+          {
+            "name": "CLK_SEL",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "0: Use internal oscillator 1: Use external oscillator. Set this bit only if external crystal is connected",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "RST_INT",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Set to reset all interrupt status bits, and INT output",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "RST_SYS",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "W",
+            "reset_value": 0,
+            "description": "Set to reset system",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "Self_Test",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "W",
+            "reset_value": 0,
+            "description": "Set to trigger self-test",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "RSVD_4_1",
+            "bit_high": 4,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          77
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TEMP_SOURCE",
+        "address": "0x40",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Temperature source configuration register",
+        "fields": [
+          {
+            "name": "TEMP_SOURCE",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "See section 0 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_7_2",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          56,
+          76,
+          100
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Axis Configuration": [
+      {
+        "name": "AXIS_MAP_CONFIG",
+        "address": "0x41",
+        "size_bits": 8,
+        "reset_value": "0x14",
+        "description": "Axis remapping configuration register",
+        "fields": [
+          {
+            "name": "REMAP_Z",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Remapped Z axis value. See section 3.4 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "REMAP_Y",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Remapped Y axis value. See section 3.4 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "REMAP_X",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Remapped X axis value. See section 3.4 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          77
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "AXIS_MAP_SIGN",
+        "address": "0x42",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Axis remapping sign register",
+        "fields": [
+          {
+            "name": "REMAP_X_SIGN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Remapped X axis sign. See section 3.4 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "REMAP_Y_SIGN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Remapped Y axis sign. See section 3.4 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "REMAP_Z_SIGN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Remapped Z axis sign. See section 3.4 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_7_3",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          77
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Soft Iron Correction Matrix": [
+      {
+        "name": "SIC_MATRIX_LSB0",
+        "address": "0x43",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Soft iron correction matrix LSB 0 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_LSB0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "See Section 3.11.4 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          77
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_MSB0",
+        "address": "0x44",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Soft iron correction matrix MSB 0 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_MSB0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "See Section 3.11.4 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          77
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_LSB1",
+        "address": "0x45",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Soft iron correction matrix LSB 1 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_LSB1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "See Section 3.11.4 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          78
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_MSB1",
+        "address": "0x46",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Soft iron correction matrix MSB 1 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_MSB1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "See Section 3.11.4 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          78
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_LSB2",
+        "address": "0x47",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Soft iron correction matrix LSB 2 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_LSB2",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "See Section 3.11.4 for details",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          78
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_MSB2",
+        "address": "0x48",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "SIC matrix MSB2 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_MSB2",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SIC matrix MSB2 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          78
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_LSB3",
+        "address": "0x49",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "SIC matrix LSB3 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_LSB3",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SIC matrix LSB3 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          78
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_MSB3",
+        "address": "0x4A",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "SIC matrix MSB3 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_MSB3",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SIC matrix MSB3 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          79
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_LSB4",
+        "address": "0x4B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "SIC matrix LSB4 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_LSB4",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SIC matrix LSB4 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          79
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_MSB4",
+        "address": "0x4C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "SIC matrix MSB4 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_MSB4",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SIC matrix MSB4 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          79
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_LSB5",
+        "address": "0x4D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "SIC matrix LSB5 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_LSB5",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SIC matrix LSB5 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          79
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_MSB5",
+        "address": "0x4E",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "SIC matrix MSB5 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_MSB5",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SIC matrix MSB5 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          80
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_LSB6",
+        "address": "0x4F",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "SIC matrix LSB6 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_LSB6",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SIC matrix LSB6 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          80
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_MSB6",
+        "address": "0x50",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "SIC_MATRIX_MSB6 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_MSB6",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SIC matrix MSB6 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          80
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_LSB7",
+        "address": "0x51",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "SIC_MATRIX_LSB7 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_LSB7",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SIC matrix LSB7 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          80
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_MSB7",
+        "address": "0x52",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "SIC_MATRIX_MSB7 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_MSB7",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SIC matrix MSB7 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          80
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_LSB8",
+        "address": "0x53",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "SIC_MATRIX_LSB8 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_LSB8",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SIC matrix LSB8 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          81
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SIC_MATRIX_MSB8",
+        "address": "0x54",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "SIC_MATRIX_MSB8 register",
+        "fields": [
+          {
+            "name": "SIC_MATRIX_MSB8",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SIC matrix MSB8 bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          81
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Accelerometer Calibration": [
+      {
+        "name": "ACC_OFFSET_X_LSB",
+        "address": "0x55",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Accelerometer offset X LSB register",
+        "fields": [
+          {
+            "name": "ACC_OFFSET_X",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer offset X bits <7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          81
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_OFFSET_X_MSB",
+        "address": "0x56",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Accelerometer offset X MSB register",
+        "fields": [
+          {
+            "name": "ACC_OFFSET_X",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer offset X bits <15:8>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          82
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_OFFSET_Y_LSB",
+        "address": "0x57",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Accelerometer offset Y LSB register",
+        "fields": [
+          {
+            "name": "ACC_OFFSET_Y",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer offset Y bits <7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          82
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_OFFSET_Y_MSB",
+        "address": "0x58",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Accelerometer Offset Y MSB",
+        "fields": [
+          {
+            "name": "ACCELEROMETER_OFFSET_Y",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer Offset Y <15:8>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          82
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_OFFSET_Z_LSB",
+        "address": "0x59",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Accelerometer Offset Z LSB",
+        "fields": [
+          {
+            "name": "ACCELEROMETER_OFFSET_Z",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer Offset Z <7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          82
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_OFFSET_Z_MSB",
+        "address": "0x5A",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Accelerometer Offset Z MSB",
+        "fields": [
+          {
+            "name": "ACCELEROMETER_OFFSET_Z",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer Offset Z <15:8>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          83
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_RADIUS_LSB",
+        "address": "0x67",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Accelerometer Radius LSB <7:0>",
+        "fields": [
+          {
+            "name": "ACC_RADIUS",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer Radius <7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          86
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACC_RADIUS_MSB",
+        "address": "0x68",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Accelerometer Radius MSB <15:8>",
+        "fields": [
+          {
+            "name": "ACC_RADIUS",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer Radius <15:8>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          86
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Magnetometer Calibration": [
+      {
+        "name": "MAG_OFFSET_X_LSB",
+        "address": "0x5B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Magnetometer Offset X LSB",
+        "fields": [
+          {
+            "name": "MAGNETOMETER_OFFSET_X",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Magnetometer Offset X <7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          83
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MAG_OFFSET_X_MSB",
+        "address": "0x5C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Magnetometer Offset X MSB",
+        "fields": [
+          {
+            "name": "MAGNETOMETER_OFFSET_X",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Magnetometer Offset X <15:8>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          83,
+          84
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MAG_OFFSET_Y_LSB",
+        "address": "0x5D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Magnetometer Offset Y LSB",
+        "fields": [
+          {
+            "name": "MAGNETOMETER_OFFSET_Y",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Magnetometer Offset Y <7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          83
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MAG_OFFSET_Y_MSB",
+        "address": "0x5E",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Magnetometer Offset Y MSB",
+        "fields": [
+          {
+            "name": "MAGNETOMETER_OFFSET_Y",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Magnetometer Offset Y <15:8>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          84
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MAG_OFFSET_Z_LSB",
+        "address": "0x5F",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Magnetometer Offset Z LSB register",
+        "fields": [
+          {
+            "name": "MAGNETOMETER_OFFSET_Z",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Magnetometer Offset Z <7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          84
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MAG_OFFSET_Z_MSB",
+        "address": "0x60",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Magnetometer Offset Z MSB register",
+        "fields": [
+          {
+            "name": "MAGNETOMETER_OFFSET_Z",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Magnetometer Offset Z <15:8>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          84
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MAG_RADIUS_LSB",
+        "address": "0x69",
+        "size_bits": 8,
+        "reset_value": "0xE0",
+        "description": "Magnetometer Radius LSB <7:0>",
+        "fields": [
+          {
+            "name": "MAG_RADIUS",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 224,
+            "description": "Magnetometer Radius <7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          86
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MAG_RADIUS_MSB",
+        "address": "0x6A",
+        "size_bits": 8,
+        "reset_value": "0x01",
+        "description": "Magnetometer Radius MSB <15:8>",
+        "fields": [
+          {
+            "name": "MAG_RADIUS",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Magnetometer Radius <15:8>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          86
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Gyroscope Calibration": [
+      {
+        "name": "GYR_OFFSET_X_LSB",
+        "address": "0x61",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gyroscope Offset X LSB register",
+        "fields": [
+          {
+            "name": "GYROSCOPE_OFFSET_X",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope Offset X <7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          84
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_OFFSET_X_MSB",
+        "address": "0x62",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gyroscope Offset X MSB register",
+        "fields": [
+          {
+            "name": "GYROSCOPE_OFFSET_X",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope Offset X <15:8>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          85
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_OFFSET_Y_LSB",
+        "address": "0x63",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gyroscope Offset Y LSB register",
+        "fields": [
+          {
+            "name": "GYROSCOPE_OFFSET_Y",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope Offset Y <7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          85
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_OFFSET_Y_MSB",
+        "address": "0x64",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gyroscope Offset Y MSB register",
+        "fields": [
+          {
+            "name": "GYROSCOPE_OFFSET_Y",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope Offset Y <15:8>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          85
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_OFFSET_Z_LSB",
+        "address": "0x65",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gyroscope Offset Z LSB register",
+        "fields": [
+          {
+            "name": "GYROSCOPE_OFFSET_Z",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope Offset Z <7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          85
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYR_OFFSET_Z_MSB",
+        "address": "0x66",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gyroscope Offset Z MSB <15:8>",
+        "fields": [
+          {
+            "name": "GYR_OFFSET_Z",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope Offset Z <15:8>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          86
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Data Output": [
+      {
+        "name": "GRV_DATA_Z_MSB",
+        "address": "0x33",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gravity vector data Z upper byte",
+        "fields": [
+          {
+            "name": "GRV_DATA_Z",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Upper byte of Z axis Gravity Vector data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          72
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TEMP",
+        "address": "0x34",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Temperature data register",
+        "fields": [
+          {
+            "name": "TEMPERATURE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Temperature data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          73
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Motion Detection": [
+      {
+        "name": "ACC_NM_SET",
+        "address": "0x16",
+        "size_bits": 8,
+        "reset_value": "0x37",
+        "description": "Accelerometer NO/SLOW motion set",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SLO_NO_MOT_DUR",
+            "bit_high": 6,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 6,
+            "description": "Function depends on whether the slow-motion or no-motion interrupt function has been selected. If the slow- motion interrupt function has been enabled (SMNM = '0') then [slo_no_mot_dur<1:0>+1] consecutive slope data points must be above the slow/no-motion threshold (ACC_NM_THRES) for the slow-/no-motion interrupt to trigger. If the no-motion interrupt function has been enabled (SMNM = '1') then slo_no_motion_dur<5:0> defines the time for which no slope data points must exceed the slow/no-motion threshold (ACC_NM_THRES) for the slow/no-motion interrupt to trigger. The delay time in seconds may be calculated according with the following equation: slo_no_mot_dur<5:4>='b00' \u2192 [slo_no_mot_dur<3:0> + 1] slo_no_mot_dur<5:4>='b01' \u2192 [slo_no_mot_dur<3:0> * 4 + 20] slo_no_mot_dur<5>='1' \u2192 [slo_no_mot_dur<4:0> * 8 + 88]",
+            "enum_values": null,
+            "source": "llm_unverified"
+          },
+          {
+            "name": "SMNM",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Select slow motion or no motion interrupt 0: Slow motion; 1: No motion",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          65,
+          94
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-04T02:07:42.622716+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 114,
+        "by_confidence": {
+          "high": 102,
+          "medium": 12,
+          "low": 0
+        },
+        "with_quality_issues": 0,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 206,
+        "by_source": {
+          "llm_unverified": 12,
+          "evidence_verified": 160,
+          "synthetic": 25,
+          "llm_verified": 4,
+          "llm_consistent": 5
+        }
+      },
+      "peripherals": {
+        "total": 20,
+        "by_name": {
+          "System/ID": {
+            "registers": 9,
+            "confidence": {
+              "high": 8,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Accelerometer_Config": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Magnetometer_Config": {
+            "registers": 3,
+            "confidence": {
+              "high": 2,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Gyroscope_Config": {
+            "registers": 5,
+            "confidence": {
+              "high": 3,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "Interrupt": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "Accel_Interrupt": {
+            "registers": 7,
+            "confidence": {
+              "high": 3,
+              "medium": 4,
+              "low": 0
+            }
+          },
+          "Gyro_Interrupt": {
+            "registers": 9,
+            "confidence": {
+              "high": 9,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Unit_Sel": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Mag_Data": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Quaternion_Data": {
+            "registers": 8,
+            "confidence": {
+              "high": 8,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Linear_Accel_Data": {
+            "registers": 6,
+            "confidence": {
+              "high": 6,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Gravity_Data": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "System Control": {
+            "registers": 9,
+            "confidence": {
+              "high": 8,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Axis Configuration": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Soft Iron Correction Matrix": {
+            "registers": 18,
+            "confidence": {
+              "high": 18,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Accelerometer Calibration": {
+            "registers": 8,
+            "confidence": {
+              "high": 8,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Magnetometer Calibration": {
+            "registers": 8,
+            "confidence": {
+              "high": 8,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Gyroscope Calibration": {
+            "registers": 6,
+            "confidence": {
+              "high": 6,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Data Output": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Motion Detection": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 107,
+        "batches_total": 43,
+        "batches_sent": 43,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": []
+      },
+      "evidence": {
+        "fields_with_evidence": 182,
+        "fields_verified": 182,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 102
+      }
+    }
+  }
+}

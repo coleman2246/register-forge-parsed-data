@@ -1,0 +1,992 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "INA260",
+  "description": "Precision digital current, voltage, and power monitor, I2C/SMBus",
+  "vendor": "Texas Instruments",
+  "source": "INA260.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/ina260.pdf",
+  "peripherals": {
+    "Configuration and Control": [
+      {
+        "name": "CONFIGURATION",
+        "address": "0x00",
+        "size_bits": 16,
+        "reset_value": "0x6127",
+        "description": "All-register reset, shunt voltage and bus voltage ADC conversion times and averaging, operating mode.",
+        "fields": [
+          {
+            "name": "RST",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reset Bit. Setting this bit to '1' generates a system reset that is the same as power-on reset. Resets all registers to default values; this bit self-clears.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 14,
+            "bit_low": 12,
+            "access": "R",
+            "reset_value": 6,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "AVG",
+            "bit_high": 11,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Averaging Mode. Determines the number of samples that are collected and averaged.",
+            "enum_values": {
+              "0b000": "1",
+              "0b001": "4",
+              "0b010": "16",
+              "0b011": "64",
+              "0b100": "128",
+              "0b101": "256",
+              "0b110": "512",
+              "0b111": "1024"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "VBUSCT",
+            "bit_high": 8,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 4,
+            "description": "Bus Voltage Conversion Time. Sets the conversion time for the bus voltage measurement.",
+            "enum_values": {
+              "0b000": "140 \u00b5s",
+              "0b001": "204 \u00b5s",
+              "0b010": "332 \u00b5s",
+              "0b011": "588 \u00b5s",
+              "0b100": "1.1 ms",
+              "0b101": "2.116 ms",
+              "0b110": "4.156 ms",
+              "0b111": "8.244 ms"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ISHCT",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 4,
+            "description": "Shunt Current Conversion Time.",
+            "enum_values": {
+              "0b000": "140 \u00b5s",
+              "0b001": "204 \u00b5s",
+              "0b010": "332 \u00b5s",
+              "0b011": "588 \u00b5s",
+              "0b100": "1.1 ms",
+              "0b101": "2.116 ms",
+              "0b110": "4.156 ms",
+              "0b111": "8.244 ms"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MODE",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 7,
+            "description": "Operating Mode. Selects continuous, triggered, or power-down mode of operation.",
+            "enum_values": {
+              "0b000": "Power-Down",
+              "0b001": "Shunt Current, Triggered",
+              "0b010": "Bus Voltage, Triggered",
+              "0b011": "Shunt Current and Bus Voltage, Triggered",
+              "0b100": "Power-Down",
+              "0b101": "Shunt Current, Continuous",
+              "0b110": "Bus Voltage, Continuous",
+              "0b111": "Shunt Current and Bus Voltage, Continuous"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MASK_ENABLE",
+        "address": "0x06",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Mask/Enable register controls ALERT pin functions",
+        "fields": [
+          {
+            "name": "OCL",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Over Current Limit Setting this bit high configures the ALERT pin to be asserted if the current measurement following a conversion exceeds the value programmed in the Alert Limit Register.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "UCL",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Under Current Limit Setting this bit high configures the ALERT pin to be asserted if the current measurement following a conversion drops below the value programmed in the Alert Limit Register.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BOL",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Bus Voltage Over-Voltage Setting this bit high configures the ALERT pin to be asserted if the bus voltage measurement following a conversion exceeds the value programmed in the Alert Limit Register.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BUL",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Bus Voltage Under-Voltage Setting this bit high configures the ALERT pin to be asserted if the bus voltage measurement following a conversion drops below the value programmed in the Alert Limit Register.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "POL",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power Over-Limit Setting this bit high configures the ALERT pin to be asserted if the Power calculation made following a bus voltage measurement exceeds the value programmed in the Alert Limit Register.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CNVR",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Conversion Ready Setting this bit high configures the ALERT pin to be asserted when the Conversion Ready Flag, Bit 3, is asserted indicating that the device is ready for the next conversion.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_9_5",
+            "bit_high": 9,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Not used.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "AFF",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Alert Function Flag While only one Alert Function can be monitored at the ALERT pin at a time, the Conversion Ready can also be enabled to assert the ALERT pin. Reading the Alert Function Flag following an alert allows the user to determine if the Alert Function was the source of the Alert. When the Alert Latch Enable bit is set to Latch mode, the Alert Function Flag bit clears only when the Mask/Enable Register is read. When the Alert Latch Enable bit is set to Transparent mode, the Alert Function Flag bit is cleared following the next conversion that does not result in an Alert condition.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CVRF",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Conversion Ready Although the device can be read at any time, and the data from the last conversion is available, the Conversion Ready Flag bit is provided to help coordinate one-shot or triggered conversions. The Conversion Ready Flag bit is set after all conversions, averaging, and multiplications are complete. Conversion Ready Flag bit clears under the following conditions: 1.) Writing to the Configuration Register (except for Power-Down selection) 2.) Reading the Mask/Enable Register",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OVF",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Math Overflow Flag This bit is set to '1' if an arithmetic operation resulted in an overflow error. It indicates that power data may have exceeded the maximum reportable value of 419.43 W.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "APOL",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert Polarity bit 1 = Inverted (active-high open collector) 0 = Normal (active-low open collector) (default)",
+            "enum_values": {
+              "0": "Normal (active-low)",
+              "1": "Inverted (active-high)"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LEN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert Latch Enable; configures the latching feature of the ALERT pin and Alert Flag bits. 1 = Latch enabled 0 = Transparent (default) When the Alert Latch Enable bit is set to Transparent mode, the ALERT pin and Flag bit resets to the idle states when the fault has been cleared. When the Alert Latch Enable bit is set to Latch mode, the ALERT pin and Alert Flag bit remains active following a fault until the Mask/Enable Register has been read.",
+            "enum_values": {
+              "0": "Transparent",
+              "1": "Latch"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ALERT_LIMIT",
+        "address": "0x07",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Contains the value used to compare to the register selected in the Mask/Enable Register to determine if a limit has been exceeded. The format for this register will match the format of the register that is selected for comparison.",
+        "fields": [
+          {
+            "name": "AUL",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert upper limit value",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Measurements": [
+      {
+        "name": "CURRENT",
+        "address": "0x01",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Current register in two's complement format, LSB=1.25mA, read-only",
+        "fields": [
+          {
+            "name": "CSIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current sign bit",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "CD14",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 14",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CD13",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 13",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CD12",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 12",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CD11",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 11",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CD10",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 10",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CD9",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 9",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CD8",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 8",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CD7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CD6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CD5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CD4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CD3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CD2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CD1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CD0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Current data bit 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "BUS_VOLTAGE",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Bus voltage register, full-scale 40.96V, LSB=1.25mV, read-only",
+        "fields": [
+          {
+            "name": "-",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Always zero because bus voltage can only be positive",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD14",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 14",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD13",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 13",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD12",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 12",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD11",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 11",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD10",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 10",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD9",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 9",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD8",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 8",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BD1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus voltage data bit 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "POWER",
+        "address": "0x03",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Power register, LSB=10mW, max 419.43W, read-only",
+        "fields": [
+          {
+            "name": "PD15",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 15",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD14",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 14",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD13",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 13",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD12",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 12",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD11",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 11",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD10",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 10",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD9",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 9",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD8",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 8",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 7",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 6",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 5",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 4",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 3",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 2",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PD1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PD0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Power data bit 0",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Identification": [
+      {
+        "name": "MANUFACTURER_ID",
+        "address": "0xFE",
+        "size_bits": 16,
+        "reset_value": "0x5449",
+        "description": "Contains unique manufacturer identification number.",
+        "fields": [
+          {
+            "name": "MANUFACTURER_ID_VALUE",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 21577,
+            "description": "Manufacturer ID value.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "DIE_ID",
+        "address": "0xFF",
+        "size_bits": 16,
+        "reset_value": "0x0270",
+        "description": "Stores a unique identification number and the revision ID for the die.",
+        "fields": [
+          {
+            "name": "DID",
+            "bit_high": 15,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 551,
+            "description": "Device ID Stores the device identification bits.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "RID",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Die Revision ID Stores the device revision identification bits.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-04T18:27:33.744773+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 8,
+        "by_confidence": {
+          "high": 8,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 0,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 70,
+        "by_source": {
+          "evidence_verified": 17,
+          "synthetic": 2,
+          "agent_verified": 32,
+          "llm_consistent": 19
+        }
+      },
+      "peripherals": {
+        "total": 3,
+        "by_name": {
+          "Configuration and Control": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Measurements": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Identification": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 18,
+        "batches_total": 10,
+        "batches_sent": 6,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": []
+      },
+      "evidence": {
+        "fields_with_evidence": 70,
+        "fields_verified": 25,
+        "fields_unverified": 45,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 3
+      }
+    }
+  }
+}

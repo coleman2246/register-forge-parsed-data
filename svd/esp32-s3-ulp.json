@@ -1,0 +1,6070 @@
+{
+  "version": "1.1.0",
+  "category": "microcontroller",
+  "device": "ESP32-S3-ULP",
+  "description": "32-bit RISC-V MCU",
+  "vendor": "Espressif",
+  "source": "esp32s3-ulp.svd",
+  "source_type": "svd",
+  "source_url": "https://github.com/espressif/svd/blob/main/svd/esp32s3-ulp.svd",
+  "peripherals": {
+    "RTC_CNTL": [
+      {
+        "name": "RTC_ULP_CP_TIMER",
+        "address": "0x80FC",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure ulp",
+        "fields": [
+          {
+            "name": "ULP_CP_PC_INIT",
+            "bit_high": 10,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ULP-coprocessor PC initial address",
+            "enum_values": null
+          },
+          {
+            "name": "ULP_CP_GPIO_WAKEUP_ENA",
+            "bit_high": 29,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ULP-coprocessor wakeup by GPIO enable",
+            "enum_values": null
+          },
+          {
+            "name": "ULP_CP_GPIO_WAKEUP_CLR",
+            "bit_high": 30,
+            "bit_low": 30,
+            "access": "WO",
+            "reset_value": null,
+            "description": "ULP-coprocessor wakeup by GPIO state clear",
+            "enum_values": null
+          },
+          {
+            "name": "ULP_CP_SLP_TIMER_EN",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ULP-coprocessor timer enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_ULP_CP_CTRL",
+        "address": "0x8100",
+        "size_bits": 32,
+        "reset_value": "0x100200",
+        "description": "configure ulp",
+        "fields": [
+          {
+            "name": "ULP_CP_MEM_ADDR_INIT",
+            "bit_high": 10,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "No public",
+            "enum_values": null
+          },
+          {
+            "name": "ULP_CP_MEM_ADDR_SIZE",
+            "bit_high": 21,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "No public",
+            "enum_values": null
+          },
+          {
+            "name": "ULP_CP_MEM_OFFST_CLR",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "WO",
+            "reset_value": null,
+            "description": "No public",
+            "enum_values": null
+          },
+          {
+            "name": "ULP_CP_CLK_FO",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ulp coprocessor clk force on",
+            "enum_values": null
+          },
+          {
+            "name": "ULP_CP_RESET",
+            "bit_high": 29,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ulp coprocessor clk software reset",
+            "enum_values": null
+          },
+          {
+            "name": "ULP_CP_FORCE_START_TOP",
+            "bit_high": 30,
+            "bit_low": 30,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: ULP-coprocessor is started by SW",
+            "enum_values": null
+          },
+          {
+            "name": "ULP_CP_START_TOP",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Write 1 to start ULP-coprocessor",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_COCPU_CTRL",
+        "address": "0x8104",
+        "size_bits": 32,
+        "reset_value": "0x8A0810",
+        "description": "configure ulp-riscv",
+        "fields": [
+          {
+            "name": "COCPU_CLK_FO",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "cocpu clk force on",
+            "enum_values": null
+          },
+          {
+            "name": "COCPU_START_2_RESET_DIS",
+            "bit_high": 6,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "time from start cocpu to pull down reset",
+            "enum_values": null
+          },
+          {
+            "name": "COCPU_START_2_INTR_EN",
+            "bit_high": 12,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "time from start cocpu to give start interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "COCPU_SHUT",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "to shut cocpu",
+            "enum_values": null
+          },
+          {
+            "name": "COCPU_SHUT_2_CLK_DIS",
+            "bit_high": 21,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "time from shut cocpu to disable clk",
+            "enum_values": null
+          },
+          {
+            "name": "COCPU_SHUT_RESET_EN",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "to reset cocpu",
+            "enum_values": null
+          },
+          {
+            "name": "COCPU_SEL",
+            "bit_high": 23,
+            "bit_low": 23,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: old ULP 0: new riscV",
+            "enum_values": null
+          },
+          {
+            "name": "COCPU_DONE_FORCE",
+            "bit_high": 24,
+            "bit_low": 24,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: select riscv done 0: select ulp done",
+            "enum_values": null
+          },
+          {
+            "name": "COCPU_DONE",
+            "bit_high": 25,
+            "bit_low": 25,
+            "access": "RW",
+            "reset_value": null,
+            "description": "done signal used by riscv to control timer.",
+            "enum_values": null
+          },
+          {
+            "name": "COCPU_SW_INT_TRIGGER",
+            "bit_high": 26,
+            "bit_low": 26,
+            "access": "WO",
+            "reset_value": null,
+            "description": "trigger cocpu register interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "COCPU_CLKGATE_EN",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "open ulp-riscv clk gate",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_ULP_CP_TIMER_1",
+        "address": "0x8134",
+        "size_bits": 32,
+        "reset_value": "0xC800",
+        "description": "configure ulp sleep time",
+        "fields": [
+          {
+            "name": "ULP_CP_TIMER_SLP_CYCLE",
+            "bit_high": 31,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": null,
+            "description": "sleep cycles for ULP-coprocessor timer",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      }
+    ],
+    "RTC_I2C": [
+      {
+        "name": "SCL_LOW",
+        "address": "0xEC00",
+        "size_bits": 32,
+        "reset_value": "0x100",
+        "description": "configure low scl period",
+        "fields": [
+          {
+            "name": "PERIOD",
+            "bit_high": 19,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "time period that scl =0",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CTRL",
+        "address": "0xEC04",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure i2c ctrl",
+        "fields": [
+          {
+            "name": "SDA_FORCE_OUT",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1=push pull,0=open drain",
+            "enum_values": null
+          },
+          {
+            "name": "SCL_FORCE_OUT",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1=push pull,0=open drain",
+            "enum_values": null
+          },
+          {
+            "name": "MS_MODE",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1=master,0=slave",
+            "enum_values": null
+          },
+          {
+            "name": "TRANS_START",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "force start",
+            "enum_values": null
+          },
+          {
+            "name": "TX_LSB_FIRST",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "transit lsb first",
+            "enum_values": null
+          },
+          {
+            "name": "RX_LSB_FIRST",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "receive lsb first",
+            "enum_values": null
+          },
+          {
+            "name": "I2C_CTRL_CLK_GATE_EN",
+            "bit_high": 29,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure i2c ctrl clk enable",
+            "enum_values": null
+          },
+          {
+            "name": "I2C_RESET",
+            "bit_high": 30,
+            "bit_low": 30,
+            "access": "RW",
+            "reset_value": null,
+            "description": "rtc i2c sw reset",
+            "enum_values": null
+          },
+          {
+            "name": "I2CCLK_EN",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RW",
+            "reset_value": null,
+            "description": "rtc i2c reg clk gating",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "STATUS",
+        "address": "0xEC08",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "get i2c status",
+        "fields": [
+          {
+            "name": "ACK_REC",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ack response",
+            "enum_values": null
+          },
+          {
+            "name": "SLAVE_RW",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "slave read or write",
+            "enum_values": null
+          },
+          {
+            "name": "ARB_LOST",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "arbitration is lost",
+            "enum_values": null
+          },
+          {
+            "name": "BUS_BUSY",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "bus is busy",
+            "enum_values": null
+          },
+          {
+            "name": "SLAVE_ADDRESSED",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "slave reg sub address",
+            "enum_values": null
+          },
+          {
+            "name": "BYTE_TRANS",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "One byte transit done",
+            "enum_values": null
+          },
+          {
+            "name": "OP_CNT",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "which operation is working",
+            "enum_values": null
+          },
+          {
+            "name": "SHIFT",
+            "bit_high": 23,
+            "bit_low": 16,
+            "access": "RO",
+            "reset_value": null,
+            "description": "shifter content",
+            "enum_values": null
+          },
+          {
+            "name": "SCL_MAIN_STATE_LAST",
+            "bit_high": 26,
+            "bit_low": 24,
+            "access": "RO",
+            "reset_value": null,
+            "description": "i2c last main status",
+            "enum_values": null
+          },
+          {
+            "name": "SCL_STATE_LAST",
+            "bit_high": 30,
+            "bit_low": 28,
+            "access": "RO",
+            "reset_value": null,
+            "description": "scl last status",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TO",
+        "address": "0xEC0C",
+        "size_bits": 32,
+        "reset_value": "0x10000",
+        "description": "configure time out",
+        "fields": [
+          {
+            "name": "TIME_OUT",
+            "bit_high": 19,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "time out threshold",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SLAVE_ADDR",
+        "address": "0xEC10",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure slave id",
+        "fields": [
+          {
+            "name": "SLAVE_ADDR",
+            "bit_high": 14,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "slave address",
+            "enum_values": null
+          },
+          {
+            "name": "ADDR_10BIT_EN",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RW",
+            "reset_value": null,
+            "description": "i2c 10bit mode enable",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SCL_HIGH",
+        "address": "0xEC14",
+        "size_bits": 32,
+        "reset_value": "0x100",
+        "description": "configure high scl period",
+        "fields": [
+          {
+            "name": "PERIOD",
+            "bit_high": 19,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "time period that scl = 1",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SDA_DUTY",
+        "address": "0xEC18",
+        "size_bits": 32,
+        "reset_value": "0x10",
+        "description": "configure sda duty",
+        "fields": [
+          {
+            "name": "NUM",
+            "bit_high": 19,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "time period for SDA to toggle after SCL goes low",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SCL_START_PERIOD",
+        "address": "0xEC1C",
+        "size_bits": 32,
+        "reset_value": "0x08",
+        "description": "configure scl start period",
+        "fields": [
+          {
+            "name": "SCL_START_PERIOD",
+            "bit_high": 19,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "time period for SCL to toggle after I2C start is triggered",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SCL_STOP_PERIOD",
+        "address": "0xEC20",
+        "size_bits": 32,
+        "reset_value": "0x08",
+        "description": "configure scl stop period",
+        "fields": [
+          {
+            "name": "SCL_STOP_PERIOD",
+            "bit_high": 19,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "time period for SCL to stop after I2C end is triggered",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "INT_CLR",
+        "address": "0xEC24",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "interrupt clear register",
+        "fields": [
+          {
+            "name": "SLAVE_TRAN_COMP_INT_CLR",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "clear slave transit complete interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "ARBITRATION_LOST_INT_CLR",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": null,
+            "description": "clear arbitration lost interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "MASTER_TRAN_COMP_INT_CLR",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "WO",
+            "reset_value": null,
+            "description": "clear master transit complete interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "TRANS_COMPLETE_INT_CLR",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "WO",
+            "reset_value": null,
+            "description": "clear transit complete interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "TIME_OUT_INT_CLR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "WO",
+            "reset_value": null,
+            "description": "clear time out interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "ACK_ERR_INT_CLR",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "WO",
+            "reset_value": null,
+            "description": "clear ack error interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "RX_DATA_INT_CLR",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "WO",
+            "reset_value": null,
+            "description": "clear receive data interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "TX_DATA_INT_CLR",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "WO",
+            "reset_value": null,
+            "description": "clear transit load data complete interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "DETECT_START_INT_CLR",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "WO",
+            "reset_value": null,
+            "description": "clear detect start interrupt",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "INT_RAW",
+        "address": "0xEC28",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "interrupt raw register",
+        "fields": [
+          {
+            "name": "SLAVE_TRAN_COMP_INT_RAW",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "slave transit complete interrupt raw",
+            "enum_values": null
+          },
+          {
+            "name": "ARBITRATION_LOST_INT_RAW",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "arbitration lost interrupt raw",
+            "enum_values": null
+          },
+          {
+            "name": "MASTER_TRAN_COMP_INT_RAW",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "master transit complete interrupt raw",
+            "enum_values": null
+          },
+          {
+            "name": "TRANS_COMPLETE_INT_RAW",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "transit complete interrupt raw",
+            "enum_values": null
+          },
+          {
+            "name": "TIME_OUT_INT_RAW",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "time out interrupt raw",
+            "enum_values": null
+          },
+          {
+            "name": "ACK_ERR_INT_RAW",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ack error interrupt raw",
+            "enum_values": null
+          },
+          {
+            "name": "RX_DATA_INT_RAW",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "receive data interrupt raw",
+            "enum_values": null
+          },
+          {
+            "name": "TX_DATA_INT_RAW",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "transit data interrupt raw",
+            "enum_values": null
+          },
+          {
+            "name": "DETECT_START_INT_RAW",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "detect start interrupt raw",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "INT_ST",
+        "address": "0xEC2C",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "interrupt state register",
+        "fields": [
+          {
+            "name": "SLAVE_TRAN_COMP_INT_ST",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "slave transit complete interrupt state",
+            "enum_values": null
+          },
+          {
+            "name": "ARBITRATION_LOST_INT_ST",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "arbitration lost interrupt state",
+            "enum_values": null
+          },
+          {
+            "name": "MASTER_TRAN_COMP_INT_ST",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "master transit complete interrupt state",
+            "enum_values": null
+          },
+          {
+            "name": "TRANS_COMPLETE_INT_ST",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "transit complete interrupt state",
+            "enum_values": null
+          },
+          {
+            "name": "TIME_OUT_INT_ST",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "time out interrupt state",
+            "enum_values": null
+          },
+          {
+            "name": "ACK_ERR_INT_ST",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ack error interrupt state",
+            "enum_values": null
+          },
+          {
+            "name": "RX_DATA_INT_ST",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "receive data interrupt state",
+            "enum_values": null
+          },
+          {
+            "name": "TX_DATA_INT_ST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "transit data interrupt state",
+            "enum_values": null
+          },
+          {
+            "name": "DETECT_START_INT_ST",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "detect start interrupt state",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "INT_ENA",
+        "address": "0xEC30",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "interrupt enable register",
+        "fields": [
+          {
+            "name": "SLAVE_TRAN_COMP_INT_ENA",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "enable slave transit complete interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "ARBITRATION_LOST_INT_ENA",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "enable arbitration lost interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "MASTER_TRAN_COMP_INT_ENA",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "enable master transit complete interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "TRANS_COMPLETE_INT_ENA",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "enable transit complete interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "TIME_OUT_INT_ENA",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "enable time out interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "ACK_ERR_INT_ENA",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "enable eack error interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "RX_DATA_INT_ENA",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "enable receive data interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "TX_DATA_INT_ENA",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "enable transit data interrupt",
+            "enum_values": null
+          },
+          {
+            "name": "DETECT_START_INT_ENA",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": null,
+            "description": "enable detect start interrupt",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "DATA",
+        "address": "0xEC34",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "get i2c data status",
+        "fields": [
+          {
+            "name": "I2C_RDATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "data received",
+            "enum_values": null
+          },
+          {
+            "name": "SLAVE_TX_DATA",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": null,
+            "description": "data sent by slave",
+            "enum_values": null
+          },
+          {
+            "name": "I2C_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "i2c done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD0",
+        "address": "0xEC38",
+        "size_bits": 32,
+        "reset_value": "0x903",
+        "description": "i2c commond0 register",
+        "fields": [
+          {
+            "name": "COMMAND0",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command0",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND0_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command0_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD1",
+        "address": "0xEC3C",
+        "size_bits": 32,
+        "reset_value": "0x1901",
+        "description": "i2c commond1 register",
+        "fields": [
+          {
+            "name": "COMMAND1",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command1",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND1_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command1_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD2",
+        "address": "0xEC40",
+        "size_bits": 32,
+        "reset_value": "0x902",
+        "description": "i2c commond2 register",
+        "fields": [
+          {
+            "name": "COMMAND2",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command2",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND2_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command2_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD3",
+        "address": "0xEC44",
+        "size_bits": 32,
+        "reset_value": "0x101",
+        "description": "i2c commond3 register",
+        "fields": [
+          {
+            "name": "COMMAND3",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command3",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND3_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command3_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD4",
+        "address": "0xEC48",
+        "size_bits": 32,
+        "reset_value": "0x901",
+        "description": "i2c commond4 register",
+        "fields": [
+          {
+            "name": "COMMAND4",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command4",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND4_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command4_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD5",
+        "address": "0xEC4C",
+        "size_bits": 32,
+        "reset_value": "0x1701",
+        "description": "i2c commond5_register",
+        "fields": [
+          {
+            "name": "COMMAND5",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command5",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND5_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command5_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD6",
+        "address": "0xEC50",
+        "size_bits": 32,
+        "reset_value": "0x1901",
+        "description": "i2c commond6 register",
+        "fields": [
+          {
+            "name": "COMMAND6",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command6",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND6_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command6_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD7",
+        "address": "0xEC54",
+        "size_bits": 32,
+        "reset_value": "0x904",
+        "description": "i2c commond7 register",
+        "fields": [
+          {
+            "name": "COMMAND7",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command7",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND7_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command7_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD8",
+        "address": "0xEC58",
+        "size_bits": 32,
+        "reset_value": "0x1901",
+        "description": "i2c commond8 register",
+        "fields": [
+          {
+            "name": "COMMAND8",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command8",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND8_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command8_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD9",
+        "address": "0xEC5C",
+        "size_bits": 32,
+        "reset_value": "0x903",
+        "description": "i2c commond9 register",
+        "fields": [
+          {
+            "name": "COMMAND9",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command9",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND9_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command9_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD10",
+        "address": "0xEC60",
+        "size_bits": 32,
+        "reset_value": "0x101",
+        "description": "i2c commond10 register",
+        "fields": [
+          {
+            "name": "COMMAND10",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command10",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND10_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command10_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD11",
+        "address": "0xEC64",
+        "size_bits": 32,
+        "reset_value": "0x901",
+        "description": "i2c commond11 register",
+        "fields": [
+          {
+            "name": "COMMAND11",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command11",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND11_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command11_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD12",
+        "address": "0xEC68",
+        "size_bits": 32,
+        "reset_value": "0x1701",
+        "description": "i2c commond12 register",
+        "fields": [
+          {
+            "name": "COMMAND12",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command12",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND12_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command12_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD13",
+        "address": "0xEC6C",
+        "size_bits": 32,
+        "reset_value": "0x1901",
+        "description": "i2c commond13 register",
+        "fields": [
+          {
+            "name": "COMMAND13",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command13",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND13_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command13_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD14",
+        "address": "0xEC70",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "i2c commond14 register",
+        "fields": [
+          {
+            "name": "COMMAND14",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command14",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND14_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command14_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "CMD15",
+        "address": "0xEC74",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "i2c commond15 register",
+        "fields": [
+          {
+            "name": "COMMAND15",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "command15",
+            "enum_values": null
+          },
+          {
+            "name": "COMMAND15_DONE",
+            "bit_high": 31,
+            "bit_low": 31,
+            "access": "RO",
+            "reset_value": null,
+            "description": "command15_done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "DATE",
+        "address": "0xECFC",
+        "size_bits": 32,
+        "reset_value": "0x1905310",
+        "description": "version register",
+        "fields": [
+          {
+            "name": "I2C_DATE",
+            "bit_high": 27,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "version",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      }
+    ],
+    "RTC_IO": [
+      {
+        "name": "RTC_GPIO_OUT",
+        "address": "0xA400",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "RTC GPIO 0 ~ 21 output data register",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 31,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO 0 ~ 21 output data",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_OUT_W1TS",
+        "address": "0xA404",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "one set RTC GPIO output data",
+        "fields": [
+          {
+            "name": "RTC_GPIO_OUT_DATA_W1TS",
+            "bit_high": 31,
+            "bit_low": 10,
+            "access": "WO",
+            "reset_value": null,
+            "description": "RTC GPIO 0 ~ 21 output data write 1 to set",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_OUT_W1TC",
+        "address": "0xA408",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "one clear RTC GPIO output data",
+        "fields": [
+          {
+            "name": "RTC_GPIO_OUT_DATA_W1TC",
+            "bit_high": 31,
+            "bit_low": 10,
+            "access": "WO",
+            "reset_value": null,
+            "description": "RTC GPIO 0 ~ 21 output data write 1 to clear",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_ENABLE",
+        "address": "0xA40C",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "Configure RTC GPIO output enable",
+        "fields": [
+          {
+            "name": "RTC_GPIO_ENABLE",
+            "bit_high": 31,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO 0 ~ 21 enable",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_ENABLE_W1TS",
+        "address": "0xA410",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "one set RTC GPIO output enable",
+        "fields": [
+          {
+            "name": "RTC_GPIO_ENABLE_W1TS",
+            "bit_high": 31,
+            "bit_low": 10,
+            "access": "WO",
+            "reset_value": null,
+            "description": "RTC GPIO 0 ~ 21 enable write 1 to set",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_ENABLE_W1TC",
+        "address": "0xA414",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "one clear RTC GPIO output enable",
+        "fields": [
+          {
+            "name": "RTC_GPIO_ENABLE_W1TC",
+            "bit_high": 31,
+            "bit_low": 10,
+            "access": "WO",
+            "reset_value": null,
+            "description": "RTC GPIO 0 ~ 21 enable write 1 to clear",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_STATUS",
+        "address": "0xA418",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "RTC GPIO 0 ~ 21 interrupt status",
+        "fields": [
+          {
+            "name": "INT",
+            "bit_high": 31,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO 0 ~ 21 interrupt status",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_STATUS_W1TS",
+        "address": "0xA41C",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "One set RTC GPIO 0 ~ 21 interrupt status",
+        "fields": [
+          {
+            "name": "RTC_GPIO_STATUS_INT_W1TS",
+            "bit_high": 31,
+            "bit_low": 10,
+            "access": "WO",
+            "reset_value": null,
+            "description": "RTC GPIO 0 ~ 21 interrupt status write 1 to set",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_STATUS_W1TC",
+        "address": "0xA420",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "One clear RTC GPIO 0 ~ 21 interrupt status",
+        "fields": [
+          {
+            "name": "RTC_GPIO_STATUS_INT_W1TC",
+            "bit_high": 31,
+            "bit_low": 10,
+            "access": "WO",
+            "reset_value": null,
+            "description": "RTC GPIO 0 ~ 21 interrupt status write 1 to clear",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_IN",
+        "address": "0xA424",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "RTC GPIO input data",
+        "fields": [
+          {
+            "name": "NEXT",
+            "bit_high": 31,
+            "bit_low": 10,
+            "access": "RO",
+            "reset_value": null,
+            "description": "RTC GPIO input data",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN0",
+        "address": "0xA428",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO0",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN1",
+        "address": "0xA42C",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO1",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN2",
+        "address": "0xA430",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO2",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN3",
+        "address": "0xA434",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO3",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN4",
+        "address": "0xA438",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO4",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN5",
+        "address": "0xA43C",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO5",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN6",
+        "address": "0xA440",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO6",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN7",
+        "address": "0xA444",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO7",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN8",
+        "address": "0xA448",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO8",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN9",
+        "address": "0xA44C",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO9",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN10",
+        "address": "0xA450",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO10",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN11",
+        "address": "0xA454",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO11",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN12",
+        "address": "0xA458",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO12",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN13",
+        "address": "0xA45C",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO13",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN14",
+        "address": "0xA460",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO14",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN15",
+        "address": "0xA464",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO15",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN16",
+        "address": "0xA468",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO16",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN17",
+        "address": "0xA46C",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO17",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN18",
+        "address": "0xA470",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO18",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN19",
+        "address": "0xA474",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO19",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN20",
+        "address": "0xA478",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO20",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_GPIO_PIN21",
+        "address": "0xA47C",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure RTC GPIO21",
+        "fields": [
+          {
+            "name": "PAD_DRIVER",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: normal output, if set to 1: open drain",
+            "enum_values": null
+          },
+          {
+            "name": "INT_TYPE",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "if set to 0: GPIO interrupt disable,  if set to 1: rising edge trigger,  if set to 2: falling edge trigger, if set to 3: any edge trigger, if set to 4: low level trigger,  if set to 5: high level trigger",
+            "enum_values": null
+          },
+          {
+            "name": "WAKEUP_ENABLE",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RTC GPIO wakeup enable bit",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_DEBUG_SEL",
+        "address": "0xA480",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure rtc debug",
+        "fields": [
+          {
+            "name": "RTC_DEBUG_SEL0",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure rtc debug",
+            "enum_values": null
+          },
+          {
+            "name": "RTC_DEBUG_SEL1",
+            "bit_high": 9,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure rtc debug",
+            "enum_values": null
+          },
+          {
+            "name": "RTC_DEBUG_SEL2",
+            "bit_high": 14,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure rtc debug",
+            "enum_values": null
+          },
+          {
+            "name": "RTC_DEBUG_SEL3",
+            "bit_high": 19,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure rtc debug",
+            "enum_values": null
+          },
+          {
+            "name": "RTC_DEBUG_SEL4",
+            "bit_high": 24,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure rtc debug",
+            "enum_values": null
+          },
+          {
+            "name": "RTC_DEBUG_12M_NO_GATING",
+            "bit_high": 25,
+            "bit_low": 25,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure rtc debug",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD0",
+        "address": "0xA484",
+        "size_bits": 32,
+        "reset_value": "0x50000000",
+        "description": "configure RTC  PAD0",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD1",
+        "address": "0xA488",
+        "size_bits": 32,
+        "reset_value": "0x48000000",
+        "description": "configure RTC  PAD1",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD2",
+        "address": "0xA48C",
+        "size_bits": 32,
+        "reset_value": "0x50000000",
+        "description": "configure RTC  PAD2",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD3",
+        "address": "0xA490",
+        "size_bits": 32,
+        "reset_value": "0x48000000",
+        "description": "configure RTC  PAD3",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD4",
+        "address": "0xA494",
+        "size_bits": 32,
+        "reset_value": "0x50000000",
+        "description": "configure RTC  PAD4",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD5",
+        "address": "0xA498",
+        "size_bits": 32,
+        "reset_value": "0x50000000",
+        "description": "configure RTC  PAD5",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD6",
+        "address": "0xA49C",
+        "size_bits": 32,
+        "reset_value": "0x48000000",
+        "description": "configure RTC  PAD6",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD7",
+        "address": "0xA4A0",
+        "size_bits": 32,
+        "reset_value": "0x40000000",
+        "description": "configure RTC  PAD7",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD8",
+        "address": "0xA4A4",
+        "size_bits": 32,
+        "reset_value": "0x40000000",
+        "description": "configure RTC  PAD8",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD9",
+        "address": "0xA4A8",
+        "size_bits": 32,
+        "reset_value": "0x40000000",
+        "description": "configure RTC  PAD9",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD10",
+        "address": "0xA4AC",
+        "size_bits": 32,
+        "reset_value": "0x40000000",
+        "description": "configure RTC  PAD10",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD11",
+        "address": "0xA4B0",
+        "size_bits": 32,
+        "reset_value": "0x40000000",
+        "description": "configure RTC  PAD11",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD12",
+        "address": "0xA4B4",
+        "size_bits": 32,
+        "reset_value": "0x40000000",
+        "description": "configure RTC  PAD12",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD13",
+        "address": "0xA4B8",
+        "size_bits": 32,
+        "reset_value": "0x40000000",
+        "description": "configure RTC  PAD13",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_PAD14",
+        "address": "0xA4BC",
+        "size_bits": 32,
+        "reset_value": "0x40000000",
+        "description": "configure RTC  PAD14",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "XPD",
+            "bit_high": 20,
+            "bit_low": 20,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_XPD",
+            "enum_values": null
+          },
+          {
+            "name": "TIE_OPT",
+            "bit_high": 21,
+            "bit_low": 21,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_TIE_OPT",
+            "enum_values": null
+          },
+          {
+            "name": "START",
+            "bit_high": 22,
+            "bit_low": 22,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TOUCH_START",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "XTAL_32P_PAD",
+        "address": "0xA4C0",
+        "size_bits": 32,
+        "reset_value": "0x40000000",
+        "description": "configure RTC  PAD15",
+        "fields": [
+          {
+            "name": "X32P_FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "X32P_SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "X32P_SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "X32P_SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "X32P_FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "X32P_MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "X32P_RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "X32P_RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "X32P_DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "XTAL_32N_PAD",
+        "address": "0xA4C4",
+        "size_bits": 32,
+        "reset_value": "0x40000000",
+        "description": "configure RTC  PAD16",
+        "fields": [
+          {
+            "name": "X32N_FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "X32N_SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "X32N_SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "X32N_SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "X32N_FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "X32N_MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "X32N_RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "X32N_RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "X32N_DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "PAD_DAC1",
+        "address": "0xA4C8",
+        "size_bits": 32,
+        "reset_value": "0x40000000",
+        "description": "configure RTC  PAD17",
+        "fields": [
+          {
+            "name": "PDAC1_DAC",
+            "bit_high": 10,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PDAC1_DAC",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC1_XPD_DAC",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PDAC1_XPD_DAC",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC1_DAC_XPD_FORCE",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use reg_pdac1_xpd_dac to control PDAC1_XPD_DAC,0: use SAR ADC FSM to control PDAC1_XPD_DAC",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC1_FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC1_SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC1_SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC1_SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC1_FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PDAC1 function sel",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC1_MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC1_RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PDAC1_RUE",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC1_RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PDAC1_RDE",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC1_DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PDAC1_DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "PAD_DAC2",
+        "address": "0xA4CC",
+        "size_bits": 32,
+        "reset_value": "0x40000000",
+        "description": "configure RTC  PAD18",
+        "fields": [
+          {
+            "name": "PDAC2_DAC",
+            "bit_high": 10,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PDAC2_DAC",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC2_XPD_DAC",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PDAC2_XPD_DAC",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC2_DAC_XPD_FORCE",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use reg_pdac2_xpd_dac to control PDAC2_XPD_DAC,0: use SAR ADC FSM to control PDAC2_XPD_DAC",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC2_FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC2_SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC2_SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC2_SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC2_FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PDAC1 function sel",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC2_MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC2_RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PDAC2_RUE",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC2_RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PDAC2_RDE",
+            "enum_values": null
+          },
+          {
+            "name": "PDAC2_DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PDAC2_DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_PAD19",
+        "address": "0xA4D0",
+        "size_bits": 32,
+        "reset_value": "0x50000000",
+        "description": "configure RTC  PAD19",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_PAD20",
+        "address": "0xA4D4",
+        "size_bits": 32,
+        "reset_value": "0x50000000",
+        "description": "configure RTC  PAD20",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "RTC_PAD21",
+        "address": "0xA4D8",
+        "size_bits": 32,
+        "reset_value": "0x50000000",
+        "description": "configure RTC  PAD21",
+        "fields": [
+          {
+            "name": "FUN_IE",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in work mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_OE",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "output enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_IE",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "input enable in sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "SLP_SEL",
+            "bit_high": 16,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: enable sleep mode during sleep,0: no sleep mode",
+            "enum_values": null
+          },
+          {
+            "name": "FUN_SEL",
+            "bit_high": 18,
+            "bit_low": 17,
+            "access": "RW",
+            "reset_value": null,
+            "description": "function sel",
+            "enum_values": null
+          },
+          {
+            "name": "MUX_SEL",
+            "bit_high": 19,
+            "bit_low": 19,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: use RTC GPIO,0: use digital GPIO",
+            "enum_values": null
+          },
+          {
+            "name": "RUE",
+            "bit_high": 27,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RUE",
+            "enum_values": null
+          },
+          {
+            "name": "RDE",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RDE",
+            "enum_values": null
+          },
+          {
+            "name": "DRV",
+            "bit_high": 30,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DRV",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "EXT_WAKEUP0",
+        "address": "0xA4DC",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure EXT0 wakeup",
+        "fields": [
+          {
+            "name": "SEL",
+            "bit_high": 31,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "******* Description configure***",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "XTL_EXT_CTR",
+        "address": "0xA4E0",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure gpio pd XTAL",
+        "fields": [
+          {
+            "name": "SEL",
+            "bit_high": 31,
+            "bit_low": 27,
+            "access": "RW",
+            "reset_value": null,
+            "description": "select RTC GPIO 0 ~ 17 to control XTAL",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SAR_I2C_IO",
+        "address": "0xA4E4",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure rtc i2c mux",
+        "fields": [
+          {
+            "name": "SAR_DEBUG_BIT_SEL",
+            "bit_high": 27,
+            "bit_low": 23,
+            "access": "RW",
+            "reset_value": null,
+            "description": "******* Description configure***",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_I2C_SCL_SEL",
+            "bit_high": 29,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "******* Description configure***",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_I2C_SDA_SEL",
+            "bit_high": 31,
+            "bit_low": 30,
+            "access": "RW",
+            "reset_value": null,
+            "description": "******* Description configure***",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "TOUCH_CTRL",
+        "address": "0xA4E8",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure touch pad bufmode",
+        "fields": [
+          {
+            "name": "IO_TOUCH_BUFSEL",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "BUF_SEL when touch work without fsm",
+            "enum_values": null
+          },
+          {
+            "name": "IO_TOUCH_BUFMODE",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "BUF_MODE when touch work without fsm",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "DATE",
+        "address": "0xA5FC",
+        "size_bits": 32,
+        "reset_value": "0x2101180",
+        "description": "version",
+        "fields": [
+          {
+            "name": "DATE",
+            "bit_high": 27,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "version",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      }
+    ],
+    "SENS": [
+      {
+        "name": "SAR_SLAVE_ADDR1",
+        "address": "0xC840",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure i2c slave address",
+        "fields": [
+          {
+            "name": "SAR_I2C_SLAVE_ADDR1",
+            "bit_high": 10,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure i2c slave address1",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_I2C_SLAVE_ADDR0",
+            "bit_high": 21,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure i2c slave address0",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_SARADC_MEAS_STATUS",
+            "bit_high": 29,
+            "bit_low": 22,
+            "access": "RO",
+            "reset_value": null,
+            "description": "no public",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SAR_SLAVE_ADDR2",
+        "address": "0xC844",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure i2c slave address",
+        "fields": [
+          {
+            "name": "SAR_I2C_SLAVE_ADDR3",
+            "bit_high": 10,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure i2c slave address3",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_I2C_SLAVE_ADDR2",
+            "bit_high": 21,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure i2c slave address2",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SAR_SLAVE_ADDR3",
+        "address": "0xC848",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure i2c slave address",
+        "fields": [
+          {
+            "name": "SAR_I2C_SLAVE_ADDR5",
+            "bit_high": 10,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure i2c slave address5",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_I2C_SLAVE_ADDR4",
+            "bit_high": 21,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure i2c slave address4",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SAR_SLAVE_ADDR4",
+        "address": "0xC84C",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure i2c slave address",
+        "fields": [
+          {
+            "name": "SAR_I2C_SLAVE_ADDR7",
+            "bit_high": 10,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure i2c slave address7",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_I2C_SLAVE_ADDR6",
+            "bit_high": 21,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "configure i2c slave address6",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SAR_I2C_CTRL",
+        "address": "0xC858",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "configure rtc i2c controller by sw",
+        "fields": [
+          {
+            "name": "SAR_I2C_CTRL",
+            "bit_high": 27,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "I2C control data  only active when reg_sar_i2c_start_force = 1",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_I2C_START",
+            "bit_high": 28,
+            "bit_low": 28,
+            "access": "RW",
+            "reset_value": null,
+            "description": "start I2C  only active when reg_sar_i2c_start_force = 1",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_I2C_START_FORCE",
+            "bit_high": 29,
+            "bit_low": 29,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: I2C started by SW  0: I2C started by FSM",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SAR_COCPU_INT_RAW",
+        "address": "0xC8E8",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "the interrupt raw of ulp",
+        "fields": [
+          {
+            "name": "SAR_COCPU_TOUCH_DONE_INT_RAW",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int from touch done",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_INACTIVE_INT_RAW",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int from touch inactive",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_ACTIVE_INT_RAW",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int from touch active",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SARADC1_INT_RAW",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int from saradc1",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SARADC2_INT_RAW",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int from saradc2",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TSENS_INT_RAW",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int from tsens",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_START_INT_RAW",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int from start",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SW_INT_RAW",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int from software",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SWD_INT_RAW",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int from super watch dog",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_TIMEOUT_INT_RAW",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int from timeout done",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_APPROACH_LOOP_DONE_INT_RAW",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int from approach loop done",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_SCAN_DONE_INT_RAW",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int from touch scan done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SAR_COCPU_INT_ENA",
+        "address": "0xC8EC",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "the interrupt enable of ulp",
+        "fields": [
+          {
+            "name": "SAR_COCPU_TOUCH_DONE_INT_ENA",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "int enable of touch done",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_INACTIVE_INT_ENA",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "int enable of from touch inactive",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_ACTIVE_INT_ENA",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "int enable of touch active",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SARADC1_INT_ENA",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "int enable of from saradc1",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SARADC2_INT_ENA",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "int enable of from saradc2",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TSENS_INT_ENA",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "int enable of tsens",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_START_INT_ENA",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "int enable of start",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SW_INT_ENA",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "int enable of  software",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SWD_INT_ENA",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": null,
+            "description": "int enable of super watch dog",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_TIMEOUT_INT_ENA",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": null,
+            "description": "int enable of timeout done",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_APPROACH_LOOP_DONE_INT_ENA",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "int enable of approach loop done",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_SCAN_DONE_INT_ENA",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "int enable of touch scan done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SAR_COCPU_INT_ST",
+        "address": "0xC8F0",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "the interrupt state of ulp",
+        "fields": [
+          {
+            "name": "SAR_COCPU_TOUCH_DONE_INT_ST",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int state of touch done",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_INACTIVE_INT_ST",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int state of from touch inactive",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_ACTIVE_INT_ST",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int state of touch active",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SARADC1_INT_ST",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int state of from saradc1",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SARADC2_INT_ST",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int state of from saradc2",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TSENS_INT_ST",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int state of tsens",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_START_INT_ST",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int state of start",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SW_INT_ST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int state of  software",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SWD_INT_ST",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int state of super watch dog",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_TIMEOUT_INT_ST",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int state of timeout done",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_APPROACH_LOOP_DONE_INT_ST",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int state of approach loop done",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_SCAN_DONE_INT_ST",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RO",
+            "reset_value": null,
+            "description": "int state of touch scan done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      },
+      {
+        "name": "SAR_COCPU_INT_CLR",
+        "address": "0xC8F4",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "the interrupt clear of ulp",
+        "fields": [
+          {
+            "name": "SAR_COCPU_TOUCH_DONE_INT_CLR",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "int clear of touch done",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_INACTIVE_INT_CLR",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": null,
+            "description": "int clear of from touch inactive",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_ACTIVE_INT_CLR",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "WO",
+            "reset_value": null,
+            "description": "int clear of touch active",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SARADC1_INT_CLR",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "WO",
+            "reset_value": null,
+            "description": "int clear of from saradc1",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SARADC2_INT_CLR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "WO",
+            "reset_value": null,
+            "description": "int clear of from saradc2",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TSENS_INT_CLR",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "WO",
+            "reset_value": null,
+            "description": "int clear of tsens",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_START_INT_CLR",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "WO",
+            "reset_value": null,
+            "description": "int clear of start",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SW_INT_CLR",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "WO",
+            "reset_value": null,
+            "description": "int clear of  software",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_SWD_INT_CLR",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "WO",
+            "reset_value": null,
+            "description": "int clear of super watch dog",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_TIMEOUT_INT_CLR",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "WO",
+            "reset_value": null,
+            "description": "int clear of timeout done",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_APPROACH_LOOP_DONE_INT_CLR",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "WO",
+            "reset_value": null,
+            "description": "int clear of approach loop done",
+            "enum_values": null
+          },
+          {
+            "name": "SAR_COCPU_TOUCH_SCAN_DONE_INT_CLR",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "WO",
+            "reset_value": null,
+            "description": "int clear of touch scan done",
+            "enum_values": null
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null
+      }
+    ]
+  },
+  "register_pages": {},
+  "metadata": {
+    "peripheral_bases": {
+      "RTC_CNTL": "0x8000",
+      "RTC_I2C": "0xEC00",
+      "RTC_IO": "0xA400",
+      "SENS": "0xC800"
+    }
+  }
+}

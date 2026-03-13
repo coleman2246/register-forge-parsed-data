@@ -1,0 +1,577 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "QMC5883L",
+  "description": "3-axis magnetic sensor",
+  "vendor": "QST",
+  "source": "QMC5883L.pdf",
+  "source_type": "pdf",
+  "source_url": "https://datasheet.lcsc.com/lcsc/2012221837_QST-QMC5883L_C976032.pdf",
+  "peripherals": {
+    "Data Output X": [
+      {
+        "name": "XOUT_LSB",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output X LSB Register",
+        "fields": [
+          {
+            "name": "XOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X axis output data bits [7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "XOUT_MSB",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output X MSB Register",
+        "fields": [
+          {
+            "name": "XOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X axis output data bits [15:8]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13,
+          15,
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Data Output Y": [
+      {
+        "name": "YOUT_LSB",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output Y LSB Register",
+        "fields": [
+          {
+            "name": "YOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y axis output data bits [7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "YOUT_MSB",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output Y MSB Register",
+        "fields": [
+          {
+            "name": "YOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y axis output data bits [15:8]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Data Output Z": [
+      {
+        "name": "ZOUT_LSB",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output Z LSB Register",
+        "fields": [
+          {
+            "name": "ZOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z axis output data bits [7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ZOUT_MSB",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output Z MSB Register",
+        "fields": [
+          {
+            "name": "ZOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z axis output data bits [15:8]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Temperature Output": [
+      {
+        "name": "TOUT_LSB",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature Output LSB Register",
+        "fields": [
+          {
+            "name": "TOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature output bits [7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TOUT_MSB",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature Output MSB Register",
+        "fields": [
+          {
+            "name": "TOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature output bits [15:8]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Status and Control": [
+      {
+        "name": "STATUS",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Status Register with DOR, OVL, DRDY flags",
+        "fields": [
+          {
+            "name": "DOR",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "OVL",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "DRDY",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "RSVD_7_3",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "CONTROL1",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Control Register 1",
+        "fields": [
+          {
+            "name": "OSR",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "OSR[1:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RNG",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RNG[1:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ODR",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ODR[1:0]",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "MODE",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "MODE[1:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CONTROL0",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Control Register 0",
+        "fields": [
+          {
+            "name": "SOFT_RST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Software Reset",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ROL_PNT",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Roll-over Pointer enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 5,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Read only blanks",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "INT_ENB",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Interrupt Enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SET_RESET_PERIOD",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "SET/RESET Period FBR Register",
+        "fields": [
+          {
+            "name": "FBR",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "SET/RESET Period FBR [7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Identification": [
+      {
+        "name": "CHIP_ID",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Chip ID Register",
+        "fields": [
+          {
+            "name": "CHIP_ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Chip identification value",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-04T03:05:58.568509+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 13,
+        "by_confidence": {
+          "high": 12,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 0,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 22,
+        "by_source": {
+          "evidence_verified": 15,
+          "llm_verified": 4,
+          "synthetic": 2,
+          "llm_consistent": 1
+        }
+      },
+      "peripherals": {
+        "total": 6,
+        "by_name": {
+          "Data Output X": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Data Output Y": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Data Output Z": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Temperature Output": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Status and Control": {
+            "registers": 4,
+            "confidence": {
+              "high": 3,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Identification": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 5,
+        "batches_sent": 3,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": []
+      },
+      "evidence": {
+        "fields_with_evidence": 16,
+        "fields_verified": 16,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 11
+      }
+    }
+  }
+}

@@ -1,0 +1,3604 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "MPU6050",
+  "description": "6-axis IMU (3-axis gyroscope + 3-axis accelerometer) with I2C interface",
+  "vendor": "InvenSense (TDK)",
+  "source": "MPU6050.pdf",
+  "source_type": "pdf",
+  "source_url": "https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf",
+  "peripherals": {
+    "General Config": [
+      {
+        "name": "SMPLRT_DIV",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Sample rate divider from gyroscope output rate",
+        "fields": [
+          {
+            "name": "SMPLRT_DIV",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Sample rate divider [7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          12,
+          13,
+          14
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CONFIG",
+        "address": "0x1A",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Configuration register for DLPF and other settings",
+        "fields": [
+          {
+            "name": "DLPF_CFG",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Digital Low Pass Filter configuration",
+            "enum_values": {
+              "0b000": "360 Hz, 250 Hz",
+              "0b001": "188 Hz, 188 Hz",
+              "0b010": "98 Hz, 98 Hz",
+              "0b011": "42 Hz, 42 Hz",
+              "0b100": "20 Hz, 20 Hz",
+              "0b101": "10 Hz, 10 Hz",
+              "0b110": "5 Hz, 5 Hz",
+              "0b111": "Reserved"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "EXT_SYNC_SET",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "External Frame Synchronization selection",
+            "enum_values": {
+              "0b000": "Input disabled",
+              "0b001": "TEMP_OUT",
+              "0b010": "GYRO_XOUT",
+              "0b011": "GYRO_YOUT",
+              "0b100": "GYRO_ZOUT",
+              "0b101": "ACCEL_XOUT",
+              "0b110": "ACCEL_YOUT",
+              "0b111": "ACCEL_ZOUT"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FIFO_MODE",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO mode selection",
+            "enum_values": {
+              "0b00": "Normal operation",
+              "0b01": "FIFO read from FIFO buffer",
+              "0b10": "FIFO reset",
+              "0b11": "FIFO read from FIFO buffer"
+            },
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15,
+          16,
+          17
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      }
+    ],
+    "Self Test": [
+      {
+        "name": "SELF_TEST_X",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Self Test X register",
+        "fields": [
+          {
+            "name": "XA_TEST",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Accelerometer X self-test bits [4:2]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "XG_TEST",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gyroscope X self-test bits [4:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          12,
+          13,
+          14
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SELF_TEST_Y",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Self test register for Y-axis accelerometer and gyroscope",
+        "fields": [
+          {
+            "name": "YA_TEST",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Accelerometer Y-axis self test bits [4:2]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YG_TEST",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gyroscope Y-axis self test bits [4:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          12,
+          13,
+          14
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SELF_TEST_Z",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Self test register for Z-axis accelerometer and gyroscope",
+        "fields": [
+          {
+            "name": "ZA_TEST",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Accelerometer Z-axis self test bits [4:2]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ZG_TEST",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gyroscope Z-axis self test bits [4:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          12,
+          13,
+          14
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SELF_TEST_A",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Self test register for accelerometer lower bits",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "XA_TEST",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Accelerometer X-axis self test bits [1:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YA_TEST",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Accelerometer Y-axis self test bits [1:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ZA_TEST",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Accelerometer Z-axis self test bits [1:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          12,
+          13,
+          14
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Gyroscope": [
+      {
+        "name": "GYRO_CONFIG",
+        "address": "0x1B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Triggers gyroscope self-test and configures gyroscopes full scale range",
+        "fields": [
+          {
+            "name": "XG_ST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "X gyroscope self-test enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YG_ST",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Y gyroscope self-test enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ZG_ST",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Z gyroscope self-test enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FS_SEL",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gyroscope full scale range select",
+            "enum_values": {
+              "0b00": "\u00b1250\u00b0/s",
+              "0b01": "\u00b1500\u00b0/s",
+              "0b10": "\u00b11000\u00b0/s",
+              "0b11": "\u00b12000\u00b0/s"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15,
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYRO_XOUT_H",
+        "address": "0x43",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper byte of X axis gyroscope measurement",
+        "fields": [
+          {
+            "name": "GYRO_XOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "GYRO_XOUT[15:8]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYRO_XOUT_L",
+        "address": "0x44",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower byte of X axis gyroscope measurement",
+        "fields": [
+          {
+            "name": "GYRO_XOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "GYRO_XOUT[7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYRO_YOUT_H",
+        "address": "0x45",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper byte of Y axis gyroscope measurement",
+        "fields": [
+          {
+            "name": "GYRO_YOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "GYRO_YOUT[15:8]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYRO_YOUT_L",
+        "address": "0x46",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower byte of Y axis gyroscope measurement",
+        "fields": [
+          {
+            "name": "GYRO_YOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "GYRO_YOUT[7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYRO_ZOUT_H",
+        "address": "0x47",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper byte of Z axis gyroscope measurement",
+        "fields": [
+          {
+            "name": "GYRO_ZOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "GYRO_ZOUT[15:8]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "GYRO_ZOUT_L",
+        "address": "0x48",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower byte of Z axis gyroscope measurement",
+        "fields": [
+          {
+            "name": "GYRO_ZOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "GYRO_ZOUT[7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Accelerometer": [
+      {
+        "name": "ACCEL_CONFIG",
+        "address": "0x1C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Triggers accelerometer self-test and configures accelerometer full scale range",
+        "fields": [
+          {
+            "name": "XA_ST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "X accelerometer self-test enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YA_ST",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Y accelerometer self-test enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ZA_ST",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Z accelerometer self-test enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AFS_SEL",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Accelerometer full scale range select",
+            "enum_values": {
+              "0b00": "\u00b12g",
+              "0b01": "\u00b14g",
+              "0b10": "\u00b18g",
+              "0b11": "\u00b116g"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15,
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACCEL_XOUT_H",
+        "address": "0x3B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "High byte of X-axis accelerometer measurement",
+        "fields": [
+          {
+            "name": "ACCEL_XOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ACCEL_XOUT[15:8]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACCEL_XOUT_L",
+        "address": "0x3C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Accelerometer X-axis measurement register (low byte).",
+        "fields": [
+          {
+            "name": "ACCEL_XOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ACCEL_XOUT[7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACCEL_YOUT_H",
+        "address": "0x3D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Accelerometer Y-axis measurement register (high byte).",
+        "fields": [
+          {
+            "name": "ACCEL_YOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ACCEL_YOUT[15:8]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACCEL_YOUT_L",
+        "address": "0x3E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Accelerometer Y-axis measurement register (low byte).",
+        "fields": [
+          {
+            "name": "ACCEL_YOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ACCEL_YOUT[7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACCEL_ZOUT_H",
+        "address": "0x3F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Accelerometer Z-axis measurement register (high byte).",
+        "fields": [
+          {
+            "name": "ACCEL_ZOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ACCEL_ZOUT[15:8]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACCEL_ZOUT_L",
+        "address": "0x40",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Accelerometer Z-axis measurement register (low byte).",
+        "fields": [
+          {
+            "name": "ACCEL_ZOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ACCEL_ZOUT[7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Temperature": [
+      {
+        "name": "TEMP_OUT_H",
+        "address": "0x41",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper byte of temperature measurement",
+        "fields": [
+          {
+            "name": "TEMP_OUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "TEMP_OUT[15:8]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "TEMP_OUT_L",
+        "address": "0x42",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower byte of temperature measurement",
+        "fields": [
+          {
+            "name": "TEMP_OUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "TEMP_OUT[7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "FIFO": [
+      {
+        "name": "FIFO_EN",
+        "address": "0x23",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Determines which sensor measurements are loaded into the FIFO buffer",
+        "fields": [
+          {
+            "name": "TEMP_FIFO_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Temperature FIFO enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "XG_FIFO_EN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "X gyroscope FIFO enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YG_FIFO_EN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Y gyroscope FIFO enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ZG_FIFO_EN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Z gyroscope FIFO enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACCEL_FIFO_EN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Accelerometer FIFO enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLV2_FIFO_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Slave 2 FIFO enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLV1_FIFO_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Slave 1 FIFO enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLV0_FIFO_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Slave 0 FIFO enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15,
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "FIFO_COUNT_H",
+        "address": "0x72",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "High byte of FIFO count registers. Shadows FIFO count value, updated when read.",
+        "fields": [
+          {
+            "name": "FIFO_COUNT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "FIFO_COUNT[15:8]. Number of bytes stored in the FIFO buffer.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "FIFO_COUNT_L",
+        "address": "0x73",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Low byte of FIFO count registers. Shadows FIFO count value, updated when FIFO_COUNT_H is read.",
+        "fields": [
+          {
+            "name": "FIFO_COUNT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "FIFO_COUNT[7:0]. Number of bytes stored in the FIFO buffer.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "FIFO_R_W",
+        "address": "0x74",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Used to read and write data from the FIFO buffer.",
+        "fields": [
+          {
+            "name": "FIFO_DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "8-bit data transferred to and from the FIFO buffer.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "I2C Master": [
+      {
+        "name": "I2C_MST_CTRL",
+        "address": "0x24",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Configures auxiliary I2C bus for single/multi-master control, delays Data Ready interrupt, enables Slave 3 FIFO, configures slave read transitions and I2C master clock.",
+        "fields": [
+          {
+            "name": "MULT_MST_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Enables multi-master capability.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "WAIT_FOR_ES",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Delays Data Ready interrupt until external sensor data loaded.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLV3_FIFO_EN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Enables EXT_SENS_DATA registers for Slave 3 into FIFO.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_MST_P_NSR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Controls I2C master transition: 0=restart, 1=stop+start between reads.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_MST_CLK",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "4-bit value configures divider on 8MHz clock for I2C master speed.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV0_ADDR",
+        "address": "0x25",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Specifies I2C slave address for Slave 0.",
+        "fields": [
+          {
+            "name": "I2C_SLV0_RW",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Sets read(1)/write(0) operation for Slave 0.",
+            "enum_values": null,
+            "source": "llm_unverified"
+          },
+          {
+            "name": "I2C_SLV0_ADDR",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "7-bit I2C slave address of Slave 0.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV0_REG",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Register address within Slave 0 where data transfer starts.",
+        "fields": [
+          {
+            "name": "I2C_SLV0_REG",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "8-bit register address in slave device.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV0_CTRL",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Configures Slave 0 data transfer: enable, byte swap, reg disable, grouping, length.",
+        "fields": [
+          {
+            "name": "I2C_SLV0_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Enables Slave 0 for I2C data transaction.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV0_BYTE_SW",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Configures byte swapping of word pairs.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV0_REG_DIS",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Disables register address write before data transaction.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV0_GRP",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Configures grouping for byte swapping.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV0_LEN",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Number of bytes to transfer.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV1_ADDR",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I^2C Slave 1 address register.",
+        "fields": [
+          {
+            "name": "I2C_SLV1_RW",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "When set to 1, configures data transfer as read operation. When 0, write operation.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV1_ADDR",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "I^2C Slave 1 address bits [6:0].",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV1_REG",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I^2C Slave 1 register address.",
+        "fields": [
+          {
+            "name": "I2C_SLV1_REG",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "8-bit register address for Slave 1.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV1_CTRL",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "i2c_slv1_ctrl",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV2_ADDR",
+        "address": "0x2B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I^2C Slave 2 address register.",
+        "fields": [
+          {
+            "name": "I2C_SLV2_RW",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Read/write direction for Slave 2.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV2_ADDR",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "I^2C Slave 2 address bits [6:0].",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV2_REG",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I^2C Slave 2 register address.",
+        "fields": [
+          {
+            "name": "I2C_SLV2_REG",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "8-bit register address for Slave 2.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV2_CTRL",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "i2c_slv2_ctrl",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV3_ADDR",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C Slave 3 address register",
+        "fields": [
+          {
+            "name": "I2C_SLV3_RW",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Read/write bit for Slave 3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV3_ADDR",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "7-bit I2C address for Slave 3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV3_REG",
+        "address": "0x2F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C Slave 3 register address",
+        "fields": [
+          {
+            "name": "I2C_SLV3_REG",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "8-bit register address for Slave 3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV3_CTRL",
+        "address": "0x30",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C Slave 3 control register",
+        "fields": [
+          {
+            "name": "I2C_SLV3_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Enable Slave 3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV3_BYTE_SW",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Byte swap for Slave 3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV3_REG_DIS",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register disable for Slave 3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV3_GRP",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Group bit for Slave 3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV3_LEN",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Length for Slave 3 transaction",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV4_ADDR",
+        "address": "0x31",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C Slave 4 address register",
+        "fields": [
+          {
+            "name": "I2C_SLV4_RW",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Read/write bit for Slave 4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV4_ADDR",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "7-bit I2C address for Slave 4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV4_REG",
+        "address": "0x32",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C Slave 4 register address",
+        "fields": [
+          {
+            "name": "I2C_SLV4_REG",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "8-bit register address for Slave 4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV4_DO",
+        "address": "0x33",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C Slave 4 data out register",
+        "fields": [
+          {
+            "name": "I2C_SLV4_DO",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Data to write to Slave 4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV4_CTRL",
+        "address": "0x34",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C Slave 4 control register",
+        "fields": [
+          {
+            "name": "I2C_SLV4_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Enable Slave 4 transaction",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV4_INT_EN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Interrupt enable for Slave 4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV4_REG_DIS",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register disable for Slave 4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_MST_DLY",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Master delay for Slave 4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV4_DI",
+        "address": "0x35",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C Slave 4 data in register",
+        "fields": [
+          {
+            "name": "I2C_SLV4_DI",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Data read from Slave 4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_MST_STATUS",
+        "address": "0x36",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C Master status register",
+        "fields": [
+          {
+            "name": "PASS_THROUGH",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "FSYNC pass-through status",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV4_DONE",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Slave 4 transaction done",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_LOST_ARB",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "I2C arbitration lost",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV4_NACK",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Slave 4 NACK",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV3_NACK",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Slave 3 NACK",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV2_NACK",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Slave 2 NACK",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV1_NACK",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Slave 1 NACK",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV0_NACK",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Slave 0 NACK",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25,
+          26,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV0_DO",
+        "address": "0x63",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Output data written into Slave 0 when set to write mode.",
+        "fields": [
+          {
+            "name": "I2C_SLV0_DO",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "8 bit unsigned value written into Slave 0.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          35,
+          36,
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV1_DO",
+        "address": "0x64",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Output data written into Slave 1 when set to write mode.",
+        "fields": [
+          {
+            "name": "I2C_SLV1_DO",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "8 bit unsigned value written into Slave 1.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          35,
+          36,
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV2_DO",
+        "address": "0x65",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Output data written into Slave 2 when set to write mode.",
+        "fields": [
+          {
+            "name": "I2C_SLV2_DO",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "8 bit unsigned value written into Slave 2.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          35,
+          36,
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_SLV3_DO",
+        "address": "0x66",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Output data written into Slave 3 when set to write mode.",
+        "fields": [
+          {
+            "name": "I2C_SLV3_DO",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "8 bit unsigned value written into Slave 3.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          35,
+          36,
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "I2C_MST_DELAY_CTRL",
+        "address": "0x67",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Specify timing of external sensor data shadowing and decrease access rate of slave devices.",
+        "fields": [
+          {
+            "name": "DELAY_ES_SHADOW",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Delay shadowing of external sensor data until all data received.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV4_DLY_EN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Delay enable for Slave 4.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV3_DLY_EN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Delay enable for Slave 3.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV2_DLY_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Delay enable for Slave 2.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV1_DLY_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Delay enable for Slave 1.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV0_DLY_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Delay enable for Slave 0.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_6_5",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          35,
+          36,
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Interrupts": [
+      {
+        "name": "INT_PIN_CFG",
+        "address": "0x37",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Configures the behavior of the interrupt signals at the INT pins. Also used to enable the FSYNC Pin to be used as an interrupt to the host application processor, as well as to enable Bypass Mode on the I2C Master.",
+        "fields": [
+          {
+            "name": "INT_LEVEL",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "When 0, INT pin active high. When 1, INT pin active low.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT_OPEN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "When 0, INT pin push-pull. When 1, INT pin open drain.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LATCH_INT_EN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "When 0, INT pin 50us pulse. When 1, INT pin held until cleared.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT_RD_CLEAR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "When 0, clear by reading INT_STATUS (Register 58)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FSYNC_INT_LEVEL",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "When 0, FSYNC active high. When 1, FSYNC active low.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FSYNC_INT_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "When 1, enables FSYNC pin as interrupt to host processor.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_BYPASS_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "When 1 and I2C_MST_EN=0, enables direct access to auxiliary I2C bus.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "INT_ENABLE",
+        "address": "0x38",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Enables interrupt generation by interrupt sources.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FIFO_OFLOW_EN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "When set to 1, this bit enables a FIFO buffer overflow to generate an interrupt.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_MST_INT_EN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "When set to 1, this bit enables any of the I^2C Master interrupt sources to generate an interrupt.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "DATA_RDY_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "When set to 1, this bit enables the Data Ready interrupt, which occurs each time a write operation to all of the sensor registers has been completed.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "duplicate field name 'RESERVED'"
+        ]
+      },
+      {
+        "name": "INT_STATUS",
+        "address": "0x3A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Shows the interrupt status of each interrupt generation source. Each bit clears after register read.",
+        "fields": [
+          {
+            "name": "FIFO_OFLOW_INT",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sets to 1 when FIFO overflow interrupt generated. Clears after read.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_MST_INT",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sets to 1 when I2C Master interrupt generated. Clears after read.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DATA_RDY_INT",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sets to 1 when Data Ready interrupt generated. Clears after read.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_2_1",
+            "bit_high": 2,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "External Sensors": [
+      {
+        "name": "EXT_SENS_DATA_00",
+        "address": "0x49",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 00",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_00",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_01",
+        "address": "0x4A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 01",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_01",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_02",
+        "address": "0x4B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 02",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_02",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_03",
+        "address": "0x4C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 03",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_03",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_04",
+        "address": "0x4D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 04",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_04",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_05",
+        "address": "0x4E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 05",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_05",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_06",
+        "address": "0x4F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 06",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_06",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_07",
+        "address": "0x50",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 07",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_07",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_08",
+        "address": "0x51",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 08",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_08",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_09",
+        "address": "0x52",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 09",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_09",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_10",
+        "address": "0x53",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 10",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_10",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_11",
+        "address": "0x54",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 11",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_11",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_12",
+        "address": "0x55",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 12",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_12",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_13",
+        "address": "0x56",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 13",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_13",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_14",
+        "address": "0x57",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 14",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_14",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_15",
+        "address": "0x58",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 15",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_15",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_16",
+        "address": "0x59",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 16",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_16",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "External Sensor Data": [
+      {
+        "name": "EXT_SENS_DATA_17",
+        "address": "0x5A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 17",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_17",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_18",
+        "address": "0x5B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 18",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_18",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_19",
+        "address": "0x5C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 19",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_19",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_20",
+        "address": "0x5D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 20",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_20",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_21",
+        "address": "0x5E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 21",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_21",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_22",
+        "address": "0x5F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 22",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_22",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "EXT_SENS_DATA_23",
+        "address": "0x60",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External sensor data 23",
+        "fields": [
+          {
+            "name": "EXT_SENS_DATA_23",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31,
+          32,
+          33,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Signal Path Control": [
+      {
+        "name": "SIGNAL_PATH_RESET",
+        "address": "0x68",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Reset the analog and digital signal paths of the gyroscope, accelerometer, and temperature sensors.",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "GYRO_RESET",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Resets the gyroscope analog and digital signal paths",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACCEL_RESET",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Resets the accelerometer analog and digital signal paths",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TEMP_RESET",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Resets the temperature sensor analog and digital signal paths",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8,
+          45
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "User Control": [
+      {
+        "name": "USER_CTRL",
+        "address": "0x6A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Enable/disable FIFO buffer, I2C Master Mode, and primary I2C interface. Reset FIFO, I2C Master, sensor signal paths.",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FIFO_EN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables FIFO operations",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_MST_EN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables I2C Master Mode",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_IF_DIS",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Disables primary I2C interface (MPU-6000) or always 0 (MPU-6050)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FIFO_RESET",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Resets FIFO buffer",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_MST_RESET",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Resets I2C Master",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SIG_COND_RESET",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Resets signal paths for all sensors",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          38,
+          39,
+          40,
+          41,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Power Management": [
+      {
+        "name": "PWR_MGMT_1",
+        "address": "0x6B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Configure power mode and clock source. Reset entire device, disable temperature sensor.",
+        "fields": [
+          {
+            "name": "DEVICE_RESET",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Resets all internal registers to default values",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLEEP",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Puts device into sleep mode",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CYCLE",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables cycle mode",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TEMP_DIS",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Disables temperature sensor",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CLKSEL",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Clock source selection",
+            "enum_values": {
+              "0": "Internal 8MHz oscillator",
+              "1": "PLL with X axis gyro",
+              "2": "PLL with Y axis gyro",
+              "3": "PLL with Z axis gyro",
+              "4": "PLL with external 32.768kHz",
+              "5": "PLL with external 19.2MHz",
+              "6": "Reserved",
+              "7": "Stops clock"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          38,
+          39,
+          40,
+          41,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "PWR_MGMT_2",
+        "address": "0x6C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Configure wake-up frequency in Accelerometer Only Low Power Mode and put individual axes into standby mode.",
+        "fields": [
+          {
+            "name": "LP_WAKE_CTRL",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Specifies the frequency of wake-ups during Accelerometer Only Low Power Mode.",
+            "enum_values": {
+              "0": "1.25 Hz",
+              "1": "5 Hz",
+              "2": "20 Hz",
+              "3": "40 Hz"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "STBY_XA",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Puts the X axis accelerometer into standby mode when set to 1.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "STBY_YA",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Puts the Y axis accelerometer into standby mode when set to 1.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "STBY_ZA",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Puts the Z axis accelerometer into standby mode when set to 1.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "STBY_XG",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Puts the X axis gyroscope into standby mode when set to 1.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "STBY_YG",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Puts the Y axis gyroscope into standby mode when set to 1.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "STBY_ZG",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Puts the Z axis gyroscope into standby mode when set to 1.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Device ID": [
+      {
+        "name": "WHO_AM_I",
+        "address": "0x75",
+        "size_bits": 8,
+        "reset_value": "0x68",
+        "description": "Verify device identity. Contains upper 6 bits of 7-bit I2C address. Bits 0 and 7 reserved.",
+        "fields": [
+          {
+            "name": "WHO_AM_I",
+            "bit_high": 6,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 52,
+            "description": "6-bit I2C address of the MPU-60X0. Power-On-Reset value is 110100.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-04T03:14:32.395150+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 82,
+        "by_confidence": {
+          "high": 78,
+          "medium": 4,
+          "low": 0
+        },
+        "with_quality_issues": 1,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 176,
+        "by_source": {
+          "evidence_verified": 157,
+          "llm_unverified": 2,
+          "synthetic": 15,
+          "manifest_only": 2
+        }
+      },
+      "peripherals": {
+        "total": 14,
+        "by_name": {
+          "General Config": {
+            "registers": 2,
+            "confidence": {
+              "high": 1,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Self Test": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Gyroscope": {
+            "registers": 7,
+            "confidence": {
+              "high": 7,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Accelerometer": {
+            "registers": 7,
+            "confidence": {
+              "high": 7,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Temperature": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "FIFO": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "I2C Master": {
+            "registers": 24,
+            "confidence": {
+              "high": 21,
+              "medium": 3,
+              "low": 0
+            }
+          },
+          "Interrupts": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "External Sensors": {
+            "registers": 17,
+            "confidence": {
+              "high": 17,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "External Sensor Data": {
+            "registers": 7,
+            "confidence": {
+              "high": 7,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Signal Path Control": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "User Control": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Power Management": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Device ID": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 82,
+        "batches_total": 13,
+        "batches_sent": 13,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 1,
+        "warnings_detail": [
+          "INT_ENABLE (0x38): duplicate field name 'RESERVED'"
+        ]
+      },
+      "evidence": {
+        "fields_with_evidence": 175,
+        "fields_verified": 160,
+        "fields_unverified": 15,
+        "fields_bit_mismatch": 2,
+        "regs_upgraded": 76
+      }
+    }
+  }
+}

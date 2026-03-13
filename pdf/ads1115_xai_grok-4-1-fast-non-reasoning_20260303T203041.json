@@ -1,0 +1,338 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "ADS1115",
+  "description": "16-bit precision ADC",
+  "vendor": "Texas Instruments",
+  "source": "ADS1115.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/ads1115.pdf",
+  "peripherals": {
+    "Pointer and Configuration": [
+      {
+        "name": "ADDRESS_POINTER",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Address Pointer register selects which register to access",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "W",
+            "reset_value": 0,
+            "description": "Always write 000000b",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "P",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "W",
+            "reset_value": 0,
+            "description": "Register address pointer: 00b=Conversion, 01b=Config, 10b=Lo_thresh, 11b=Hi_thresh",
+            "enum_values": {
+              "0b00": "Conversion register",
+              "0b01": "Config register",
+              "0b10": "Lo_thresh register",
+              "0b11": "Hi_thresh register"
+            },
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28,
+          29
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "CONFIG",
+        "address": "0x01",
+        "size_bits": 16,
+        "reset_value": "0x8583",
+        "description": "Config register controls operating mode, input selection, data rate, full-scale range, and comparator modes (P[1:0] = 01b)",
+        "fields": [
+          {
+            "name": "OS",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Operational status or single-shot conversion start",
+            "enum_values": {
+              "0b": "No effect",
+              "1b": "Start a single conversion (when in power-down state)"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MUX",
+            "bit_high": 14,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Input multiplexer configuration (ADS1115 only)",
+            "enum_values": {
+              "0b000": "AIN_P = AIN0 and AIN_N = AIN1 (default)",
+              "0b001": "AIN_P = AIN0 and AIN_N = AIN3",
+              "0b010": "AIN_P = AIN1 and AIN_N = AIN3",
+              "0b011": "AIN_P = AIN2 and AIN_N = AIN3",
+              "0b100": "AIN_P = AIN0 and AIN_N = GND",
+              "0b101": "AIN_P = AIN1 and AIN_N = GND",
+              "0b110": "AIN_P = AIN2 and AIN_N = GND",
+              "0b111": "AIN_P = AIN3 and AIN_N = GND"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PGA",
+            "bit_high": 11,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Programmable gain amplifier configuration",
+            "enum_values": {
+              "0b000": "FSR = \u00b16.144V",
+              "0b001": "FSR = \u00b14.096V",
+              "0b010": "FSR = \u00b12.048V (default)",
+              "0b011": "FSR = \u00b11.024V",
+              "0b100": "FSR = \u00b10.512V",
+              "0b101": "FSR = \u00b10.256V",
+              "0b110": "FSR = \u00b10.256V",
+              "0b111": "FSR = \u00b10.256V"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MODE",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Device operating mode",
+            "enum_values": {
+              "0b": "Continuous-conversion mode",
+              "1b": "Single-shot mode or power-down state (default)"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DR",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 4,
+            "description": "Data rate",
+            "enum_values": {
+              "0b000": "8SPS",
+              "0b001": "16SPS",
+              "0b010": "32SPS",
+              "0b011": "64SPS",
+              "0b100": "128SPS (default)",
+              "0b101": "250SPS",
+              "0b110": "475SPS"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COMP_MODE",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Comparator mode (ADS1114 and ADS1115 only)",
+            "enum_values": {
+              "0b": "Traditional comparator (default)",
+              "1b": "Window comparator"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COMP_POL",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Comparator polarity (ADS1114 and ADS1115 only)",
+            "enum_values": {
+              "0b": "Active low (default)",
+              "1b": "Active high"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COMP_LAT",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Latching comparator (ADS1114 and ADS1115 only)",
+            "enum_values": {
+              "0b": "Nonlatching comparator. The ALERT/RDY pin does not latch when asserted (default).",
+              "1b": "Latching comparator."
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COMP_QUE",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "Comparator queue and disable (ADS1114 and ADS1115 only)",
+            "enum_values": {
+              "0b00": "Assert after one conversion",
+              "0b01": "Assert after two conversions",
+              "0b10": "Assert after four conversions",
+              "0b11": "Disable comparator and set ALERT/RDY pin to high-impedance (default)"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28,
+          29
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Comparator": [
+      {
+        "name": "LO_THRESH",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": "0x8000",
+        "description": "Low threshold register for comparator in 2's complement format. Applicable to ADS1115 and ADS1114.",
+        "fields": [
+          {
+            "name": "LO_THRESH",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 32768,
+            "description": "Low threshold value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30,
+          31,
+          32
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "HI_THRESH",
+        "address": "0x03",
+        "size_bits": 16,
+        "reset_value": "0x7FFF",
+        "description": "High threshold register for comparator in 2's complement format. Applicable to ADS1115 and ADS1114.",
+        "fields": [
+          {
+            "name": "HI_THRESH",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 32767,
+            "description": "High threshold value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30,
+          31,
+          32
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-04T01:30:41.050835+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 4,
+        "by_confidence": {
+          "high": 3,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 0,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 13,
+        "by_source": {
+          "synthetic": 1,
+          "llm_unverified": 1,
+          "evidence_verified": 11
+        }
+      },
+      "peripherals": {
+        "total": 2,
+        "by_name": {
+          "Pointer and Configuration": {
+            "registers": 2,
+            "confidence": {
+              "high": 1,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Comparator": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 13,
+        "batches_sent": 6,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": []
+      },
+      "evidence": {
+        "fields_with_evidence": 11,
+        "fields_verified": 11,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 3
+      }
+    }
+  }
+}

@@ -1,0 +1,1563 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "SSD1306",
+  "description": "OLED controller",
+  "vendor": "Solomon Systech",
+  "source": "SSD1306.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf",
+  "peripherals": {
+    "Display Control": [
+      {
+        "name": "ENTIRE_DISPLAY_ON",
+        "address": "0xA4",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Resume to RAM content display (RESET)",
+        "fields": [
+          {
+            "name": "X",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Resume to RAM content display",
+            "enum_values": {
+              "0b0": "Resume to RAM content display (RESET)"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xA4 not found in register summary table"
+        ]
+      },
+      {
+        "name": "ENTIRE_DISPLAY_ON",
+        "address": "0xA5",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Entire display ON. Output ignores RAM content",
+        "fields": [
+          {
+            "name": "X_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 1,
+            "description": "Entire display ON (A5h)",
+            "enum_values": {
+              "0b1": "Entire display ON. Output ignores RAM content"
+            },
+            "source": "llm_verified"
+          },
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0xA5 not found in register summary table"
+        ]
+      },
+      {
+        "name": "SET_NORMAL_INVERSE_DISPLAY",
+        "address": "0xA6",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set Normal/Inverse Display",
+        "fields": [
+          {
+            "name": "X",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Display mode select",
+            "enum_values": {
+              "0b0": "Normal display (RESET) 0 in RAM: OFF in display panel 1 in RAM: ON in display panel",
+              "0b1": "Inverse display 0 in RAM: ON in display panel 1 in RAM: OFF in display panel"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xA6 not found in register summary table"
+        ]
+      },
+      {
+        "name": "SET_NORMAL_INVERSE_DISPLAY",
+        "address": "0xA7",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Inverse display",
+        "fields": [
+          {
+            "name": "X",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 1,
+            "description": "Inverse display",
+            "enum_values": {
+              "0b1": "Inverse display"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xA7 not found in register summary table"
+        ]
+      },
+      {
+        "name": "DISPLAY_ON_OFF",
+        "address": "0xAE",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Turns the OLED panel display ON or OFF.",
+        "fields": [
+          {
+            "name": "DISPLAY_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "0=AEh (Display OFF), 1=AFh (Display ON).",
+            "enum_values": {
+              "0b0": "Display OFF (AEh)",
+              "0b1": "Display ON (AFh)"
+            },
+            "source": "llm_unverified"
+          },
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 36,
+        "source_pages": [
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0xAE not found in register summary table"
+        ]
+      },
+      {
+        "name": "SET_DISPLAY_ON_OFF",
+        "address": "0xAF",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "AEh, X[0]=0b:Display OFF (sleep mode) (RESET) AFh X[0]=1b:Display ON in normal mode",
+        "fields": [
+          {
+            "name": "X",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Display control bit",
+            "enum_values": {
+              "0b0": "Display OFF (sleep mode) (RESET)",
+              "0b1": "Display ON in normal mode"
+            },
+            "source": "llm_verified"
+          },
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0xAF not found in register summary table"
+        ]
+      }
+    ],
+    "Scroll Control": [
+      {
+        "name": "CONTINUOUS_HORIZONTAL_SCROLL_SETUP",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Continuous Horizontal Scroll Setup (26h, X[0]=0, Right Horizontal Scroll; 27h, X[0]=1, Left Horizontal Scroll)",
+        "fields": [
+          {
+            "name": "X",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Scroll direction",
+            "enum_values": {
+              "0b0": "Right Horizontal Scroll (26h)",
+              "0b1": "Left Horizontal Scroll (27h)"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "A",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Dummy byte (Set as 00h)",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x26 not found in register summary table"
+        ]
+      },
+      {
+        "name": "CONTINUOUS_HORIZONTAL_SCROLL_SETUP",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Left Horizontal Scroll setup (multi-byte command)",
+        "fields": [
+          {
+            "name": "X",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 1,
+            "description": "Left scroll direction",
+            "enum_values": {
+              "0b1": "Left Horizontal Scroll"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "B",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Start page address",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "C",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Time interval",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "D",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "End page address",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "RSVD_7_3",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28
+        ],
+        "confidence": "low",
+        "quality_issues": [
+          "fields 'X' [0:0] and 'B' [2:0] overlap",
+          "fields 'B' [2:0] and 'C' [2:0] overlap",
+          "fields 'C' [2:0] and 'D' [2:0] overlap"
+        ]
+      },
+      {
+        "name": "CONTINUOUS_VERTICAL_HORIZONTAL_SCROLL_SETUP",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Vertical and Right Horizontal Scroll setup (multi-byte)",
+        "fields": [
+          {
+            "name": "X1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Vertical and Right Horizontal Scroll select (29h=01b)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Must be 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "X0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 1,
+            "description": "Vertical and Right Horizontal Scroll select (29h=01b)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x29 not found in register summary table"
+        ]
+      },
+      {
+        "name": "CONTINUOUS_VERTICAL_HORIZONTAL_SCROLL_SETUP",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Vertical and Left Horizontal Scroll setup (multi-byte)",
+        "fields": [
+          {
+            "name": "X1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": 1,
+            "description": "Vertical and Left Horizontal",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "X0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Vertical and Left Horizontal",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_7_2",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x2A not found in register summary table"
+        ]
+      },
+      {
+        "name": "DEACTIVATE_SCROLL",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Stop scrolling that is configured by command 26h/27h/29h/2Ah",
+        "fields": [
+          {
+            "name": "ALL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Deactivate scroll",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "ACTIVATE_SCROLL",
+        "address": "0x2F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Activate Scroll command",
+        "fields": [
+          {
+            "name": "ACTIVATE_SCROLL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Activates the scroll settings previously defined",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "SET_VERTICAL_SCROLL_AREA",
+        "address": "0xA3",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set Vertical Scroll Area(A3h). This command consists of 3 consecutive bytes to set up the vertical scroll area. For the continuous vertical scroll function (command 29/2Ah), the number of rows that in vertical scrolling can be set smaller or equal to the MUX ratio.",
+        "fields": [],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      }
+    ],
+    "Memory Addressing": [
+      {
+        "name": "LOWER_COLUMN_START",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower nibble of 8-bit column start address for page addressing mode",
+        "fields": [
+          {
+            "name": "LOWER_COLUMN",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Lower 4 bits of column start address",
+            "enum_values": null,
+            "source": "llm_unverified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": 16,
+        "dim_increment": 1,
+        "page": null,
+        "source_pages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0x00 not found in register summary table"
+        ]
+      },
+      {
+        "name": "HIGHER_COLUMN_START",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Higher nibble of 8-bit column start address for page addressing mode",
+        "fields": [
+          {
+            "name": "HIGHER_COLUMN",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Higher 4 bits of column start address",
+            "enum_values": null,
+            "source": "llm_unverified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": 16,
+        "dim_increment": 1,
+        "page": null,
+        "source_pages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0x10 not found in register summary table"
+        ]
+      },
+      {
+        "name": "MEMORY_ADDRESSING_MODE",
+        "address": "0x20",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Sets memory addressing mode: page, horizontal, or vertical addressing mode",
+        "fields": [
+          {
+            "name": "A",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Addressing mode select",
+            "enum_values": {
+              "0b10": "Page addressing mode",
+              "0b00": "Horizontal addressing mode",
+              "0b01": "Vertical addressing mode"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COL",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Column address settings",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "SET_COLUMN_ADDRESS",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Setup column start and end address for horizontal/vertical mode",
+        "fields": [],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "SET_PAGE_ADDRESS",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set Page Address (22h). This triple byte command specifies page start address and end address of the display data RAM. This command also sets the page address pointer to page start address.",
+        "fields": [
+          {
+            "name": "A",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Page start address, range 0-7d (RESET=0d)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "B",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "WO",
+            "reset_value": 7,
+            "description": "Page end address, range 0-7d (RESET=7d)",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "RSVD_4_3",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "DISPLAY_START_LINE",
+        "address": "0x40",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Set display RAM start line from 0-63",
+        "fields": [
+          {
+            "name": "FIXED_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Fixed to 0",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "FIXED_6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Fixed to 1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "X_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Bit 5 of start line",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "X_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Bit 4 of start line",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "X_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Bit 3 of start line",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "X_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Bit 2 of start line",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "X_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Bit 1 of start line",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "X_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Bit 0 of start line",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": 64,
+        "dim_increment": 1,
+        "page": null,
+        "source_pages": [
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x40 not found in register summary table"
+        ]
+      },
+      {
+        "name": "PAGE_START_ADDRESS",
+        "address": "0xB0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Positions the page start address from 0 to 7 in GDDRAM under Page Addressing Mode.",
+        "fields": [
+          {
+            "name": "PAGE",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Page start address (0-7).",
+            "enum_values": null,
+            "source": "llm_unverified"
+          },
+          {
+            "name": "RSVD",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": 8,
+        "dim_increment": 1,
+        "page": 36,
+        "source_pages": [
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0xB0 not found in register summary table"
+        ]
+      }
+    ],
+    "Display Remapping": [
+      {
+        "name": "SEGMENT_REMAP",
+        "address": "0xA0",
+        "size_bits": 8,
+        "reset_value": "0xA0",
+        "description": "Set segment re-map. A0h: column 0->SEG0 (RESET), A1h: column 127->SEG0",
+        "fields": [
+          {
+            "name": "FIXED_1",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 3,
+            "description": "Fixed 11",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "FIXED_1_0",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 2,
+            "description": "Fixed 10",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "FIXED_0",
+            "bit_high": 3,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Fixed 000",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "X_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Remap select: 0=column address 0 mapped to SEG0 (RESET), 1=column address 127 mapped to SEG0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xA0 not found in register summary table"
+        ]
+      },
+      {
+        "name": "COM_OUTPUT_SCAN_DIRECTION",
+        "address": "0xC0",
+        "size_bits": 8,
+        "reset_value": "0xC0",
+        "description": "Set COM output scan direction",
+        "fields": [
+          {
+            "name": "FIXED_1",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 3,
+            "description": "Fixed 11",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "FIXED_0",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Fixed 00",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "X_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Scan direction: 0=normal (RESET), 1=remap",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FIXED_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Fixed 000",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "duplicate field name 'FIXED_0'"
+        ]
+      }
+    ],
+    "Display Timing": [
+      {
+        "name": "DISPLAY_CLOCK_DIV_RATIO",
+        "address": "0xD5",
+        "size_bits": 8,
+        "reset_value": "0x80",
+        "description": "Set display clock divide ratio/oscillator frequency",
+        "fields": [
+          {
+            "name": "OSC_FREQ",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 8,
+            "description": "A[7:4] oscillator frequency, RESET=1000b",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DIV_RATIO",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "A[3:0] divide ratio+1, RESET=0000b",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "PRECHARGE_PERIOD",
+        "address": "0xD9",
+        "size_bits": 8,
+        "reset_value": "0x22",
+        "description": "Set pre-charge period",
+        "fields": [
+          {
+            "name": "PHASE2",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "A[7:4] Phase 2 period (1-15 DCLK)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PHASE1",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "A[3:0] Phase 1 period (1-15 DCLK)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "COM_PINS_CONFIG",
+        "address": "0xDA",
+        "size_bits": 8,
+        "reset_value": "0x12",
+        "description": "Set COM pins hardware configuration",
+        "fields": [
+          {
+            "name": "A_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "COM Left/Right remap: 0=disable (RESET), 1=enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "A_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "COM pin config: 0=sequential, 1=alternative (RESET)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FIXED_1",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Fixed 1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "FIXED_0",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Fixed 0",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "COM6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "COM6 pin configuration",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "RSVD_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "VCOMH_DESELECT_LEVEL",
+        "address": "0xDB",
+        "size_bits": 8,
+        "reset_value": "0x20",
+        "description": "Set VCOMH deselect level",
+        "fields": [
+          {
+            "name": "FIXED_1",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Fixed 1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "VCOMH",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "A[6:4] VCOMH level: 000=00h, 010=20h(RESET), 011=30h",
+            "enum_values": {
+              "0": "00h ~ 0.65 x VCC",
+              "2": "20h ~ 0.77 x VCC",
+              "3": "30h ~ 0.83 x VCC"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FIXED_0",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Fixed 0",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "FIXED_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Fixed 1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "duplicate field name 'FIXED_1'"
+        ]
+      }
+    ],
+    "Display Configuration": [
+      {
+        "name": "SET_CONTRAST_CONTROL",
+        "address": "0x81",
+        "size_bits": 8,
+        "reset_value": "0x7F",
+        "description": "Double byte command to select 1 out of 256 contrast steps. Contrast increases as the value increases.",
+        "fields": [
+          {
+            "name": "A",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Contrast data A[7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "MULTIPLEX_RATIO",
+        "address": "0xA8",
+        "size_bits": 8,
+        "reset_value": "0x3F",
+        "description": "Set MUX ratio to N+1 (16-64MUX), RESET=63 (64MUX)",
+        "fields": [
+          {
+            "name": "A_5",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 63,
+            "description": "MUX N=A[5:0], 15-63 valid",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "DISPLAY_OFFSET",
+        "address": "0xD3",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Set vertical shift by COM from 0-63",
+        "fields": [
+          {
+            "name": "A_5",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Offset value 0d-63d",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Misc": [
+      {
+        "name": "NOP",
+        "address": "0xE3",
+        "size_bits": 8,
+        "reset_value": "0xFF",
+        "description": "No operation command",
+        "fields": [],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-04T03:11:54.694327+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 30,
+        "by_confidence": {
+          "high": 18,
+          "medium": 11,
+          "low": 1
+        },
+        "with_quality_issues": 17,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 75,
+        "by_source": {
+          "llm_unverified": 6,
+          "synthetic": 18,
+          "llm_verified": 20,
+          "evidence_verified": 31
+        }
+      },
+      "peripherals": {
+        "total": 7,
+        "by_name": {
+          "Display Control": {
+            "registers": 6,
+            "confidence": {
+              "high": 3,
+              "medium": 3,
+              "low": 0
+            }
+          },
+          "Scroll Control": {
+            "registers": 7,
+            "confidence": {
+              "high": 4,
+              "medium": 2,
+              "low": 1
+            }
+          },
+          "Memory Addressing": {
+            "registers": 7,
+            "confidence": {
+              "high": 2,
+              "medium": 5,
+              "low": 0
+            }
+          },
+          "Display Remapping": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Display Timing": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Display Configuration": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Misc": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 14,
+        "batches_total": 16,
+        "batches_sent": 12,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 5,
+        "warnings_detail": [
+          "CONTINUOUS_HORIZONTAL_SCROLL_SETUP (0x27): fields 'X' [0:0] and 'B' [2:0] overlap",
+          "CONTINUOUS_HORIZONTAL_SCROLL_SETUP (0x27): fields 'B' [2:0] and 'C' [2:0] overlap",
+          "CONTINUOUS_HORIZONTAL_SCROLL_SETUP (0x27): fields 'C' [2:0] and 'D' [2:0] overlap",
+          "COM_OUTPUT_SCAN_DIRECTION (0xC0): duplicate field name 'FIXED_0'",
+          "VCOMH_DESELECT_LEVEL (0xDB): duplicate field name 'FIXED_1'"
+        ]
+      },
+      "evidence": {
+        "fields_with_evidence": 70,
+        "fields_verified": 70,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 27
+      }
+    }
+  }
+}

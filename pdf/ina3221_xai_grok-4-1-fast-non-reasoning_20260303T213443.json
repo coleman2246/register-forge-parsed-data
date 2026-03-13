@@ -1,0 +1,1134 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "INA3221",
+  "description": "26V triple-channel 13-bit I2C shunt current and bus voltage monitor",
+  "vendor": "Texas Instruments",
+  "source": "INA3221.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/ina3221.pdf",
+  "peripherals": {
+    "Configuration": [
+      {
+        "name": "CONFIGURATION",
+        "address": "0x00",
+        "size_bits": 16,
+        "reset_value": "0x7127",
+        "description": "All-register reset, shunt and bus voltage ADC conversion times and averaging, operating mode.",
+        "fields": [
+          {
+            "name": "RST",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reset bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CH1_EN",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Channel 1 enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CH2_EN",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Channel 2 enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CH3_EN",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Channel 3 enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AVG",
+            "bit_high": 11,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "Averaging mode select",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "V_BUS_CT",
+            "bit_high": 8,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Bus voltage conversion time",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "V_SH_CT",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Shunt voltage conversion time",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MODE",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 7,
+            "description": "Operating mode",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28,
+          29
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Channel 1": [
+      {
+        "name": "CHANNEL_1_SHUNT_VOLTAGE",
+        "address": "0x01",
+        "size_bits": 16,
+        "reset_value": "0x00",
+        "description": "Averaged shunt-voltage measurement for channel 1 (VSHUNT). Full-scale=163.8mV, LSB=40\u03bcV. Twos complement format.",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sign bit. 0=positive, 1=negative (twos complement).",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Channel-1 shunt-voltage data bits.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28,
+          29
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CHANNEL_1_BUS_VOLTAGE",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": "0x00",
+        "description": "Bus voltage reading (VBUS) for channel 1. Full-scale=32.76V, LSB=8mV. Twos complement format.",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sign bit. 0=positive, 1=negative (twos complement).",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Channel-1 bus-voltage data bits.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28,
+          29
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CHANNEL_1_CRITICAL_ALERT_LIMIT",
+        "address": "0x07",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Channel-1 critical-alert limit register for fast overcurrent events",
+        "fields": [
+          {
+            "name": "C1L12_0",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 4095,
+            "description": "Channel-1 critical-alert-limit data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30,
+          31,
+          32
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CHANNEL_1_WARNING_ALERT_LIMIT",
+        "address": "0x08",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Channel-1 warning-alert limit register for longer duration overcurrent events",
+        "fields": [
+          {
+            "name": "W1L12_0",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 4095,
+            "description": "Channel-1 warning-alert-limit data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30,
+          31,
+          32
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Channel 2": [
+      {
+        "name": "CHANNEL_2_SHUNT_VOLTAGE",
+        "address": "0x03",
+        "size_bits": 16,
+        "reset_value": "0x00",
+        "description": "Averaged shunt voltage measurement for channel 2. Full-scale=163.8mV, LSB=40\u03bcV.",
+        "fields": [
+          {
+            "name": "VSHUNT",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Channel-2 shunt voltage data (twos complement).",
+            "enum_values": null,
+            "source": "llm_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27,
+          28,
+          29
+        ],
+        "confidence": "medium",
+        "quality_issues": []
+      },
+      {
+        "name": "CHANNEL_2_BUS_VOLTAGE",
+        "address": "0x04",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Channel-2 bus voltage register. Full-scale range = 32.76V; LSB = 8mV",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = positive number 1 = negative number in twos complement format",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD11_0",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Channel-2 bus-voltage data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30,
+          31,
+          32
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CHANNEL_2_CRITICAL_ALERT_LIMIT",
+        "address": "0x09",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Channel-2 critical-alert limit register for fast overcurrent events",
+        "fields": [
+          {
+            "name": "C2L12_0",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 4095,
+            "description": "Channel-2 critical-alert-limit data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30,
+          31,
+          32
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CHANNEL_2_WARNING_ALERT_LIMIT",
+        "address": "0x0A",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Channel-2 warning-alert limit register for longer duration overcurrent events",
+        "fields": [
+          {
+            "name": "W2L12_0",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 4095,
+            "description": "Channel-2 warning-alert-limit data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30,
+          31,
+          32
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Channel 3": [
+      {
+        "name": "CHANNEL_3_SHUNT_VOLTAGE",
+        "address": "0x05",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Channel-3 shunt voltage register. Full-scale range = 163.8mV; LSB = 40\u03bcV",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = positive number 1 = negative number in twos complement format",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD11_0",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Channel-3 shunt-voltage data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30,
+          31,
+          32
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CHANNEL_3_BUS_VOLTAGE",
+        "address": "0x06",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Channel-3 bus voltage register. Full-scale range = 32.76V; LSB = 8mV",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = positive number 1 = negative number in twos complement format",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD11_0",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Channel-3 bus-voltage data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30,
+          31,
+          32
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CHANNEL_3_CRITICAL_ALERT_LIMIT",
+        "address": "0x0B",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "This register contains the value used to compare to each shunt voltage conversion on channel 3 to detect fast overcurrent events.",
+        "fields": [
+          {
+            "name": "C3L12_0",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 4095,
+            "description": "Channel-3 critical-alert-limit data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          33,
+          34,
+          35,
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "CHANNEL_3_WARNING_ALERT_LIMIT",
+        "address": "0x0C",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "This register contains the value used to compare to the averaged shunt voltage value of channel 3 to detect a longer duration overcurrent event.",
+        "fields": [
+          {
+            "name": "W3L12_0",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 4095,
+            "description": "Channel-3 warning-alert limit data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          33,
+          34,
+          35,
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "System": [
+      {
+        "name": "SHUNT_VOLTAGE_SUM",
+        "address": "0x0D",
+        "size_bits": 16,
+        "reset_value": "0x00",
+        "description": "This register contains the sum of the single conversion shunt voltages of the selected channels based on the summation control bits 12, 13, and 14 in the Mask/Enable register. This register is updated with the most recent sum following each complete cycle of all selected channels. The Shunt-Voltage Sum register LSB value is 40\u00b5V.",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = positive number 1 = negative number in twos complement format",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SV13_0",
+            "bit_high": 14,
+            "bit_low": 1,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Shunt-voltage sum data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          33,
+          34,
+          35,
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "SHUNT_VOLTAGE_SUM_LIMIT",
+        "address": "0x0E",
+        "size_bits": 16,
+        "reset_value": "0x7FFE",
+        "description": "This register contains the value that is compared to the Shunt-Voltage Sum register value following each completed cycle of all selected channels to detect for system overcurrent events. The Shunt-Voltage Sum-Limit register LSB value is 40\u00b5V.",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = positive number 1 = negative number in twos complement format",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SVL13_0",
+            "bit_high": 14,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 16383,
+            "description": "Shunt-voltage sum-limit data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RESERVED",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          33,
+          34,
+          35,
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Alerts": [
+      {
+        "name": "MASK_ENABLE",
+        "address": "0x0F",
+        "size_bits": 16,
+        "reset_value": "0x0002",
+        "description": "This register selects which function is enabled to control the Critical alert and Warning alert pins, and how each warning alert responds to the corresponding channel. Read the Mask/Enable register to clear any flag results present. Writing to this register does not clear the flag bit status. To make sure that there is no uncertainty in the warning function setting that resulted in a flag bit being set, the Mask/Enable register must be read from to clear the flag bit status before changing the warning function setting.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SCC1_3",
+            "bit_high": 14,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Summation channel control. These bits determine which shunt voltage measurement channels are enabled to fill the Shunt-Voltage Sum register. The selection of these bits does not impact the individual channel enable or disable status, or the corresponding channel measurements. The corresponding bit is used to select if the channel is used to fill the Shunt-Voltage Sum register. 0 = Disabled (default) 1 = Enabled",
+            "enum_values": {
+              "0b000": "Disabled (default)",
+              "0b001": "Enabled ch1",
+              "0b010": "Enabled ch2",
+              "0b011": "Enabled ch1,ch2",
+              "0b100": "Enabled ch3",
+              "0b101": "Enabled ch1,ch3",
+              "0b110": "Enabled ch2,ch3",
+              "0b111": "Enabled ch1,ch2,ch3"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "WEN",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Warning alert latch enable. These bits configure the latching feature of the Warning alert pin. 0 = Transparent (default) 1 = Latch enabled",
+            "enum_values": {
+              "0": "Transparent (default)",
+              "1": "Latch enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CEN",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Critical alert latch enable. These bits configure the latching feature of the Critical alert pin. 0 = Transparent (default) 1 = Latch enabled",
+            "enum_values": {
+              "0": "Transparent (default)",
+              "1": "Latch enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CF1_3",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Critical-alert flag indicator. These bits are asserted if the corresponding channel measurement has exceeded the critical alert limit resulting in the Critical alert pin being asserted. Read these bits to determine which channel caused the critical alert. The critical alert flag bits are cleared when the Mask/Enable register is read back.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SF",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Summation-alert flag indicator. This bit is asserted if the Shunt Voltage Sum register exceeds the Shunt Voltage Sum Limit register. If the summation alert flag is asserted, the Critical alert pin is also asserted. The Summation Alert Flag bit is cleared when the Mask/Enable register is read back.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "WF1_3",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Warning-alert flag indicator. These bits are asserted if the corresponding channel averaged measurement has exceeded the warning alert limit, resulting in the Warning alert pin being asserted. Read these bits to determine which channel caused the warning alert. The Warning Alert Flag bits clear when the Mask/Enable register is read back.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVF",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power-valid-alert flag indicator. This bit can be used to be able to determine if the power valid (PV) alert pin has been asserted through software rather than hardware. The bit setting corresponds to the status of the PV pin. This bit does not clear until the condition that caused the alert is removed, and the PV pin has cleared.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TCF",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Timing-control-alert flag indicator. Use this bit to determine if the timing control (TC) alert pin has been asserted through software rather than hardware. The bit setting corresponds to the status of the TC pin. This bit does not clear after it has been asserted unless the power is recycled or a software reset is issued. The default state for the timing control alert flag is high.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CVRF",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          37,
+          38,
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Power Valid": [
+      {
+        "name": "POWER_VALID_UPPER_LIMIT",
+        "address": "0x10",
+        "size_bits": 16,
+        "reset_value": "0x2710",
+        "description": "Power-valid Upper-limit Register. Contains value to determine if all bus-voltage channels exceed the limit. LSB=8mV.",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Power-valid upper-limit data bits",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "RSVD_14_0",
+            "bit_high": 14,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          37,
+          38,
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "POWER_VALID_LOWER_LIMIT",
+        "address": "0x11",
+        "size_bits": 16,
+        "reset_value": "0x2328",
+        "description": "Power-valid Lower-limit Register. Contains value to compare bus-channel readings to maintain power-valid condition. LSB=8mV.",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Power-valid lower-limit data bits",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PVL11_0",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 1125,
+            "description": "Power-valid lower-limit data bits",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 37,
+        "source_pages": [
+          37,
+          38,
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ],
+    "Identification": [
+      {
+        "name": "MANUFACTURER_ID",
+        "address": "0xFE",
+        "size_bits": 16,
+        "reset_value": "0x5449",
+        "description": "Manufacturer ID Register. Factory-programmable identification value (5449h = TI in ASCII).",
+        "fields": [
+          {
+            "name": "D15_0",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 21577,
+            "description": "Manufacturer ID bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 38,
+        "source_pages": [
+          37,
+          38,
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      },
+      {
+        "name": "DIE_ID",
+        "address": "0xFF",
+        "size_bits": 16,
+        "reset_value": "0x3220",
+        "description": "Die ID Register. Factory-programmable identification value for INA3221 (3220h).",
+        "fields": [
+          {
+            "name": "D15_0",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 12832,
+            "description": "Die ID bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 38,
+        "source_pages": [
+          37,
+          38,
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": []
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-04T02:34:43.888238+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 20,
+        "by_confidence": {
+          "high": 19,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 0,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 59,
+        "by_source": {
+          "evidence_verified": 39,
+          "synthetic": 16,
+          "llm_unverified": 1,
+          "llm_consistent": 2,
+          "llm_verified": 1
+        }
+      },
+      "peripherals": {
+        "total": 8,
+        "by_name": {
+          "Configuration": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Channel 1": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Channel 2": {
+            "registers": 4,
+            "confidence": {
+              "high": 3,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Channel 3": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "System": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Alerts": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Power Valid": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Identification": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 26,
+        "batches_total": 13,
+        "batches_sent": 11,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": []
+      },
+      "evidence": {
+        "fields_with_evidence": 79,
+        "fields_verified": 79,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 17
+      }
+    }
+  }
+}
