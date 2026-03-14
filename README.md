@@ -2,6 +2,8 @@
 
 Structured JSON register maps extracted from IC datasheets, ready for use in embedded development tools, code generators, and hardware abstraction layers.
 
+Browse and interact with these register maps at **[regforge.dev](https://regforge.dev/browse)**.
+
 ## Structure
 
 ```
