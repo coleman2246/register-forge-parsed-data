@@ -2,31 +2,29 @@
   "version": "1.1.0",
   "category": "peripheral",
   "device": "BME280",
-  "description": "Humidity, pressure, and temperature sensor",
+  "description": "Combined humidity, pressure, and temperature sensor",
   "vendor": "Bosch Sensortec",
-  "source": "BME280.pdf",
+  "source": "bst-bme280-ds002.pdf",
   "source_type": "pdf",
   "source_url": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf",
   "peripherals": {
-    "Chip ID & Reset": [
+    "Device ID & Control": [
       {
-        "name": "ID",
+        "name": "id",
         "address": "0xD0",
         "size_bits": 8,
-        "reset_value": "0x60",
-        "description": "Chip ID register",
+        "reset_value": null,
+        "description": "Device ID register",
         "fields": [
           {
             "name": "ID",
             "bit_high": 7,
             "bit_low": 0,
             "access": "RO",
-            "reset_value": 96,
-            "description": "Chip ID",
-            "enum_values": {
-              "0x60": "BME280"
-            },
-            "source": "evidence_verified"
+            "reset_value": null,
+            "description": "Device identification",
+            "enum_values": null,
+            "source": "agent_verified"
           }
         ],
         "dim": null,
@@ -38,12 +36,11 @@
           27
         ],
         "confidence": "high",
-        "quality_issues": [
-          "address 0xD0 not found in register summary table"
-        ]
+        "quality_issues": [],
+        "suspicious_injection": false
       },
       {
-        "name": "RESET",
+        "name": "reset",
         "address": "0xE0",
         "size_bits": 8,
         "reset_value": null,
@@ -55,11 +52,9 @@
             "bit_low": 0,
             "access": "WO",
             "reset_value": null,
-            "description": "Software reset",
-            "enum_values": {
-              "0xB6": "Reset command"
-            },
-            "source": "evidence_verified"
+            "description": "Reset command",
+            "enum_values": null,
+            "source": "llm_consistent"
           }
         ],
         "dim": null,
@@ -70,17 +65,16 @@
           27
         ],
         "confidence": "high",
-        "quality_issues": [
-          "address 0xE0 not found in register summary table"
-        ]
+        "quality_issues": [],
+        "suspicious_injection": false
       }
     ],
-    "Control Registers": [
+    "Humidity Control": [
       {
         "name": "CTRL_HUM",
         "address": "0xF2",
         "size_bits": 8,
-        "reset_value": "0x00",
+        "reset_value": null,
         "description": "Humidity control register",
         "fields": [
           {
@@ -88,16 +82,9 @@
             "bit_high": 7,
             "bit_low": 0,
             "access": "RW",
-            "reset_value": 0,
-            "description": "Humidity oversampling",
-            "enum_values": {
-              "0b000": "Skipped",
-              "0b001": "x1",
-              "0b010": "x2",
-              "0b011": "x4",
-              "0b100": "x8",
-              "0b101": "x16"
-            },
+            "reset_value": null,
+            "description": "Humidity oversampling setting",
+            "enum_values": null,
             "source": "evidence_verified"
           }
         ],
@@ -110,23 +97,24 @@
           28
         ],
         "confidence": "high",
-        "quality_issues": [
-          "address 0xF2 not found in register summary table"
-        ]
-      },
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Measurement Control": [
       {
         "name": "CTRL_MEAS",
         "address": "0xF4",
         "size_bits": 8,
-        "reset_value": "0x00",
-        "description": "Pressure and temperature control register",
+        "reset_value": null,
+        "description": "Pressure and temperature acquisition options",
         "fields": [
           {
             "name": "OSRS_T",
             "bit_high": 7,
             "bit_low": 5,
             "access": "RW",
-            "reset_value": 0,
+            "reset_value": null,
             "description": "Temperature oversampling",
             "enum_values": {
               "0b000": "Skipped",
@@ -143,7 +131,7 @@
             "bit_high": 4,
             "bit_low": 2,
             "access": "RW",
-            "reset_value": 0,
+            "reset_value": null,
             "description": "Pressure oversampling",
             "enum_values": {
               "0b000": "Skipped",
@@ -160,13 +148,13 @@
             "bit_high": 1,
             "bit_low": 0,
             "access": "RW",
-            "reset_value": 0,
+            "reset_value": null,
             "description": "Sensor mode",
             "enum_values": {
-              "0b00": "Sleep",
-              "0b01": "Forced",
-              "0b10": "Normal",
-              "0b11": "Normal"
+              "0b00": "Sleep mode",
+              "0b01": "Forced mode",
+              "0b10": "Forced mode",
+              "0b11": "Normal mode"
             },
             "source": "evidence_verified"
           }
@@ -177,67 +165,61 @@
         "source_pages": [
           5,
           28,
-          29
+          29,
+          38
         ],
         "confidence": "high",
-        "quality_issues": [
-          "address 0xF4 not found in register summary table"
-        ]
+        "quality_issues": [],
+        "suspicious_injection": false
       }
     ],
     "Status & Config": [
       {
-        "name": "STATUS",
+        "name": "status",
         "address": "0xF3",
         "size_bits": 8,
-        "reset_value": "0x00",
+        "reset_value": null,
         "description": "Status register",
         "fields": [
           {
-            "name": "MEASURING",
-            "bit_high": 3,
-            "bit_low": 3,
-            "access": "RO",
-            "reset_value": 0,
-            "description": "Automatically set to '1' whenever a conversion is running and back to '0' when the results have been transferred to the data registers.",
-            "enum_values": {
-              "0": "Idle",
-              "1": "Measuring"
-            },
-            "source": "evidence_verified"
-          },
-          {
-            "name": "RSVD_2_1",
+            "name": "RSVD[1:2]",
             "bit_high": 2,
             "bit_low": 1,
-            "access": "RO",
-            "reset_value": 0,
+            "access": "RW",
+            "reset_value": null,
             "description": "Reserved",
             "enum_values": null,
-            "source": "synthetic"
+            "source": "section_agent"
           },
           {
-            "name": "RSVD_7_4",
+            "name": "RSVD[4:7]",
             "bit_high": 7,
             "bit_low": 4,
-            "access": "RO",
-            "reset_value": 0,
+            "access": "RW",
+            "reset_value": null,
             "description": "Reserved",
             "enum_values": null,
-            "source": "synthetic"
+            "source": "section_agent"
           },
           {
-            "name": "IM_UPDATE",
+            "name": "measuring[0]",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Automatically set to \u20181\u2019 whenever a conversion is running and back to \u20180\u2019 when the results have been transferred to the data registers.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "im update[0]",
             "bit_high": 0,
             "bit_low": 0,
-            "access": "RO",
-            "reset_value": 0,
-            "description": "Automatically set to '1' when the NVM data are being copied to image registers and back to '0' when the copying is done.",
-            "enum_values": {
-              "0": "Idle",
-              "1": "Updating"
-            },
-            "source": "evidence_verified"
+            "access": "RW",
+            "reset_value": null,
+            "description": "Automatically set to \u20181\u2019 when the NVM data are being copied to image registers and back to \u20180\u2019 when the copying is done.",
+            "enum_values": null,
+            "source": "llm_consistent"
           }
         ],
         "dim": null,
@@ -248,74 +230,55 @@
           28
         ],
         "confidence": "high",
-        "quality_issues": [
-          "address 0xF3 not found in register summary table"
-        ]
+        "quality_issues": [],
+        "suspicious_injection": false
       },
       {
-        "name": "CONFIG",
+        "name": "config",
         "address": "0xF5",
         "size_bits": 8,
-        "reset_value": "0x00",
-        "description": "Configuration register",
+        "reset_value": null,
+        "description": "Config register",
         "fields": [
           {
-            "name": "T_SB",
-            "bit_high": 7,
-            "bit_low": 5,
-            "access": "RW",
-            "reset_value": 0,
-            "description": "Controls inactive duration t_standby in normal mode",
-            "enum_values": {
-              "0b000": "0.5ms",
-              "0b001": "62.5ms",
-              "0b010": "125ms",
-              "0b011": "250ms",
-              "0b100": "500ms",
-              "0b101": "1000ms",
-              "0b110": "10ms",
-              "0b111": "20ms"
-            },
-            "source": "evidence_verified"
-          },
-          {
-            "name": "FILTER",
-            "bit_high": 4,
-            "bit_low": 2,
-            "access": "RW",
-            "reset_value": 0,
-            "description": "Controls the time constant of the IIR filter",
-            "enum_values": {
-              "0b000": "Filter off",
-              "0b001": "2",
-              "0b010": "4",
-              "0b011": "8",
-              "0b100": "16"
-            },
-            "source": "evidence_verified"
-          },
-          {
-            "name": "SPI3W_EN",
-            "bit_high": 0,
-            "bit_low": 0,
-            "access": "RW",
-            "reset_value": 0,
-            "description": "Enables 3-wire SPI interface when set to '1'",
-            "enum_values": {
-              "0": "4-wire SPI",
-              "1": "3-wire SPI"
-            },
-            "source": "evidence_verified"
-          },
-          {
-            "name": "RSVD_1",
+            "name": "RSVD",
             "bit_high": 1,
             "bit_low": 1,
             "access": "RW",
             "reset_value": null,
-            "description": "Reserved",
+            "description": "Reserved.",
             "enum_values": null,
-            "source": "synthetic"
+            "source": "section_agent"
+          },
+          {
+            "name": "t_sb",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Controls inactive duration t_standby in normal mode.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "filter",
+            "bit_high": 4,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Controls the time constant of the IIR filter.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "spi3w_en",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Enables 3-wire SPI interface when set to '1'.",
+            "enum_values": null,
+            "source": "llm_consistent"
           }
         ],
         "dim": null,
@@ -324,12 +287,41 @@
         "source_pages": [
           5,
           26,
-          30
+          30,
+          38
         ],
         "confidence": "high",
-        "quality_issues": [
-          "address 0xF5 not found in register summary table"
-        ]
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "HUM_MSB",
+        "address": "0xFD",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Humidity MSB register",
+        "fields": [
+          {
+            "name": "HUM_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Humidity value MSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          5,
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
       }
     ],
     "Pressure Data": [
@@ -338,15 +330,15 @@
         "address": "0xF7",
         "size_bits": 8,
         "reset_value": null,
-        "description": "Pressure MSB (bit 19-12)",
+        "description": "Pressure MSB register",
         "fields": [
           {
-            "name": "PRESS",
+            "name": "PRESS_MSB",
             "bit_high": 7,
             "bit_low": 0,
             "access": "RO",
             "reset_value": null,
-            "description": "Pressure MSB data",
+            "description": "Pressure value MSB",
             "enum_values": null,
             "source": "evidence_verified"
           }
@@ -364,24 +356,23 @@
           34
         ],
         "confidence": "high",
-        "quality_issues": [
-          "address 0xF7 not found in register summary table"
-        ]
+        "quality_issues": [],
+        "suspicious_injection": false
       },
       {
         "name": "PRESS_LSB",
         "address": "0xF8",
         "size_bits": 8,
         "reset_value": null,
-        "description": "Pressure LSB (bit 11-4)",
+        "description": "Pressure LSB register",
         "fields": [
           {
-            "name": "PRESS",
+            "name": "PRESS_LSB",
             "bit_high": 7,
             "bit_low": 0,
             "access": "RO",
             "reset_value": null,
-            "description": "Pressure LSB data",
+            "description": "Pressure value LSB",
             "enum_values": null,
             "source": "evidence_verified"
           }
@@ -393,24 +384,33 @@
           31
         ],
         "confidence": "high",
-        "quality_issues": [
-          "address 0xF8 not found in register summary table"
-        ]
+        "quality_issues": [],
+        "suspicious_injection": false
       },
       {
         "name": "PRESS_XLSB",
         "address": "0xF9",
         "size_bits": 8,
         "reset_value": null,
-        "description": "Pressure XLSB (bit 3-0)",
+        "description": "Pressure XLSB register",
         "fields": [
           {
-            "name": "PRESS",
-            "bit_high": 7,
+            "name": "RSVD_3_0",
+            "bit_high": 3,
             "bit_low": 0,
             "access": "RO",
             "reset_value": null,
-            "description": "Pressure XLSB data",
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "PRESS_XLSB",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Pressure value XLSB",
             "enum_values": null,
             "source": "evidence_verified"
           }
@@ -425,9 +425,8 @@
           31
         ],
         "confidence": "high",
-        "quality_issues": [
-          "address 0xF9 not found in register summary table"
-        ]
+        "quality_issues": [],
+        "suspicious_injection": false
       }
     ],
     "Temperature Data": [
@@ -436,15 +435,15 @@
         "address": "0xFA",
         "size_bits": 8,
         "reset_value": null,
-        "description": "Temperature MSB (bit 19-12)",
+        "description": "Temperature MSB register",
         "fields": [
           {
-            "name": "TEMP",
+            "name": "TEMP_MSB",
             "bit_high": 7,
             "bit_low": 0,
             "access": "RO",
             "reset_value": null,
-            "description": "Temperature MSB data",
+            "description": "Temperature value MSB",
             "enum_values": null,
             "source": "evidence_verified"
           }
@@ -458,24 +457,23 @@
           31
         ],
         "confidence": "high",
-        "quality_issues": [
-          "address 0xFA not found in register summary table"
-        ]
+        "quality_issues": [],
+        "suspicious_injection": false
       },
       {
         "name": "TEMP_LSB",
         "address": "0xFB",
         "size_bits": 8,
         "reset_value": null,
-        "description": "Temperature LSB (bit 11-4)",
+        "description": "Temperature LSB register",
         "fields": [
           {
-            "name": "TEMP",
+            "name": "TEMP_LSB",
             "bit_high": 7,
             "bit_low": 0,
             "access": "RO",
             "reset_value": null,
-            "description": "Temperature LSB data",
+            "description": "Temperature value LSB",
             "enum_values": null,
             "source": "evidence_verified"
           }
@@ -487,36 +485,35 @@
           31
         ],
         "confidence": "high",
-        "quality_issues": [
-          "address 0xFB not found in register summary table"
-        ]
+        "quality_issues": [],
+        "suspicious_injection": false
       },
       {
         "name": "TEMP_XLSB",
         "address": "0xFC",
         "size_bits": 8,
         "reset_value": null,
-        "description": "temp_xlsb",
+        "description": "Temperature XLSB register",
         "fields": [
+          {
+            "name": "RSVD_3_0",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
           {
             "name": "TEMP_XLSB",
             "bit_high": 7,
             "bit_low": 4,
             "access": "RO",
             "reset_value": null,
-            "description": "temp xlsb<7:4>",
+            "description": "Temperature value XLSB",
             "enum_values": null,
-            "source": "llm_verified"
-          },
-          {
-            "name": "RESERVED",
-            "bit_high": 3,
-            "bit_low": 0,
-            "access": "RO",
-            "reset_value": null,
-            "description": "must be 0",
-            "enum_values": null,
-            "source": "llm_verified"
+            "source": "evidence_verified"
           }
         ],
         "dim": null,
@@ -528,59 +525,28 @@
           26,
           31
         ],
-        "confidence": "medium",
-        "quality_issues": [
-          "address 0xFC not found in register summary table"
-        ]
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
       }
     ],
     "Humidity Data": [
-      {
-        "name": "HUM_MSB",
-        "address": "0xFD",
-        "size_bits": 8,
-        "reset_value": null,
-        "description": "Humidity MSB",
-        "fields": [
-          {
-            "name": "HUM",
-            "bit_high": 7,
-            "bit_low": 0,
-            "access": "RO",
-            "reset_value": null,
-            "description": "Humidity MSB data",
-            "enum_values": null,
-            "source": "evidence_verified"
-          }
-        ],
-        "dim": null,
-        "dim_increment": null,
-        "page": null,
-        "source_pages": [
-          5,
-          31
-        ],
-        "confidence": "high",
-        "quality_issues": [
-          "address 0xFD not found in register summary table"
-        ]
-      },
       {
         "name": "HUM_LSB",
         "address": "0xFE",
         "size_bits": 8,
         "reset_value": null,
-        "description": "Humidity LSB",
+        "description": "Humidity LSB register",
         "fields": [
           {
-            "name": "HUM",
+            "name": "HUM_LSB",
             "bit_high": 7,
             "bit_low": 0,
             "access": "RO",
             "reset_value": null,
-            "description": "Humidity LSB data",
+            "description": "Humidity value LSB",
             "enum_values": null,
-            "source": "evidence_verified"
+            "source": "llm_consistent"
           }
         ],
         "dim": null,
@@ -592,26 +558,53 @@
           31
         ],
         "confidence": "high",
-        "quality_issues": [
-          "address 0xFE not found in register summary table"
-        ]
+        "quality_issues": [],
+        "suspicious_injection": false
       }
     ],
-    "Calibration": [
+    "Temperature Calibration": [
       {
         "name": "CALIB00",
         "address": "0x88",
-        "size_bits": 8,
+        "size_bits": 16,
         "reset_value": null,
-        "description": "dig_T1 [7:0] calibration parameter",
+        "description": "dig_T1 compensation parameter low byte",
         "fields": [
           {
             "name": "DIG_T1",
-            "bit_high": 7,
+            "bit_high": 15,
             "bit_low": 0,
             "access": "RO",
             "reset_value": null,
-            "description": "dig_T1 [7:0] unsigned short LSB",
+            "description": "dig_T1 [15:8]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB02",
+        "address": "0x8A",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "dig_T2 compensation parameter",
+        "fields": [
+          {
+            "name": "DIG_T2",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_T2 [15:0]",
             "enum_values": null,
             "source": "evidence_verified"
           }
@@ -623,61 +616,499 @@
           24
         ],
         "confidence": "high",
-        "quality_issues": [
-          "address 0x88 not found in register summary table"
-        ]
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB04",
+        "address": "0x8C",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "dig_T3 compensation parameter",
+        "fields": [
+          {
+            "name": "DIG_T3",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_T3 [15:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
       }
     ],
-    "Statistics": [
+    "Pressure Calibration": [
       {
-        "name": "0xA1",
+        "name": "CALIB06",
+        "address": "0x8E",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "dig_P1 compensation parameter",
+        "fields": [
+          {
+            "name": "DIG_P1",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_P1 [15:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB08",
+        "address": "0x90",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "dig_P2 compensation parameter",
+        "fields": [
+          {
+            "name": "DIG_P2",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_P2 [15:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB10",
+        "address": "0x92",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "dig_P3 compensation parameter",
+        "fields": [
+          {
+            "name": "DIG_P3",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_P3 [15:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB12",
+        "address": "0x94",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "dig_P4 compensation parameter",
+        "fields": [
+          {
+            "name": "DIG_P4",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_P4 [15:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB14",
+        "address": "0x96",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "dig_P5 compensation parameter",
+        "fields": [
+          {
+            "name": "DIG_P5",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_P5 [15:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB16",
+        "address": "0x98",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "dig_P6 compensation parameter",
+        "fields": [
+          {
+            "name": "DIG_P6",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_P6 [15:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB18",
+        "address": "0x9A",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "dig_P7 compensation parameter",
+        "fields": [
+          {
+            "name": "DIG_P7",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_P7 [15:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB20",
+        "address": "0x9C",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "dig_P8 compensation parameter",
+        "fields": [
+          {
+            "name": "DIG_P8",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_P8 [15:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB22",
+        "address": "0x9E",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "dig_P9 compensation parameter",
+        "fields": [
+          {
+            "name": "DIG_P9",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_P9 [15:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Humidity Calibration": [
+      {
+        "name": "CALIB21",
         "address": "0xA1",
         "size_bits": 8,
         "reset_value": null,
-        "description": "Statistics counter (from manifest, no field details in source)",
+        "description": "dig_H1 compensation parameter",
         "fields": [
           {
-            "name": "0xa1",
+            "name": "DIG_H1",
             "bit_high": 7,
             "bit_low": 0,
             "access": "RO",
             "reset_value": null,
-            "description": "",
+            "description": "dig_H1 [7:0]",
             "enum_values": null,
-            "source": "manifest_only"
+            "source": "evidence_verified"
           }
         ],
         "dim": null,
         "dim_increment": null,
         "page": null,
-        "source_pages": null,
-        "confidence": "medium",
-        "quality_issues": []
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
       },
       {
-        "name": "0xE3",
+        "name": "CALIB29",
+        "address": "0xE1",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "dig_H2 compensation parameter",
+        "fields": [
+          {
+            "name": "DIG_H2",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_H2 [15:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB31",
         "address": "0xE3",
         "size_bits": 8,
         "reset_value": null,
-        "description": "Statistics counter (from manifest, no field details in source)",
+        "description": "dig_H3 compensation parameter",
         "fields": [
           {
-            "name": "0xe3",
+            "name": "DIG_H3",
             "bit_high": 7,
             "bit_low": 0,
             "access": "RO",
             "reset_value": null,
-            "description": "",
+            "description": "dig_H3 [7:0]",
             "enum_values": null,
-            "source": "manifest_only"
+            "source": "evidence_verified"
           }
         ],
         "dim": null,
         "dim_increment": null,
         "page": null,
-        "source_pages": null,
-        "confidence": "medium",
-        "quality_issues": []
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB32",
+        "address": "0xE4",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "dig_H4 compensation parameter high bits",
+        "fields": [
+          {
+            "name": "DIG_H4",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_H4 [11:4]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB33",
+        "address": "0xE5",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "dig_H4 low bits and dig_H5 bits",
+        "fields": [
+          {
+            "name": "DIG_H4",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_H4 [3:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DIG_H5",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_H5 [3:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB34",
+        "address": "0xE6",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "dig_H5 compensation parameter high bits",
+        "fields": [
+          {
+            "name": "DIG_H5",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_H5 [11:4]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CALIB35",
+        "address": "0xE7",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "dig_H6 compensation parameter",
+        "fields": [
+          {
+            "name": "DIG_H6",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "dig_H6",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24,
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
       }
     ]
   },
@@ -685,34 +1116,35 @@
   "parse_status": "ok",
   "parse_notes": [],
   "metadata": {
-    "parsed_date": "2026-03-04T01:59:48.166311+00:00",
+    "parsed_date": "2026-03-14T17:07:41.649503+00:00",
     "provider": "xai",
     "model": "grok-4-1-fast-non-reasoning",
     "pipeline": "docling",
     "analytics": {
       "registers": {
-        "total": 17,
+        "total": 33,
         "by_confidence": {
-          "high": 14,
-          "medium": 3,
+          "high": 33,
+          "medium": 0,
           "low": 0
         },
-        "with_quality_issues": 15,
+        "with_quality_issues": 0,
         "empty_descriptions": 0
       },
       "fields": {
-        "total": 26,
+        "total": 44,
         "by_source": {
-          "evidence_verified": 19,
-          "synthetic": 3,
-          "llm_verified": 2,
-          "manifest_only": 2
+          "agent_verified": 4,
+          "llm_consistent": 7,
+          "evidence_verified": 28,
+          "section_agent": 3,
+          "synthetic": 2
         }
       },
       "peripherals": {
-        "total": 8,
+        "total": 10,
         "by_name": {
-          "Chip ID & Reset": {
+          "Device ID & Control": {
             "registers": 2,
             "confidence": {
               "high": 2,
@@ -720,18 +1152,26 @@
               "low": 0
             }
           },
-          "Control Registers": {
-            "registers": 2,
+          "Humidity Control": {
+            "registers": 1,
             "confidence": {
-              "high": 2,
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Measurement Control": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
               "medium": 0,
               "low": 0
             }
           },
           "Status & Config": {
-            "registers": 2,
+            "registers": 3,
             "confidence": {
-              "high": 2,
+              "high": 3,
               "medium": 0,
               "low": 0
             }
@@ -747,20 +1187,12 @@
           "Temperature Data": {
             "registers": 3,
             "confidence": {
-              "high": 2,
-              "medium": 1,
-              "low": 0
-            }
-          },
-          "Humidity Data": {
-            "registers": 2,
-            "confidence": {
-              "high": 2,
+              "high": 3,
               "medium": 0,
               "low": 0
             }
           },
-          "Calibration": {
+          "Humidity Data": {
             "registers": 1,
             "confidence": {
               "high": 1,
@@ -768,33 +1200,370 @@
               "low": 0
             }
           },
-          "Statistics": {
-            "registers": 2,
+          "Temperature Calibration": {
+            "registers": 3,
             "confidence": {
-              "high": 0,
-              "medium": 2,
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Pressure Calibration": {
+            "registers": 9,
+            "confidence": {
+              "high": 9,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Humidity Calibration": {
+            "registers": 7,
+            "confidence": {
+              "high": 7,
+              "medium": 0,
               "low": 0
             }
           }
         }
       },
       "extraction": {
-        "manifest_entries": 2,
+        "manifest_entries": 9,
         "batches_total": 12,
-        "batches_sent": 5,
-        "batches_failed": 0
+        "batches_sent": 12,
+        "batches_failed": 3
       },
       "validation": {
         "warnings_total": 0,
-        "warnings_detail": []
+        "warnings_detail": [],
+        "issue_breakdown": {}
       },
       "evidence": {
-        "fields_with_evidence": 19,
-        "fields_verified": 19,
-        "fields_unverified": 0,
+        "fields_with_evidence": 27,
+        "fields_verified": 24,
+        "fields_unverified": 3,
         "fields_bit_mismatch": 0,
-        "regs_upgraded": 14
+        "regs_upgraded": 31,
+        "field_diagnostics": {
+          "0XD0": {
+            "ID": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 141917
+            }
+          },
+          "0XE0": {
+            "RESET": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 106807
+            }
+          },
+          "0XF2": {
+            "OSRS_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 133694
+            }
+          },
+          "0XF3": {
+            "osr_h": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 87660
+            },
+            "osrs_p": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 87660
+            },
+            "osrs_t": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 87660
+            }
+          },
+          "0XF4": {
+            "OSRS_T": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 115086
+            },
+            "OSRS_P": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 115086
+            },
+            "MODE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 115086
+            }
+          },
+          "0XF5": {
+            "T_SB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85006
+            },
+            "FILTER": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85006
+            },
+            "SPI3W_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85006
+            }
+          },
+          "0XF7": {
+            "PRESS_MSB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 121649
+            }
+          },
+          "0XF8": {
+            "PRESS_LSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 66378
+            }
+          },
+          "0XF9": {
+            "PRESS_XLSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 73978
+            }
+          },
+          "0XFA": {
+            "TEMP_MSB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 111568
+            }
+          },
+          "0XFB": {
+            "TEMP_LSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67861
+            }
+          },
+          "0XFC": {
+            "TEMP_XLSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76232
+            }
+          },
+          "0XFD": {
+            "HUM_MSB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 107529
+            }
+          },
+          "0XFE": {
+            "HUM_LSB": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 71405
+            }
+          },
+          "0X88": {
+            "DIG_T1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 36667
+            }
+          },
+          "0X8A": {
+            "DIG_T2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0X8C": {
+            "DIG_T3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0X8E": {
+            "DIG_P1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0X90": {
+            "DIG_P2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0X92": {
+            "DIG_P3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0X94": {
+            "DIG_P4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0X96": {
+            "DIG_P5": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0X98": {
+            "DIG_P6": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0X9A": {
+            "DIG_P7": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11275
+            }
+          },
+          "0X9C": {
+            "DIG_P8": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0X9E": {
+            "DIG_P9": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0XA1": {
+            "DIG_H1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11289
+            }
+          },
+          "0XE1": {
+            "DIG_H2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0XE3": {
+            "DIG_H3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0XE4": {
+            "DIG_H4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11359
+            }
+          },
+          "0XE5": {
+            "DIG_H4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            },
+            "DIG_H5": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0XE6": {
+            "DIG_H5": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11174
+            }
+          },
+          "0XE7": {
+            "DIG_H6": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 14546
+            }
+          }
+        },
+        "fields_consistent_promoted": 9,
+        "fields_cross_section_augmented": 10,
+        "fields_name_matched": 10,
+        "fields_bit_corrected": 3,
+        "fields_bit_llm_fallback": 3,
+        "diagnostic_summary": {
+          "quote_not_found": 3,
+          "verified_name": 10,
+          "name_not_found": 3,
+          "verified_quote": 24
+        }
       }
-    }
+    },
+    "source_pdf": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf"
   }
 }
