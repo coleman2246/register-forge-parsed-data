@@ -15,7 +15,8 @@
     "source_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/adxl345.pdf",
     "filename": "ADXL345.pdf",
     "category": "peripheral",
-    "family": "Accelerometer"
+    "family": "Accelerometer",
+    "path": "pdf/analog-devices/adxl345/adxl345_xai_grok-4-1-fast-non-reasoning_20260304T131212.json"
   },
   {
     "device": "DS18B20",
@@ -24,7 +25,8 @@
     "source_url": "https://cdn-shop.adafruit.com/datasheets/DS18B20.pdf",
     "filename": "DS18B20.pdf",
     "category": "peripheral",
-    "family": "Temperature Sensor"
+    "family": "Temperature Sensor",
+    "path": "pdf/analog-devices/ds18b20/ds18b20_xai_grok-4-1-fast-non-reasoning_20260304T131420.json"
   },
   {
     "device": "DS3231",
@@ -33,7 +35,8 @@
     "source_url": "https://cdn.sparkfun.com/datasheets/Dev/Beagle/DS3231M.pdf",
     "filename": "DS3231.pdf",
     "category": "peripheral",
-    "family": "RTC"
+    "family": "RTC",
+    "path": "pdf/analog-devices/ds3231/ds3231_xai_grok-4-1-fast-non-reasoning_20260303T211622.json"
   },
   {
     "device": "MAX31855",
@@ -69,7 +72,8 @@
     "source_url": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf",
     "filename": "BME280.pdf",
     "category": "peripheral",
-    "family": "Environmental Sensor"
+    "family": "Environmental Sensor",
+    "path": "pdf/bosch-sensortec/bme280/bme280_xai_grok-4-1-fast-non-reasoning_20260315T145339_f8cf.json"
   },
   {
     "device": "BMP180",
@@ -78,7 +82,8 @@
     "source_url": "https://cdn-shop.adafruit.com/datasheets/BST-BMP180-DS000-09.pdf",
     "filename": "BMP180.pdf",
     "category": "peripheral",
-    "family": "Pressure Sensor"
+    "family": "Pressure Sensor",
+    "path": "pdf/bosch-sensortec/bmp180/bmp180_xai_grok-4-1-fast-non-reasoning_20260304T131254.json"
   },
   {
     "device": "BMP280",
@@ -87,7 +92,8 @@
     "source_url": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pdf",
     "filename": "BMP280.pdf",
     "category": "peripheral",
-    "family": "Pressure Sensor"
+    "family": "Pressure Sensor",
+    "path": "pdf/bosch-sensortec/bmp280/bmp280_xai_grok-4-1-fast-non-reasoning_20260303T210335.json"
   },
   {
     "device": "BNO055",
@@ -96,7 +102,8 @@
     "source_url": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bno055-ds000.pdf",
     "filename": "BNO055.pdf",
     "category": "peripheral",
-    "family": "IMU"
+    "family": "IMU",
+    "path": "pdf/bosch-sensortec/bno055/bno055_xai_grok-4-1-fast-non-reasoning_20260303T210742.json"
   },
   {
     "device": "HMC5883L",
@@ -123,7 +130,8 @@
     "source_url": "https://www.melexis.com/-/media/files/documents/datasheets/mlx90614-datasheet-melexis.pdf",
     "filename": "MLX90614.pdf",
     "category": "peripheral",
-    "family": "Temperature Sensor"
+    "family": "Temperature Sensor",
+    "path": "pdf/melexis/mlx90614/mlx90614_xai_grok-4-1-fast-non-reasoning_20260303T220816.json"
   },
   {
     "device": "MMC5603",
@@ -132,7 +140,8 @@
     "source_url": "https://www.memsic.com/Public/Uploads/uploadfile/files/20220119/MMC5603NJDatasheetRev.B.pdf",
     "filename": "MMC5603.pdf",
     "category": "peripheral",
-    "family": "Magnetometer"
+    "family": "Magnetometer",
+    "path": "pdf/memsic/mmc5603/mmc5603_xai_grok-4-1-fast-non-reasoning_20260303T221104.json"
   },
   {
     "device": "MCP23017",
@@ -150,7 +159,8 @@
     "source_url": "https://ww1.microchip.com/downloads/en/DeviceDoc/MCP2515-Stand-Alone-CAN-Controller-with-SPI-20001801J.pdf",
     "filename": "MCP2515.pdf",
     "category": "peripheral",
-    "family": "CAN Controller"
+    "family": "CAN Controller",
+    "path": "pdf/microchip/mcp2515/mcp2515_xai_grok-4-1-fast-non-reasoning_20260303T220219.json"
   },
   {
     "device": "PCF8591",
@@ -168,7 +178,8 @@
     "source_url": "https://www.nxp.com/docs/en/nxp/data-sheets/PN532_C1.pdf",
     "filename": "PN532.pdf",
     "category": "peripheral",
-    "family": "NFC/RFID"
+    "family": "NFC/RFID",
+    "path": "pdf/nxp/pn532/pn532_xai_grok-4-1-fast-non-reasoning_20260303T222401.json"
   },
   {
     "device": "RC522",
@@ -177,7 +188,8 @@
     "source_url": "https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf",
     "filename": "RC522.pdf",
     "category": "peripheral",
-    "family": "NFC/RFID"
+    "family": "NFC/RFID",
+    "path": "pdf/nxp/rc522/rc522_xai_grok-4-1-fast-non-reasoning_20260304T134052.json"
   },
   {
     "device": "QMC5883L",
@@ -186,7 +198,8 @@
     "source_url": "https://datasheet.lcsc.com/lcsc/2012221837_QST-QMC5883L_C976032.pdf",
     "filename": "QMC5883L.pdf",
     "category": "peripheral",
-    "family": "Magnetometer"
+    "family": "Magnetometer",
+    "path": "pdf/qst/qmc5883l/qmc5883l_xai_grok-4-1-fast-non-reasoning_20260303T220558.json"
   },
   {
     "device": "SSD1306",
@@ -195,7 +208,8 @@
     "source_url": "https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf",
     "filename": "SSD1306.pdf",
     "category": "peripheral",
-    "family": "Display Controller"
+    "family": "Display Controller",
+    "path": "pdf/solomon-systech/ssd1306/ssd1306_xai_grok-4-1-fast-non-reasoning_20260304T113147.json"
   },
   {
     "device": "LIS3MDL",
@@ -213,7 +227,8 @@
     "source_url": "https://www.st.com/resource/en/datasheet/lsm6ds3.pdf",
     "filename": "LSM6DS3.pdf",
     "category": "peripheral",
-    "family": "IMU"
+    "family": "IMU",
+    "path": "pdf/stmicroelectronics/lsm6ds3/lsm6ds3_xai_grok-4-1-fast-non-reasoning_20260315T145632_44d5.json"
   },
   {
     "device": "TCS34725",
@@ -222,7 +237,8 @@
     "source_url": "https://cdn-shop.adafruit.com/datasheets/TCS34725.pdf",
     "filename": "TCS34725.pdf",
     "category": "peripheral",
-    "family": "Light Sensor"
+    "family": "Light Sensor",
+    "path": "pdf/taos/tcs34725/tcs34725_xai_grok-4-1-fast-non-reasoning_20260303T221408.json"
   },
   {
     "device": "TSL2561",
@@ -231,7 +247,8 @@
     "source_url": "https://cdn-shop.adafruit.com/datasheets/TSL2561.pdf",
     "filename": "TSL2561.pdf",
     "category": "peripheral",
-    "family": "Light Sensor"
+    "family": "Light Sensor",
+    "path": "pdf/taos/tsl2561/tsl2561_xai_grok-4-1-fast-non-reasoning_20260304T134408.json"
   },
   {
     "device": "ADS1115",
@@ -240,7 +257,8 @@
     "source_url": "https://www.ti.com/lit/ds/symlink/ads1115.pdf",
     "filename": "ADS1115.pdf",
     "category": "peripheral",
-    "family": "ADC"
+    "family": "ADC",
+    "path": "pdf/texas-instruments/ads1115/ads1115_xai_grok-4-1-fast-non-reasoning_20260315T145207_6d1e.json"
   },
   {
     "device": "INA219",
@@ -249,7 +267,8 @@
     "source_url": "https://www.ti.com/lit/ds/symlink/ina219.pdf",
     "filename": "INA219.pdf",
     "category": "peripheral",
-    "family": "Current Monitor"
+    "family": "Current Monitor",
+    "path": "pdf/texas-instruments/ina219/ina219_xai_grok-4-1-fast-non-reasoning_20260304T132421.json"
   },
   {
     "device": "TMP117",
@@ -258,7 +277,8 @@
     "source_url": "https://www.ti.com/lit/ds/symlink/tmp117.pdf",
     "filename": "TMP117.pdf",
     "category": "peripheral",
-    "family": "Temperature Sensor"
+    "family": "Temperature Sensor",
+    "path": "pdf/texas-instruments/tmp117/tmp117_xai_grok-4-1-fast-non-reasoning_20260303T220410.json"
   },
   {
     "device": "VEML7700",
@@ -285,7 +305,8 @@
     "source_url": "https://cdn.sparkfun.com/assets/8/9/9/a/6/VL53L0X_DS.pdf",
     "filename": "VL53L0X.pdf",
     "category": "peripheral",
-    "family": "ToF Sensor"
+    "family": "ToF Sensor",
+    "path": "pdf/stmicroelectronics/vl53l0x/vl53l0x_xai_grok-4-1-fast-non-reasoning_20260303T220909.json"
   },
   {
     "device": "LSM9DS1",
@@ -294,7 +315,8 @@
     "source_url": "https://cdn.sparkfun.com/assets/learn_tutorials/3/7/3/LSM9DS1_Datasheet.pdf",
     "filename": "LSM9DS1.pdf",
     "category": "peripheral",
-    "family": "IMU"
+    "family": "IMU",
+    "path": "pdf/stmicroelectronics/lsm9ds1/lsm9ds1_xai_grok-4-1-fast-non-reasoning_20260303T214606.json"
   },
   {
     "device": "LPS22HB",
@@ -303,7 +325,8 @@
     "source_url": "https://www.waveshare.com/w/upload/2/20/Lps22hb.pdf",
     "filename": "LPS22HB.pdf",
     "category": "peripheral",
-    "family": "Pressure Sensor"
+    "family": "Pressure Sensor",
+    "path": "pdf/stmicroelectronics/lps22hb/lps22hb_xai_grok-4-1-fast-non-reasoning_20260303T213939.json"
   },
   {
     "device": "INA260",
@@ -312,7 +335,8 @@
     "source_url": "https://www.ti.com/lit/ds/symlink/ina260.pdf",
     "filename": "INA260.pdf",
     "category": "peripheral",
-    "family": "Current Monitor"
+    "family": "Current Monitor",
+    "path": "pdf/texas-instruments/ina260/ina260_xai_grok-4-1-fast-non-reasoning_20260304T132733.json"
   },
   {
     "device": "INA3221",
@@ -321,7 +345,8 @@
     "source_url": "https://www.ti.com/lit/ds/symlink/ina3221.pdf",
     "filename": "INA3221.pdf",
     "category": "peripheral",
-    "family": "Current Monitor"
+    "family": "Current Monitor",
+    "path": "pdf/texas-instruments/ina3221/ina3221_xai_grok-4-1-fast-non-reasoning_20260303T213443.json"
   },
   {
     "device": "TCA9548A",
@@ -330,7 +355,8 @@
     "source_url": "https://www.ti.com/lit/ds/symlink/tca9548a.pdf",
     "filename": "TCA9548A.pdf",
     "category": "peripheral",
-    "family": "I2C Mux"
+    "family": "I2C Mux",
+    "path": "pdf/texas-instruments/tca9548a/tca9548a_xai_grok-4-1-fast-non-reasoning_20260303T221206.json"
   },
   {
     "device": "TMP102",
@@ -339,7 +365,8 @@
     "source_url": "https://www.ti.com/lit/ds/symlink/tmp102.pdf",
     "filename": "TMP102.pdf",
     "category": "peripheral",
-    "family": "Temperature Sensor"
+    "family": "Temperature Sensor",
+    "path": "pdf/texas-instruments/tmp102/tmp102_xai_grok-4-1-fast-non-reasoning_20260303T221430.json"
   },
   {
     "device": "CC1101",
@@ -348,7 +375,8 @@
     "source_url": "https://www.ti.com/lit/ds/symlink/cc1101.pdf",
     "filename": "CC1101.pdf",
     "category": "peripheral",
-    "family": "RF Transceiver"
+    "family": "RF Transceiver",
+    "path": "pdf/texas-instruments/cc1101/cc1101_xai_grok-4-1-fast-non-reasoning_20260303T211054.json"
   },
   {
     "device": "MCP9808",
@@ -393,7 +421,8 @@
     "source_url": "https://docs.wiznet.io/img/products/w5500/w5500_ds_v109k.pdf",
     "filename": "W5500.pdf",
     "category": "peripheral",
-    "family": "Ethernet Controller"
+    "family": "Ethernet Controller",
+    "path": "pdf/wiznet/w5500/w5500_xai_grok-4-1-fast-non-reasoning_20260303T221158.json"
   },
   {
     "device": "PCA9555",
@@ -402,7 +431,8 @@
     "source_url": "https://www.nxp.com/docs/en/data-sheet/PCA9555.pdf",
     "filename": "PCA9555.pdf",
     "category": "peripheral",
-    "family": "GPIO Expander"
+    "family": "GPIO Expander",
+    "path": "pdf/nxp-semiconductors/pca9555/pca9555_xai_grok-4-1-fast-non-reasoning_20260315T144959_3ebd.json"
   },
   {
     "device": "PG251 USXGMII",
@@ -411,6 +441,7 @@
     "source_url": "https://www.mouser.com/datasheet/2/903/pg251-usxgmii-1596487.pdf",
     "filename": "pg251-usxgmii.pdf",
     "category": "peripheral",
-    "family": "Ethernet PHY"
+    "family": "Ethernet PHY",
+    "path": "pdf/xilinx/pg251-usxgmii/pg251-usxgmii_xai_grok-4-1-fast-non-reasoning_20260313T173643.json"
   }
 ]

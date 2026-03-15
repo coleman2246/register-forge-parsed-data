@@ -1,0 +1,4442 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "LSM6DS3",
+  "description": "6-axis IMU (accel + gyro)",
+  "vendor": "STMicroelectronics",
+  "source": "LSM6DS3.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.st.com/resource/en/datasheet/lsm6ds3.pdf",
+  "peripherals": {
+    "Device ID": [
+      {
+        "name": "WHO_AM_I",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": "0x69",
+        "description": "Who_AM_I register (r). This register is a read-only register. Its value is fixed at 69h.",
+        "fields": [
+          {
+            "name": "WHO_AM_I",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 105,
+            "description": "Device ID",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          3,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Embedded Functions": [
+      {
+        "name": "FUNC_CFG_ACCESS",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Embedded functions configuration register",
+        "fields": [
+          {
+            "name": "FUNC_CFG_ACCESS",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Function configuration access",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          2,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SM_THS",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Significant motion threshold register (r/w)",
+        "fields": [
+          {
+            "name": "THRESHOLD",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Significant motion threshold",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          11,
+          70
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL4_C",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Control register 4",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "XL_BW_SCAL_ODR",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer bandwidth selection. Default value: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLEEP_G",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope sleep mode enable. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_on_INT1",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "All interrupt signals available on INT1 pad enable. Default value: 0",
+            "enum_values": {
+              "0": "interrupt signals divided between INT1 and INT2 pads",
+              "1": "all interrupt signals in logic or on INT1 pad"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FIFO_TEMP_EN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable temperature data as 4th FIFO data set. Default: 0",
+            "enum_values": {
+              "0": "disable temperature data as 4th FIFO data set",
+              "1": "enable temperature data as 4th FIFO data set"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DRDY_MASK",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Configuration 1 data available enable bit. Default value: 0",
+            "enum_values": {
+              "0": "DA timer disabled",
+              "1": "DA timer enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_DISABLE",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Disable I2C interface. Default value: 0",
+            "enum_values": {
+              "0": "both I2C and SPI enabled",
+              "1": "I2C disabled, SPI only"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "STOP_ON_FTH",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable FIFO threshold level use. Default value: 0.",
+            "enum_values": {
+              "0": "FIFO depth is not limited",
+              "1": "FIFO depth is limited to threshold level"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          3,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PEDO_DEB_REG",
+        "address": "0x14",
+        "size_bits": 8,
+        "reset_value": "0x06",
+        "description": "Pedometer debounce register",
+        "fields": [
+          {
+            "name": "DEB_TIME",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "If this time between steps is greater than DEB_TIME*80ms, the debouncer is reactivated",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DEB_STEP",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 6,
+            "description": "Minimum number of steps to increment step counter (debouncer)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          11,
+          70,
+          77
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL5_C",
+        "address": "0x14",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Control register 5",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ROUNDING",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Circular burst-mode (rounding) read from output registers. Default: 000",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ST1_G",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Self test bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ST0_G",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Self test bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ST1_XL",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Self test bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ST0_XL",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Self test bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          3,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "STEP_COUNT_DELTA",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "STEP_COUNT_DELTA register",
+        "fields": [
+          {
+            "name": "DELTA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Step count delta",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          11,
+          70
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL6_C",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Angular rate sensor control register 6",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TRIG_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope data edge-sensitive trigger enable",
+            "enum_values": {
+              "0": "external trigger disabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LVL_EN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope data level-sensitive trigger enable",
+            "enum_values": {
+              "0": "level-sensitive trigger disabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LVL2_EN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope level-sensitive latched enable",
+            "enum_values": {
+              "0": "level-sensitive latched disabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "XL_HM_MODE",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "High-performance operating mode disable for accelerometer",
+            "enum_values": {
+              "0": "high-performance operating mode enabled"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          3,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TAP_CFG",
+        "address": "0x58",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Time stamp, pedometer, tilt, filtering, and tap recognition functions configuration register (r/w)",
+        "fields": [
+          {
+            "name": "TIMER_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Time stamp count enable. 0: time stamp count disabled; 1: time stamp count enabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PEDO_EN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Pedometer algorithm enable. 0: pedometer algorithm disabled; 1: pedometer algorithm enabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TILT_EN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Tilt calculation enable. 0: tilt calculation disabled; 1: tilt calculation enabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLOPE_FDS",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable accelerometer HP and LPF2 filters. 0: disable; 1: enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TAP_X_EN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable X direction in tap recognition. 0: X direction disabled; 1: X direction enabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TAP_Y_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable Y direction in tap recognition. 0: Y direction disabled; 1: Y direction enabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TAP_Z_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable Z direction in tap recognition. 0: Z direction disabled; 1: Z direction enabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LIR",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Latched Interrupt. 0: interrupt request not latched; 1: interrupt request latched",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          9,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "FIFO": [
+      {
+        "name": "FIFO_CTRL1",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FIFO configuration registers",
+        "fields": [
+          {
+            "name": "FIFO_CTRL1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "FIFO control 1 settings",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          2,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_CTRL2",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "FIFO control register (r/w).",
+        "fields": [
+          {
+            "name": "RSVD_5_4",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TIMER_PEDO_FIFO_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable pedometer step counter and time stamp. Default: 0 (0: disable step counter and time stamp data; 1: enable step counter and time stamp data.)",
+            "enum_values": {
+              "0": "disable step counter and time stamp data",
+              "1": "enable step counter and time stamp data"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TIMER_PEDO_FIFO_DRDY",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO write mode. Default: 0 (0: enable write in FIFO based on XL/Gyro data-ready; 1: enable write in FIFO at every step detected by step counter.)",
+            "enum_values": {
+              "0": "enable write in FIFO based on XL/Gyro data-ready",
+              "1": "enable write in FIFO at every step detected by step counter"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FTH_11",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO threshold level setting. Default value: 0000 Watermark flag rises when the number of bytes written to FIFO after the next write is greater than or equal to the threshold level. Minimum resolution for the FIFO is 1LSB = 2 bytes (1 word) in FIFO",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "FTH10",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO threshold level setting. Default value: 0000 Watermark flag rises when the number of bytes written to FIFO after the next write is greater than or equal to the threshold level. Minimum resolution for the FIFO is 1LSB = 2 bytes (1 word) in FIFO",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "FTH_9",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO threshold level setting. Default value: 0000 Watermark flag rises when the number of bytes written to FIFO after the next write is greater than or equal to the threshold level. Minimum resolution for the FIFO is 1LSB = 2 bytes (1 word) in FIFO",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "FTH_8",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO threshold level setting. Default value: 0000 Watermark flag rises when the number of bytes written to FIFO after the next write is greater than or equal to the threshold level. Minimum resolution for the FIFO is 1LSB = 2 bytes (1 word) in FIFO",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          2,
+          40,
+          45
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_CTRL3",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "FIFO control register 3",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "DEC_FIFO_GYRO",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyro FIFO (first data set) decimation setting. Default: 000",
+            "enum_values": {
+              "0b000": "Gyro sensor not in FIFO",
+              "0b001": "No decimation",
+              "0b010": "Decimation with factor 2",
+              "0b011": "Decimation with factor 3",
+              "0b100": "Decimation with factor 4",
+              "0b101": "Decimation with factor 8",
+              "0b110": "Decimation with factor 16",
+              "0b111": "Decimation with factor 32"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DEC_FIFO_XL",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer FIFO (second data set) decimation setting. Default: 000",
+            "enum_values": {
+              "0b000": "Accelerometer sensor not in FIFO",
+              "0b001": "No decimation",
+              "0b010": "Decimation with factor 2",
+              "0b011": "Decimation with factor 3",
+              "0b100": "Decimation with factor 4",
+              "0b101": "Decimation with factor 8",
+              "0b110": "Decimation with factor 16",
+              "0b111": "Decimation with factor 32"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          2,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_CTRL4",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "FIFO control register (r/w).",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ONLY_HIGH_DATA",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "8-bit data storage in FIFO. Default: 0 (0: disable MSByte only memorization in FIFO for XL and Gyro; 1: enable MSByte only memorization in FIFO for XL and Gyro in FIFO)",
+            "enum_values": {
+              "0": "disable MSByte only memorization in FIFO for XL and Gyro",
+              "1": "enable MSByte only memorization in FIFO for XL and Gyro in FIFO"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TIMER_PEDO_DEC_FIFO",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Third FIFO data set decimation setting. Default: 000 For the configuration setting, refer to Table 29 . These bits are used when the bit TIMER_PEDO_FIFO_EN is set to '1' in FIFO_CTRL2 (07h)",
+            "enum_values": {
+              "0b000": "Third FIFO data set not in FIFO",
+              "0b001": "No decimation",
+              "0b010": "Decimation with factor 2",
+              "0b011": "Decimation with factor 3",
+              "0b100": "Decimation with factor 4",
+              "0b101": "Decimation with factor 8",
+              "0b110": "Decimation with factor 16",
+              "0b111": "Decimation with factor 32"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          2,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_CTRL5",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "FIFO control register 5",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ODR_FIFO",
+            "bit_high": 6,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO ODR selection, setting FIFO_MODE also. Default: 0000",
+            "enum_values": {
+              "0b0000": "FIFO disabled",
+              "0b0001": "FIFO ODR is set to 13 Hz",
+              "0b0010": "FIFO ODR is set to 26 Hz",
+              "0b0011": "FIFO ODR is set to 52 Hz",
+              "0b0100": "FIFO ODR is set to 104 Hz",
+              "0b0101": "FIFO ODR is set to 208 Hz",
+              "0b0110": "FIFO ODR is set to 416 Hz",
+              "0b0111": "FIFO ODR is set to 833 Hz",
+              "0b1000": "FIFO ODR is set to 1.66 kHz",
+              "0b1001": "FIFO ODR is set to 3.33 kHz",
+              "0b1010": "FIFO ODR is set to 6.66 kHz"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FIFO_MODE",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO mode selection bits, setting ODR_FIFO also. Default value: 000",
+            "enum_values": {
+              "0b000": "Bypass mode. FIFO disabled.",
+              "0b001": "FIFO mode. Stops collecting data when FIFO is full.",
+              "0b010": "Reserved",
+              "0b011": "Continuous mode until trigger is deasserted, then FIFO mode.",
+              "0b100": "Bypass mode until trigger is deasserted, then Continuous mode.",
+              "0b101": "Reserved",
+              "0b110": "Continuous mode. If the FIFO is full, the new sample overwrites the older one.",
+              "0b111": "Reserved"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          2,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_STATUS1",
+        "address": "0x3A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FIFO_STATUS1 register",
+        "fields": [
+          {
+            "name": "STATUS",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "FIFO status",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          7,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_STATUS2",
+        "address": "0x3B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FIFO_STATUS2 register",
+        "fields": [
+          {
+            "name": "STATUS",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "FIFO status",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          7,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_STATUS3",
+        "address": "0x3C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FIFO_STATUS3 register",
+        "fields": [
+          {
+            "name": "STATUS",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "FIFO status",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          7,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_STATUS4",
+        "address": "0x3D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FIFO_STATUS4 register",
+        "fields": [
+          {
+            "name": "STATUS",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "FIFO status",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          7,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_DATA_OUT_L",
+        "address": "0x3E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FIFO data output registers",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "FIFO data output",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          7,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_DATA_OUT_H",
+        "address": "0x3F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FIFO data output registers",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "FIFO data output",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          8,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Interrupts": [
+      {
+        "name": "INT1_CTRL",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt 1 control register",
+        "fields": [
+          {
+            "name": "INT1_STEP_DETECTOR",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Pedometer step recognition interrupt enable on INT1 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_SIGN_MOT",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Significant motion interrupt enable on INT1 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_FULL_FLAG",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO full flag interrupt enable on INT1 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_FIFO_OVR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO overrun interrupt on INT1 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_FTH",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO threshold interrupt on INT1 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_BOOT",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Boot status available on INT1 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_DRDY_G",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope Data Ready on INT1 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_DRDY_XL",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer Data Ready on INT1 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          2,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT2_CTRL",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt 2 control register",
+        "fields": [
+          {
+            "name": "INT2_STEP_DELTA",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Pedometer step recognition interrupt on delta time enable on INT2 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_STEP_COUNT_OV",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Step counter overflow interrupt enable on INT2 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_FULL_FLAG",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO full flag interrupt enable on INT2 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_FIFO_OVR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO overrun interrupt on INT2 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_FTH",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO threshold interrupt on INT2 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_DRDY_TEMP",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Temperature Data Ready in INT2 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_DRDY_G",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope Data Ready on INT2 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_DRDY_XL",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer Data Ready on INT2 pad. Default value: 0",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          2,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "WAKE_UP_SRC",
+        "address": "0x1B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Wake-up source register",
+        "fields": [
+          {
+            "name": "WAKE_UP_SRC",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Wake up source",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          5,
+          40,
+          55
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TAP_SRC",
+        "address": "0x1C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Interrupts registers",
+        "fields": [
+          {
+            "name": "TAP_SRC",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Tap source",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          5,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "D6D_SRC",
+        "address": "0x1D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Interrupts registers",
+        "fields": [
+          {
+            "name": "D6D_SRC",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "6D source",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          5,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FUNC_SRC",
+        "address": "0x53",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Significant motion, tilt, step detector interrupt source register (r)",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "STEP_COUNT_DELTA_IA",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Pedometer step recognition on delta time status. 0: no step recognized during delta time; 1: at least one step recognized during delta time",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SIGN_MOTION_IA",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Significant motion event detection status. 0: significant motion event not detected; 1: significant motion event detected",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TILT_IA",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Tilt event detection status. 0: tilt event not detected; 1: tilt event detected",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "STEP_DETECTED",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Step detector event detection status. 0: step detector event not detected; 1: step detector event detected",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "STEP_OVERFLOW",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Step counter overflow status. 0: step counter value < 2^16 ; 1: step counter value reached 2^16",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          9,
+          42,
+          55
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MD1_CFG",
+        "address": "0x5E",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Functions routing on INT1 register (r/w)",
+        "fields": [
+          {
+            "name": "INT1_INACT_STATE",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Routing on INT1 of inactivity mode. Default: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_SINGLE_TAP",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Single-tap recognition routing on INT1. Default: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_WU",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Routing of wakeup event on INT1. Default value: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_FF",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Routing of free-fall event on INT1. Default value: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_DOUBLE_TAP",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Routing of double-tap event on INT1. Default value: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_6D",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Routing of 6D event on INT1. Default value: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_TILT",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Routing of tilt event on INT1. Default value: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT1_TIMER",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Routing of end counter event of timer on INT1. Default value: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          10,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Accelerometer": [
+      {
+        "name": "CTRL1_XL",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Linear acceleration sensor control register 1",
+        "fields": [
+          {
+            "name": "ODR_XL",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output data rate and power mode selection. Default value: 0000",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FS_XL",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer full-scale selection. Default value: 00.",
+            "enum_values": {
+              "0b00": "\u00b12 g",
+              "0b01": "\u00b116 g",
+              "0b10": "\u00b14 g",
+              "0b11": "\u00b18 g"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BW_XL",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Anti-aliasing filter bandwidth selection. Default value: 00",
+            "enum_values": {
+              "0b00": "400 Hz",
+              "0b01": "200 Hz",
+              "0b10": "100 Hz",
+              "0b11": "50 Hz"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          3,
+          40,
+          51,
+          53
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL8_XL",
+        "address": "0x17",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Linear acceleration sensor control register 8",
+        "fields": [
+          {
+            "name": "RSVD_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_4_3",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LPF2_XL_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Accelerometer low-pass filter LPF2 selection",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HPCF_XL",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Accelerometer slope filter and high-pass filter configuration and cutoff setting",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HP_SLOPE_XL_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Accelerometer slope filter / high-pass filter selection",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LOW_PASS_ON_6D",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Low-pass filter on 6D function selection",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          4,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL9_XL",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Accelerometer and gyroscope control registers",
+        "fields": [
+          {
+            "name": "CTRL9_XL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Accelerometer control settings",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUTX_L_XL",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Accelerometer output register",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Output data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          6,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUTX_H_XL",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Accelerometer output register",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Output data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          6,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUTY_L_XL",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Accelerometer output register",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Output data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          6,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUTY_H_XL",
+        "address": "0x2B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Accelerometer Y-axis output high byte",
+        "fields": [
+          {
+            "name": "OUTY_H_XL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Accel Y high",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          7,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUTZ_L_XL",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Accelerometer output register",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Output data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          7,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUTZ_H_XL",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Accelerometer output register",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Output data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          7,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Gyroscope": [
+      {
+        "name": "ORIENT_CFG_G",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Angular rate sensor sign and orientation register",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGNX_G",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Pitch axis (X) angular rate sign. Default value: 0",
+            "enum_values": {
+              "0": "positive sign",
+              "1": "negative sign"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SIGNY_G",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Roll axis (Y) angular rate sign. Default value: 0",
+            "enum_values": {
+              "0": "positive sign",
+              "1": "negative sign"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SIGNZ_G",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Yaw axis (Z) angular rate sign. Default value: 0",
+            "enum_values": {
+              "0": "positive sign",
+              "1": "negative sign"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ORIENT",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Directional user-orientation selection. Default value: 000",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          2,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL7_G",
+        "address": "0x16",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Angular rate sensor control register 7",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "G_HM_MODE",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "High-performance operating mode disable for gyroscope. Default: 0 (0: high-performance operating mode enabled; 1: high-performance operating mode disabled)",
+            "enum_values": {
+              "0": "high-performance operating mode enabled"
+            },
+            "source": "agent_verified"
+          },
+          {
+            "name": "HP_G_EN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope high-pass filter enable. Default value: 0 (0: HPF disabled; 1: HPF enabled)",
+            "enum_values": {
+              "0": "HPF disabled"
+            },
+            "source": "agent_verified"
+          },
+          {
+            "name": "HPCF_G1",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope high-pass filter cutoff frequency selection bit 1",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HPCF_G0",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope high-pass filter cutoff frequency selection bit 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HP_G_RST",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyro digital HP filter reset. Default: 0 (0: gyro digital HP filter reset OFF; 1: gyro digital HP filter reset ON)",
+            "enum_values": {
+              "0": "gyro digital HP filter reset OFF"
+            },
+            "source": "agent_verified"
+          },
+          {
+            "name": "ROUNDING_STATUS",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Source register rounding function enable on STATUS_REG (1Eh), FUNC_SRC (53h) and WAKE_UP_SRC (1Bh) registers. Default value: 0 (0: disabled; 1: enabled)",
+            "enum_values": {
+              "0": "disabled"
+            },
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          3,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUTX_L_G",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope X-axis output low byte",
+        "fields": [
+          {
+            "name": "OUTX_L_G",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gyro X low",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          6,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUTX_H_G",
+        "address": "0x23",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope X-axis output high byte",
+        "fields": [
+          {
+            "name": "OUTX_H_G",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gyro X high",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          6,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUTY_L_G",
+        "address": "0x24",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope Y-axis output low byte",
+        "fields": [
+          {
+            "name": "OUTY_L_G",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gyro Y low",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          6,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUTY_H_G",
+        "address": "0x25",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope output register",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Output data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          6,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUTZ_L_G",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope Z-axis output low byte",
+        "fields": [
+          {
+            "name": "OUTZ_L_G",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gyro Z low",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          6,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUTZ_H_G",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope Z-axis output high byte",
+        "fields": [
+          {
+            "name": "OUTZ_H_G",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gyro Z high",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          6,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Control": [
+      {
+        "name": "CTRL3_C",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Control register 3",
+        "fields": [
+          {
+            "name": "BOOT",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reboot memory content. Default value: 0",
+            "enum_values": {
+              "0": "normal mode",
+              "1": "reboot memory content"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BDU",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Block Data Update. Default value: 0",
+            "enum_values": {
+              "0": "continuous update",
+              "1": "output registers not updated until MSB and LSB have been read"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "H_LACTIVE",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt activation level. Default value: 0",
+            "enum_values": {
+              "0": "interrupt output pads active high",
+              "1": "interrupt output pads active low"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PP_OD",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Push-pull/open-drain selection on INT1 and INT2 pads. Default value: 0",
+            "enum_values": {
+              "0": "push-pull mode",
+              "1": "open-drain mode"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SIM",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SPI Serial Interface Mode selection. Default value: 0",
+            "enum_values": {
+              "0": "4-wire interface",
+              "1": "3-wire interface"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IF_INC",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Register address automatically incremented during a multiple byte access with a serial interface. Default value: 1",
+            "enum_values": {
+              "0": "disabled",
+              "1": "enabled"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BLE",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Big/Little Endian Data selection. Default value 0",
+            "enum_values": {
+              "0": "data LSB @lower address",
+              "1": "data MSB @lower address"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SW_RESET",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Software reset. Default value: 0",
+            "enum_values": {
+              "0": "normal mode",
+              "1": "reset device"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          3,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL10_C",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": "0x38",
+        "description": "Accelerometer and gyroscope control registers",
+        "fields": [
+          {
+            "name": "CTRL10_C",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 56,
+            "description": "Control 10 C",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          4,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Status": [
+      {
+        "name": "STATUS_REG",
+        "address": "0x1E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Status data register",
+        "fields": [
+          {
+            "name": "STATUS_REG",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Status register",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          5,
+          41,
+          55
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Temperature": [
+      {
+        "name": "OUT_TEMP_L",
+        "address": "0x20",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature output data register",
+        "fields": [
+          {
+            "name": "OUT_TEMP_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature output low",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          5,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Timestamp": [
+      {
+        "name": "TIMESTAMP0_REG",
+        "address": "0x40",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Time stamp first byte data output register (r)",
+        "fields": [
+          {
+            "name": "TIMESTAMP",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Timestamp data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          8,
+          41,
+          65
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TIMESTAMP1_REG",
+        "address": "0x41",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Time stamp second byte data output register (r)",
+        "fields": [
+          {
+            "name": "TIMESTAMP",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Timestamp data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          8,
+          41,
+          65
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TIMESTAMP2_REG",
+        "address": "0x42",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Time stamp third byte data output register (r/w). To reset the timer, the AAh value has to be stored in this register.",
+        "fields": [
+          {
+            "name": "TIMESTAMP",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Timestamp data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          8,
+          41,
+          65
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Step Counter": [
+      {
+        "name": "STEP_TIMESTAMP_L",
+        "address": "0x49",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Step counter timestamp information register (r). When a step is detected, the value of TIMESTAMP_REG1 register is copied in STEP_TIMESTAMP_L.",
+        "fields": [
+          {
+            "name": "TIMESTAMP",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Step timestamp",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          8,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "STEP_TIMESTAMP_H",
+        "address": "0x4A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Step counter timestamp information register (r). When a step is detected, the value of TIMESTAMP_REG2 register is copied in STEP_TIMESTAMP_H.",
+        "fields": [
+          {
+            "name": "TIMESTAMP",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Step timestamp",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          8,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "STEP_COUNTER_L",
+        "address": "0x4B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Step counter output register (r)",
+        "fields": [
+          {
+            "name": "COUNTER",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Step counter",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          9,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "STEP_COUNTER_H",
+        "address": "0x4C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Step counter output register (r)",
+        "fields": [
+          {
+            "name": "COUNTER",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Step counter",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          9,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Tap/Wakeup": [
+      {
+        "name": "TAP_THS_6D",
+        "address": "0x59",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Portrait/landscape position and tap function threshold register (r/w)",
+        "fields": [
+          {
+            "name": "D4D_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "4D orientation detection enable (Z-axis position detection is disabled). Default value: 0 (0: disabled; 1: enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SIXD_THS",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Threshold for D6D function. Default value: 00",
+            "enum_values": {
+              "0b00": "80 degrees",
+              "0b01": "70 degrees",
+              "0b10": "60 degrees",
+              "0b11": "50 degrees"
+            },
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TAP_THS",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Threshold for tap recognition. Default value: 00000",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          9,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_DUR2",
+        "address": "0x5A",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Tap recognition function setting register (r/w)",
+        "fields": [
+          {
+            "name": "DUR",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Duration of maximum time gap for double tap recognition. Default: 0000",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "QUIET",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Expected quiet time after a tap detection. Default value: 00",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SHOCK",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Maximum duration of overthreshold event. Default value: 00",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          10,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "WAKE_UP_THS",
+        "address": "0x5B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Single and double-tap function threshold register (r/w)",
+        "fields": [
+          {
+            "name": "SINGLE_DOUBLE_TAP",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Single/double-tap event enable. Default: 0 (0: only single-tap event enabled; 1: both single and double-tap events enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INACTIVITY",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Inactivity event enable. Default value: 0 (0: sleep disabled; 1: sleep enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "WK_THS",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Threshold for wakeup. Default value: 000000",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          10,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "WAKE_UP_DUR",
+        "address": "0x5C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Free-fall, wakeup, time stamp and sleep mode functions duration setting register (r/w)",
+        "fields": [
+          {
+            "name": "FF_DUR5",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Free fall duration event. Default: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "WAKE_DUR",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Wake up duration event. Default: 00",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TIMER_HR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Time stamp register resolution setting. Default value: 0 (0: 1LSB = 6.4 ms; 1: 1LSB = 25 \u03bcs)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLEEP_DUR",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Duration to go in sleep mode. Default value: 0000",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          10,
+          42,
+          68
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FREE_FALL",
+        "address": "0x5D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Free-fall function duration setting register (r/w)",
+        "fields": [
+          {
+            "name": "FF_DUR",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Free-fall duration event. Default: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FF_THS",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Free fall threshold setting. Default: 000",
+            "enum_values": {
+              "0b000": "156 mg",
+              "0b001": "219 mg",
+              "0b010": "250 mg",
+              "0b011": "312 mg",
+              "0b100": "344 mg",
+              "0b101": "406 mg",
+              "0b110": "469 mg",
+              "0b111": "500 mg"
+            },
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          10,
+          42,
+          67
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Gyroscope Control": [
+      {
+        "name": "CTRL2_G",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "CTRL2 G register",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "ODR_G",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope output data rate selection",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FS_G",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope full-scale selection",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FS_125",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope full-scale at 125 dps",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          3,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Temperature Sensor": [
+      {
+        "name": "OUT_TEMP_H",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "OUT TEMP H register",
+        "fields": [
+          {
+            "name": "OUT_TEMP_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "High byte of temperature output",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          5
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Interrupt Configuration": [
+      {
+        "name": "MD2_CFG",
+        "address": "0x5F",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Functions routing on INT2 register (r/w)",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved (0)",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "INT2_INACT_STATE",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Routing on INT2 of inactivity mode. Default: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_SINGLE_TAP",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Single-tap recognition routing on INT2. Default: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_WU",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Routing of wakeup event on INT2. Default value: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_FF",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Routing of free-fall event on INT2. Default value: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_DOUBLE_TAP",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Routing of double-tap event on INT2. Default value: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_6D",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Routing of 6D event on INT2. Default value: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT2_TILT",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Routing of tilt event on INT2. Default value: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          10,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {
+    "0": "Main",
+    "1": "Embedded Functions"
+  },
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-15T18:56:32.547577+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 63,
+        "by_confidence": {
+          "high": 63,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 2,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 170,
+        "by_source": {
+          "evidence_verified": 144,
+          "synthetic": 14,
+          "agent_verified": 10,
+          "section_agent": 1,
+          "llm_consistent": 1
+        }
+      },
+      "peripherals": {
+        "total": 15,
+        "by_name": {
+          "Device ID": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Embedded Functions": {
+            "registers": 8,
+            "confidence": {
+              "high": 8,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "FIFO": {
+            "registers": 11,
+            "confidence": {
+              "high": 11,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Interrupts": {
+            "registers": 7,
+            "confidence": {
+              "high": 7,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Accelerometer": {
+            "registers": 9,
+            "confidence": {
+              "high": 9,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Gyroscope": {
+            "registers": 8,
+            "confidence": {
+              "high": 8,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Control": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Status": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Temperature": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Timestamp": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Step Counter": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Tap/Wakeup": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Gyroscope Control": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Temperature Sensor": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Interrupt Configuration": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 64,
+        "batches_total": 12,
+        "batches_sent": 12,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "missing_register_page": 2
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 76,
+        "fields_verified": 76,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 59,
+        "field_diagnostics": {
+          "0X01": {
+            "FUNC_CFG_ACCESS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 83485
+            }
+          },
+          "0X06": {
+            "FIFO_CTRL1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 86353
+            }
+          },
+          "0X07": {
+            "TIMER_PEDO_FIFO_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 92855
+            },
+            "TIMER_PEDO_FIFO_DRDY": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 92855
+            },
+            "FTH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 92855
+            }
+          },
+          "0X08": {
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 87598
+            },
+            "DEC_FIFO_GYRO": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 87598
+            },
+            "DEC_FIFO_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 87598
+            }
+          },
+          "0X09": {
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85891
+            },
+            "ONLY_HIGH_DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85891
+            },
+            "TIMER_PEDO_DEC_FIFO": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85891
+            }
+          },
+          "0X0A": {
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 86736
+            },
+            "ODR_FIFO": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 86736
+            },
+            "FIFO_MODE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 86736
+            }
+          },
+          "0X0B": {
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85484
+            },
+            "SIGNX_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85484
+            },
+            "SIGNY_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85484
+            },
+            "SIGNZ_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85484
+            },
+            "ORIENT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85484
+            }
+          },
+          "0X0D": {
+            "INT1_STEP_DETECTOR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84428
+            },
+            "INT1_SIGN_MOT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84428
+            },
+            "INT1_FULL_FLAG": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84428
+            },
+            "INT1_FIFO_OVR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84428
+            },
+            "INT1_FTH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84428
+            },
+            "INT1_BOOT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84428
+            },
+            "INT1_DRDY_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84428
+            },
+            "INT1_DRDY_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84428
+            }
+          },
+          "0X0E": {
+            "INT2_STEP_DELTA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84528
+            },
+            "INT2_STEP_COUNT_OV": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84528
+            },
+            "INT2_FULL_FLAG": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84528
+            },
+            "INT2_FIFO_OVR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84528
+            },
+            "INT2_FTH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84528
+            },
+            "INT2_DRDY_TEMP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84528
+            },
+            "INT2_DRDY_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84528
+            },
+            "INT2_DRDY_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84528
+            }
+          },
+          "0X0F": {
+            "PEDO_4G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 176063
+            },
+            "THS_MIN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 176063
+            },
+            "WHO_AM_I": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 148751
+            }
+          },
+          "0X10": {
+            "ODR_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 126720
+            },
+            "FS_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 126720
+            },
+            "BW_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 126720
+            }
+          },
+          "0X11": {
+            "ODR_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85076
+            },
+            "FS_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85076
+            },
+            "FS_125": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85076
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85076
+            }
+          },
+          "0X12": {
+            "BOOT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84845
+            },
+            "BDU": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84845
+            },
+            "H_LACTIVE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84845
+            },
+            "PP_OD": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84845
+            },
+            "SIM": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84845
+            },
+            "IF_INC": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84845
+            },
+            "BLE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84845
+            },
+            "SW_RESET": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84845
+            }
+          },
+          "0X13": {
+            "THRESHOLD": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 155020
+            },
+            "XL_BW_SCAL_ODR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 150695
+            },
+            "SLEEP_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 150695
+            },
+            "INT2_on_INT1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 150695
+            },
+            "FIFO_TEMP_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 150695
+            },
+            "DRDY_MASK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 150695
+            },
+            "I2C_DISABLE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 150695
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 150695
+            },
+            "STOP_ON_FTH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 150695
+            }
+          },
+          "0X14": {
+            "DEB_TIME": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 170988
+            },
+            "DEB_STEP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 170988
+            },
+            "ROUNDING": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 174177
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 174177
+            },
+            "ST1_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 174177
+            },
+            "ST0_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 174177
+            },
+            "ST1_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 174177
+            },
+            "ST0_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 174177
+            }
+          },
+          "0X15": {
+            "DELTA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 145092
+            },
+            "TRIG_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136375
+            },
+            "LVL_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136375
+            },
+            "LVL2_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136375
+            },
+            "XL_HM_MODE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136375
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136375
+            }
+          },
+          "0X16": {
+            "G_HM_MODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 85509
+            },
+            "HP_G_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 85509
+            },
+            "HPCF_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 85509
+            },
+            "HP_G_RST": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 85509
+            },
+            "ROUNDING_STATUS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 85509
+            },
+            "RSVD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 85509
+            }
+          },
+          "0X17": {
+            "LPF2_XL_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 85292
+            },
+            "HPCF_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 85292
+            },
+            "RSVD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 85292
+            },
+            "HP_SLOPE_XL_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 85292
+            },
+            "LOW_PASS_ON_6D": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 85292
+            }
+          },
+          "0X19": {
+            "CTRL10_C": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58696
+            }
+          },
+          "0X1B": {
+            "WAKE_UP_SRC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76844
+            }
+          },
+          "0X1C": {
+            "TAP_SRC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 70854
+            }
+          },
+          "0X1D": {
+            "D6D_SRC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 70742
+            }
+          },
+          "0X1E": {
+            "STATUS_REG": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 61591
+            }
+          },
+          "0X20": {
+            "OUT_TEMP_L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 55074
+            }
+          },
+          "0X22": {
+            "OUTX_L_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59397
+            }
+          },
+          "0X23": {
+            "OUTX_H_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59395
+            }
+          },
+          "0X24": {
+            "OUTY_L_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59400
+            }
+          },
+          "0X25": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 69918
+            }
+          },
+          "0X26": {
+            "OUTZ_L_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59396
+            }
+          },
+          "0X27": {
+            "OUTZ_H_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59385
+            }
+          },
+          "0X28": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 69889
+            }
+          },
+          "0X29": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 69924
+            }
+          },
+          "0X2A": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51877
+            }
+          },
+          "0X2B": {
+            "OUTY_H_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 41929
+            }
+          },
+          "0X18": {
+            "CTRL9_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54145
+            }
+          },
+          "0X2C": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 35191
+            }
+          },
+          "0X2D": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 35184
+            }
+          },
+          "0X3A": {
+            "STATUS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 35423
+            }
+          },
+          "0X3B": {
+            "STATUS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 36305
+            }
+          },
+          "0X3C": {
+            "STATUS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 35500
+            }
+          },
+          "0X3D": {
+            "STATUS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 35327
+            }
+          },
+          "0X3E": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 35483
+            }
+          },
+          "0X3F": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 35385
+            }
+          },
+          "0X40": {
+            "TIMESTAMP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 69655
+            }
+          },
+          "0X41": {
+            "TIMESTAMP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 69633
+            }
+          },
+          "0X42": {
+            "TIMESTAMP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 69697
+            }
+          },
+          "0X49": {
+            "TIMESTAMP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 63758
+            }
+          },
+          "0X4A": {
+            "TIMESTAMP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 63440
+            }
+          },
+          "0X4B": {
+            "COUNTER": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56765
+            }
+          },
+          "0X4C": {
+            "COUNTER": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56744
+            }
+          },
+          "0X53": {
+            "STEP_COUNT_DELTA_IA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 72263
+            },
+            "SIGN_MOTION_IA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 72263
+            },
+            "TILT_IA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 72263
+            },
+            "STEP_DETECTED": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 72263
+            },
+            "STEP_OVERFLOW": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 72263
+            },
+            "RSVD_2_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 72263
+            }
+          },
+          "0X58": {
+            "TIMER_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58503
+            },
+            "PEDO_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58503
+            },
+            "TILT_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58503
+            },
+            "SLOPE_FDS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58503
+            },
+            "TAP_X_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58503
+            },
+            "TAP_Y_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58503
+            },
+            "TAP_Z_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58503
+            },
+            "LIR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58503
+            }
+          },
+          "0X59": {
+            "D4D_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57355
+            },
+            "SIXD_THS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57355
+            },
+            "TAP_THS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57355
+            }
+          },
+          "0X5A": {
+            "DUR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59438
+            },
+            "QUIET": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59438
+            },
+            "SHOCK": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59438
+            }
+          },
+          "0X5B": {
+            "SINGLE_DOUBLE_TAP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58475
+            },
+            "INACTIVITY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58475
+            },
+            "WK_THS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58475
+            }
+          },
+          "0X5C": {
+            "FF_DUR5": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63679
+            },
+            "WAKE_DUR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63679
+            },
+            "TIMER_HR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63679
+            },
+            "SLEEP_DUR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63679
+            }
+          },
+          "0X5D": {
+            "FF_DUR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 62818
+            },
+            "FF_THS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 62818
+            }
+          },
+          "0X5E": {
+            "INT1_INACT_STATE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59946
+            },
+            "INT1_SINGLE_TAP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59946
+            },
+            "INT1_WU": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59946
+            },
+            "INT1_FF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59946
+            },
+            "INT1_DOUBLE_TAP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59946
+            },
+            "INT1_6D": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59946
+            },
+            "INT1_TILT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59946
+            },
+            "INT1_TIMER": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59946
+            }
+          },
+          "0X5F": {
+            "INT2_INACT_STATE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68987
+            },
+            "INT2_SINGLE_TAP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68987
+            },
+            "INT2_WU": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68987
+            },
+            "INT2_FF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68987
+            },
+            "INT2_DOUBLE_TAP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68987
+            },
+            "INT2_6D": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68987
+            },
+            "INT2_TILT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68987
+            },
+            "RSVD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68987
+            }
+          }
+        },
+        "fields_consistent_promoted": 28,
+        "fields_bit_llm_fallback": 19,
+        "fields_cross_section_augmented": 25,
+        "fields_name_matched": 81,
+        "fields_bit_corrected": 6,
+        "diagnostic_summary": {
+          "verified_quote": 75,
+          "verified_name": 81,
+          "reserved": 8
+        }
+      }
+    }
+  }
+}
