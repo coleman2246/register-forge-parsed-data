@@ -16,7 +16,7 @@
     "filename": "ADXL345.pdf",
     "category": "peripheral",
     "family": "Accelerometer",
-    "path": "pdf/analog-devices/adxl345/adxl345_xai_grok-4-1-fast-non-reasoning_20260304T131212.json"
+    "path": "pdf/analog-devices/adxl345/adxl345_groq_openai-gpt-oss-120b_20260320T220615_5aa5.json"
   },
   {
     "device": "DS18B20",
@@ -26,7 +26,7 @@
     "filename": "DS18B20.pdf",
     "category": "peripheral",
     "family": "Temperature Sensor",
-    "path": "pdf/analog-devices/ds18b20/ds18b20_xai_grok-4-1-fast-non-reasoning_20260304T131420.json"
+    "path": "pdf/analog-devices/ds18b20/ds18b20_groq_openai-gpt-oss-120b_20260320T223313_9344.json"
   },
   {
     "device": "DS3231",
@@ -36,7 +36,7 @@
     "filename": "DS3231.pdf",
     "category": "peripheral",
     "family": "RTC",
-    "path": "pdf/analog-devices/ds3231/ds3231_xai_grok-4-1-fast-non-reasoning_20260303T211622.json"
+    "path": "pdf/analog-devices/ds3231/ds3231_groq_openai-gpt-oss-120b_20260320T223527_fd9d.json"
   },
   {
     "device": "MAX31855",
@@ -54,7 +54,8 @@
     "source_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/max96716a.pdf",
     "filename": "MAX96716A.pdf",
     "category": "peripheral",
-    "family": "GMSL Deserializer"
+    "family": "GMSL Deserializer",
+    "path": "pdf/analog-devices/max96716a/max96716a_groq_openai-gpt-oss-120b_20260321T084756_48c3.json"
   },
   {
     "device": "TSL2591",
@@ -73,7 +74,7 @@
     "filename": "BME280.pdf",
     "category": "peripheral",
     "family": "Environmental Sensor",
-    "path": "pdf/bosch-sensortec/bme280/bme280_xai_grok-4-1-fast-non-reasoning_20260315T145339_f8cf.json"
+    "path": "pdf/bosch-sensortec/bme280/bme280_groq_openai-gpt-oss-120b_20260321T101329_b481.json"
   },
   {
     "device": "BMP180",
@@ -83,7 +84,7 @@
     "filename": "BMP180.pdf",
     "category": "peripheral",
     "family": "Pressure Sensor",
-    "path": "pdf/bosch-sensortec/bmp180/bmp180_xai_grok-4-1-fast-non-reasoning_20260304T131254.json"
+    "path": "pdf/bosch-sensortec/bmp180/bmp180_groq_openai-gpt-oss-120b_20260320T221250_ec72.json"
   },
   {
     "device": "BMP280",
@@ -93,7 +94,7 @@
     "filename": "BMP280.pdf",
     "category": "peripheral",
     "family": "Pressure Sensor",
-    "path": "pdf/bosch-sensortec/bmp280/bmp280_xai_grok-4-1-fast-non-reasoning_20260303T210335.json"
+    "path": "pdf/bosch-sensortec/bmp280/bmp280_groq_openai-gpt-oss-120b_20260320T221449_a6db.json"
   },
   {
     "device": "BNO055",
@@ -103,7 +104,7 @@
     "filename": "BNO055.pdf",
     "category": "peripheral",
     "family": "IMU",
-    "path": "pdf/bosch-sensortec/bno055/bno055_xai_grok-4-1-fast-non-reasoning_20260303T210742.json"
+    "path": "pdf/bosch-sensortec/bno055/bno055_groq_openai-gpt-oss-120b_20260321T101927_1a29.json"
   },
   {
     "device": "HMC5883L",
@@ -112,7 +113,8 @@
     "source_url": "https://cdn-shop.adafruit.com/datasheets/HMC5883L_3-Axis_Digital_Compass_IC.pdf",
     "filename": "HMC5883L.pdf",
     "category": "peripheral",
-    "family": "Magnetometer"
+    "family": "Magnetometer",
+    "path": "pdf/honeywell/hmc5883l/hmc5883l_groq_openai-gpt-oss-120b_20260320T223714_0c93.json"
   },
   {
     "device": "MPU-6050",
@@ -121,7 +123,8 @@
     "source_url": "https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf",
     "filename": "MPU6050.pdf",
     "category": "peripheral",
-    "family": "IMU"
+    "family": "IMU",
+    "path": "pdf/invensense--tdk/mpu6050/mpu6050_groq_openai-gpt-oss-120b_20260320T233833_46c9.json"
   },
   {
     "device": "MLX90614",
@@ -131,7 +134,7 @@
     "filename": "MLX90614.pdf",
     "category": "peripheral",
     "family": "Temperature Sensor",
-    "path": "pdf/melexis/mlx90614/mlx90614_xai_grok-4-1-fast-non-reasoning_20260303T220816.json"
+    "path": "pdf/melexis/mlx90614/mlx90614_groq_openai-gpt-oss-120b_20260320T233258_4238.json"
   },
   {
     "device": "MMC5603",
@@ -141,7 +144,7 @@
     "filename": "MMC5603.pdf",
     "category": "peripheral",
     "family": "Magnetometer",
-    "path": "pdf/memsic/mmc5603/mmc5603_xai_grok-4-1-fast-non-reasoning_20260303T221104.json"
+    "path": "pdf/memsic/mmc5603/mmc5603_groq_openai-gpt-oss-120b_20260320T233544_2416.json"
   },
   {
     "device": "MCP23017",
@@ -150,7 +153,8 @@
     "source_url": "https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf",
     "filename": "MCP23017.pdf",
     "category": "peripheral",
-    "family": "GPIO Expander"
+    "family": "GPIO Expander",
+    "path": "pdf/microchip/mcp23017/mcp23017_groq_openai-gpt-oss-120b_20260321T084945_f16d.json"
   },
   {
     "device": "MCP2515",
@@ -160,7 +164,7 @@
     "filename": "MCP2515.pdf",
     "category": "peripheral",
     "family": "CAN Controller",
-    "path": "pdf/microchip/mcp2515/mcp2515_xai_grok-4-1-fast-non-reasoning_20260303T220219.json"
+    "path": "pdf/microchip/mcp2515/mcp2515_groq_openai-gpt-oss-120b_20260320T232912_e290.json"
   },
   {
     "device": "PCF8591",
@@ -179,7 +183,7 @@
     "filename": "PN532.pdf",
     "category": "peripheral",
     "family": "NFC/RFID",
-    "path": "pdf/nxp/pn532/pn532_xai_grok-4-1-fast-non-reasoning_20260303T222401.json"
+    "path": "pdf/nxp/pn532/pn532_groq_openai-gpt-oss-120b_20260320T235542_d630.json"
   },
   {
     "device": "RC522",
@@ -189,7 +193,7 @@
     "filename": "RC522.pdf",
     "category": "peripheral",
     "family": "NFC/RFID",
-    "path": "pdf/nxp/rc522/rc522_xai_grok-4-1-fast-non-reasoning_20260304T134052.json"
+    "path": "pdf/nxp/rc522/rc522_groq_openai-gpt-oss-120b_20260321T102314_cca1.json"
   },
   {
     "device": "QMC5883L",
@@ -199,7 +203,7 @@
     "filename": "QMC5883L.pdf",
     "category": "peripheral",
     "family": "Magnetometer",
-    "path": "pdf/qst/qmc5883l/qmc5883l_xai_grok-4-1-fast-non-reasoning_20260303T220558.json"
+    "path": "pdf/qst/qmc5883l/qmc5883l_groq_openai-gpt-oss-120b_20260321T000007_5e98.json"
   },
   {
     "device": "SSD1306",
@@ -209,7 +213,7 @@
     "filename": "SSD1306.pdf",
     "category": "peripheral",
     "family": "Display Controller",
-    "path": "pdf/solomon-systech/ssd1306/ssd1306_xai_grok-4-1-fast-non-reasoning_20260304T113147.json"
+    "path": "pdf/solomon-systech/ssd1306/ssd1306_groq_openai-gpt-oss-120b_20260321T102535_7202.json"
   },
   {
     "device": "LIS3MDL",
@@ -218,7 +222,8 @@
     "source_url": "https://www.st.com/resource/en/datasheet/lis3mdl.pdf",
     "filename": "LIS3MDL.pdf",
     "category": "peripheral",
-    "family": "Magnetometer"
+    "family": "Magnetometer",
+    "path": "pdf/stmicroelectronics/lis3mdl/lis3mdl_groq_openai-gpt-oss-120b_20260320T225337_1fb7.json"
   },
   {
     "device": "LSM6DS3",
@@ -228,7 +233,7 @@
     "filename": "LSM6DS3.pdf",
     "category": "peripheral",
     "family": "IMU",
-    "path": "pdf/stmicroelectronics/lsm6ds3/lsm6ds3_xai_grok-4-1-fast-non-reasoning_20260315T145632_44d5.json"
+    "path": "pdf/stmicroelectronics/lsm6ds3/lsm6ds3_groq_openai-gpt-oss-120b_20260320T230241_7784.json"
   },
   {
     "device": "TCS34725",
@@ -238,7 +243,7 @@
     "filename": "TCS34725.pdf",
     "category": "peripheral",
     "family": "Light Sensor",
-    "path": "pdf/taos/tcs34725/tcs34725_xai_grok-4-1-fast-non-reasoning_20260303T221408.json"
+    "path": "pdf/taos/tcs34725/tcs34725_groq_openai-gpt-oss-120b_20260321T001103_f0bd.json"
   },
   {
     "device": "TSL2561",
@@ -248,7 +253,7 @@
     "filename": "TSL2561.pdf",
     "category": "peripheral",
     "family": "Light Sensor",
-    "path": "pdf/taos/tsl2561/tsl2561_xai_grok-4-1-fast-non-reasoning_20260304T134408.json"
+    "path": "pdf/taos/tsl2561/tsl2561_groq_openai-gpt-oss-120b_20260321T001643_a1e0.json"
   },
   {
     "device": "ADS1115",
@@ -258,7 +263,7 @@
     "filename": "ADS1115.pdf",
     "category": "peripheral",
     "family": "ADC",
-    "path": "pdf/texas-instruments/ads1115/ads1115_xai_grok-4-1-fast-non-reasoning_20260315T145207_6d1e.json"
+    "path": "pdf/texas-instruments/ads1115/ads1115_groq_openai-gpt-oss-120b_20260320T220309_c9ff.json"
   },
   {
     "device": "INA219",
@@ -268,7 +273,7 @@
     "filename": "INA219.pdf",
     "category": "peripheral",
     "family": "Current Monitor",
-    "path": "pdf/texas-instruments/ina219/ina219_xai_grok-4-1-fast-non-reasoning_20260304T132421.json"
+    "path": "pdf/texas-instruments/ina219/ina219_groq_openai-gpt-oss-120b_20260320T224441_6ae4.json"
   },
   {
     "device": "TMP117",
@@ -278,7 +283,7 @@
     "filename": "TMP117.pdf",
     "category": "peripheral",
     "family": "Temperature Sensor",
-    "path": "pdf/texas-instruments/tmp117/tmp117_xai_grok-4-1-fast-non-reasoning_20260303T220410.json"
+    "path": "pdf/texas-instruments/tmp117/tmp117_groq_openai-gpt-oss-120b_20260321T001436_03c3.json"
   },
   {
     "device": "VEML7700",
@@ -287,7 +292,8 @@
     "source_url": "https://www.vishay.com/docs/84286/veml7700.pdf",
     "filename": "VEML7700.pdf",
     "category": "peripheral",
-    "family": "Light Sensor"
+    "family": "Light Sensor",
+    "path": "pdf/vishay/veml7700/veml7700_groq_openai-gpt-oss-120b_20260321T001816_7d4c.json"
   },
   {
     "device": "PCA9685",
@@ -296,7 +302,8 @@
     "source_url": "https://www.nxp.com/docs/en/data-sheet/PCA9685.pdf",
     "filename": "PCA9685.pdf",
     "category": "peripheral",
-    "family": "PWM Driver"
+    "family": "PWM Driver",
+    "path": "pdf/nxp-semiconductors/pca9685/pca9685_groq_openai-gpt-oss-120b_20260320T234335_dae0.json"
   },
   {
     "device": "VL53L0X",
@@ -306,7 +313,7 @@
     "filename": "VL53L0X.pdf",
     "category": "peripheral",
     "family": "ToF Sensor",
-    "path": "pdf/stmicroelectronics/vl53l0x/vl53l0x_xai_grok-4-1-fast-non-reasoning_20260303T220909.json"
+    "path": "pdf/stmicroelectronics/vl53l0x/vl53l0x_groq_openai-gpt-oss-120b_20260321T001932_d83e.json"
   },
   {
     "device": "LSM9DS1",
@@ -316,7 +323,7 @@
     "filename": "LSM9DS1.pdf",
     "category": "peripheral",
     "family": "IMU",
-    "path": "pdf/stmicroelectronics/lsm9ds1/lsm9ds1_xai_grok-4-1-fast-non-reasoning_20260303T214606.json"
+    "path": "pdf/stmicroelectronics/lsm9ds1/lsm9ds1_groq_openai-gpt-oss-120b_20260320T230943_2a77.json"
   },
   {
     "device": "LPS22HB",
@@ -326,7 +333,7 @@
     "filename": "LPS22HB.pdf",
     "category": "peripheral",
     "family": "Pressure Sensor",
-    "path": "pdf/stmicroelectronics/lps22hb/lps22hb_xai_grok-4-1-fast-non-reasoning_20260303T213939.json"
+    "path": "pdf/stmicroelectronics/lps22hb/lps22hb_groq_openai-gpt-oss-120b_20260320T225728_ca24.json"
   },
   {
     "device": "INA260",
@@ -336,7 +343,7 @@
     "filename": "INA260.pdf",
     "category": "peripheral",
     "family": "Current Monitor",
-    "path": "pdf/texas-instruments/ina260/ina260_xai_grok-4-1-fast-non-reasoning_20260304T132733.json"
+    "path": "pdf/texas-instruments/ina260/ina260_groq_openai-gpt-oss-120b_20260320T224638_01a2.json"
   },
   {
     "device": "INA3221",
@@ -346,7 +353,7 @@
     "filename": "INA3221.pdf",
     "category": "peripheral",
     "family": "Current Monitor",
-    "path": "pdf/texas-instruments/ina3221/ina3221_xai_grok-4-1-fast-non-reasoning_20260303T213443.json"
+    "path": "pdf/texas-instruments/ina3221/ina3221_groq_openai-gpt-oss-120b_20260320T225128_1ad4.json"
   },
   {
     "device": "TCA9548A",
@@ -356,7 +363,7 @@
     "filename": "TCA9548A.pdf",
     "category": "peripheral",
     "family": "I2C Mux",
-    "path": "pdf/texas-instruments/tca9548a/tca9548a_xai_grok-4-1-fast-non-reasoning_20260303T221206.json"
+    "path": "pdf/texas-instruments/tca9548a/tca9548a_groq_openai-gpt-oss-120b_20260321T000923_f73d.json"
   },
   {
     "device": "TMP102",
@@ -366,7 +373,7 @@
     "filename": "TMP102.pdf",
     "category": "peripheral",
     "family": "Temperature Sensor",
-    "path": "pdf/texas-instruments/tmp102/tmp102_xai_grok-4-1-fast-non-reasoning_20260303T221430.json"
+    "path": "pdf/texas-instruments/tmp102/tmp102_groq_openai-gpt-oss-120b_20260321T102653_16f6.json"
   },
   {
     "device": "CC1101",
@@ -376,7 +383,7 @@
     "filename": "CC1101.pdf",
     "category": "peripheral",
     "family": "RF Transceiver",
-    "path": "pdf/texas-instruments/cc1101/cc1101_xai_grok-4-1-fast-non-reasoning_20260303T211054.json"
+    "path": "pdf/texas-instruments/cc1101/cc1101_groq_openai-gpt-oss-120b_20260320T222757_18b6.json"
   },
   {
     "device": "MCP9808",
@@ -385,7 +392,8 @@
     "source_url": "https://ww1.microchip.com/downloads/en/DeviceDoc/MCP9808-0.5C-Maximum-Accuracy-Digital-Temperature-Sensor-Data-Sheet-DS20005095B.pdf",
     "filename": "MCP9808.pdf",
     "category": "peripheral",
-    "family": "Temperature Sensor"
+    "family": "Temperature Sensor",
+    "path": "pdf/microchip-technology/mcp9808/mcp9808_groq_openai-gpt-oss-120b_20260320T233050_3be0.json"
   },
   {
     "device": "ICM-20948",
@@ -394,7 +402,8 @@
     "source_url": "https://invensense.tdk.com/wp-content/uploads/2021/10/DS-000189-ICM-20948-v1.5.pdf",
     "filename": "ICM20948.pdf",
     "category": "peripheral",
-    "family": "IMU"
+    "family": "IMU",
+    "path": "pdf/invensense--tdk/icm20948/icm20948_groq_openai-gpt-oss-120b_20260320T224244_f21f.json"
   },
   {
     "device": "APDS-9960",
@@ -403,7 +412,8 @@
     "source_url": "https://cdn.sparkfun.com/assets/learn_tutorials/3/2/1/Avago-APDS-9960-datasheet.pdf",
     "filename": "APDS9960.pdf",
     "category": "peripheral",
-    "family": "Light Sensor"
+    "family": "Light Sensor",
+    "path": "pdf/broadcom/apds9960/apds9960_groq_openai-gpt-oss-120b_20260320T220852_a55d.json"
   },
   {
     "device": "CCS811",
@@ -412,7 +422,8 @@
     "source_url": "https://cdn.sparkfun.com/assets/2/4/2/9/6/CCS811_Datasheet.pdf",
     "filename": "CCS811.pdf",
     "category": "peripheral",
-    "family": "Gas Sensor"
+    "family": "Gas Sensor",
+    "path": "pdf/ams-osram/ccs811/ccs811_groq_openai-gpt-oss-120b_20260320T223139_130b.json"
   },
   {
     "device": "W5500",
@@ -422,7 +433,7 @@
     "filename": "W5500.pdf",
     "category": "peripheral",
     "family": "Ethernet Controller",
-    "path": "pdf/wiznet/w5500/w5500_xai_grok-4-1-fast-non-reasoning_20260303T221158.json"
+    "path": "pdf/wiznet/w5500/w5500_groq_openai-gpt-oss-120b_20260321T103048_9fe2.json"
   },
   {
     "device": "PCA9555",
@@ -432,7 +443,7 @@
     "filename": "PCA9555.pdf",
     "category": "peripheral",
     "family": "GPIO Expander",
-    "path": "pdf/nxp-semiconductors/pca9555/pca9555_xai_grok-4-1-fast-non-reasoning_20260315T144959_3ebd.json"
+    "path": "pdf/nxp-semiconductors/pca9555/pca9555_groq_openai-gpt-oss-120b_20260320T234030_d788.json"
   },
   {
     "device": "PG251 USXGMII",

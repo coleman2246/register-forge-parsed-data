@@ -1,0 +1,651 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "QMC5883L",
+  "description": "3-axis magnetic sensor",
+  "vendor": "QST",
+  "source": "QMC5883L.pdf",
+  "source_type": "pdf",
+  "source_url": "https://datasheet.lcsc.com/lcsc/2012221837_QST-QMC5883L_C976032.pdf",
+  "peripherals": {
+    "Magnetic Data Output": [
+      {
+        "name": "XOUT_LSB",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output X LSB Register",
+        "fields": [
+          {
+            "name": "XOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X axis output LSB",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "XOUT_MSB",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output X MSB Register",
+        "fields": [
+          {
+            "name": "XOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X axis output MSB (bits 15:8 of 16-bit value)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          13,
+          14,
+          15,
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x00"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "YOUT_LSB",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output Y LSB Register",
+        "fields": [
+          {
+            "name": "YOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y axis output LSB",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "YOUT_MSB",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output Y MSB Register",
+        "fields": [
+          {
+            "name": "YOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y axis output MSB",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x02"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ZOUT_LSB",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output Z LSB Register",
+        "fields": [
+          {
+            "name": "ZOUT_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z axis output LSB",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ZOUT_MSB",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output Z MSB Register",
+        "fields": [
+          {
+            "name": "ZOUT_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z axis output MSB",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x04"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Temperature": [
+      {
+        "name": "TEMP_LSB",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature Output LSB Register",
+        "fields": [
+          {
+            "name": "TOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature output LSB",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TEMP_MSB",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature Output MSB Register",
+        "fields": [
+          {
+            "name": "TOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature output MSB",
+            "enum_values": null,
+            "source": "agent_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "low",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x07"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Status": [
+      {
+        "name": "STATUS1",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Status Register 1",
+        "fields": [
+          {
+            "name": "RSVD_7_3",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "DRDY",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Data ready flag",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DOR",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Data overrun flag",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OVL",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Overload flag",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Control": [
+      {
+        "name": "CONTROL_REGISTER_1",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Control Register 1",
+        "fields": [
+          {
+            "name": "OSR",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Over Sample Ratio",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "RNG",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Full Scale",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "ODR",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output Data Rate",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "MODE",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Mode Control",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14,
+          15
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CONTROL_REGISTER_2",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Control Register 2",
+        "fields": [
+          {
+            "name": "RSVD_5_1",
+            "bit_high": 5,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SOFT_RST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Soft reset",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ROL_PNT",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Pointer roll-over function enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "INT_ENB",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Interrupt enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SET/RESET Period",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "SET RESET period register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "0BH",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "0 BH",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Chip ID": [
+      {
+        "name": "Chip ID Register",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Chip ID register register",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 255,
+            "description": "Chip identification register returns 0xFF",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-21T04:00:07.989824+00:00",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 13,
+        "by_confidence": {
+          "high": 11,
+          "medium": 1,
+          "low": 1
+        },
+        "with_quality_issues": 5,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 23,
+        "by_source": {
+          "agent_verified": 15,
+          "llm_consistent": 1,
+          "agent_unverified": 1,
+          "synthetic": 3,
+          "llm_only": 3
+        }
+      },
+      "peripherals": {
+        "total": 5,
+        "by_name": {
+          "Magnetic Data Output": {
+            "registers": 6,
+            "confidence": {
+              "high": 6,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Temperature": {
+            "registers": 2,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 1
+            }
+          },
+          "Status": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Control": {
+            "registers": 3,
+            "confidence": {
+              "high": 2,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Chip ID": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 3,
+        "batches_sent": 3,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "identical field layout as adjacent register 0x00": 1,
+          "identical field layout as adjacent register 0x02": 1,
+          "identical field layout as adjacent register 0x04": 1,
+          "identical field layout as adjacent register 0x07": 1,
+          "missing_source_location": 1
+        }
+      },
+      "evidence": {}
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1191,
+        "output_tokens": 680,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000587
+      },
+      "extraction": {
+        "input_tokens": 25416,
+        "output_tokens": 11187,
+        "thinking_tokens": 6823,
+        "calls": 4,
+        "total_cost_usd": 0.010525
+      },
+      "evidence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "correction": {
+        "input_tokens": 15241,
+        "output_tokens": 12260,
+        "thinking_tokens": 9953,
+        "calls": 16,
+        "total_cost_usd": 0.009642
+      },
+      "agents": {
+        "input_tokens": 149290,
+        "output_tokens": 31784,
+        "thinking_tokens": 22943,
+        "calls": 41,
+        "total_cost_usd": 0.047243
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 434,
+        "output_tokens": 519,
+        "thinking_tokens": 431,
+        "calls": 1,
+        "total_cost_usd": 0.000377
+      }
+    }
+  }
+}

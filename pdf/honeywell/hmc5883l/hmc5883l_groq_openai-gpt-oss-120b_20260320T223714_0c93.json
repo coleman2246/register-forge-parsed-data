@@ -1,0 +1,525 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "HMC5883L",
+  "description": "3-axis digital compass/magnetometer",
+  "vendor": "Honeywell",
+  "source": "HMC5883L.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/HMC5883L_3-Axis_Digital_Compass_IC.pdf",
+  "peripherals": {
+    "Configuration": [
+      {
+        "name": "CRB",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "CRB register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved bits",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "GAIN",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gain setting (G[2:0])",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Mode",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Mode register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved bits, must be written as 0.",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "MODE",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Mode selection: 00 continuous, 01 single, 10 idle, 11 reserved.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Data Output": [
+      {
+        "name": "Data Output X MSB Register",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data output X MSB register register",
+        "fields": [
+          {
+            "name": "Data Output X MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Most significant byte of X-axis magnetic field output",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Data Output X LSB Register",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data output X LSB register register",
+        "fields": [
+          {
+            "name": "X_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "X-axis magnetic field data (LSB)",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Data Output Z MSB Register",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data output Z MSB register register",
+        "fields": [
+          {
+            "name": "Z_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Data Output Z MSB Register",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Data Output Z LSB Register",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data output Z LSB register register",
+        "fields": [
+          {
+            "name": "Z_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Data output Z axis least significant byte",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Data Output Y MSB Register",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data output Y MSB register register",
+        "fields": [
+          {
+            "name": "Y_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Data Output Y MSB Register",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Data Output Y LSB Register",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data output Y LSB register register",
+        "fields": [
+          {
+            "name": "Data Output Y LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Y axis data least significant byte",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Status": [
+      {
+        "name": "Status Register",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Status register register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "LOCK",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "LOCK",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "RDY",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "RDY",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Identification": [
+      {
+        "name": "Identification Register A",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Identification register A register",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Identification Register A",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Identification Register B",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Identification register B register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved bits",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IDENTIFICATION_C",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Identification C register",
+        "fields": [
+          {
+            "name": "IDENTIFICATION_C",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Identification Register C",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-21T02:37:14.676501+00:00",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 12,
+        "by_confidence": {
+          "high": 6,
+          "medium": 6,
+          "low": 0
+        },
+        "with_quality_issues": 0,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 16,
+        "by_source": {
+          "section_agent": 9,
+          "agent_verified": 4,
+          "llm_consistent": 3
+        }
+      },
+      "peripherals": {
+        "total": 4,
+        "by_name": {
+          "Configuration": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Data Output": {
+            "registers": 6,
+            "confidence": {
+              "high": 2,
+              "medium": 4,
+              "low": 0
+            }
+          },
+          "Status": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Identification": {
+            "registers": 3,
+            "confidence": {
+              "high": 1,
+              "medium": 2,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 3,
+        "batches_sent": 3,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {}
+      },
+      "evidence": {}
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1123,
+        "output_tokens": 692,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000584
+      },
+      "extraction": {
+        "input_tokens": 21301,
+        "output_tokens": 6596,
+        "thinking_tokens": 4110,
+        "calls": 4,
+        "total_cost_usd": 0.007153
+      },
+      "evidence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "correction": {
+        "input_tokens": 17433,
+        "output_tokens": 14015,
+        "thinking_tokens": 11579,
+        "calls": 17,
+        "total_cost_usd": 0.011024
+      },
+      "agents": {
+        "input_tokens": 98066,
+        "output_tokens": 37671,
+        "thinking_tokens": 32025,
+        "calls": 48,
+        "total_cost_usd": 0.025324
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 338,
+        "output_tokens": 543,
+        "thinking_tokens": 469,
+        "calls": 1,
+        "total_cost_usd": 0.000377
+      }
+    }
+  }
+}

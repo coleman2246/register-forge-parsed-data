@@ -1,0 +1,1064 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "BMP180",
+  "description": "Digital pressure sensor",
+  "vendor": "Bosch Sensortec",
+  "source": "BMP180.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/BST-BMP180-DS000-09.pdf",
+  "peripherals": {
+    "Calibration": [
+      {
+        "name": "AC1_MSB",
+        "address": "0xAA",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of AC1 register",
+        "fields": [
+          {
+            "name": "AC1_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "MSB of calibration coefficient AC1",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13,
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC1_LSB",
+        "address": "0xAB",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower bits of AC1 register",
+        "fields": [
+          {
+            "name": "AC1_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "AC1 least significant byte",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC2_MSB",
+        "address": "0xAC",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of AC2 register",
+        "fields": [
+          {
+            "name": "AC2",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Most significant byte of AC2",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC2_LSB",
+        "address": "0xAD",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower bits of AC2 register",
+        "fields": [
+          {
+            "name": "AC2_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Least significant byte of AC2",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC3_MSB",
+        "address": "0xAE",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Upper bits of AC3 register",
+        "fields": [
+          {
+            "name": "AC3",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Calibration coefficient AC3 (MSB)",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC3_LSB",
+        "address": "0xAF",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower bits of AC3 register",
+        "fields": [
+          {
+            "name": "AC3_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Least significant byte of AC3 register",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC4_MSB",
+        "address": "0xB0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of AC4 register",
+        "fields": [
+          {
+            "name": "AC4_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration coefficient AC4 MSB",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC4_LSB",
+        "address": "0xB1",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower bits of AC4 register",
+        "fields": [
+          {
+            "name": "AC4_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "AC4 LSB",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC5_MSB",
+        "address": "0xB2",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of AC5 register",
+        "fields": [
+          {
+            "name": "AC5_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "AC5 MSB",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC5_LSB",
+        "address": "0xB3",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower bits of AC5 register",
+        "fields": [
+          {
+            "name": "AC5_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "AC5 LSB",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC6_MSB",
+        "address": "0xB4",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of AC6 register",
+        "fields": [
+          {
+            "name": "MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Most significant byte of AC6 calibration coefficient",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13,
+          21
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC6_LSB",
+        "address": "0xB5",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower bits of AC6 register",
+        "fields": [
+          {
+            "name": "AC6",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration parameter AC6 LSB",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "B1_MSB",
+        "address": "0xB6",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of B1 register",
+        "fields": [
+          {
+            "name": "B1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration coefficient B1 (MSB)",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13,
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "B1_LSB",
+        "address": "0xB7",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower bits of B1 register",
+        "fields": [
+          {
+            "name": "B1_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration coefficient B1 LSB",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "B2_MSB",
+        "address": "0xB8",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of B2 register",
+        "fields": [
+          {
+            "name": "B2",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration coefficient B2 (MSB)",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "B2_LSB",
+        "address": "0xB9",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower bits of B2 register",
+        "fields": [
+          {
+            "name": "B2_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Least significant byte of the B2 parameter",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MB_MSB",
+        "address": "0xBA",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of MB register",
+        "fields": [
+          {
+            "name": "MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration coefficient MB (MSB)",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MB_LSB",
+        "address": "0xBB",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower bits of MB register",
+        "fields": [
+          {
+            "name": "MB_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration coefficient MB LSB",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MC_MSB",
+        "address": "0xBC",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of MC register",
+        "fields": [
+          {
+            "name": "MC_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration coefficient MC (MSB)",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MC_LSB",
+        "address": "0xBD",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower bits of MC register",
+        "fields": [
+          {
+            "name": "MC_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "MC LSB",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MD_MSB",
+        "address": "0xBE",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of MD register",
+        "fields": [
+          {
+            "name": "MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration coefficient MD (MSB)",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MD_LSB",
+        "address": "0xBF",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower bits of MD register",
+        "fields": [
+          {
+            "name": "MD_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration coefficient MD (LSB)",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13,
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Measurement": [
+      {
+        "name": "out_msb",
+        "address": "0xF6",
+        "size_bits": 8,
+        "reset_value": "0x80",
+        "description": "ADC output high byte",
+        "fields": [
+          {
+            "name": "ADC_OUT_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 128,
+            "description": "ADC output high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "out_lsb",
+        "address": "0xF7",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "ADC output low byte",
+        "fields": [
+          {
+            "name": "ADC_OUT_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ADC output low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "out_xlsb",
+        "address": "0xF8",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "ADC output least\u2011significant bits (bits 7\u20113)",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved bits",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ADC_OUT_XLSB",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ADC output least\u2011significant bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Control": [
+      {
+        "name": "CONTROL",
+        "address": "0xF4",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Control register",
+        "fields": [
+          {
+            "name": "oss",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Oversampling setting",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "sco",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Start conversion",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "measurement_control",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Measurement control",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 21,
+        "source_pages": [
+          21
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "System": [
+      {
+        "name": "id",
+        "address": "0xD0",
+        "size_bits": 8,
+        "reset_value": "0x55",
+        "description": "Chip identification register",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 85,
+            "description": "Fixed chip ID value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "soft_reset",
+        "address": "0xE0",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Software reset register",
+        "fields": [
+          {
+            "name": "RESET",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Write to reset device",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-21T02:12:50.492336+00:00",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 28,
+        "by_confidence": {
+          "high": 27,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 4,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 31,
+        "by_source": {
+          "llm_consistent": 22,
+          "evidence_verified": 5,
+          "synthetic": 1,
+          "agent_verified": 2,
+          "section_agent": 1
+        }
+      },
+      "peripherals": {
+        "total": 4,
+        "by_name": {
+          "Calibration": {
+            "registers": 22,
+            "confidence": {
+              "high": 22,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Measurement": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Control": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "System": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 28,
+        "batches_total": 1,
+        "batches_sent": 1,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 7
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 7,
+        "fields_verified": 7,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 6,
+        "field_diagnostics": {
+          "0XF8": {
+            "ADC_OUT_XLSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16164
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 16164
+            }
+          },
+          "0XF7": {
+            "ADC_OUT_LSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16164
+            }
+          },
+          "0XF6": {
+            "ADC_OUT_MSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16164
+            }
+          },
+          "0XF4": {
+            "OSS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16164
+            },
+            "SCO": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16164
+            },
+            "MEASUREMENT_CONTROL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 16164
+            }
+          },
+          "0XE0": {
+            "RESET": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15440
+            }
+          },
+          "0XD0": {
+            "ID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 24315
+            }
+          }
+        },
+        "fields_name_matched": 1,
+        "fields_consistent_promoted": 1,
+        "fields_cross_section_augmented": 1,
+        "diagnostic_summary": {
+          "verified_quote": 7,
+          "reserved": 1,
+          "verified_name": 1
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 874,
+        "output_tokens": 546,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000459
+      },
+      "extraction": {
+        "input_tokens": 8056,
+        "output_tokens": 2345,
+        "thinking_tokens": 1626,
+        "calls": 1,
+        "total_cost_usd": 0.002615
+      },
+      "evidence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "correction": {
+        "input_tokens": 5569,
+        "output_tokens": 4777,
+        "thinking_tokens": 4011,
+        "calls": 6,
+        "total_cost_usd": 0.003702
+      },
+      "agents": {
+        "input_tokens": 144634,
+        "output_tokens": 40109,
+        "thinking_tokens": 34810,
+        "calls": 55,
+        "total_cost_usd": 0.027235
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 549,
+        "output_tokens": 867,
+        "thinking_tokens": 717,
+        "calls": 1,
+        "total_cost_usd": 0.000603
+      }
+    }
+  }
+}

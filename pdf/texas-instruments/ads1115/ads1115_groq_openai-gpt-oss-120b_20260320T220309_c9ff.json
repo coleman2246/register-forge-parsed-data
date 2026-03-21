@@ -1,0 +1,310 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "ADS1115",
+  "description": "16-bit precision ADC",
+  "vendor": "Texas Instruments",
+  "source": "ADS1115.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/ads1115.pdf",
+  "peripherals": {
+    "Pointer": [
+      {
+        "name": "ADDRESS_POINTER",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Address pointer register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Always write 000000b",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "P[1:0]",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Register address pointer 00b : Conversion register 01b : Config register 10b : Lo_thresh register 11b : Hi_thresh register",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Comparator Thresholds": [
+      {
+        "name": "LO_THRESH",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": "0x8000",
+        "description": "Low threshold value register",
+        "fields": [
+          {
+            "name": "LO_THRESH_MSB",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 128,
+            "description": "MSB of low threshold value",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LO_THRESH_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LSB of low threshold value",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          27
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "HI_THRESH",
+        "address": "0x03",
+        "size_bits": 16,
+        "reset_value": "0x7FFF",
+        "description": "High threshold value register",
+        "fields": [
+          {
+            "name": "HI_THRESH",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 32767,
+            "description": "High threshold value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-21T02:03:09.565349+00:00",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 3,
+        "by_confidence": {
+          "high": 1,
+          "medium": 2,
+          "low": 0
+        },
+        "with_quality_issues": 2,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 5,
+        "by_source": {
+          "section_agent": 2,
+          "llm_only": 2,
+          "evidence_verified": 1
+        }
+      },
+      "peripherals": {
+        "total": 2,
+        "by_name": {
+          "Pointer": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Comparator Thresholds": {
+            "registers": 2,
+            "confidence": {
+              "high": 1,
+              "medium": 1,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 4,
+        "batches_sent": 4,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 3
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 4,
+        "fields_verified": 4,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 3,
+        "field_diagnostics": {
+          "0X00": {
+            "RESERVED": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 7222
+            },
+            "P": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 7222
+            }
+          },
+          "0X02": {
+            "LO_THRESH_MSB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13986
+            },
+            "LO_THRESH_LSB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13986
+            },
+            "LO_THRESH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 43479
+            }
+          },
+          "0X03": {
+            "HI_THRESH_MSB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13554
+            },
+            "HI_THRESH_LSB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13554
+            },
+            "HI_THRESH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 43047
+            }
+          }
+        },
+        "fields_consistent_promoted": 3,
+        "fields_cross_section_augmented": 4,
+        "diagnostic_summary": {
+          "verified_quote": 4,
+          "name_not_found": 4
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1635,
+        "output_tokens": 782,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000714
+      },
+      "extraction": {
+        "input_tokens": 33613,
+        "output_tokens": 4689,
+        "thinking_tokens": 3930,
+        "calls": 6,
+        "total_cost_usd": 0.007855
+      },
+      "evidence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "correction": {
+        "input_tokens": 4721,
+        "output_tokens": 5107,
+        "thinking_tokens": 4235,
+        "calls": 5,
+        "total_cost_usd": 0.003772
+      },
+      "agents": {
+        "input_tokens": 20346,
+        "output_tokens": 8066,
+        "thinking_tokens": 6813,
+        "calls": 13,
+        "total_cost_usd": 0.007994
+      },
+      "convergence": {
+        "input_tokens": 710,
+        "output_tokens": 954,
+        "thinking_tokens": 832,
+        "calls": 1,
+        "total_cost_usd": 0.000339
+      },
+      "grouping": {
+        "input_tokens": 225,
+        "output_tokens": 197,
+        "thinking_tokens": 163,
+        "calls": 1,
+        "total_cost_usd": 0.000152
+      }
+    }
+  }
+}

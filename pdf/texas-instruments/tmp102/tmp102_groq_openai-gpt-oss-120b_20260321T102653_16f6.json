@@ -1,0 +1,156 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "TMP102",
+  "description": "Low-power digital temperature sensor, \u00b10.5\u00b0C accuracy, I2C/SMBus",
+  "vendor": "Texas Instruments",
+  "source": "TMP102.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/tmp102.pdf",
+  "peripherals": {
+    "Temperature": [
+      {
+        "name": "Temperature Register",
+        "address": "0x00",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Temperature register register",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 15,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved bits",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "TEMP",
+            "bit_high": 12,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Temperature data (13-bit signed, 0.0625\u00b0C resolution; bit 12 used in Extended Mode)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 16,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-21T14:26:53.028220+00:00",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 1,
+        "by_confidence": {
+          "high": 1,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 0,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 2,
+        "by_source": {
+          "section_agent": 1,
+          "agent_verified": 1
+        }
+      },
+      "peripherals": {
+        "total": 1,
+        "by_name": {
+          "Temperature": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 12,
+        "batches_sent": 12,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {}
+      },
+      "evidence": {}
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1661,
+        "output_tokens": 821,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000742
+      },
+      "extraction": {
+        "input_tokens": 59277,
+        "output_tokens": 4811,
+        "thinking_tokens": 4073,
+        "calls": 14,
+        "total_cost_usd": 0.011778
+      },
+      "evidence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "correction": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "agents": {
+        "input_tokens": 21545,
+        "output_tokens": 7290,
+        "thinking_tokens": 5223,
+        "calls": 11,
+        "total_cost_usd": 0.005423
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 196,
+        "output_tokens": 128,
+        "thinking_tokens": 111,
+        "calls": 1,
+        "total_cost_usd": 0.000106
+      }
+    }
+  }
+}

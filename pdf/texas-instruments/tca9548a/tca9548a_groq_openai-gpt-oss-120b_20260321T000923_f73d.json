@@ -1,0 +1,219 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "TCA9548A",
+  "description": "Low-voltage 8-channel I2C switch/multiplexer with reset",
+  "vendor": "Texas Instruments",
+  "source": "TCA9548A.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/tca9548a.pdf",
+  "peripherals": {
+    "Channel Control": [
+      {
+        "name": "COMMAND_BYTE",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Command byte to enable/disable channels",
+        "fields": [
+          {
+            "name": "CH0_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel 0 enable (0=disabled,1=enabled)",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "CH1_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel 1 enable (0=disabled,1=enabled)",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "CH2_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel 2 enable (0=disabled,1=enabled)",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "CH3_EN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel 3 enable (0=disabled,1=enabled)",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "CH4_EN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel 4 enable (0=disabled,1=enabled)",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "CH5_EN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel 5 enable (0=disabled,1=enabled)",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "CH6_EN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel 6 enable (0=disabled,1=enabled)",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "CH7_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel 7 enable (0=disabled,1=enabled)",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          21
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-21T04:09:23.280020+00:00",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 1,
+        "by_confidence": {
+          "high": 0,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 1,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 8,
+        "by_source": {
+          "llm_only": 8
+        }
+      },
+      "peripherals": {
+        "total": 1,
+        "by_name": {
+          "Channel Control": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 1,
+        "batches_sent": 1,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 1
+        }
+      },
+      "evidence": {}
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1074,
+        "output_tokens": 459,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000436
+      },
+      "extraction": {
+        "input_tokens": 4139,
+        "output_tokens": 1362,
+        "thinking_tokens": 916,
+        "calls": 1,
+        "total_cost_usd": 0.001438
+      },
+      "evidence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "correction": {
+        "input_tokens": 1249,
+        "output_tokens": 585,
+        "thinking_tokens": 455,
+        "calls": 1,
+        "total_cost_usd": 0.000538
+      },
+      "agents": {
+        "input_tokens": 16819,
+        "output_tokens": 6134,
+        "thinking_tokens": 4346,
+        "calls": 9,
+        "total_cost_usd": 0.007019
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 206,
+        "output_tokens": 125,
+        "thinking_tokens": 107,
+        "calls": 1,
+        "total_cost_usd": 0.000106
+      }
+    }
+  }
+}

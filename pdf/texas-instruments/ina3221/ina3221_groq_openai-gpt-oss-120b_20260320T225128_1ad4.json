@@ -1,0 +1,3835 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "INA3221",
+  "description": "26V triple-channel 13-bit I2C shunt current and bus voltage monitor",
+  "vendor": "Texas Instruments",
+  "source": "INA3221.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/ina3221.pdf",
+  "peripherals": {
+    "Shunt Voltage Measurements": [
+      {
+        "name": "SHUNT_VOLTAGE_SUM",
+        "address": "0x00",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Shunt-Voltage Sum Register",
+        "fields": [
+          {
+            "name": "Reserved",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = positive number 1 = negative number in twos complement format",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SV13_0",
+            "bit_high": 14,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Shunt-voltage sum data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 8,
+        "source_pages": [
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_1_SHUNT_VOLTAGE",
+        "address": "0x01",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Averaged shunt voltage value.",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SIGN",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD11",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SD11",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD10",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SD10",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD9",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SD9",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD8",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SD8",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD7",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SD7",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD6",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SD6",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD5",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SD5",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SD4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD3",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SD3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD2",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SD2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD1",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SD1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD0",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SD0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x01 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Channel-2 Shunt Voltage",
+        "address": "0x03",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Channel 2 shunt voltage register",
+        "fields": [
+          {
+            "name": "VALUE",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Averaged shunt voltage value.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x03 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_3_SHUNT_VOLTAGE",
+        "address": "0x05",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Averaged shunt voltage value.",
+        "fields": [
+          {
+            "name": "VALUE",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Averaged shunt voltage value.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x05 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Shunt-Voltage Sum Register",
+        "address": "0x0D",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Shunt voltage sum register register",
+        "fields": [
+          {
+            "name": "Reserved",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = positive number 1 = negative number in twos complement format",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SV13-0",
+            "bit_high": 14,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Shunt-voltage sum data bits",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0D not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Shunt-Voltage Sum-Limit Register",
+        "address": "0x0E",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Shunt voltage sum limit register register",
+        "fields": [
+          {
+            "name": "Reserved",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = positive number, 1 = negative number in twos complement format.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SVL13-0",
+            "bit_high": 14,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Shunt-voltage sum-limit data bits.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0E not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Bus Voltage Measurements": [
+      {
+        "name": "CHANNEL_1_BUS_VOLTAGE",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Averaged bus voltage value.",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SIGN",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD11",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD11",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD10",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD10",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD9",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD9",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD8",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD8",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD7",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD7",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD6",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD6",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD5",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD5",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD3",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD2",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD1",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD0",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x02 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_2_BUS_VOLTAGE",
+        "address": "0x04",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Averaged bus voltage value.",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": null,
+            "description": "SIGN",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD11",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD11",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD10",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD10",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD9",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD9",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD8",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD8",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD7",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD7",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD6",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD6",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD5",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD5",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD3",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD2",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD1",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD0",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "BD0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x04 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Channel-3 Bus Voltage",
+        "address": "0x06",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Channel 3 bus voltage register",
+        "fields": [
+          {
+            "name": "BUS_VOLTAGE",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Averaged bus voltage value.",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0x06 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Critical Alert Limits": [
+      {
+        "name": "CHANNEL_1_CRITICAL_ALERT_LIMIT",
+        "address": "0x07",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Contains limit value to compare each conversion value to determine if the corresponding limit has been exceeded.",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "C1L12",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C1 L12",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C1L11",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C1 L11",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C1L10",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C1 L10",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C1L9",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C1 L9",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C1L8",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C1 L8",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C1L7",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C1 L7",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C1L6",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C1 L6",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C1L5",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C1 L5",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C1L4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C1 L4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C1L3",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C1 L3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C1L2",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C1 L2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C1L1",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C1 L1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C1L0",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C1 L0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_2_CRITICAL_ALERT_LIMIT",
+        "address": "0x09",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Contains limit value to compare each conversion value to determine if the corresponding limit has been exceeded.",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "C2L12",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C2 L12",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C2L11",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C2 L11",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C2L10",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C2 L10",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C2L9",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C2 L9",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C2L8",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C2 L8",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C2L7",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C2 L7",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C2L6",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C2 L6",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C2L5",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C2 L5",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C2L4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C2 L4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C2L3",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C2 L3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C2L2",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C2 L2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C2L1",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C2 L1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C2L0",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C2 L0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)",
+          "address 0x09 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_3_CRITICAL_ALERT_LIMIT",
+        "address": "0x0B",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Contains limit value to compare each conversion value to determine if the corresponding limit has been exceeded.",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "C3L12",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C3 L12",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C3L11",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C3 L11",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C3L10",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C3 L10",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C3L9",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C3 L9",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C3L8",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C3 L8",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C3L7",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C3 L7",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C3L6",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C3 L6",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C3L5",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C3 L5",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C3L4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C3 L4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C3L3",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C3 L3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C3L2",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C3 L2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C3L1",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C3 L1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C3L0",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "C3 L0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)",
+          "address 0x0B not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Warning Alert Limits": [
+      {
+        "name": "CHANNEL_1_WARNING_ALERT_LIMIT",
+        "address": "0x08",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Contains limit value to compare to averaged measurement to determine if the corresponding limit has been exceeded.",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "W1L12",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W1 L12",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W1L11",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W1 L11",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W1L10",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W1 L10",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W1L9",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W1 L9",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W1L8",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W1 L8",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W1L7",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W1 L7",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W1L6",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W1 L6",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W1L5",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W1 L5",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W1L4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W1 L4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W1L3",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W1 L3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W1L2",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W1 L2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W1L1",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W1 L1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W1L0",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W1 L0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)",
+          "address 0x08 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Channel-2 Warning Alert Limit",
+        "address": "0x0A",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Channel 2 warning alert limit register",
+        "fields": [
+          {
+            "name": "Limit",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 32760,
+            "description": "Contains limit value to compare to averaged measurement to determine if the corresponding limit has been exceeded.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0A not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_3_WARNING_ALERT_LIMIT",
+        "address": "0x0C",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Contains limit value to compare to averaged measurement to determine if the corresponding limit has been exceeded.",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "W3L12",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W3 L12",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W3L11",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W3 L11",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W3L10",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W3 L10",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W3L9",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W3 L9",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W3L8",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W3 L8",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W3L7",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W3 L7",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W3L6",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W3 L6",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W3L5",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W3 L5",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W3L4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W3 L4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W3L3",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W3 L3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W3L2",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W3 L2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W3L1",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W3 L1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "W3L0",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "W3 L0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)",
+          "address 0x0C not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL1_WARNING_ALERT_LIMIT",
+        "address": "0xFFF",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Channel-1 warning-alert-limit register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "W1L12_0",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Channel-1 warning-alert-limit data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 6,
+        "source_pages": [
+          27,
+          28
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "Address outlier: 0xFFF is far from other registers (gap=0xf00, threshold=0x100)",
+          "Address outlier: 0xFFF is far from other registers (gap=0xf00, threshold=0x100)"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Power Valid Limits": [
+      {
+        "name": "POWER_VALID_UPPER_LIMIT",
+        "address": "0x10",
+        "size_bits": 16,
+        "reset_value": "0x2710",
+        "description": "Contains limit value to compare all bus voltage conversions to determine if the Power Valid level has been reached.",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "SIGN",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVU11",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PVU11",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVU10",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PVU10",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVU9",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PVU9",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVU8",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PVU8",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVU7",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PVU7",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVU6",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PVU6",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVU5",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PVU5",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVU4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PVU4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVU3",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PVU3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVU2",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PVU2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVU1",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PVU1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVU0",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PVU0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          24,
+          25,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)",
+          "address 0x10 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Power-Valid Lower Limit",
+        "address": "0x11",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Power valid lower limit register",
+        "fields": [
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sign bit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PVL11",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power-Valid Lower Limit bit 11",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PVL10",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power-Valid Lower Limit bit 10",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PVL9",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power-Valid Lower Limit bit 9",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PVL8",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power-Valid Lower Limit bit 8",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PVL7",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power-Valid Lower Limit bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PVL6",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power-Valid Lower Limit bit 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PVL5",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power-Valid Lower Limit bit 5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PVL4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power-Valid Lower Limit bit 4",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Configuration/Control": [
+      {
+        "name": "Mask/Enable",
+        "address": "0x0F",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Mask enable register",
+        "fields": [
+          {
+            "name": "MASK_ENABLE",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Alert configuration, alert status indication, summation control and status.",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0x0F not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Identification": [
+      {
+        "name": "Manufacturer ID Register",
+        "address": "0xFE",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Manufacturer ID register register",
+        "fields": [
+          {
+            "name": "D15-0",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 21577,
+            "description": "Manufacturer ID bits",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xFE not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Die ID Register",
+        "address": "0xFF",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Die ID register register",
+        "fields": [
+          {
+            "name": "D15-0",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 12832,
+            "description": "Die ID bits",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xFF not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-21T02:51:28.160597+00:00",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 21,
+        "by_confidence": {
+          "high": 19,
+          "medium": 2,
+          "low": 0
+        },
+        "with_quality_issues": 19,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 154,
+        "by_source": {
+          "synthetic": 12,
+          "evidence_verified": 120,
+          "agent_verified": 20,
+          "section_agent": 2
+        }
+      },
+      "peripherals": {
+        "total": 7,
+        "by_name": {
+          "Shunt Voltage Measurements": {
+            "registers": 6,
+            "confidence": {
+              "high": 6,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Bus Voltage Measurements": {
+            "registers": 3,
+            "confidence": {
+              "high": 2,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Critical Alert Limits": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Warning Alert Limits": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Power Valid Limits": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Configuration/Control": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Identification": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 6,
+        "batches_total": 15,
+        "batches_sent": 15,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "address 0x01 not found in register summary table": 1,
+          "address 0x03 not found in register summary table": 1,
+          "address 0x05 not found in register summary table": 1,
+          "address 0x0D not found in register summary table": 1,
+          "address 0x0E not found in register summary table": 1,
+          "address 0x02 not found in register summary table": 1,
+          "address 0x04 not found in register summary table": 1,
+          "address 0x06 not found in register summary table": 1,
+          "all fields have default RW access (may be missing real access types)": 6,
+          "address 0x09 not found in register summary table": 1,
+          "address 0x0B not found in register summary table": 1,
+          "address 0x08 not found in register summary table": 1,
+          "address 0x0A not found in register summary table": 1,
+          "address 0x0C not found in register summary table": 1,
+          "Address outlier": 2,
+          "address 0x10 not found in register summary table": 1,
+          "address 0x0F not found in register summary table": 1,
+          "address 0xFE not found in register summary table": 1,
+          "address 0xFF not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 20,
+        "fields_verified": 6,
+        "fields_unverified": 14,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 19,
+        "field_diagnostics": {
+          "0X00": {
+            "RST": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "CH1_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "CH2_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "CH3_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "AVG2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "AVG1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "AVG0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "V_BUS_CT2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "V_BUS_CT1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "V_BUS_CT0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "V_SH_CT2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "V_SH_CT1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "V_SH_CT0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "MODE3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "MODE2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "MODE1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154026
+            },
+            "SIGN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 3286
+            },
+            "SV13_0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 3286
+            },
+            "Reserved": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 3286
+            }
+          },
+          "0X01": {
+            "SIGN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            }
+          },
+          "0X02": {
+            "SIGN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "BD11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "BD10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "BD9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "BD8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "BD7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "BD6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "BD5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "BD4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "BD3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "BD2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "BD1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "BD0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            }
+          },
+          "0X03": {
+            "SIGN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            }
+          },
+          "0X04": {
+            "SIGN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "BD11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "BD10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "BD9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "BD8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "BD7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "BD6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "BD5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "BD4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "BD3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "BD2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "BD1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "BD0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            }
+          },
+          "0X05": {
+            "SIGN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SD0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            }
+          },
+          "0X06": {
+            "SIGN": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 4677
+            },
+            "BD11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "BD10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "BD9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "BD8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "BD7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "BD6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "BD5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "BD4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "BD3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "BD2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "BD1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "BD0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "BD11-0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 4677
+            },
+            "Reserved": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 4677
+            }
+          },
+          "0X07": {
+            "C1L12": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C1L11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C1L10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C1L9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C1L8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C1L7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C1L6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C1L5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C1L4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C1L3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C1L2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C1L1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C1L0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            }
+          },
+          "0X08": {
+            "W1L12": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W1L11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W1L10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W1L9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W1L8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W1L7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W1L6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W1L5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W1L4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W1L3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W1L2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W1L1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W1L0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            }
+          },
+          "0X09": {
+            "C2L12": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C2L11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C2L10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C2L9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C2L8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C2L7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C2L6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C2L5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C2L4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C2L3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C2L2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C2L1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "C2L0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            }
+          },
+          "0X0A": {
+            "W2L12": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W2L11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W2L10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W2L9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W2L8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W2L7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W2L6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W2L5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W2L4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W2L3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W2L2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W2L1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "W2L0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19813
+            },
+            "RESERVED": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13411
+            },
+            "SCC1_3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13411
+            },
+            "WEN": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13411
+            },
+            "CEN": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13411
+            },
+            "CF1_3": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13411
+            },
+            "SF": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13411
+            },
+            "WF1_3": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13411
+            },
+            "PVF": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13411
+            },
+            "TCF": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13411
+            },
+            "CVRF": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13411
+            }
+          },
+          "0X0B": {
+            "C3L12": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "C3L11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "C3L10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "C3L9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "C3L8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "C3L7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "C3L6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "C3L5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "C3L4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "C3L3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "C3L2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "C3L1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            },
+            "C3L0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19943
+            }
+          },
+          "0X0C": {
+            "W3L12": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "W3L11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "W3L10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "W3L9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "W3L8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "W3L7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "W3L6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "W3L5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "W3L4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "W3L3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "W3L2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "W3L1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "W3L0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            }
+          },
+          "0X0D": {
+            "SIGN": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV13": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV12": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SV0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            }
+          },
+          "0X0E": {
+            "SIGN": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL13": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL12": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "SVL0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            }
+          },
+          "0X0F": {
+            "SCC1": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "SCC2": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "SCC3": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "WEN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "CEN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "CF1": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "CF2": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "CF3": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "SF": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "WF1": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "WF2": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "WF3": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "PVF": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "TCF": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "CVRF": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40427
+            },
+            "SIGN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 3360
+            },
+            "SVL13_0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 3360
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 3360
+            }
+          },
+          "0X10": {
+            "SIGN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVU11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVU10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVU9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVU8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVU7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVU6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVU5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVU4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVU3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVU2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVU1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVU0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            }
+          },
+          "0X11": {
+            "SIGN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVL11": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVL10": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVL9": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVL8": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVL7": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVL6": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVL5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVL4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVL3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVL2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVL1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            },
+            "PVL0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19977
+            }
+          },
+          "0XFFF": {
+            "W1L12_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 4043
+            },
+            "RESERVED": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 4043
+            }
+          },
+          "0XFE": {
+            "D15_0": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13411
+            }
+          },
+          "0XFF": {
+            "D15_0": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 2772
+            }
+          }
+        },
+        "fields_cross_section_augmented": 3,
+        "fields_name_matched": 221,
+        "fields_camelcase_matched": 6,
+        "fields_consistent_promoted": 2,
+        "diagnostic_summary": {
+          "verified_name": 227,
+          "name_not_found": 16,
+          "reserved": 2,
+          "quote_not_found": 13,
+          "verified_quote": 6,
+          "name_too_short": 1
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 3612,
+        "output_tokens": 808,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.001027
+      },
+      "extraction": {
+        "input_tokens": 72460,
+        "output_tokens": 44833,
+        "thinking_tokens": 28762,
+        "calls": 18,
+        "total_cost_usd": 0.037769
+      },
+      "evidence": {
+        "input_tokens": 3645,
+        "output_tokens": 2113,
+        "thinking_tokens": 1961,
+        "calls": 7,
+        "total_cost_usd": 0.001815
+      },
+      "correction": {
+        "input_tokens": 39172,
+        "output_tokens": 22556,
+        "thinking_tokens": 18190,
+        "calls": 28,
+        "total_cost_usd": 0.019409
+      },
+      "agents": {
+        "input_tokens": 91208,
+        "output_tokens": 29167,
+        "thinking_tokens": 25011,
+        "calls": 47,
+        "total_cost_usd": 0.021404
+      },
+      "convergence": {
+        "input_tokens": 15974,
+        "output_tokens": 4788,
+        "thinking_tokens": 4642,
+        "calls": 5,
+        "total_cost_usd": 0.002634
+      },
+      "grouping": {
+        "input_tokens": 696,
+        "output_tokens": 794,
+        "thinking_tokens": 660,
+        "calls": 1,
+        "total_cost_usd": 0.000581
+      }
+    }
+  }
+}

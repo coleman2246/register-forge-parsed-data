@@ -1,0 +1,4105 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "W5500",
+  "description": "Hardwired TCP/IP embedded Ethernet controller, SPI interface, 100Mbps",
+  "vendor": "WIZnet",
+  "source": "W5500.pdf",
+  "source_type": "pdf",
+  "source_url": "https://docs.wiznet.io/img/products/w5500/w5500_ds_v109k.pdf",
+  "peripherals": {
+    "Global": [
+      {
+        "name": "MR",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Mode Register",
+        "fields": [
+          {
+            "name": "VALUE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Mode register value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          45,
+          47,
+          48,
+          50,
+          51
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x00 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SUBR",
+        "address": "0x05",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "SUBR register",
+        "fields": [
+          {
+            "name": "RSVD_31_1",
+            "bit_high": 31,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "0x0005",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 8,
+            "description": "0x0007",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "255 (0xFF)",
+            "bit_high": 255,
+            "bit_low": 255,
+            "access": "RW",
+            "reset_value": null,
+            "description": "255 (0xFF)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Field 255 (0xFF)[255:255] exceeds register size (32 bits)",
+          "Field 255 (0xFF)[255:255] exceeds register size (32 bits)",
+          "address 0x05 not found in register summary table",
+          "field '255 (0xFF)' bit_high=255 exceeds 32-bit register",
+          "field '0x0005' reset_value=8 exceeds max for 1-bit field (max=1)",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_PORT1",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_port1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn port1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SUBR0",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "subr0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Subr0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SHAR",
+        "address": "0x09",
+        "size_bits": 48,
+        "reset_value": null,
+        "description": "SHAR register",
+        "fields": [
+          {
+            "name": "RSVD_47_1",
+            "bit_high": 47,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "0x0009",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 12,
+            "description": "0x000B",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "0x00",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "0xDC",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: 0x0009[0:0] and 0x00[0:0]",
+          "Overlapping fields: 0x0009[0:0] and 0x00[0:0]",
+          "address 0x09 not found in register summary table",
+          "fields '0x0009' [0:0] and '0x00' [0:0] overlap",
+          "field '0x0009' reset_value=12 exceeds max for 1-bit field (max=1)",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_DHAR2",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_dhar2",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn dhar2",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SHAR0",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "shar0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Shar0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SIPR",
+        "address": "0x0F",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "SIPR register",
+        "fields": [
+          {
+            "name": "RSVD_31_1",
+            "bit_high": 31,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "0x000F",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 18,
+            "description": "0x0011",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "192 (0xC0)",
+            "bit_high": 192,
+            "bit_low": 192,
+            "access": "RW",
+            "reset_value": null,
+            "description": "0 (0x00)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Field 192 (0xC0)[192:192] exceeds register size (32 bits)",
+          "Field 192 (0xC0)[192:192] exceeds register size (32 bits)",
+          "address 0x0F not found in register summary table",
+          "field '192 (0xC0)' bit_high=192 exceeds 32-bit register",
+          "field '0x000F' reset_value=18 exceeds max for 1-bit field (max=1)",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_DIPR2",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_dipr2",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn dipr2",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_DIPR3",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_dipr3",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn dipr3",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SIPR0",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sipr0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sipr0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SIPR2",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "SIPR2 register",
+        "fields": [
+          {
+            "name": "VALUE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          50
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x11 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_DPORT1",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_dport1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn dport1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INTLEVEL",
+        "address": "0x13",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Intlevel register",
+        "fields": [
+          {
+            "name": "RSVD_15_1",
+            "bit_high": 15,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "0x0013",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Description",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "0x00",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt Low Level Timer Register",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: 0x0013[0:0] and 0x00[0:0]",
+          "Overlapping fields: 0x0013[0:0] and 0x00[0:0]",
+          "fields '0x0013' [0:0] and '0x00' [0:0] overlap",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_MSSR1",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_mssr1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn mssr1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INTLEVEL0",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "intlevel0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Intlevel0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INTLEVEL1",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "intlevel1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Intlevel1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INTERRUPT",
+        "address": "0x14",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Interrupt Register",
+        "fields": [
+          {
+            "name": "S0_IR",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "W1C",
+            "reset_value": 0,
+            "description": "Socket 0 Interrupt",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "S1_IR",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "W1C",
+            "reset_value": 0,
+            "description": "Socket 1 Interrupt",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "S2_IR",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "W1C",
+            "reset_value": 0,
+            "description": "Socket 2 Interrupt",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "S3_IR",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "W1C",
+            "reset_value": 0,
+            "description": "Socket 3 Interrupt",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "S4_IR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "W1C",
+            "reset_value": 0,
+            "description": "Socket 4 Interrupt",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "S5_IR",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "W1C",
+            "reset_value": 0,
+            "description": "Socket 5 Interrupt",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "S6_IR",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "W1C",
+            "reset_value": 0,
+            "description": "Socket 6 Interrupt",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "S7_IR",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "W1C",
+            "reset_value": 0,
+            "description": "Socket 7 Interrupt",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          48
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x14 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IMR",
+        "address": "0x16",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt Mask Register",
+        "fields": [
+          {
+            "name": "RESERVED_3_0",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved bits",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "IM_IR7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "IP Conflict Interrupt Mask",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IM_IR6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Destination unreachable Interrupt Mask",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IM_IR5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "PPPoe Close Interrupt Mask",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IM_IR4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Magic Packet Interrupt Mask",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x16 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RCR",
+        "address": "0x1B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Retry Count register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RCR",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Retry Count",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x1B not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PTIMER",
+        "address": "0x1C",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "Ptimer register",
+        "fields": [
+          {
+            "name": "PTIMER",
+            "bit_high": 31,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LCP echo request timer value. 1 unit equals 25ms.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          39,
+          48
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x1C not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PMAGIC",
+        "address": "0x1D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Pmagic register",
+        "fields": [
+          {
+            "name": "PMAGIC",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "PPP Link Control Protocol Magic number Register. Sets the 4-byte Magic number used during LCP negotiation.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x1D not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PHYCFGR",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Phycfgr register",
+        "fields": [
+          {
+            "name": "RST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reset [R/W]",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OPMD",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Configure PHY Operation Mode",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OPMDC",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Operation Mode Configuration Bit[R/W]",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DPX",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Duplex Status [Read Only]",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SPD",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Speed Status [Read Only]",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "LNK",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Link Status [Read Only]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x2E not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_FRAG1",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_frag1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn frag1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Command": [
+      {
+        "name": "GAR",
+        "address": "0x01",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "GAR register",
+        "fields": [
+          {
+            "name": "RSVD_31_1",
+            "bit_high": 31,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "0x0001",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "0x0001",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "192 (0xC0)",
+            "bit_high": 168,
+            "bit_low": 168,
+            "access": "RW",
+            "reset_value": null,
+            "description": "192 (0x C0)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "0xC0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "0x C0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: 0x0001[0:0] and 0xC0[0:0]",
+          "Field 192 (0xC0)[168:168] exceeds register size (32 bits)",
+          "Overlapping fields: 0x0001[0:0] and 0xC0[0:0]",
+          "Field 192 (0xC0)[168:168] exceeds register size (32 bits)",
+          "address 0x01 not found in register summary table",
+          "field '192 (0xC0)' bit_high=168 exceeds 32-bit register",
+          "fields '0x0001' [0:0] and '0xC0' [0:0] overlap",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_CR",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_cr",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn cr",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Gateway_Address",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "gateway_address",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gateway address",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SEND_MAC",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Send MAC command register",
+        "fields": [
+          {
+            "name": "VALUE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Trigger send MAC operation",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          44
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_TX_FSR0",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_tx_fsr0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn TX fsr0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_TX_FSR1",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_tx_fsr1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn TX fsr1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PHAR3",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "phar3",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Phar3",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RECV",
+        "address": "0x40",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Receive command register",
+        "fields": [
+          {
+            "name": "VALUE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Trigger receive operation",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          44
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SOCK_MACRAW",
+        "address": "0x42",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Socket MACRAW command register",
+        "fields": [
+          {
+            "name": "VALUE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Trigger MACRAW operation",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          48
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x40"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Socket": [
+      {
+        "name": "Sn_IR",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Sn IR register",
+        "fields": [
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "7~5",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Description",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x02 not found in register summary table",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GAR0",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "gar0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gar0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GAR1",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "gar1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gar1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_SR",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_sr",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn sr",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GAR2",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "gar2",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gar2",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SN_PORT0",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Socket n Source Port Register high byte",
+        "fields": [
+          {
+            "name": "VALUE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "High byte of source port",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          45,
+          50
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x04 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_PORT",
+        "address": "0x04",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "Sn PORT register",
+        "fields": [
+          {
+            "name": "RSVD_31_1",
+            "bit_high": 31,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "0x0004",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Description",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "192 (0xC0)",
+            "bit_high": 192,
+            "bit_low": 192,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Socket n Destination Port Register",
+            "enum_values": null,
+            "source": "agent_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Field 192 (0xC0)[192:192] exceeds register size (32 bits)",
+          "Field 192 (0xC0)[192:192] exceeds register size (32 bits)",
+          "address 0x04 not found in register summary table",
+          "field '192 (0xC0)' bit_high=192 exceeds 32-bit register",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GAR3",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "gar3",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gar3",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_DHAR",
+        "address": "0x06",
+        "size_bits": 48,
+        "reset_value": null,
+        "description": "Sn DHAR register",
+        "fields": [
+          {
+            "name": "RSVD_47_1",
+            "bit_high": 47,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "0x0006",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 9,
+            "description": "0x0008",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "0x00",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "0xxDC",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: 0x0006[0:0] and 0x00[0:0]",
+          "Overlapping fields: 0x0006[0:0] and 0x00[0:0]",
+          "address 0x06 not found in register summary table",
+          "fields '0x0006' [0:0] and '0x00' [0:0] overlap",
+          "field '0x0006' reset_value=9 exceeds max for 1-bit field (max=1)",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_DHAR0",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_dhar0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn dhar0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SUBR1",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "subr1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Subr1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SN_DHAR2",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Socket n Destination Hardware Address byte 2",
+        "fields": [
+          {
+            "name": "VALUE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Byte 2 of destination hardware address",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          46,
+          50
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x08 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SHAR0",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "shar0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Shar0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_DIPR1",
+        "address": "0x0C",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "Sn DIPR1 register",
+        "fields": [
+          {
+            "name": "Sn_DIPR1",
+            "bit_high": 31,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sn_DIPR1 register",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          33,
+          38,
+          50
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0C not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SHAR3",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "shar3",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Shar3",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_DIPR",
+        "address": "0x10",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Sn DIPR register",
+        "fields": [
+          {
+            "name": "PORT",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Destination port number",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          51
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x10 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SIPR1",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sipr1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sipr1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_MSSR",
+        "address": "0x12",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Sn MSSR register",
+        "fields": [
+          {
+            "name": "MSS",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Maximum Segment Size",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          51
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x12 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_MSSR0",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_mssr0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn mssr0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_TOS",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Sn TOS register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "0x0015",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Description",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IR",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "ir",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Ir",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RTR",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "RTR register",
+        "fields": [
+          {
+            "name": "RTR0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Retry Time",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x19 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RTR0",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "rtr0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Rtr0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_RXBUF_SIZE",
+        "address": "0x1E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Sn RXBUF SIZE register",
+        "fields": [
+          {
+            "name": "SIZE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Socket n RX Buffer Block size. Can be set to 0,1,2,4,8,16 Kbytes. Reset value is 2Kbytes.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          51
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x1E not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PHAR0",
+        "address": "0x1E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "phar0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Phar0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SN_TXBUF_SIZE",
+        "address": "0x1F",
+        "size_bits": 8,
+        "reset_value": "0x02",
+        "description": "Socket n TX Buffer Size Register",
+        "fields": [
+          {
+            "name": "SIZE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "TX buffer size code",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          52
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x1F not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SN_TX_FSR",
+        "address": "0x20",
+        "size_bits": 16,
+        "reset_value": "0x0800",
+        "description": "Socket n TX Free Size Register",
+        "fields": [
+          {
+            "name": "FREE_SIZE",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 2048,
+            "description": "TX free size",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          52
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence",
+          "address 0x20 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_TX_RD",
+        "address": "0x22",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Sn TX RD register",
+        "fields": [
+          {
+            "name": "Sn_TX_RD",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Socket n TX Read Pointer Register",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          40,
+          53
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x22 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PHAR4",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "phar4",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Phar4",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PHAR5",
+        "address": "0x23",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "PHAR5 register",
+        "fields": [
+          {
+            "name": "PHAR5",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Destination Hardware Address Register in PPPoE mode; holds the last byte of the PPPoE Server's MAC address.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          40,
+          53
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x23 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PSID",
+        "address": "0x24",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Session ID Register in PPPoE mode",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "PSID0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Session ID low byte",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x24 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_DIPR",
+        "address": "0x24",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Sn DIPR register",
+        "fields": [
+          {
+            "name": "RSVD_15_1",
+            "bit_high": 15,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "0x0024",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Description",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "0x13",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Socket n Destination Port Register",
+            "enum_values": null,
+            "source": "agent_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: 0x0024[0:0] and 0x13[0:0]",
+          "Overlapping fields: 0x0024[0:0] and 0x13[0:0]",
+          "address 0x24 not found in register summary table",
+          "fields '0x0024' [0:0] and '0x13' [0:0] overlap",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PSID0",
+        "address": "0x24",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "psid0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Psid0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SN_TX_WR0",
+        "address": "0x25",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "SN TX WR0 register",
+        "fields": [
+          {
+            "name": "Sn_TX_WR0",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "TX buffer write pointer for socket n",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          40,
+          53
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x25 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_TX_WR1",
+        "address": "0x25",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_tx_wr1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn TX wr1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PSID1",
+        "address": "0x25",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "psid1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Psid1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SN_RX_RSR",
+        "address": "0x26",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Socket n Received Size Register (16\u2011bit) providing the received data size",
+        "fields": [
+          {
+            "name": "SIZE",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Received data size",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          54
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x26 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_RX_RSR0",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_rx_rsr0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn RX rsr0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PMRU0",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "pmru0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Pmru0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_RX_RSR1",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_rx_rsr1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn RX rsr1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PMRU1",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "pmru1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Pmru1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SN_RX_RD",
+        "address": "0x28",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Socket n RX Read Data Pointer Register (16\u2011bit) used to track read position",
+        "fields": [
+          {
+            "name": "PTR",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Read pointer value",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          54
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence",
+          "address 0x28 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_RX_RD0",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_rx_rd0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn RX rd0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "UIPR0",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "uipr0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Uipr0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SN_RX_RD1",
+        "address": "0x29",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "SN RX RD1 register",
+        "fields": [
+          {
+            "name": "Sn_RX_RD1",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Socket n RX Read Pointer",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          54
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x29 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "UIPR1",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "uipr1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Uipr1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "UIPR3",
+        "address": "0x2B",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "UIPR3 register",
+        "fields": [
+          {
+            "name": "VALUE",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "UIPR3 register value",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          40,
+          54
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x2B not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SN_IMR",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": "0xFF",
+        "description": "Socket n Interrupt Mask Register controlling which socket interrupts are forwarded",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SENDOK",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Sn_IR SENDOK interrupt mask",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TIMEOUT",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Sn_IR TIMEOUT interrupt mask",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RECV",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Sn_IR RECV interrupt mask",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DISCON",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Sn_IR DISCON interrupt mask",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CON",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Sn_IR CON interrupt mask",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          55
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x2C not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_RX_WR1",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_rx_wr1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn RX wr1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "UPORTR0",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "uportr0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Uportr0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SN_FRAG",
+        "address": "0x2D",
+        "size_bits": 16,
+        "reset_value": "0x4000",
+        "description": "Socket n Fragment Register (16\u2011bit) for IP header fragment field",
+        "fields": [
+          {
+            "name": "FRAG",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 16384,
+            "description": "Fragment field value",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          55
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x2D not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_FRAG0",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_frag0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn frag0",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "UPORTR1",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "uportr1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Uportr1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SN_KPALVTR",
+        "address": "0x2F",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Socket n Keep Alive Time Register (1\u2011byte) setting keep\u2011alive period in 5\u2011second units",
+        "fields": [
+          {
+            "name": "KA_TIME",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Keep\u2011alive timer value (units of 5\u202fs)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          55
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence",
+          "address 0x2F not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Common": [
+      {
+        "name": "Sn_DHAR1",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_dhar1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn dhar1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SUBR2",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "subr2",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Subr2",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_DHAR3",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_dhar3",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn dhar3",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Sn_DHAR4",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sn_dhar4",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sn dhar4",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SHAR1",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "shar1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Shar1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SHAR2",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "shar2",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Shar2",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SHAR4",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "shar4",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Shar4",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SHAR5",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "shar5",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Shar5",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SIR",
+        "address": "0x17",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "sir",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sir",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SIMR",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "simr",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Simr",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RTR1",
+        "address": "0x1A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "rtr1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Rtr1",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Other": [
+      {
+        "name": "UIPR2",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "uipr2",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Uipr2",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-21T14:30:48.814572+00:00",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 99,
+        "by_confidence": {
+          "high": 33,
+          "medium": 58,
+          "low": 8
+        },
+        "with_quality_issues": 97,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 141,
+        "by_source": {
+          "evidence_verified": 14,
+          "synthetic": 14,
+          "agent_verified": 36,
+          "manifest_only": 58,
+          "llm_consistent": 17,
+          "agent_unverified": 2
+        }
+      },
+      "peripherals": {
+        "total": 5,
+        "by_name": {
+          "Global": {
+            "registers": 24,
+            "confidence": {
+              "high": 8,
+              "medium": 12,
+              "low": 4
+            }
+          },
+          "Command": {
+            "registers": 9,
+            "confidence": {
+              "high": 3,
+              "medium": 5,
+              "low": 1
+            }
+          },
+          "Socket": {
+            "registers": 54,
+            "confidence": {
+              "high": 22,
+              "medium": 29,
+              "low": 3
+            }
+          },
+          "Common": {
+            "registers": 11,
+            "confidence": {
+              "high": 0,
+              "medium": 11,
+              "low": 0
+            }
+          },
+          "Other": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 80,
+        "batches_total": 9,
+        "batches_sent": 9,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 58,
+        "warnings_detail": [
+          "SUBR (0x05): field '255 (0xFF)' bit_high=255 exceeds 32-bit register",
+          "SUBR (0x05): field '0x0005' reset_value=8 exceeds max for 1-bit field (max=1)",
+          "duplicate address 0x05: 'SUBR' and 'Sn_PORT1'",
+          "duplicate address 0x05: 'SUBR' and 'SUBR0'",
+          "SHAR (0x09): fields '0x0009' [0:0] and '0x00' [0:0] overlap",
+          "SHAR (0x09): field '0x0009' reset_value=12 exceeds max for 1-bit field (max=1)",
+          "duplicate address 0x09: 'SHAR' and 'Sn_DHAR2'",
+          "duplicate address 0x09: 'SHAR' and 'SHAR0'",
+          "SIPR (0x0F): field '192 (0xC0)' bit_high=192 exceeds 32-bit register",
+          "SIPR (0x0F): field '0x000F' reset_value=18 exceeds max for 1-bit field (max=1)",
+          "duplicate address 0x0F: 'SIPR' and 'Sn_DIPR2'",
+          "duplicate address 0x0F: 'SIPR' and 'Sn_DIPR3'",
+          "duplicate address 0x0F: 'SIPR' and 'SIPR0'",
+          "INTLEVEL (0x13): fields '0x0013' [0:0] and '0x00' [0:0] overlap",
+          "duplicate address 0x13: 'INTLEVEL' and 'Sn_MSSR1'",
+          "duplicate address 0x13: 'INTLEVEL' and 'INTLEVEL0'",
+          "duplicate address 0x13: 'INTLEVEL' and 'INTLEVEL1'",
+          "duplicate address 0x2E: 'PHYCFGR' and 'Sn_FRAG1'",
+          "GAR (0x01): field '192 (0xC0)' bit_high=168 exceeds 32-bit register",
+          "GAR (0x01): fields '0x0001' [0:0] and '0xC0' [0:0] overlap",
+          "duplicate address 0x01: 'GAR' and 'Sn_CR'",
+          "duplicate address 0x01: 'GAR' and 'Gateway_Address'",
+          "duplicate address 0x21: 'Sn_TX_FSR0' and 'Sn_TX_FSR1'",
+          "duplicate address 0x21: 'Sn_TX_FSR0' and 'PHAR3'",
+          "duplicate address 0x02: 'Sn_IR' and 'GAR0'",
+          "duplicate address 0x02: 'Sn_IR' and 'GAR1'",
+          "duplicate address 0x03: 'Sn_SR' and 'GAR2'",
+          "Sn_PORT (0x04): field '192 (0xC0)' bit_high=192 exceeds 32-bit register",
+          "duplicate address 0x04: 'Sn_PORT' and 'GAR3'",
+          "Sn_DHAR (0x06): fields '0x0006' [0:0] and '0x00' [0:0] overlap",
+          "Sn_DHAR (0x06): field '0x0006' reset_value=9 exceeds max for 1-bit field (max=1)",
+          "duplicate address 0x06: 'Sn_DHAR' and 'Sn_DHAR0'",
+          "duplicate address 0x06: 'Sn_DHAR' and 'SUBR1'",
+          "duplicate address 0x0C: 'Sn_DIPR1' and 'SHAR3'",
+          "duplicate address 0x10: 'Sn_DIPR' and 'SIPR1'",
+          "duplicate address 0x12: 'Sn_MSSR' and 'Sn_MSSR0'",
+          "duplicate address 0x15: 'Sn_TOS' and 'IR'",
+          "duplicate address 0x19: 'RTR' and 'RTR0'",
+          "duplicate address 0x1E: 'Sn_RXBUF_SIZE' and 'PHAR0'",
+          "duplicate address 0x22: 'Sn_TX_RD' and 'PHAR4'",
+          "duplicate address 0x24: 'PSID' and 'Sn_DIPR'",
+          "Sn_DIPR (0x24): fields '0x0024' [0:0] and '0x13' [0:0] overlap",
+          "duplicate address 0x24: 'PSID' and 'PSID0'",
+          "duplicate address 0x25: 'SN_TX_WR0' and 'Sn_TX_WR1'",
+          "duplicate address 0x25: 'SN_TX_WR0' and 'PSID1'",
+          "duplicate address 0x26: 'SN_RX_RSR' and 'Sn_RX_RSR0'",
+          "duplicate address 0x26: 'SN_RX_RSR' and 'PMRU0'",
+          "duplicate address 0x27: 'Sn_RX_RSR1' and 'PMRU1'",
+          "duplicate address 0x28: 'SN_RX_RD' and 'Sn_RX_RD0'",
+          "duplicate address 0x28: 'SN_RX_RD' and 'UIPR0'",
+          "duplicate address 0x29: 'SN_RX_RD1' and 'UIPR1'",
+          "duplicate address 0x2C: 'SN_IMR' and 'Sn_RX_WR1'",
+          "duplicate address 0x2C: 'SN_IMR' and 'UPORTR0'",
+          "duplicate address 0x2D: 'SN_FRAG' and 'Sn_FRAG0'",
+          "duplicate address 0x2D: 'SN_FRAG' and 'UPORTR1'",
+          "duplicate address 0x07: 'Sn_DHAR1' and 'SUBR2'",
+          "duplicate address 0x0B: 'Sn_DHAR4' and 'SHAR1'",
+          "duplicate address 0x0B: 'Sn_DHAR4' and 'SHAR2'"
+        ],
+        "issue_breakdown": {
+          "address 0x00 not found in register summary table": 1,
+          "Field 255 (0xFF)[255": 2,
+          "address 0x05 not found in register summary table": 1,
+          "field '255 (0xFF)' bit_high=255 exceeds 32-bit register": 1,
+          "field '0x0005' reset_value=8 exceeds max for 1-bit field (max=1)": 1,
+          "missing_source_location": 68,
+          "Overlapping fields": 10,
+          "address 0x09 not found in register summary table": 1,
+          "fields '0x0009' [0": 1,
+          "field '0x0009' reset_value=12 exceeds max for 1-bit field (max=1)": 1,
+          "Field 192 (0xC0)[192": 4,
+          "address 0x0F not found in register summary table": 1,
+          "field '192 (0xC0)' bit_high=192 exceeds 32-bit register": 2,
+          "field '0x000F' reset_value=18 exceeds max for 1-bit field (max=1)": 1,
+          "address 0x11 not found in register summary table": 1,
+          "fields '0x0013' [0": 1,
+          "address 0x14 not found in register summary table": 1,
+          "address 0x16 not found in register summary table": 1,
+          "address 0x1B not found in register summary table": 1,
+          "address 0x1C not found in register summary table": 1,
+          "address 0x1D not found in register summary table": 1,
+          "address 0x2E not found in register summary table": 1,
+          "Field 192 (0xC0)[168": 2,
+          "address 0x01 not found in register summary table": 1,
+          "field '192 (0xC0)' bit_high=168 exceeds 32-bit register": 1,
+          "fields '0x0001' [0": 1,
+          "identical field layout as adjacent register 0x40": 1,
+          "address 0x02 not found in register summary table": 1,
+          "address 0x04 not found in register summary table": 2,
+          "address 0x06 not found in register summary table": 1,
+          "fields '0x0006' [0": 1,
+          "field '0x0006' reset_value=9 exceeds max for 1-bit field (max=1)": 1,
+          "address 0x08 not found in register summary table": 1,
+          "address 0x0C not found in register summary table": 1,
+          "address 0x10 not found in register summary table": 1,
+          "address 0x12 not found in register summary table": 1,
+          "address 0x19 not found in register summary table": 1,
+          "address 0x1E not found in register summary table": 1,
+          "address 0x1F not found in register summary table": 1,
+          "zone_validation": 3,
+          "address 0x20 not found in register summary table": 1,
+          "address 0x22 not found in register summary table": 1,
+          "address 0x23 not found in register summary table": 1,
+          "address 0x24 not found in register summary table": 2,
+          "fields '0x0024' [0": 1,
+          "address 0x25 not found in register summary table": 1,
+          "address 0x26 not found in register summary table": 1,
+          "address 0x28 not found in register summary table": 1,
+          "address 0x29 not found in register summary table": 1,
+          "address 0x2B not found in register summary table": 1,
+          "address 0x2C not found in register summary table": 1,
+          "address 0x2D not found in register summary table": 1,
+          "address 0x2F not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 38,
+        "fields_verified": 13,
+        "fields_unverified": 25,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 22,
+        "field_diagnostics": {
+          "0X25": {},
+          "0X13": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 95270
+            }
+          },
+          "0X26": {
+            "SIZE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 29999
+            }
+          },
+          "0X27": {},
+          "0X28": {
+            "PTR": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 30752
+            }
+          },
+          "0X29": {},
+          "0X2C": {
+            "RESERVED": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42204
+            },
+            "SENDOK": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42204
+            },
+            "TIMEOUT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42204
+            },
+            "RECV": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42204
+            },
+            "DISCON": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42204
+            },
+            "CON": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42204
+            }
+          },
+          "0X09": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 31366
+            }
+          },
+          "0X0A": {
+            "VALUE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 30437
+            }
+          },
+          "0X0B": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 31816
+            }
+          },
+          "0X1E": {},
+          "0X2D": {
+            "FRAG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11525
+            }
+          },
+          "0X2E": {
+            "RST": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 82333
+            },
+            "OPMD": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 82333
+            }
+          },
+          "0X0C": {
+            "VALUE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 30437
+            }
+          },
+          "0X21": {
+            "VALUE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 29493
+            }
+          },
+          "0X0F": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 74748
+            }
+          },
+          "0X08": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 33774
+            }
+          },
+          "0X19": {},
+          "0X1A": {},
+          "0X2A": {
+            "PTR": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 54973
+            }
+          },
+          "0X2B": {},
+          "0X1B": {},
+          "0X0D": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 31463
+            }
+          },
+          "0X1C": {},
+          "0X0E": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 86978
+            }
+          },
+          "0X1D": {},
+          "0X10": {
+            "VALUE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 33700
+            }
+          },
+          "0X22": {},
+          "0X23": {},
+          "0X14": {},
+          "0X24": {},
+          "0X15": {
+            "CONFLICT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 201557
+            },
+            "UNREACH": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 201557
+            },
+            "PPPoE": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 201557
+            },
+            "MP": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 201557
+            },
+            "RESERVED_3_0": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 201557
+            },
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38827
+            }
+          },
+          "0X16": {
+            "IM_IR7": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54601
+            },
+            "IM_IR6": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54601
+            },
+            "IM_IR5": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54601
+            },
+            "IM_IR4": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54601
+            },
+            "RESERVED_3_0": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 54601
+            }
+          },
+          "0X17": {
+            "S7_INT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76530
+            },
+            "S6_INT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76530
+            },
+            "S5_INT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76530
+            },
+            "S4_INT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76530
+            },
+            "S3_INT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76530
+            },
+            "S2_INT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76530
+            },
+            "S1_INT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76530
+            },
+            "S0_INT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76530
+            }
+          },
+          "0X18": {
+            "S7_IMR": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120194
+            },
+            "S6_IMR": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120194
+            },
+            "S5_IMR": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120194
+            },
+            "S4_IMR": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120194
+            },
+            "S3_IMR": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120194
+            },
+            "S2_IMR": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120194
+            },
+            "S1_IMR": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120194
+            },
+            "S0_IMR": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120194
+            }
+          },
+          "0X01": {
+            "COMMAND": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 116328
+            }
+          },
+          "0X02": {
+            "RESERVED_7_5": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 123948
+            },
+            "SEND_OK": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 123948
+            },
+            "TIMEOUT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 123948
+            },
+            "RECV": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 123948
+            },
+            "DISCON": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 123948
+            },
+            "CON": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 123948
+            }
+          },
+          "0X03": {
+            "STATUS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 81723
+            }
+          },
+          "0X04": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 31626
+            }
+          },
+          "0X05": {
+            "VALUE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 31939
+            }
+          },
+          "0X06": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 32605
+            }
+          },
+          "0X07": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 31579
+            }
+          },
+          "0X11": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 31614
+            }
+          },
+          "0X12": {
+            "VALUE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 30129
+            }
+          },
+          "0X00": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56044
+            }
+          },
+          "0X40": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 85086
+            }
+          },
+          "0X42": {
+            "VALUE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 86433
+            }
+          },
+          "0X1F": {
+            "SIZE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7821
+            }
+          },
+          "0X20": {
+            "FREE_SIZE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13574
+            }
+          },
+          "0X2F": {
+            "KA_TIME": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11934
+            }
+          }
+        },
+        "fields_cross_section_augmented": 64,
+        "fields_name_matched": 20,
+        "fields_consistent_promoted": 1,
+        "diagnostic_summary": {
+          "verified_name": 20,
+          "name_not_found": 10,
+          "verified_quote": 13,
+          "quote_not_found": 25,
+          "reserved": 2
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1814,
+        "output_tokens": 1138,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000955
+      },
+      "extraction": {
+        "input_tokens": 192480,
+        "output_tokens": 58652,
+        "thinking_tokens": 30464,
+        "calls": 24,
+        "total_cost_usd": 0.064063
+      },
+      "evidence": {
+        "input_tokens": 5413,
+        "output_tokens": 3336,
+        "thinking_tokens": 3135,
+        "calls": 10,
+        "total_cost_usd": 0.002814
+      },
+      "correction": {
+        "input_tokens": 57567,
+        "output_tokens": 56444,
+        "thinking_tokens": 49549,
+        "calls": 71,
+        "total_cost_usd": 0.042501
+      },
+      "agents": {
+        "input_tokens": 451530,
+        "output_tokens": 96298,
+        "thinking_tokens": 69249,
+        "calls": 112,
+        "total_cost_usd": 0.137803
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 2960,
+        "output_tokens": 6557,
+        "thinking_tokens": 5944,
+        "calls": 3,
+        "total_cost_usd": 0.004378
+      }
+    }
+  }
+}

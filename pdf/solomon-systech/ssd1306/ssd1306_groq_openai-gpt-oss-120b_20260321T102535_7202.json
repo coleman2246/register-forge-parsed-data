@@ -1,0 +1,480 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "SSD1306",
+  "description": "OLED controller",
+  "vendor": "Solomon Systech",
+  "source": "SSD1306.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf",
+  "peripherals": {
+    "Power": [
+      {
+        "name": "OFF",
+        "address": "0xAE",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "OFF register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RAW",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register raw value",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          7,
+          8
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Addressing": [
+      {
+        "name": "MODE_20",
+        "address": "0x20",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set Memory Addressing Mode register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "A",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Memory Addressing Mode (00b Horizontal, 01b Vertical, 10b Page (RESET), 11b Invalid)",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 6,
+        "source_pages": [
+          6,
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "field 'A' reset_value=2 exceeds max for 1-bit field (max=1)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "COLUMN_START_HIGHER",
+        "address": "0xDA",
+        "size_bits": 4,
+        "reset_value": "0x0",
+        "description": "Set higher column start address for page addressing mode",
+        "fields": [
+          {
+            "name": "COLUMN_START_HIGH_NIBBLE",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Higher nibble of column start address (X[3:0])",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          6,
+          44
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Timing": [
+      {
+        "name": "Frequency",
+        "address": "0xD5",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Frequency register",
+        "fields": [
+          {
+            "name": "Oscillator Frequency",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 8,
+            "description": "Program the oscillator frequency Fosc that is the source of CLK if CLS pin is pulled high. The 4-bit value results in 16 different frequency settings available as shown below. The default setting is 1000b.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "Display Clock Divide Ratio",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Set the divide ratio to generate DCLK (Display Clock) from CLK. The divide ratio is from 1 to 16, with reset value = 1.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          6
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Contrast": [
+      {
+        "name": "Set Contrast Control for BANK0",
+        "address": "0x81",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set contrast control for BANK0 register",
+        "fields": [
+          {
+            "name": "CONTRAST",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Contrast setting value (0-255).",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "MUX": [
+      {
+        "name": "Set MUX ratio",
+        "address": "0xA8",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set MUX ratio register",
+        "fields": [
+          {
+            "name": "MUX_RATIO",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sets the multiplex ratio (number of COM lines minus 1).",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          39
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Display Offset": [
+      {
+        "name": "Display offset",
+        "address": "0xD3",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Display offset register",
+        "fields": [
+          {
+            "name": "Display offset",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Display offset (0-63)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xD3 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-21T14:25:35.190789+00:00",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 7,
+        "by_confidence": {
+          "high": 6,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 2,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 10,
+        "by_source": {
+          "synthetic": 2,
+          "llm_verified": 3,
+          "llm_consistent": 2,
+          "agent_verified": 2,
+          "section_agent": 1
+        }
+      },
+      "peripherals": {
+        "total": 6,
+        "by_name": {
+          "Power": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Addressing": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Timing": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Contrast": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "MUX": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Display Offset": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 9,
+        "batches_total": 18,
+        "batches_sent": 18,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 1,
+        "warnings_detail": [
+          "MODE_20 (0x20): field 'A' reset_value=2 exceeds max for 1-bit field (max=1)"
+        ],
+        "issue_breakdown": {
+          "field 'A' reset_value=2 exceeds max for 1-bit field (max=1)": 1,
+          "address 0xD3 not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 7,
+        "fields_verified": 7,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 4,
+        "field_diagnostics": {
+          "0XA4": {},
+          "0XA8": {},
+          "0X00": {},
+          "0X81": {},
+          "0XAE": {},
+          "0XB0": {},
+          "0XD5": {},
+          "0XDA": {
+            "COM_PIN_ALTERNATE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 115819
+            },
+            "COM_LEFT_RIGHT_REMAP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 115819
+            }
+          },
+          "0X20": {},
+          "0XD9": {
+            "PHASE2_PERIOD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 27185
+            },
+            "PHASE1_PERIOD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 27185
+            }
+          },
+          "0XDB": {
+            "VCOMH_LEVEL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 27185
+            }
+          },
+          "0XD3": {
+            "DISPLAY_OFFSET": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59132
+            },
+            "RSVD_7_6": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59132
+            }
+          }
+        },
+        "fields_cross_section_augmented": 8,
+        "fields_consistent_promoted": 2,
+        "diagnostic_summary": {
+          "verified_quote": 7
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1480,
+        "output_tokens": 549,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000551
+      },
+      "extraction": {
+        "input_tokens": 326323,
+        "output_tokens": 55455,
+        "thinking_tokens": 42851,
+        "calls": 55,
+        "total_cost_usd": 0.082221
+      },
+      "evidence": {
+        "input_tokens": 600,
+        "output_tokens": 190,
+        "thinking_tokens": 173,
+        "calls": 1,
+        "total_cost_usd": 0.000204
+      },
+      "correction": {
+        "input_tokens": 14664,
+        "output_tokens": 19347,
+        "thinking_tokens": 17437,
+        "calls": 15,
+        "total_cost_usd": 0.013808
+      },
+      "agents": {
+        "input_tokens": 60448,
+        "output_tokens": 25324,
+        "thinking_tokens": 22605,
+        "calls": 38,
+        "total_cost_usd": 0.017699
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 322,
+        "output_tokens": 382,
+        "thinking_tokens": 317,
+        "calls": 1,
+        "total_cost_usd": 0.000277
+      }
+    }
+  }
+}
