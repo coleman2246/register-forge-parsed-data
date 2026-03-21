@@ -1,0 +1,1646 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "SSD1306",
+  "description": "OLED controller",
+  "vendor": "Solomon Systech",
+  "source": "SSD1306.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf",
+  "peripherals": {
+    "Display Control": [
+      {
+        "name": "ENTIRE_DISPLAY_ON_A4",
+        "address": "0xA4",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Entire Display ON (Resume to RAM content display)",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "X_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "X 0",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          35
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ENTIRE_DISPLAY_ON_A5",
+        "address": "0xA5",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Entire display ON A5 register",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "X_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Display mode: 0=resume to RAM content, 1=entire display ON",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 35,
+        "source_pages": [
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "NORMAL_DISPLAY_A6",
+        "address": "0xA6",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Normal display A6 register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "X_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "X 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:no_fields"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SET_INVERSE_DISPLAY_A7",
+        "address": "0xA7",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "set_inverse_display_a7",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Set inverse display a7",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DISPLAY_ON_AE",
+        "address": "0xAE",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Display ON AE register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "X_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "X 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:no_fields"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SET_DISPLAY_OFF_AF",
+        "address": "0xAF",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "set_display_off_af",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Set display off af",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Addressing": [
+      {
+        "name": "LOWER_COLUMN_START",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set Lower Column Start Address for Page Addressing Mode (lower nibble of column start address).",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "X3",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Higher nibble bit 3 of column start address",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "X2",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "X2",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "X1",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "X1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "X0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "X0",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          33
+        ],
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: X3[0:0] and X2[0:0]",
+          "Overlapping fields: X2[0:0] and X1[0:0]",
+          "Overlapping fields: X1[0:0] and X0[0:0]",
+          "Overlapping fields: X3[0:0] and X2[0:0]",
+          "Overlapping fields: X2[0:0] and X1[0:0]",
+          "Overlapping fields: X1[0:0] and X0[0:0]",
+          "Overlapping fields: X3[0:0] and X2[0:0]",
+          "Overlapping fields: X2[0:0] and X1[0:0]",
+          "Overlapping fields: X1[0:0] and X0[0:0]",
+          "Overlapping fields: X3[0:0] and X2[0:0]",
+          "Overlapping fields: X2[0:0] and X1[0:0]",
+          "Overlapping fields: X1[0:0] and X0[0:0]",
+          "Overlapping fields: X3[0:0] and X2[0:0]",
+          "Overlapping fields: X2[0:0] and X1[0:0]",
+          "Overlapping fields: X1[0:0] and X0[0:0]",
+          "Overlapping fields: X3[0:0] and X2[0:0]",
+          "Overlapping fields: X2[0:0] and X1[0:0]",
+          "Overlapping fields: X1[0:0] and X0[0:0]",
+          "Overlapping fields: X3[0:0] and X2[0:0]",
+          "Overlapping fields: X2[0:0] and X1[0:0]",
+          "Overlapping fields: X1[0:0] and X0[0:0]",
+          "Overlapping fields: X3[0:0] and X2[0:0]",
+          "Overlapping fields: X2[0:0] and X1[0:0]",
+          "Overlapping fields: X1[0:0] and X0[0:0]",
+          "Overlapping fields: X3[0:0] and X2[0:0]",
+          "Overlapping fields: X2[0:0] and X1[0:0]",
+          "Overlapping fields: X1[0:0] and X0[0:0]",
+          "Overlapping fields: X3[0:0] and X2[0:0]",
+          "Overlapping fields: X2[0:0] and X1[0:0]",
+          "Overlapping fields: X1[0:0] and X0[0:0]",
+          "Overlapping fields: X3[0:0] and X2[0:0]",
+          "Overlapping fields: X2[0:0] and X1[0:0]",
+          "Overlapping fields: X1[0:0] and X0[0:0]",
+          "Overlapping fields: X3[0:0] and X2[0:0]",
+          "Overlapping fields: X2[0:0] and X1[0:0]",
+          "Overlapping fields: X1[0:0] and X0[0:0]",
+          "fields 'X3' [0:0] and 'X2' [0:0] overlap",
+          "fields 'X2' [0:0] and 'X1' [0:0] overlap",
+          "fields 'X1' [0:0] and 'X0' [0:0] overlap"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "HIGHER_COLUMN_START",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set the higher nibble of the column start address register for Page Addressing Mode using X[3:0] as data bits. The initial display line register is reset to 0000b after RESET. Note: This command is only for page addressing mode.",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "X",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Higher nibble of column start address (bits X3..X0).",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MEMORY_ADDRESSING_MODE",
+        "address": "0x20",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set Memory Addressing Mode",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "A",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Memory addressing mode: 00b Horizontal, 01b Vertical, 10b Page (reset), 11b Invalid",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          6,
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "field 'A' reset_value=2 exceeds max for 1-bit field (max=1)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "COLUMN_ADDRESS",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set Column Address command (start column address).",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "START_COLUMN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Start column address (A[6:0])",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          6,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PAGE_ADDRESS",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "PAGE address register",
+        "fields": [
+          {
+            "name": "PAGE_START",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Page start address",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "PAGE_END",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Page end address",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          6,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SET_HIGHER_COLUMN_START_ADDRESS_FOR_PAGE_ADDRESSING_MODE",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set Higher Column Start Address for Page Addressing Mode",
+        "fields": [
+          {
+            "name": "RSVD_7_4",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "X",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "X",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          46
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x29 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PAGE_START_ADDRESS",
+        "address": "0xB0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set Page Start Address for Page Addressing Mode. Bits 2:0 select page (0\u20117).",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "PAGE",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Page start address (0 = page 0, \u2026 7 = page 7)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Scrolling": [
+      {
+        "name": "CONTINUOUS_HORIZONTAL_SCROLL_SETUP_26",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Continuous Horizontal Scroll Setup (Right)",
+        "fields": [
+          {
+            "name": "START_PAGE",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Scrolling start page (6-bit value)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SPEED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Scrolling speed (2-bit value: 00=2 frames, 01=3 frames, 10=4 frames, 11=5 frames)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          45
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "uncovered bits: 5:0 (covered by START_PAGE), 7:6 (covered by SPEED)",
+          "address 0x26 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "HORIZONTAL_SCROLL_DEACTIVATE",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Horizontal scroll deactivate register",
+        "fields": [
+          {
+            "name": "DEACTIVATE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Deactivate horizontal scroll. Must be issued before horizontal scroll setup commands to avoid RAM corruption.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          44
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x2E not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ACTIVATE_SCROLL",
+        "address": "0x2F",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "Activate scroll register",
+        "fields": [
+          {
+            "name": "RSVD_31_1",
+            "bit_high": 31,
+            "bit_low": 1,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ACTIVATE",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Activate scroll command",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          47
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x2F not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Display Timing": [
+      {
+        "name": "Set Contrast Control for BANK0",
+        "address": "0x81",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set contrast control for BANK0 register",
+        "fields": [
+          {
+            "name": "CONTRAST",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Contrast setting value (0-255).",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DISPLAY_CLOCK_DIVIDE_RATIO",
+        "address": "0xD5",
+        "size_bits": 8,
+        "reset_value": "0x80",
+        "description": "Set display clock divide ratio / oscillator frequency",
+        "fields": [
+          {
+            "name": "OSCILLATOR_FREQUENCY",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 8,
+            "description": "Oscillator frequency setting",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DIVIDE_RATIO",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Divide ratio of display clocks",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          6,
+          43
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PRECHARGE_PERIOD",
+        "address": "0xD9",
+        "size_bits": 8,
+        "reset_value": "0x22",
+        "description": "Set pre-charge period",
+        "fields": [
+          {
+            "name": "PHASE2",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Phase 2 period",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PHASE1",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Phase 1 period",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          6,
+          44
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Set VCOMH Deselect Level",
+        "address": "0xDB",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set VCOMH deselect level register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved, must be 0",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "VCOMH_DESELECT_LEVEL",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "VCOMH Deselect Level (0-15)",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          43
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Hardware Configuration": [
+      {
+        "name": "DISPLAY_START_LINE",
+        "address": "0x40",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Set display start line",
+        "fields": [
+          {
+            "name": "CMD",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Command identifier (fixed bits)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "START_LINE",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Start line register (0-63)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Set Segment Re-map",
+        "address": "0xA0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set segment re map register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved bits, must be 0",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "Segment Re-map",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Segment Re-map: 0 = column address 0 mapped to SEG0, 1 = column address 127 mapped to SEG0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Set Segment Re-map",
+        "address": "0xA1",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set segment re map register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved bits.",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "Segment Re-map",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "0 = column address 0 is mapped to SEG0, 1 = column address 127 is mapped to SEG0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Set MUX ratio",
+        "address": "0xA8",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set MUX ratio register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved, must be 0",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "COM_N",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Number of COM outputs minus 1",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          39
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "COM_OUTPUT_SCAN_DIRECTION_C0",
+        "address": "0xC0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set COM output scan direction normal",
+        "fields": [
+          {
+            "name": "SCAN_DIRECTION",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "COM scan direction (0 normal)",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "UNUSED_7_4",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Unused bits, should be 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "UNUSED_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Unused bits, should be 0",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "COM Remapped",
+        "address": "0xC8",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "COM remapped register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved bits",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "COM Scan Direction",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "0 = Normal, 1 = Remapped",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          39
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DISPLAY_OFFSET",
+        "address": "0xD3",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Set display offset",
+        "fields": [
+          {
+            "name": "DISPLAY_OFFSET",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Vertical shift (0-63)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          6,
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "COM_PINS_HARDWARE_CONFIG",
+        "address": "0xDA",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Set COM pins hardware configuration",
+        "fields": [
+          {
+            "name": "RSVD_3_0",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "COM_REMAP",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable COM left/right remap",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "COM_CONFIG",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "COM pin configuration (0 sequential, 1 alternative)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          6,
+          44
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Misc": [
+      {
+        "name": "NOP",
+        "address": "0xE3",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "NOP register",
+        "fields": [
+          {
+            "name": "NOP",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "No Operation Command",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          6,
+          44
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xE3 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-21T16:24:31.130971+00:00",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 29,
+        "by_confidence": {
+          "high": 21,
+          "medium": 7,
+          "low": 1
+        },
+        "with_quality_issues": 15,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 58,
+        "by_source": {
+          "synthetic": 14,
+          "agent_verified": 14,
+          "manifest_only": 2,
+          "llm_only": 2,
+          "llm_consistent": 6,
+          "llm_verified": 7,
+          "evidence_verified": 5,
+          "section_agent": 8
+        }
+      },
+      "peripherals": {
+        "total": 6,
+        "by_name": {
+          "Display Control": {
+            "registers": 6,
+            "confidence": {
+              "high": 3,
+              "medium": 3,
+              "low": 0
+            }
+          },
+          "Addressing": {
+            "registers": 7,
+            "confidence": {
+              "high": 6,
+              "medium": 0,
+              "low": 1
+            }
+          },
+          "Scrolling": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Display Timing": {
+            "registers": 4,
+            "confidence": {
+              "high": 3,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Hardware Configuration": {
+            "registers": 8,
+            "confidence": {
+              "high": 5,
+              "medium": 3,
+              "low": 0
+            }
+          },
+          "Misc": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 24,
+        "batches_total": 12,
+        "batches_sent": 12,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 4,
+        "warnings_detail": [
+          "MEMORY_ADDRESSING_MODE (0x20): field 'A' reset_value=2 exceeds max for 1-bit field (max=1)",
+          "LOWER_COLUMN_START (0x00): fields 'X3' [0:0] and 'X2' [0:0] overlap",
+          "LOWER_COLUMN_START (0x00): fields 'X2' [0:0] and 'X1' [0:0] overlap",
+          "LOWER_COLUMN_START (0x00): fields 'X1' [0:0] and 'X0' [0:0] overlap"
+        ],
+        "issue_breakdown": {
+          "zone_validation": 7,
+          "missing_source_location": 2,
+          "field 'A' reset_value=2 exceeds max for 1-bit field (max=1)": 1,
+          "Overlapping fields": 36,
+          "fields 'X3' [0": 1,
+          "fields 'X2' [0": 1,
+          "fields 'X1' [0": 1,
+          "address 0x29 not found in register summary table": 1,
+          "address 0x2F not found in register summary table": 1,
+          "address 0x2E not found in register summary table": 1,
+          "uncovered bits": 1,
+          "address 0x26 not found in register summary table": 1,
+          "address 0xE3 not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 21,
+        "fields_verified": 21,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 10,
+        "field_diagnostics": {
+          "0X81": {
+            "A_7": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 50921
+            },
+            "A_6": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 50921
+            },
+            "A_5": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 50921
+            },
+            "A_4": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 50921
+            },
+            "A_3": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 50921
+            },
+            "A_2": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 50921
+            },
+            "A_1": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 50921
+            },
+            "A_0": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 50921
+            }
+          },
+          "0XA4": {
+            "X_0": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 48760
+            }
+          },
+          "0XA6": {
+            "X_0": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 48760
+            }
+          },
+          "0XAE": {
+            "X_0": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 48888
+            }
+          },
+          "0X26": {
+            "A": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29667
+            },
+            "B": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29667
+            },
+            "C": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29667
+            },
+            "D": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29667
+            },
+            "E": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29667
+            },
+            "F": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29667
+            }
+          },
+          "0X2E": {},
+          "0X2F": {},
+          "0X29": {
+            "A": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29608
+            },
+            "B": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29608
+            },
+            "C": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29608
+            },
+            "D": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29608
+            },
+            "E": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29608
+            }
+          },
+          "0XD5": {
+            "OSCILLATOR_FREQUENCY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26396
+            },
+            "DIVIDE_RATIO": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26396
+            }
+          },
+          "0XD9": {
+            "PHASE2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 27185
+            },
+            "PHASE1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 27185
+            }
+          },
+          "0XDB": {
+            "VCOMH_LEVEL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 27189
+            }
+          },
+          "0XE3": {},
+          "0X40": {
+            "START_LINE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 43929
+            }
+          },
+          "0XA0": {
+            "SEG_REMAP": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 26474
+            }
+          },
+          "0XA8": {
+            "MUX_RATIO": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37092
+            }
+          },
+          "0XC0": {
+            "SCAN_DIRECTION": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 44015
+            }
+          },
+          "0XD3": {
+            "DISPLAY_OFFSET": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 28419
+            }
+          },
+          "0XDA": {
+            "COM_REMAP": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 27189
+            },
+            "COM_CONFIG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 27189
+            }
+          },
+          "0X00": {
+            "COLUMN_START_LOW": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 20622
+            }
+          },
+          "0X10": {
+            "COLUMN_START_HIGH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 20639
+            }
+          },
+          "0X20": {
+            "ADDRESSING_MODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 20643
+            }
+          },
+          "0X21": {},
+          "0X22": {},
+          "0XB0": {}
+        },
+        "fields_consistent_promoted": 9,
+        "diagnostic_summary": {
+          "name_not_found": 16,
+          "verified_quote": 21
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1892,
+        "output_tokens": 414,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000532
+      },
+      "extraction": {
+        "input_tokens": 158884,
+        "output_tokens": 27385,
+        "thinking_tokens": 19454,
+        "calls": 22,
+        "total_cost_usd": 0.040264
+      },
+      "evidence": {
+        "input_tokens": 1253,
+        "output_tokens": 353,
+        "thinking_tokens": 321,
+        "calls": 2,
+        "total_cost_usd": 0.0004
+      },
+      "correction": {
+        "input_tokens": 30772,
+        "output_tokens": 38750,
+        "thinking_tokens": 34647,
+        "calls": 29,
+        "total_cost_usd": 0.027866
+      },
+      "agents": {
+        "input_tokens": 141539,
+        "output_tokens": 81434,
+        "thinking_tokens": 72809,
+        "calls": 95,
+        "total_cost_usd": 0.040925
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 884,
+        "output_tokens": 1082,
+        "thinking_tokens": 918,
+        "calls": 1,
+        "total_cost_usd": 0.000782
+      }
+    }
+  }
+}

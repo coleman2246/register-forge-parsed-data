@@ -74,7 +74,7 @@
     "filename": "BME280.pdf",
     "category": "peripheral",
     "family": "Environmental Sensor",
-    "path": "pdf/bosch-sensortec/bme280/bme280_groq_openai-gpt-oss-120b_20260321T113637_fa96.json"
+    "path": "pdf/bosch-sensortec/bme280/bme280_groq_openai-gpt-oss-120b_20260321T122153_a32a.json"
   },
   {
     "device": "BMP180",
@@ -213,7 +213,7 @@
     "filename": "SSD1306.pdf",
     "category": "peripheral",
     "family": "Display Controller",
-    "path": "pdf/solomon-systech/ssd1306/ssd1306_groq_openai-gpt-oss-120b_20260321T102535_7202.json"
+    "path": "pdf/solomon-systech/ssd1306/ssd1306_groq_openai-gpt-oss-120b_20260321T122431_47c0.json"
   },
   {
     "device": "LIS3MDL",
@@ -373,7 +373,7 @@
     "filename": "TMP102.pdf",
     "category": "peripheral",
     "family": "Temperature Sensor",
-    "path": "pdf/texas-instruments/tmp102/tmp102_groq_openai-gpt-oss-120b_20260321T114341_bd32.json"
+    "path": "pdf/texas-instruments/tmp102/tmp102_groq_openai-gpt-oss-120b_20260321T122550_e1b9.json"
   },
   {
     "device": "CC1101",
@@ -433,7 +433,7 @@
     "filename": "W5500.pdf",
     "category": "peripheral",
     "family": "Ethernet Controller",
-    "path": "pdf/wiznet/w5500/w5500_groq_openai-gpt-oss-120b_20260321T114904_4554.json"
+    "path": "pdf/wiznet/w5500/w5500_groq_openai-gpt-oss-120b_20260321T123005_6c63.json"
   },
   {
     "device": "PCA9555",
