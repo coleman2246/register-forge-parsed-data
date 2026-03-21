@@ -1,0 +1,268 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "TMP102",
+  "description": "Low-power digital temperature sensor, \u00b10.5\u00b0C accuracy, I2C/SMBus",
+  "vendor": "Texas Instruments",
+  "source": "TMP102.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/tmp102.pdf",
+  "peripherals": {
+    "Temperature Sensor": [
+      {
+        "name": "TEMPERATURE_REGISTER",
+        "address": "0x00",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Temperature register containing the most recent conversion result",
+        "fields": [
+          {
+            "name": "RSVD_3_0",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "T11",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature bit 11 (MSB)",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "T10",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature bit 10",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "T9",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature bit 9",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "T8",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature bit 8",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "T7",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature bit 7",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "T6",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature bit 6",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "T5",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature bit 5",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "T4",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature bit 4 (LSB of MSB byte)",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "T3",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature bit 3",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "T2",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature bit 2",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "T1",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature bit 1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "T0",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature bit 0 (LSB of temperature data)",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-21T15:43:41.001368+00:00",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 1,
+        "by_confidence": {
+          "high": 0,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 0,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 13,
+        "by_source": {
+          "synthetic": 1,
+          "llm_only": 8,
+          "llm_verified": 4
+        }
+      },
+      "peripherals": {
+        "total": 1,
+        "by_name": {
+          "Temperature Sensor": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 12,
+        "batches_sent": 12,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {}
+      },
+      "evidence": {}
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1661,
+        "output_tokens": 614,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000618
+      },
+      "extraction": {
+        "input_tokens": 59201,
+        "output_tokens": 4478,
+        "thinking_tokens": 3697,
+        "calls": 14,
+        "total_cost_usd": 0.011567
+      },
+      "evidence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "correction": {
+        "input_tokens": 2318,
+        "output_tokens": 2388,
+        "thinking_tokens": 1323,
+        "calls": 2,
+        "total_cost_usd": 0.00178
+      },
+      "agents": {
+        "input_tokens": 36112,
+        "output_tokens": 6069,
+        "thinking_tokens": 1867,
+        "calls": 8,
+        "total_cost_usd": 0.012699
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 224,
+        "output_tokens": 121,
+        "thinking_tokens": 103,
+        "calls": 1,
+        "total_cost_usd": 0.000106
+      }
+    }
+  }
+}
