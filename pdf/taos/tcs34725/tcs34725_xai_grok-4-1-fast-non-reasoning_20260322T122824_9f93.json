@@ -1,0 +1,1664 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "TCS34725",
+  "description": "Color light-to-digital converter",
+  "vendor": "TAOS",
+  "source": "TCS34725.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/TCS34725.pdf",
+  "peripherals": {
+    "Device ID": [
+      {
+        "name": "ID",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Device ID register",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Device identification code",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          12
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TCS34727",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Device ID for TCS34727",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "TCS34727 device identification",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          3
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TCS34723FN",
+        "address": "0x39",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Device ID for TCS34723FN",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "TCS34723FN device identification",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          3
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Timing Control": [
+      {
+        "name": "Enable Register",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Enable register register",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "RSVD_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "RSVD_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "AIEN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "RGBC interrupt enable. When asserted, permits RGBC interrupts to be generated.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RGBC Timing Register",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "RGBC timing register register",
+        "fields": [
+          {
+            "name": "ATIME",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "INTEG_CYCLES",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Wait Time Register",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Wait time register register",
+        "fields": [
+          {
+            "name": "WTIME",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Wait time is set 2.4 ms increments unless the WLONG bit is asserted, in which case the wait times are 12\u00d7 longer. WTIME is programmed as a 2\u2019s complement number.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "WTIME",
+        "address": "0xAB",
+        "size_bits": 8,
+        "reset_value": "0xAB",
+        "description": "Example WTIME value",
+        "fields": [
+          {
+            "name": "WTIME",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 171,
+            "description": "WTIME = 0xAB",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ATIME",
+        "address": "0xC0",
+        "size_bits": 8,
+        "reset_value": "0xC0",
+        "description": "Example ATIME value for 153.6 ms integration",
+        "fields": [
+          {
+            "name": "ATIME",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 192,
+            "description": "ATIME = 0xC0 (153.6 ms)",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ATIME",
+        "address": "0xD5",
+        "size_bits": 8,
+        "reset_value": "0xD5",
+        "description": "Example ATIME value for dark count (100 ms)",
+        "fields": [
+          {
+            "name": "ATIME",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 213,
+            "description": "ATIME = 0xD5/D6 (100 ms)",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "identical field layout as adjacent register 0xC0"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ATIME",
+        "address": "0xEE",
+        "size_bits": 8,
+        "reset_value": "0xEE",
+        "description": "Example ATIME value referenced in optical characteristics",
+        "fields": [
+          {
+            "name": "ATIME",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 238,
+            "description": "ATIME = 0xEE",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          10
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0xD5"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ATIME",
+        "address": "0xF6",
+        "size_bits": 8,
+        "reset_value": "0xF6",
+        "description": "Example ATIME value for optical characteristics",
+        "fields": [
+          {
+            "name": "ATIME",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 246,
+            "description": "ATIME = 0xF6",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0xEE"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "WTIME",
+        "address": "0xFF",
+        "size_bits": 8,
+        "reset_value": "0xFF",
+        "description": "Example WTIME value for maximum wait time",
+        "fields": [
+          {
+            "name": "WTIME",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 255,
+            "description": "WTIME = 0xFF (2.4 ms/step)",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Configuration": [
+      {
+        "name": "PERSISTENCE",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Persistence register",
+        "fields": [
+          {
+            "name": "PPERS",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "APERS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt persistence. Controls rate of interrupt to the host processor.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CONFIG",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Configuration register",
+        "fields": [
+          {
+            "name": "RESERVED_7_2",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RESERVED_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "WLONG",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Wait Long. When asserted, the wait cycles are increased by a factor 12 \u00d7 from that programmed in the WTIME register.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          12
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CONTROL",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Control register provides eight bits of miscellaneous control to the analog block.",
+        "fields": [
+          {
+            "name": "RESERVED_7_2",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write bits as 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "AGAIN",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RGBC Gain Control.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          12
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Interrupt Control": [
+      {
+        "name": "AILTL",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Clear channel low interrupt threshold register (low byte)",
+        "fields": [
+          {
+            "name": "AILTL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Clear interrupt low threshold low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          12,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AILTH",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Clear channel low interrupt threshold register (high byte)",
+        "fields": [
+          {
+            "name": "AILTH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Clear interrupt low threshold high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          12,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AIHTL",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Clear channel high interrupt threshold register (low byte)",
+        "fields": [
+          {
+            "name": "AIHTL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Clear interrupt high threshold low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          12,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AIHTH",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Clear channel high interrupt threshold register (high byte)",
+        "fields": [
+          {
+            "name": "AIHTH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Clear interrupt high threshold high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          12,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Status": [
+      {
+        "name": "RGBC_STATUS",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "RGBC Status Register",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_3_1",
+            "bit_high": 3,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "AINT",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "RGBC clear channel Interrupt",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "AVALID",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "RGBC Valid. Indicates that the RGBC channels have completed an integration cycle",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Data Registers": [
+      {
+        "name": "CDATA",
+        "address": "0x14",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Clear data low byte",
+        "fields": [
+          {
+            "name": "RSVD_3_1",
+            "bit_high": 3,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "AVALID",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "RGBC Valid. Indicates that the RGBC channels have completed an integration cycle.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "AINT",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "R",
+            "reset_value": null,
+            "description": "RGBC clear channel Interrupt.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "CDATA",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": null,
+            "description": "Clear data low byte",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CDATAH",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Clear channel data high byte",
+        "fields": [
+          {
+            "name": "CDATAH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Clear data high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          12,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RDATAL",
+        "address": "0x16",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Red channel data low byte",
+        "fields": [
+          {
+            "name": "RDATAL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Red data low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          12
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RDATA",
+        "address": "0x16",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Red channel data low and high bytes",
+        "fields": [
+          {
+            "name": "RDATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Red data low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RDATAH",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Red data high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RDATAH",
+        "address": "0x17",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Red channel data high byte",
+        "fields": [
+          {
+            "name": "RDATAH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Red data high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          12,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GDATAL",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Green channel data low byte",
+        "fields": [
+          {
+            "name": "GDATAL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Green data low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          12
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GDATA",
+        "address": "0x18",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Green channel data low and high bytes",
+        "fields": [
+          {
+            "name": "GDATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Green data low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GDATAH",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Green data high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GDATAH",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Green channel data high byte",
+        "fields": [
+          {
+            "name": "GDATAH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Green data high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          12,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "BDATA",
+        "address": "0x1A",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Blue channel data low and high bytes",
+        "fields": [
+          {
+            "name": "BDATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Blue data low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BDATAH",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Blue data high byte",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "BDATAH",
+        "address": "0x1B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Blue data high byte",
+        "fields": [
+          {
+            "name": "BDATAH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "Blue data high byte",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Command": [
+      {
+        "name": "COMMAND",
+        "address": "0x80",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Command register for selecting transaction type and register address",
+        "fields": [
+          {
+            "name": "CMD",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Select Command Register. Must write as 1 when addressing COMMAND register.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TYPE",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Selects type of transaction to follow in subsequent data transfers",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ADDR_SF",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Address field/special function field",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          14,
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x80 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T16:28:24.653047+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 31,
+        "by_confidence": {
+          "high": 31,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 10,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 50,
+        "by_source": {
+          "evidence_verified": 20,
+          "llm_consistent": 8,
+          "agent_verified": 12,
+          "synthetic": 8,
+          "llm_verified": 2
+        }
+      },
+      "peripherals": {
+        "total": 7,
+        "by_name": {
+          "Device ID": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Timing Control": {
+            "registers": 9,
+            "confidence": {
+              "high": 9,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Configuration": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Interrupt Control": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Status": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Data Registers": {
+            "registers": 10,
+            "confidence": {
+              "high": 10,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Command": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 37,
+        "batches_total": 7,
+        "batches_sent": 7,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 7,
+          "identical field layout as adjacent register 0xC0": 1,
+          "identical field layout as adjacent register 0xD5": 1,
+          "identical field layout as adjacent register 0xEE": 1,
+          "address 0x80 not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 34,
+        "fields_verified": 22,
+        "fields_unverified": 12,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 33,
+        "field_diagnostics": {
+          "0X12": {
+            "ID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 27314
+            }
+          },
+          "0X29": {
+            "ID": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 93185
+            }
+          },
+          "0X39": {
+            "ID": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 46135
+            }
+          },
+          "0X01": {
+            "ATIME": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37646
+            }
+          },
+          "0XFF": {
+            "ATIME": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 57577
+            },
+            "WTIME": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54090
+            }
+          },
+          "0XC0": {
+            "ATIME": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 36371
+            }
+          },
+          "0XEE": {
+            "ATIME": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37153
+            }
+          },
+          "0XF6": {
+            "ATIME": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 36677
+            }
+          },
+          "0XD5": {
+            "ATIME": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 36567
+            }
+          },
+          "0X03": {
+            "WTIME": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 30760
+            }
+          },
+          "0XAB": {
+            "WTIME": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 31815
+            }
+          },
+          "0X04": {
+            "AILTL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26363
+            }
+          },
+          "0X05": {
+            "AILTH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 21890
+            }
+          },
+          "0X06": {
+            "AIHTL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 20209
+            }
+          },
+          "0X07": {
+            "AIHTH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 20209
+            }
+          },
+          "0X14": {
+            "CDATAL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22499
+            },
+            "CDATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 18722
+            },
+            "CDATAH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 18722
+            }
+          },
+          "0X15": {
+            "CDATAH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 24400
+            }
+          },
+          "0X16": {
+            "RDATAL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19284
+            },
+            "RDATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 16828
+            },
+            "RDATAH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 16828
+            }
+          },
+          "0X17": {
+            "RDATAH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22706
+            }
+          },
+          "0X18": {
+            "GDATAL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17684
+            },
+            "GDATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17607
+            },
+            "GDATAH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17607
+            }
+          },
+          "0X19": {
+            "GDATAH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68476
+            }
+          },
+          "0X1A": {
+            "BDATAL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63295
+            },
+            "BDATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17584
+            },
+            "BDATAH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17584
+            }
+          },
+          "0X1B": {
+            "BDATAH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 112795
+            }
+          },
+          "0X00": {
+            "COMMAND": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 121473
+            },
+            "AIEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22655
+            },
+            "WEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22655
+            },
+            "AEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22655
+            },
+            "PON": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22655
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 22655
+            }
+          },
+          "0X80": {
+            "CMD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 117036
+            },
+            "TYPE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 117036
+            },
+            "ADDR_SF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 117036
+            }
+          },
+          "0X0C": {
+            "APERS": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 21419
+            },
+            "PPERS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 21419
+            }
+          },
+          "0X0D": {
+            "RESERVED_7_2": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 21089
+            },
+            "WLONG": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 21089
+            },
+            "RESERVED_0": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 21089
+            }
+          },
+          "0X0F": {
+            "AGAIN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 113184
+            },
+            "RESERVED_7_2": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 113184
+            }
+          },
+          "0X13": {
+            "RESERVED_7_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 114382
+            },
+            "AINT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 114382
+            },
+            "RESERVED_3_1": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 114382
+            },
+            "AVALID": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 114382
+            }
+          }
+        },
+        "fields_cross_section_augmented": 34,
+        "fields_bit_llm_fallback": 17,
+        "fields_consistent_promoted": 26,
+        "fields_name_matched": 13,
+        "fields_bit_corrected": 1,
+        "diagnostic_summary": {
+          "verified_quote": 22,
+          "quote_not_found": 10,
+          "verified_name": 13,
+          "reserved": 6,
+          "name_not_found": 1
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 962,
+        "output_tokens": 69,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000227
+      },
+      "extraction": {
+        "input_tokens": 46514,
+        "output_tokens": 11818,
+        "thinking_tokens": 0,
+        "calls": 7,
+        "total_cost_usd": 0.015212
+      },
+      "evidence": {
+        "input_tokens": 7016,
+        "output_tokens": 221,
+        "thinking_tokens": 0,
+        "calls": 12,
+        "total_cost_usd": 0.001514
+      },
+      "correction": {
+        "input_tokens": 36324,
+        "output_tokens": 6001,
+        "thinking_tokens": 0,
+        "calls": 37,
+        "total_cost_usd": 0.010265
+      },
+      "agents": {
+        "input_tokens": 26643,
+        "output_tokens": 11022,
+        "thinking_tokens": 9368,
+        "calls": 25,
+        "total_cost_usd": 0.007854
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 865,
+        "output_tokens": 148,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000247
+      }
+    }
+  }
+}

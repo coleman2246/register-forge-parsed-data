@@ -1,0 +1,882 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "BMP180",
+  "description": "Digital pressure sensor",
+  "vendor": "Bosch Sensortec",
+  "source": "BMP180.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/BST-BMP180-DS000-09.pdf",
+  "peripherals": {
+    "Device ID": [
+      {
+        "name": "id",
+        "address": "0xD0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Device ID register",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Device identification",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          18
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Soft Reset": [
+      {
+        "name": "SOFT_RESET",
+        "address": "0xE0",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Write only register. If set to 0xB6, will perform the same sequence as power on reset.",
+        "fields": [
+          {
+            "name": "reset_value",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Write 0xB6 to perform power-on reset",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Control": [
+      {
+        "name": "ctrl_meas",
+        "address": "0xF4",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Measurement control register",
+        "fields": [
+          {
+            "name": "OSS",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Oversampling ratio (00:single, 01:2x, 10:4x, 11:8x)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SCO",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Start of conversion. Stays 1 during conversion",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MEASUREMENT_CONTROL",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Measurement control bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Output Data": [
+      {
+        "name": "out_msb",
+        "address": "0xF6",
+        "size_bits": 8,
+        "reset_value": "0x80",
+        "description": "Output MSB register",
+        "fields": [
+          {
+            "name": "ADC_OUT_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 128,
+            "description": "ADC output MSB bits 7:0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "out_lsb",
+        "address": "0xF7",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Output LSB register",
+        "fields": [
+          {
+            "name": "ADC_OUT_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ADC output LSB bits 7:0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "out_xlsb",
+        "address": "0xF8",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "X-axis LSB output register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved bits",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ADC_OUT_XLSB",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ADC X LSB bits 7:3",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Calibration Coefficients": [
+      {
+        "name": "AC1_MSB",
+        "address": "0xAA",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of AC1 register",
+        "fields": [
+          {
+            "name": "AC1_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration coefficient AC1 MSB",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "weak_split_placeholder: split register still uses unresolved placeholder field shape"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC2_MSB",
+        "address": "0xAC",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of AC2 register",
+        "fields": [
+          {
+            "name": "AC2_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Most significant byte of AC2 calibration coefficient",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "weak_split_placeholder: split register still uses unresolved placeholder field shape"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC3_MSB",
+        "address": "0xAE",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of AC3 register",
+        "fields": [
+          {
+            "name": "AC3_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "MSB of calibration coefficient AC3",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "weak_split_placeholder: split register still uses unresolved placeholder field shape"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC4_MSB",
+        "address": "0xB0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of AC4 register",
+        "fields": [
+          {
+            "name": "AC4_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "MSB of calibration coefficient AC4",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "weak_split_placeholder: split register still uses unresolved placeholder field shape"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC5_MSB",
+        "address": "0xB2",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of AC5 register",
+        "fields": [
+          {
+            "name": "AC5_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "MSB of calibration coefficient AC5",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0xB2 not found in register summary table",
+          "weak_split_placeholder: split register still uses unresolved placeholder field shape"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC6_MSB",
+        "address": "0xB4",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of AC6 register",
+        "fields": [
+          {
+            "name": "AC6",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration coefficient AC6 MSB",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "B1_MSB",
+        "address": "0xB6",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of B1 register",
+        "fields": [
+          {
+            "name": "B1_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Most significant byte of calibration coefficient B1",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "weak_split_placeholder: split register still uses unresolved placeholder field shape"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "B2_MSB",
+        "address": "0xB8",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of B2 register",
+        "fields": [
+          {
+            "name": "B2_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration coefficient B2 MSB",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0xB8 not found in register summary table",
+          "weak_split_placeholder: split register still uses unresolved placeholder field shape"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MB_MSB",
+        "address": "0xBA",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of MB register",
+        "fields": [
+          {
+            "name": "MB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Calibration coefficient MB (MSB)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xBA not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MC_MSB",
+        "address": "0xBC",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of MC register",
+        "fields": [
+          {
+            "name": "value",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Most significant byte of calibration coefficient MC",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xBC not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MD_MSB",
+        "address": "0xBE",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of MD register",
+        "fields": [
+          {
+            "name": "MD_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "MSB of calibration coefficient MD",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0xBE not found in register summary table",
+          "weak_split_placeholder: split register still uses unresolved placeholder field shape"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T14:37:25.649504+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 17,
+        "by_confidence": {
+          "high": 8,
+          "medium": 9,
+          "low": 0
+        },
+        "with_quality_issues": 14,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 20,
+        "by_source": {
+          "llm_only": 1,
+          "llm_verified": 1,
+          "evidence_verified": 6,
+          "synthetic": 1,
+          "section_agent": 8,
+          "agent_verified": 3
+        }
+      },
+      "peripherals": {
+        "total": 5,
+        "by_name": {
+          "Device ID": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Soft Reset": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Control": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Output Data": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Calibration Coefficients": {
+            "registers": 11,
+            "confidence": {
+              "high": 3,
+              "medium": 8,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 12,
+        "batches_total": 3,
+        "batches_sent": 3,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 7,
+          "all fields have default RW access (may be missing real access types)": 1,
+          "weak_split_placeholder": 8,
+          "address 0xB2 not found in register summary table": 1,
+          "address 0xB8 not found in register summary table": 1,
+          "address 0xBA not found in register summary table": 1,
+          "address 0xBC not found in register summary table": 1,
+          "address 0xBE not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 20,
+        "fields_verified": 19,
+        "fields_unverified": 1,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 16,
+        "field_diagnostics": {
+          "0XAA": {
+            "AC1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 8243
+            }
+          },
+          "0XAC": {
+            "AC2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 6639
+            }
+          },
+          "0XAE": {
+            "AC3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 6429
+            }
+          },
+          "0XB0": {
+            "AC4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 9397
+            }
+          },
+          "0XB2": {
+            "AC5": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 9393
+            }
+          },
+          "0XB4": {
+            "AC6": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11499
+            }
+          },
+          "0XB6": {
+            "B1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 8417
+            }
+          },
+          "0XB8": {
+            "B2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 8849
+            }
+          },
+          "0XBA": {
+            "MB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 7715
+            }
+          },
+          "0XBC": {
+            "MC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 7594
+            }
+          },
+          "0XBE": {
+            "MD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 7613
+            }
+          },
+          "0XD0": {
+            "ID": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26343
+            }
+          },
+          "0XF8": {
+            "ADC_OUT_XLSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16160
+            },
+            "RESERVED": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16160
+            }
+          },
+          "0XF7": {
+            "ADC_OUT_LSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16160
+            }
+          },
+          "0XF6": {
+            "ADC_OUT_MSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15889
+            }
+          },
+          "0XF4": {
+            "OSS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15651
+            },
+            "SCO": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15651
+            },
+            "MEASUREMENT_CONTROL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15651
+            }
+          },
+          "0XE0": {
+            "RESET": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15455
+            }
+          }
+        },
+        "fields_cross_section_augmented": 9,
+        "fields_bit_llm_fallback": 2,
+        "fields_bit_corrected": 1,
+        "fields_consistent_promoted": 1,
+        "diagnostic_summary": {
+          "verified_quote": 19,
+          "quote_not_found": 1
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 898,
+        "output_tokens": 80,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.00022
+      },
+      "extraction": {
+        "input_tokens": 22831,
+        "output_tokens": 2750,
+        "thinking_tokens": 0,
+        "calls": 4,
+        "total_cost_usd": 0.005941
+      },
+      "evidence": {
+        "input_tokens": 3415,
+        "output_tokens": 124,
+        "thinking_tokens": 0,
+        "calls": 6,
+        "total_cost_usd": 0.000745
+      },
+      "correction": {
+        "input_tokens": 16965,
+        "output_tokens": 3514,
+        "thinking_tokens": 0,
+        "calls": 17,
+        "total_cost_usd": 0.00515
+      },
+      "agents": {
+        "input_tokens": 54807,
+        "output_tokens": 9393,
+        "thinking_tokens": 6890,
+        "calls": 20,
+        "total_cost_usd": 0.010971
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 510,
+        "output_tokens": 115,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.00016
+      }
+    }
+  }
+}

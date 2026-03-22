@@ -1,0 +1,874 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "TSL2561",
+  "description": "Light-to-digital converter",
+  "vendor": "TAOS",
+  "source": "TSL2561.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/TSL2561.pdf",
+  "peripherals": {
+    "Control": [
+      {
+        "name": "CONTROL",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Control register",
+        "fields": [
+          {
+            "name": "CMD",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Select command register. Must write as 1.",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "CLEAR",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt clear. Clears any pending interrupt. This bit is a write-one-to-clear.",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "WORD",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SMB Write/Read Word Protocol. 1 indicates that this SMB transaction is using eit",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "BLOCK",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Block Write/Read Protocol. 1 indicates that this transaction is using either the",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "ADDRESS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Register Address. This field selects the specific control or status register for",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          14
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TIMING",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": "0x01",
+        "description": "Timing Register. Reset Value: 1h",
+        "fields": [
+          {
+            "name": "RESV",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GAIN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Switches gain between low gain and high gain modes. Writing a 0 selects low gain (1\u00d7); writing a 1 selects high gain (16\u00d7).",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "Manual",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Manual timing control. Writing a 1 begins an integration cycle. Writing a 0 stops an integration cycle. NOTE: This field only has meaning when INTEG = 11. It is ignored at all other times.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INTEG",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Integration time selection.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14
+        ],
+        "confidence": "low",
+        "quality_issues": [
+          "field 'RESV' bit position corrected from [7:5] to [7:2] (pymupdf ground truth)",
+          "field 'Resv' bit position corrected from [2:2] to [7:2] (pymupdf ground truth)",
+          "Overlapping fields: RESV[7:2] and Resv[7:2]",
+          "Overlapping fields: Resv[7:2] and GAIN[4:4]",
+          "fields 'RESV' [7:2] and 'Manual' [3:3] overlap"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Interrupt": [
+      {
+        "name": "THRESHLOWLOW",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Low byte of low interrupt threshold",
+        "fields": [
+          {
+            "name": "THRESHLOW_LOW",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Low threshold low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "THRESHLOWHIGH",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "High byte of low interrupt threshold",
+        "fields": [
+          {
+            "name": "THRESHLOW_HIGH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Low threshold high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "THRESHHIGHLOW",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Low byte of high interrupt threshold",
+        "fields": [
+          {
+            "name": "THRESHHIGH_LOW",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "High threshold low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "THRESHHIGHHIGH",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "High byte of high interrupt threshold",
+        "fields": [
+          {
+            "name": "THRESHHIGH_HIGH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "High threshold high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INTERRUPT",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Interrupt control register",
+        "fields": [
+          {
+            "name": "RESV",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INTR",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "INTR Control Select. Determines mode of interrupt logic.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PERSIST",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Interrupt persistence. Controls rate of interrupts.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "ADC Data": [
+      {
+        "name": "DATA0LOW",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Low byte of ADC channel 0",
+        "fields": [
+          {
+            "name": "DATA0_LOW",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ADC channel 0 low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14,
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA0HIGH",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "High byte of ADC channel 0",
+        "fields": [
+          {
+            "name": "DATA0_HIGH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ADC channel 0 high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14,
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA1LOW",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Low byte of ADC channel 1",
+        "fields": [
+          {
+            "name": "DATA1_LOW",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ADC channel 1 low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14,
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA1HIGH",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "High byte of ADC channel 1",
+        "fields": [
+          {
+            "name": "DATA1_HIGH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ADC channel 1 high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14,
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Status": [
+      {
+        "name": "ID",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "ID register provides part number and silicon revision number",
+        "fields": [
+          {
+            "name": "PARTNO",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Part Number Identification: 0000=TSL2560, 0001=TSL2561",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "REVNO",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Revision number identification",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Factory": [
+      {
+        "name": "CRC",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Factory test - not a user register",
+        "fields": [
+          {
+            "name": "CRC_DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Factory test data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T16:17:22.618738+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 13,
+        "by_confidence": {
+          "high": 11,
+          "medium": 1,
+          "low": 1
+        },
+        "with_quality_issues": 12,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 23,
+        "by_source": {
+          "section_agent": 5,
+          "agent_verified": 4,
+          "evidence_verified": 14
+        }
+      },
+      "peripherals": {
+        "total": 5,
+        "by_name": {
+          "Control": {
+            "registers": 2,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 1
+            }
+          },
+          "Interrupt": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "ADC Data": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Status": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Factory": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 13,
+        "batches_total": 7,
+        "batches_sent": 7,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 1,
+        "warnings_detail": [
+          "TIMING (0x01): fields 'RESV' [7:2] and 'Manual' [3:3] overlap"
+        ],
+        "issue_breakdown": {
+          "field 'RESV' bit position corrected from [7": 1,
+          "field 'Resv' bit position corrected from [2": 1,
+          "Overlapping fields": 2,
+          "fields 'RESV' [7": 1,
+          "zone_validation": 17,
+          "all fields have default RW access (may be missing real access types)": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 9,
+        "fields_verified": 9,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 13,
+        "field_diagnostics": {
+          "0X00": {
+            "CMD": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 165445
+            },
+            "CLEAR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 165445
+            },
+            "WORD": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 165445
+            },
+            "BLOCK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 165445
+            },
+            "ADDRESS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 165445
+            },
+            "RESV": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 121877
+            },
+            "POWER": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 121877
+            },
+            "CONTROL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 121877
+            }
+          },
+          "0X01": {
+            "RESV": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 109842
+            },
+            "GAIN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 109842
+            },
+            "MANUAL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 109842
+            },
+            "INTEG": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 109842
+            }
+          },
+          "0X02": {
+            "THRESHLOW_LOW": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64256
+            }
+          },
+          "0X03": {
+            "THRESHLOW_HIGH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64256
+            }
+          },
+          "0X04": {
+            "THRESHHIGH_LOW": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64256
+            }
+          },
+          "0X05": {
+            "THRESHHIGH_HIGH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64256
+            }
+          },
+          "0X06": {
+            "RESV": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 118499
+            },
+            "INTR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 118499
+            },
+            "PERSIST": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 118499
+            }
+          },
+          "0X08": {
+            "CRC_DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 18636
+            }
+          },
+          "0X0A": {
+            "PARTNO": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 28529
+            },
+            "REVNO": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 28529
+            }
+          },
+          "0X0C": {
+            "DATA0_LOW": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76047
+            }
+          },
+          "0X0D": {
+            "DATA0_HIGH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 77649
+            }
+          },
+          "0X0E": {
+            "DATA1_LOW": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 77558
+            }
+          },
+          "0X0F": {
+            "DATA1_HIGH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 77649
+            }
+          }
+        },
+        "fields_cross_section_augmented": 12,
+        "fields_name_matched": 16,
+        "fields_consistent_promoted": 8,
+        "fields_bit_llm_fallback": 1,
+        "diagnostic_summary": {
+          "verified_name": 15,
+          "verified_quote": 9,
+          "name_not_found": 2
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1262,
+        "output_tokens": 125,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000315
+      },
+      "extraction": {
+        "input_tokens": 52307,
+        "output_tokens": 7175,
+        "thinking_tokens": 0,
+        "calls": 10,
+        "total_cost_usd": 0.014049
+      },
+      "evidence": {
+        "input_tokens": 2072,
+        "output_tokens": 84,
+        "thinking_tokens": 0,
+        "calls": 5,
+        "total_cost_usd": 0.000456
+      },
+      "correction": {
+        "input_tokens": 17504,
+        "output_tokens": 3921,
+        "thinking_tokens": 0,
+        "calls": 14,
+        "total_cost_usd": 0.005461
+      },
+      "agents": {
+        "input_tokens": 10873,
+        "output_tokens": 3863,
+        "thinking_tokens": 3526,
+        "calls": 11,
+        "total_cost_usd": 0.002915
+      },
+      "convergence": {
+        "input_tokens": 873,
+        "output_tokens": 679,
+        "thinking_tokens": 447,
+        "calls": 1,
+        "total_cost_usd": 0.000269
+      },
+      "grouping": {
+        "input_tokens": 496,
+        "output_tokens": 86,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000142
+      }
+    }
+  }
+}

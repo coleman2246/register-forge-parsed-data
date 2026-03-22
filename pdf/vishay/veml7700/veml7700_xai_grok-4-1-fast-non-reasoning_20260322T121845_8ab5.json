@@ -1,0 +1,721 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "VEML7700",
+  "description": "High accuracy ambient light sensor",
+  "vendor": "Vishay",
+  "source": "VEML7700.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.vishay.com/docs/84286/veml7700.pdf",
+  "peripherals": {
+    "ALS Data": [
+      {
+        "name": "ALS_HIGH_RESOLUTION_OUTPUT_DATA",
+        "address": "0x04",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "16 bit high resolution ALS output data register",
+        "fields": [
+          {
+            "name": "ALS_DATA",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ALS high resolution output data (15:0)",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          8
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "White Channel Output Data",
+        "address": "0x05",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "White channel output data register",
+        "fields": [
+          {
+            "name": "WHITE output data (15 : 8 MSB 8 bits of whole 16 bits)",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "WHITE output data (15 : 8 MSB 8 bits of whole 16 bits)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "WHITE output data (7 : 0 LSB 8 bits of whole 16 bits)",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "WHITE output data (7 : 0 LSB 8 bits of whole 16 bits)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "ALS Configuration": [
+      {
+        "name": "ALS_CONF_0",
+        "address": "0x00",
+        "size_bits": 16,
+        "reset_value": "0x0001",
+        "description": "Configuration register for ALS persistence, interrupt enable, and shutdown",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Set 00b",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_15_6",
+            "bit_high": 15,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ALS_PERS",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ALS persistence protect number setting 00 = 1 01 = 2 10 = 4 11 = 8",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ALS_INT_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ALS interrupt enable setting 0 = ALS INT disable 1 = ALS INT enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ALS_SD",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "ALS shut down setting 0 = ALS power on 1 = ALS shut down",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          6
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "High Threshold Windows Setting",
+        "address": "0x01",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "High threshold windows setting register",
+        "fields": [
+          {
+            "name": "RSVD_7_0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ALS high threshold window setting (15:8 MSB 8 bits of whole 16 bits)",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ALS high threshold window setting (15:8 MSB 8 bits of whole 16 bits)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Low Threshold Windows Setting",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Low threshold windows setting register",
+        "fields": [
+          {
+            "name": "ALS low threshold window setting (15:8 MSB 8 bits of whole 16 bits)",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ALS low threshold window setting (15:8 MSB 8 bits of whole 16 bits)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ALS low threshold window setting (7:0 LSB 8 bits of whole 16 bits)",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ALS low threshold window setting (7:0 LSB 8 bits of whole 16 bits)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "ALS Interrupt": [
+      {
+        "name": "ALS_INT",
+        "address": "0x06",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "ALS interrupt trigger event register",
+        "fields": [
+          {
+            "name": "ALS_INT",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ALS INT trigger event",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          6
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INTERRUPT_STATUS",
+        "address": "0x06",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Interrupt status flags",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "INT_TH_LOW",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Low threshold exceed interrupt flag",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT_TH_HIGH",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RO",
+            "reset_value": null,
+            "description": "High threshold exceed interrupt flag",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          9,
+          10
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Power Saving": [
+      {
+        "name": "Power Saving Mode",
+        "address": "0x03",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Power saving mode register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PSM",
+            "bit_high": 2,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power saving mode; see table 'Refresh time'",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PSM_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power saving mode enable setting",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Device ID": [
+      {
+        "name": "ID",
+        "address": "0x07",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "The low byte of the ID register contains the device specific ID code 81h. The high byte contains a code that depends on the chosen slave address option: either 0xC4 for a device with slave address 0x20, or 0xD4 for a device with slave address 0x90",
+        "fields": [
+          {
+            "name": "SLAVE_ADDR_CODE",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "For slave address option 0x20: 11000100 = 0xC4 For slave address option 0x90: 11010100 = 0xD4",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "DEVICE_ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 129,
+            "description": "Fixed device ID: 10000001 = 0x81",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          6
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T16:18:45.898184+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 9,
+        "by_confidence": {
+          "high": 8,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 1,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 21,
+        "by_source": {
+          "llm_consistent": 1,
+          "agent_verified": 8,
+          "synthetic": 4,
+          "evidence_verified": 6,
+          "llm_only": 2
+        }
+      },
+      "peripherals": {
+        "total": 5,
+        "by_name": {
+          "ALS Data": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "ALS Configuration": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "ALS Interrupt": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Power Saving": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Device ID": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 4,
+        "batches_sent": 4,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 15,
+        "fields_verified": 15,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 12,
+        "field_diagnostics": {
+          "0X00": {
+            "RESERVED": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19263
+            },
+            "ALS_GAIN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19263
+            },
+            "ALS_IT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19263
+            },
+            "ALS_PERS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19263
+            },
+            "ALS_INT_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19263
+            },
+            "ALS_SD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19263
+            }
+          },
+          "0X01": {
+            "ALS_WH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13628
+            },
+            "THRESHOLD": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 41256
+            }
+          },
+          "0X02": {
+            "ALS_WL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13913
+            },
+            "THRESHOLD": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 41080
+            }
+          },
+          "0X03": {
+            "POWER_SAVING": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13334
+            },
+            "PSM": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 36506
+            },
+            "PSM_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 36506
+            }
+          },
+          "0X04": {
+            "ALS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29491
+            },
+            "ALS_DATA": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 36573
+            },
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 36498
+            }
+          },
+          "0X05": {
+            "WHITE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 23856
+            },
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 27235
+            }
+          },
+          "0X06": {
+            "ALS_INT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 14934
+            },
+            "INT_TH_LOW": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 27060
+            },
+            "INT_TH_HIGH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 27060
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 27060
+            }
+          },
+          "0X07": {
+            "ID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 32786
+            },
+            "SLAVE_ADDR_CODE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 46250
+            },
+            "DEVICE_ID": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 46250
+            }
+          }
+        },
+        "fields_cross_section_augmented": 6,
+        "fields_consistent_promoted": 7,
+        "fields_name_matched": 7,
+        "diagnostic_summary": {
+          "verified_quote": 13,
+          "verified_name": 7,
+          "name_not_found": 4,
+          "reserved": 1
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 2141,
+        "output_tokens": 109,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000483
+      },
+      "extraction": {
+        "input_tokens": 31199,
+        "output_tokens": 3239,
+        "thinking_tokens": 0,
+        "calls": 4,
+        "total_cost_usd": 0.007859
+      },
+      "evidence": {
+        "input_tokens": 470,
+        "output_tokens": 17,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000103
+      },
+      "correction": {
+        "input_tokens": 15514,
+        "output_tokens": 3982,
+        "thinking_tokens": 0,
+        "calls": 16,
+        "total_cost_usd": 0.005094
+      },
+      "agents": {
+        "input_tokens": 35539,
+        "output_tokens": 15789,
+        "thinking_tokens": 12925,
+        "calls": 22,
+        "total_cost_usd": 0.012992
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 586,
+        "output_tokens": 69,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000152
+      }
+    }
+  }
+}

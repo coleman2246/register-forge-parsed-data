@@ -1,0 +1,653 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "BMP280",
+  "description": "Digital pressure and temperature sensor",
+  "vendor": "Bosch Sensortec",
+  "source": "BMP280.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp280-ds001.pdf",
+  "peripherals": {
+    "Control and Configuration": [
+      {
+        "name": "reset",
+        "address": "0xE0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Reset register",
+        "fields": [
+          {
+            "name": "RESET",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Software reset",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          5
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_MEAS",
+        "address": "0xF4",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "sets the data acquisition options of the device",
+        "fields": [
+          {
+            "name": "OSRS_T",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls oversampling of temperature data. See chapter 3.3.2 for details.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "OSRS_P",
+            "bit_high": 4,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls oversampling of pressure data. See chapter 3.3.1 for details.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MODE",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls the power mode of the device. See chapter 3.6 for details.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 5,
+        "source_pages": [
+          5,
+          12,
+          13,
+          15,
+          25,
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "config",
+        "address": "0xF5",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "The 'config' register sets the rate, filter and interface options of the device. Writes to the 'config' register in normal mode may be ignored. In sleep mode writes are not ignored.",
+        "fields": [
+          {
+            "name": "RSVD_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "t_sb",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Controls inactive duration t_standby in normal mode. See chapter 3.6.3 for details.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "filter",
+            "bit_high": 4,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Controls the time constant of the IIR filter. See chapter 3.3.3 for details.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "spi3w_en",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Enables 3-wire SPI interface when set to '1'. See chapter 5.3 for details.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 7,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Pressure Data": [
+      {
+        "name": "PRESS_MSB",
+        "address": "0xF7",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Pressure MSB register",
+        "fields": [
+          {
+            "name": "PRESS_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Pressure value MSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          5
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "press",
+        "address": "0xF8",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Press register",
+        "fields": [
+          {
+            "name": "press_lsb",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Pressure data low byte",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          5
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0xF8 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "press",
+        "address": "0xF9",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Press register",
+        "fields": [
+          {
+            "name": "reserved",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "press_xlsb",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Pressure measurement 20-bit value, bits 19:16",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          5
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0xF9 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Temperature Data": [
+      {
+        "name": "temp",
+        "address": "0xFA",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature data MSB register",
+        "fields": [
+          {
+            "name": "TEMP_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature MSB (20-bit unsigned)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          5,
+          26,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "temp",
+        "address": "0xFB",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temp register",
+        "fields": [
+          {
+            "name": "temp_lsb",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Temperature LSB",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          5
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0xFB not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "temp",
+        "address": "0xFC",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temp register",
+        "fields": [
+          {
+            "name": "reserved",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "temp_xlsb",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Temperature measurement raw value bits 3:0 of 20-bit raw temperature",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          5
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0xFC not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T14:38:47.019671+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 9,
+        "by_confidence": {
+          "high": 5,
+          "medium": 4,
+          "low": 0
+        },
+        "with_quality_issues": 6,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 16,
+        "by_source": {
+          "evidence_verified": 9,
+          "synthetic": 1,
+          "section_agent": 4,
+          "agent_verified": 2
+        }
+      },
+      "peripherals": {
+        "total": 3,
+        "by_name": {
+          "Control and Configuration": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Pressure Data": {
+            "registers": 3,
+            "confidence": {
+              "high": 1,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "Temperature Data": {
+            "registers": 3,
+            "confidence": {
+              "high": 1,
+              "medium": 2,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 7,
+        "batches_total": 9,
+        "batches_sent": 9,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 3,
+          "address 0xF8 not found in register summary table": 1,
+          "address 0xF9 not found in register summary table": 1,
+          "address 0xFB not found in register summary table": 1,
+          "address 0xFC not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 21,
+        "fields_verified": 19,
+        "fields_unverified": 2,
+        "fields_bit_mismatch": 2,
+        "regs_upgraded": 10,
+        "field_diagnostics": {
+          "0XD0": {
+            "ID": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 78582
+            }
+          },
+          "0XE0": {
+            "RESET": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 83969
+            }
+          },
+          "0XF7": {
+            "PRESS_MSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90344
+            },
+            "PRESSURE_MSB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 49696
+            }
+          },
+          "0XF8": {
+            "PRESS_LSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68727
+            }
+          },
+          "0XFA": {
+            "TEMP_MSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 34115
+            }
+          },
+          "0XFB": {
+            "TEMP_LSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63143
+            }
+          },
+          "0XF4": {
+            "MODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54008
+            },
+            "OSRS_T": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54008
+            },
+            "OSRS_P": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54008
+            }
+          },
+          "0XF3": {
+            "MEASURING": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 62092
+            },
+            "RSVD_2_1": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 62092
+            },
+            "IM_UPDATE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 62092
+            }
+          },
+          "0XF5": {
+            "T_SB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 61615
+            },
+            "FILTER": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 61615
+            },
+            "RSVD_1": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 61615
+            },
+            "SPI3W_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 61615
+            }
+          },
+          "0XF9": {
+            "PRESS_XLSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 72102
+            },
+            "RSVD_7_4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 72102
+            }
+          },
+          "0XFC": {
+            "TEMP_XLSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 60670
+            },
+            "RSVD_7_4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 60670
+            }
+          }
+        },
+        "fields_cross_section_augmented": 14,
+        "fields_consistent_promoted": 8,
+        "fields_bit_corrected": 2,
+        "diagnostic_summary": {
+          "name_too_short": 1,
+          "verified_quote": 17,
+          "name_not_found": 1,
+          "bit_mismatch": 2
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1139,
+        "output_tokens": 70,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000263
+      },
+      "extraction": {
+        "input_tokens": 97073,
+        "output_tokens": 6465,
+        "thinking_tokens": 0,
+        "calls": 14,
+        "total_cost_usd": 0.022647
+      },
+      "evidence": {
+        "input_tokens": 992,
+        "output_tokens": 155,
+        "thinking_tokens": 0,
+        "calls": 2,
+        "total_cost_usd": 0.000276
+      },
+      "correction": {
+        "input_tokens": 14038,
+        "output_tokens": 3598,
+        "thinking_tokens": 0,
+        "calls": 14,
+        "total_cost_usd": 0.004607
+      },
+      "agents": {
+        "input_tokens": 30919,
+        "output_tokens": 20333,
+        "thinking_tokens": 18058,
+        "calls": 29,
+        "total_cost_usd": 0.011449
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 461,
+        "output_tokens": 64,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000124
+      }
+    }
+  }
+}

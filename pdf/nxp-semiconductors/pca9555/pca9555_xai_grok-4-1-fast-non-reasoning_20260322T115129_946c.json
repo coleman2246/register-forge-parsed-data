@@ -1,0 +1,345 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "PCA9555",
+  "description": "16-bit I2C I/O port expander with interrupt and open-drain outputs",
+  "vendor": "NXP Semiconductors",
+  "source": "PCA9555.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.nxp.com/docs/en/data-sheet/PCA9555.pdf",
+  "peripherals": {
+    "Port 0": [
+      {
+        "name": "INPUT_PORT",
+        "address": "0x00",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Input port 0 register. Reflects incoming logic levels of pins. | Input port 1 register. Reflects incoming logic levels of pins.",
+        "fields": [
+          {
+            "name": "I0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Input port 0 bits I0.7 to I0.0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I1",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Input port 1 bits I1.7 to I1.0",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8,
+          9
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUTPUT_PORT",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Output port 0 register. Controls output logic levels for output pins. | Output port 1 register. Controls output logic levels for output pins.",
+        "fields": [
+          {
+            "name": "O0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 255,
+            "description": "Output port 0 bits O0.7 to O0.0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "O1",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 255,
+            "description": "Output port 1 bits O1.7 to O1.0",
+            "enum_values": null,
+            "source": "agent_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8,
+          9
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "POLARITY_INVERSION",
+        "address": "0x04",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Polarity inversion port 0 register. Inverts input port data polarity. | Polarity inversion port 1 register. Inverts input port data polarity.",
+        "fields": [
+          {
+            "name": "N0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Polarity inversion bits N0.7 to N0.0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "N1",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Polarity inversion bits N1.7 to N1.0",
+            "enum_values": null,
+            "source": "agent_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8,
+          9
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CONFIGURATION",
+        "address": "0x06",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Configuration port 0 register. Configures I/O pin directions. | Configuration port 1 register. Configures I/O pin directions.",
+        "fields": [
+          {
+            "name": "C0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 255,
+            "description": "Configuration bits C0.7 to C0.0 (1=input, 0=output)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "C1",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 255,
+            "description": "Configuration bits C1.7 to C1.0 (1=input, 0=output)",
+            "enum_values": null,
+            "source": "agent_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          8,
+          9
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T15:51:29.289117+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 4,
+        "by_confidence": {
+          "high": 0,
+          "medium": 4,
+          "low": 0
+        },
+        "with_quality_issues": 0,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 8,
+        "by_source": {
+          "evidence_verified": 4,
+          "llm_only": 1,
+          "agent_unverified": 3
+        }
+      },
+      "peripherals": {
+        "total": 1,
+        "by_name": {
+          "Port 0": {
+            "registers": 4,
+            "confidence": {
+              "high": 0,
+              "medium": 4,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 1,
+        "batches_sent": 1,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {}
+      },
+      "evidence": {
+        "fields_with_evidence": 4,
+        "fields_verified": 4,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 4,
+        "field_diagnostics": {
+          "0X00": {
+            "I0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13789
+            },
+            "I1": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13789
+            }
+          },
+          "0X02": {
+            "O0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13789
+            },
+            "O1": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13789
+            }
+          },
+          "0X04": {
+            "N0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13827
+            },
+            "N1": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13827
+            }
+          },
+          "0X06": {
+            "C0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22057
+            },
+            "C1": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 22057
+            }
+          }
+        },
+        "fields_bit_llm_fallback": 4,
+        "fields_cross_section_augmented": 1,
+        "diagnostic_summary": {
+          "verified_quote": 4,
+          "name_too_short": 4
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1015,
+        "output_tokens": 59,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000233
+      },
+      "extraction": {
+        "input_tokens": 7470,
+        "output_tokens": 1123,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.002056
+      },
+      "evidence": {
+        "input_tokens": 2654,
+        "output_tokens": 292,
+        "thinking_tokens": 0,
+        "calls": 4,
+        "total_cost_usd": 0.000677
+      },
+      "correction": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "agents": {
+        "input_tokens": 106844,
+        "output_tokens": 13647,
+        "thinking_tokens": 6028,
+        "calls": 12,
+        "total_cost_usd": 0.037858
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 423,
+        "output_tokens": 50,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.00011
+      }
+    }
+  }
+}

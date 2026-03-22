@@ -1,0 +1,3343 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "RC522",
+  "description": "RFID reader/writer (MFRC522)",
+  "vendor": "NXP",
+  "source": "RC522.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf",
+  "peripherals": {
+    "Command and Control": [
+      {
+        "name": "CommandReg",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": "0x20",
+        "description": "Starts and stops command execution",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RCV_OFF",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "analog part of the receiver is switched off",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "POWER_DOWN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Soft power-down mode entered",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COMMAND",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "activates a command based on the Command value",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ControlReg",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "Miscellaneous control bits",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "T_STOP_NOW",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "timer stops immediately",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "T_START_NOW",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "timer starts immediately",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_LAST_BITS",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "indicates the number of valid bits in the last received byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Interrupt Management": [
+      {
+        "name": "COM_IEN_REG",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": "0x80",
+        "description": "Control bits to enable and disable the passing of interrupt requests",
+        "fields": [
+          {
+            "name": "IRQ_INV",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "signal on pin IRQ is inverted with respect to the Status1Reg register's IRq bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX_IEN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the transmitter interrupt request (TxIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_IEN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the receiver interrupt request (RxIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IDLE_IEN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the idle interrupt request (IdleIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HI_ALERT_IEN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the high alert interrupt request (HiAlertIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LO_ALERT_IEN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the low alert interrupt request (LoAlertIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ERR_IEN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the error interrupt request (ErrIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TIMER_IEN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "allows the timer interrupt request (TimerIRq bit) to be propagated to pin IRQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          89
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DIV_IEN_REG",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Divider interrupt enable register",
+        "fields": [
+          {
+            "name": "RSVD_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_6_5",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "IRQPUSHPULL",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "IRQ pin is CMOS output",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MFINACTIEN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "MFIN active interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CRCIEN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "CRC interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          89
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ComIrqReg",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": "0x14",
+        "description": "Interrupt request bits. All bits are cleared by software",
+        "fields": [
+          {
+            "name": "SET1",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "indicates that the marked bits in the ComIrqReg register are set",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX_IRQ",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "set immediately after the last bit of the transmitted data was sent out",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_IRQ",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RC",
+            "reset_value": 1,
+            "description": "receiver has detected the end of a valid data stream",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IDLE_IRQ",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "If a command terminates, for example, when the CommandReg changes its value from any command to the Idle command",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HI_ALERT_IRQ",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "the Status1Reg register's HiAlert bit is set in opposition to the HiAlert bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LO_ALERT_IRQ",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "Status1Reg register's LoAlert bit is set in opposition to the LoAlert bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ERR_IRQ",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "any error bit in the ErrorReg register is set",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TIMER_IRQ",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "the timer decrements the timer value in register TCounterValReg to zero",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DivIrqReg",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "Divider interrupt request register",
+        "fields": [
+          {
+            "name": "RESERVED_",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RESERVED_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RESERVED_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SET2",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Set1 indicates that the marked bits in the ComIrqReg register are cleared",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RFT",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "RFT - These register bits are reserved for future use or are for",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "MFINACTIRQ",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "MFIN active interrupt",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CRCIRQ",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "CRC interrupt request",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Status Registers": [
+      {
+        "name": "ErrorReg",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Error bit register showing the error status of the last command executed",
+        "fields": [
+          {
+            "name": "RSVD_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "WR_ERR",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "data is written into the FIFO buffer by the host during the MFAuthent command",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TEMP_ERR",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "internal temperature sensor detects overheating",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BUFFER_OVFL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "the host or a MFRC522's internal state machine tries to write data to the FIFO buffer even though it is already full",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COLL_ERR",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "a bit-collision is detected",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CRC_ERR",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "the RxModeReg register's RxCRCEn bit is set and the CRC calculation fails",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PARITY_ERR",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "parity check failed",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PROTOCOL_ERR",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "set to logic 1 if the SOF is incorrect",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Status1Reg",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": "0x21",
+        "description": "Status1 register with interrupt and FIFO status bits",
+        "fields": [
+          {
+            "name": "RESERVED_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RESERVED_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "CRCOK",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "CRC result is zero for data transmission and reception",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CRCREADY",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "CRC calculation has finished",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IRQ",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "interrupt source requests attention",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TRUNNING",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "MFRC522's timer unit is running",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HIALERT",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "FIFO high water level alert",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LOALERT",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "FIFO low water level alert",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Status2Reg",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Contains status bits of the receiver, transmitter and data mode detector.",
+        "fields": [
+          {
+            "name": "RSVD_5_4",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TempSensClear",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Temp sens clear",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "I2CForceHS",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "I2 cforce HS",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "MFCrypto1On",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Mfcrypto1 on",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "ModemState",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "Modem state",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "FIFO Management": [
+      {
+        "name": "FIFODataReg",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Input and output of 64 byte FIFO buffer",
+        "fields": [
+          {
+            "name": "FIFO_DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "FIFO buffer input/output data",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFOLevelReg",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Indicates the number of bytes stored in the FIFO",
+        "fields": [
+          {
+            "name": "FIFO_LEVEL",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Number of bytes stored in FIFO buffer",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "FLUSH_BUFFER",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Reset FIFO buffer pointers",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "WaterLevelReg",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": "0x08",
+        "description": "Defines the level for FIFO under- and overflow warning",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "WATER_LEVEL",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 8,
+            "description": "defines a warning level to indicate a FIFO buffer overflow or underflow",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Bit Framing and Collision": [
+      {
+        "name": "BitFramingReg",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Adjustments for bit-oriented frames",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "START_SEND",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "W",
+            "reset_value": 0,
+            "description": "starts the transmission of data only valid in combination with the Transceive command",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_ALIGN",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "used for reception of bit-oriented frames: defines the bit position for the first bit received to be stored in the FIFO buffer",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX_LAST_BITS",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "used for transmission of bit oriented frames: defines the number of bits of the last byte that will be transmitted 000b indicates that all bits of the last byte will be transmitted",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CollReg",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Defines the first bit-collision detected on the RF interface",
+        "fields": [
+          {
+            "name": "RSVD_6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "VALUES_AFTER_COLL",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "all received bits will be cleared after a collision only used during bitwise anticollision at 106 kBd, otherwise it is set to logic 1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COLL_POS_NOT_VALID",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 1,
+            "description": "no collision detected or the position of the collision is out of the range of CollPos[4:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COLL_POS",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "shows the bit position of the first detected collision in a received frame only data bits are interpreted",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "TX Configuration": [
+      {
+        "name": "TxModeReg",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Defines the data rate during transmission",
+        "fields": [
+          {
+            "name": "RESERVED_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TX_CRC_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "enables CRC generation during data transmission",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX_SPEED",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "defines the bit rate during data transmission",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INV_MOD",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "modulation of transmitted data is inverted",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TxControlReg",
+        "address": "0x14",
+        "size_bits": 8,
+        "reset_value": "0x80",
+        "description": "Controls the logical behavior of the antenna driver pins TX1 and TX2",
+        "fields": [
+          {
+            "name": "RSVD_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "INV_TX2_RF_ON",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "output signal on pin TX2 inverted when driver TX2 is enabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INV_TX1_RF_ON",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "output signal on pin TX1 inverted when driver TX1 is enabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INV_TX2_RF_OFF",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "output signal on pin TX2 inverted when driver TX2 is disabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INV_TX1_RF_OFF",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "output signal on pin TX1 inverted when driver TX1 is disabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX2_CW",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "output signal on pin TX2 continuously delivers the unmodulated 13.56 MHz energy carrier",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX2_RF_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "output signal on pin TX2 delivers the 13.56 MHz energy carrier modulated by the transmission data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX1_RF_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "output signal on pin TX1 delivers the 13.56 MHz energy carrier modulated by the transmission data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TxASKReg",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Controls transmit modulation settings",
+        "fields": [
+          {
+            "name": "RESERVED_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RESERVED_5_0",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FORCE_100_ASK",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "forces a 100 %ASK modulation independent of the ModGsPReg register setting",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TxSelReg",
+        "address": "0x16",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TX driver and MFOUT pin selection register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "DRIVER_SEL",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "selects the input of drivers TX1 and TX2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MFOUT_SEL",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "selects the input for pin MFOUT",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MfTxReg",
+        "address": "0x1C",
+        "size_bits": 8,
+        "reset_value": "0x62",
+        "description": "Controls some MIFARE communication transmit parameters",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved for future use or for production tests and must not be changed",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TX_WAIT",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "defines the additional response time 7 bits are added to the value of the register bit by default",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "RX Configuration": [
+      {
+        "name": "RxModeReg",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Defines the data rate during reception",
+        "fields": [
+          {
+            "name": "RESERVED_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RX_CRC_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "enables the CRC calculation during reception",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_SPEED",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "defines the bit rate while receiving data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_NO_ERR",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "an invalid received data stream will be ignored and the receiver remains active",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_MULTIPLE",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "able to receive more than one data frame",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RxSelReg",
+        "address": "0x17",
+        "size_bits": 8,
+        "reset_value": "0x84",
+        "description": "Selects internal receiver settings",
+        "fields": [
+          {
+            "name": "UART_SEL",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "selects the input of the contactless UART",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_WAIT",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "after data transmission the activation of the receiver is delayed for RxWait bit-clocks",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RxThresholdReg",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": "0x84",
+        "description": "Selects thresholds for the bit decoder",
+        "fields": [
+          {
+            "name": "RSVD_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "MIN_LEVEL",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 8,
+            "description": "defines the minimum signal strength at the decoder input that will be accepted if the signal strength is below this level it is not evaluated",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COLL_LEVEL",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 4,
+            "description": "defines the minimum signal strength at the decoder input that must be reached by the weaker half-bit of the Manchester encoded signal to generate a bit-collision relative to the amplitude of the stronger half-bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DemodReg",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": "0x4D",
+        "description": "Defines demodulator settings",
+        "fields": [
+          {
+            "name": "ADD_IQ",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "defines the use of I and Q channel during reception Remark: the FixIQ bit must be set to logic 0 to enable the following settings",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FIX_IQ",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "if AddIQ[1:0] are set to X0b, the reception is fixed to I channel if AddIQ[1:0] are set to X1b, the reception is fixed to Q channel",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TPRESCAL_EVEN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Available on RC522 version 1.0 and version 2.0: If set to logic 0 the following formula is used to calculate the timer frequency of the prescaler: f_timer = 13.56 MHz / (2*TPreScaler+1). Only available on version 2.0: If set to logic 1 the following formula is used to calculate the timer frequency of the prescaler: f_timer = 13.56 MHz / (2*TPreScaler+2). Default TPrescalEven bit is logic 0, find more information on the prescaler in Section 8.5.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TAU_RCV",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "changes the time-constant of the internal PLL during data reception Remark: if set to 00b the PLL is frozen during data reception",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TAU_SYNC",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "changes the time-constant of the internal PLL during burst",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MfRxReg",
+        "address": "0x1D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "MIFARE Rx register",
+        "fields": [
+          {
+            "name": "RESERVED_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RESERVED_3_0",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved for future use",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "PARITY_DISABLE",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "generation of the parity bit for transmission and the parity check for receiving is switched off the received parity bit is handled like a data bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "RF Configuration": [
+      {
+        "name": "ModeReg",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "ModeReg register",
+        "fields": [
+          {
+            "name": "reserved",
+            "bit_high": 6,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "reserved for future use or production tests and must not be changed. In case of a write access, it is recommended to always write the value '0'.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "CRC_PRESET",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "CRC preset value selection",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MSB_FIRST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "MSB first data loading",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ModWidthReg",
+        "address": "0x24",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "ModWidthReg register",
+        "fields": [
+          {
+            "name": "MOD_WIDTH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Modulation width control",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RFCfgReg",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "RFCfgReg register",
+        "fields": [
+          {
+            "name": "RF_CFG",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "RF configuration",
+            "enum_values": null,
+            "source": "agent_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          31
+        ],
+        "confidence": "low",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GsNReg",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "GsNReg register",
+        "fields": [
+          {
+            "name": "GSN",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Receiver gain control",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CWGsPReg",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "CWGsPReg register",
+        "fields": [
+          {
+            "name": "CW_GSP",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "CW generator gain",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ModGsPReg",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "ModGsPReg register",
+        "fields": [
+          {
+            "name": "MOD_GSP",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Modulator gain",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "CRC": [
+      {
+        "name": "CRC_RESULT_REG_L",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "CRC result register low byte",
+        "fields": [
+          {
+            "name": "CRC_RESULT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "CRC result low byte",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          89
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CRC_RESULT_REG_H",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "CRC result register high byte",
+        "fields": [
+          {
+            "name": "CRC_RESULT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "CRC result high byte",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          89
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Timer": [
+      {
+        "name": "TModeReg",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TModeReg register",
+        "fields": [
+          {
+            "name": "T_MODE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Timer mode control",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          31
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TPrescalerReg",
+        "address": "0x2B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TPrescalerReg register",
+        "fields": [
+          {
+            "name": "T_PRESCALER",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Timer prescaler",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "T_RELOAD_REG_L",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Timer reload register low",
+        "fields": [
+          {
+            "name": "T_RELOAD_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Timer reload low byte",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          89
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "T_RELOAD_REG_H",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Timer reload register high",
+        "fields": [
+          {
+            "name": "T_RELOAD_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Timer reload high byte",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          89
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "T_COUNTER_VAL_REG_L",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Timer counter value register low",
+        "fields": [
+          {
+            "name": "T_COUNTER_VAL_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Timer counter value low byte",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          89
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "T_COUNTER_VAL_REG_H",
+        "address": "0x2F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Timer counter value register high",
+        "fields": [
+          {
+            "name": "T_COUNTER_VAL_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Timer counter value high byte",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          89
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Test and Debug": [
+      {
+        "name": "TestSel1Reg",
+        "address": "0x31",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Test sel1 reg register",
+        "fields": [
+          {
+            "name": "TestSel1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Test mode selection register 1.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TestPinValueReg",
+        "address": "0x34",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "Test pin value reg register",
+        "fields": [
+          {
+            "name": "TestPinValue",
+            "bit_high": 31,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Test pin values",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AutoTestReg",
+        "address": "0x36",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "Auto test reg register",
+        "fields": [
+          {
+            "name": "AutoTest",
+            "bit_high": 31,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Auto test register",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "VersionReg",
+        "address": "0x37",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "Version reg register",
+        "fields": [
+          {
+            "name": "VERSION",
+            "bit_high": 31,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Version register",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TestDAC1Reg",
+        "address": "0x39",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Test DAC1 reg register",
+        "fields": [
+          {
+            "name": "TestDAC1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "defines the test value for TestDAC1",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TestDAC2Reg",
+        "address": "0x3A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Test DAC2 reg register",
+        "fields": [
+          {
+            "name": "TestDAC2",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "defines the test value for TestDAC2",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TestADCReg",
+        "address": "0x3B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Test adcreg register",
+        "fields": [
+          {
+            "name": "ADC",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "shows the value of ADC I and Q channels",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Serial": [
+      {
+        "name": "SerialSpeedReg",
+        "address": "0x1F",
+        "size_bits": 8,
+        "reset_value": "0xEB",
+        "description": "UART transfer speed configuration register",
+        "fields": [
+          {
+            "name": "BR_T1",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 29,
+            "description": "BR_T1 factor bits [4:0] for transfer speed",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BR_T0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "BR_T0 factor bits [2:0] for transfer speed",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {
+    "0": "Page 0",
+    "1": "Page 1",
+    "2": "Page 2",
+    "3": "Page 3"
+  },
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T16:07:35.024501+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 46,
+        "by_confidence": {
+          "high": 44,
+          "medium": 1,
+          "low": 1
+        },
+        "with_quality_issues": 13,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 134,
+        "by_source": {
+          "synthetic": 26,
+          "evidence_verified": 81,
+          "agent_verified": 4,
+          "llm_verified": 4,
+          "llm_consistent": 17,
+          "agent_unverified": 1,
+          "llm_only": 1
+        }
+      },
+      "peripherals": {
+        "total": 12,
+        "by_name": {
+          "Command and Control": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Interrupt Management": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Status Registers": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "FIFO Management": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Bit Framing and Collision": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "TX Configuration": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "RX Configuration": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "RF Configuration": {
+            "registers": 6,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 1
+            }
+          },
+          "CRC": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Timer": {
+            "registers": 6,
+            "confidence": {
+              "high": 5,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Test and Debug": {
+            "registers": 7,
+            "confidence": {
+              "high": 7,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Serial": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 50,
+        "batches_total": 27,
+        "batches_sent": 27,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 10,
+          "missing_register_page": 6
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 12,
+        "fields_verified": 0,
+        "fields_unverified": 12,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 21,
+        "field_diagnostics": {
+          "0X1F": {
+            "BR_T1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 280433
+            },
+            "BR_T0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 280433
+            }
+          },
+          "0X01": {
+            "COMMAND": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 350921
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 350921
+            },
+            "RCV_OFF": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 350921
+            },
+            "POWER_DOWN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 350921
+            }
+          },
+          "0X02": {
+            "COML_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 4620
+            },
+            "IRQ_INV": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 297969
+            },
+            "TX_IEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 297969
+            },
+            "RX_IEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 297969
+            },
+            "IDLE_IEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 297969
+            },
+            "HI_ALERT_IEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 297969
+            },
+            "LO_ALERT_IEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 297969
+            },
+            "ERR_IEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 297969
+            },
+            "TIMER_IEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 297969
+            }
+          },
+          "0X03": {
+            "DIVL_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 4620
+            },
+            "IRQPUSHPULL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 278475
+            },
+            "RESERVED_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 278475
+            },
+            "RESERVED_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 278475
+            },
+            "MFINACTIEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 278475
+            },
+            "RESERVED_3": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 278475
+            },
+            "CRCIEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 278475
+            },
+            "RESERVED_1_0": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 278475
+            }
+          },
+          "0X04": {
+            "SET1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 581012
+            },
+            "TX_IRQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 581012
+            },
+            "RX_IRQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 581012
+            },
+            "IDLE_IRQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 581012
+            },
+            "HI_ALERT_IRQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 581012
+            },
+            "LO_ALERT_IRQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 581012
+            },
+            "ERR_IRQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 581012
+            },
+            "TIMER_IRQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 581012
+            }
+          },
+          "0X05": {
+            "SET2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 292952
+            },
+            "RESERVED_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 292952
+            },
+            "RESERVED_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 292952
+            },
+            "MFINACTIRQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 292952
+            },
+            "RESERVED_3": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 292952
+            },
+            "CRCIRQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 292952
+            },
+            "RESERVED_1_0": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 292952
+            }
+          },
+          "0X06": {
+            "WR_ERR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 334413
+            },
+            "TEMP_ERR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 334413
+            },
+            "RESERVED_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 334413
+            },
+            "BUFFER_OVFL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 334413
+            },
+            "COLL_ERR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 334413
+            },
+            "CRC_ERR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 334413
+            },
+            "PARITY_ERR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 334413
+            },
+            "PROTOCOL_ERR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 334413
+            }
+          },
+          "0X07": {
+            "RESERVED_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 288929
+            },
+            "CRCOK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 288929
+            },
+            "CRCREADY": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 288929
+            },
+            "IRQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 288929
+            },
+            "TRUNNING": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 288929
+            },
+            "RESERVED_2": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 288929
+            },
+            "HIALERT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 288929
+            },
+            "LOALERT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 288929
+            }
+          },
+          "0X08": {
+            "TEMPSENSCLEAR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 324790
+            },
+            "I2CFORCEHS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 324790
+            },
+            "RESERVED_5_4": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 324790
+            },
+            "MFCYPTO1ON": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 324790
+            },
+            "MODEMSTATE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 324790
+            }
+          },
+          "0X09": {
+            "FIFO_DATA": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 278004
+            }
+          },
+          "0X0A": {
+            "FIFO_LEVEL": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 280362
+            },
+            "FLUSH_BUFFER": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 280362
+            }
+          },
+          "0X0B": {
+            "WATER_LEVEL": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 269497
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 269497
+            }
+          },
+          "0X0C": {
+            "T_STOP_NOW": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 276530
+            },
+            "T_START_NOW": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 276530
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 276530
+            },
+            "RX_LAST_BITS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 276530
+            }
+          },
+          "0X11": {
+            "CRC_PRESET": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 353518
+            },
+            "MSB_FIRST": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 353518
+            }
+          },
+          "0X1C": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 520219
+            },
+            "TX_WAIT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 520219
+            }
+          },
+          "0X1D": {
+            "RESERVED_7_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 522129
+            },
+            "PARITY_DISABLE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 522129
+            },
+            "RESERVED_3_0": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 522129
+            }
+          },
+          "0X21": {
+            "CRC_RESULT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 290333
+            }
+          },
+          "0X22": {
+            "CRC_RESULT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 290807
+            }
+          },
+          "0X24": {
+            "MOD_WIDTH": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 265504
+            }
+          },
+          "0X26": {
+            "RF_CFG": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 264349
+            }
+          },
+          "0X27": {
+            "GSN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 266089
+            }
+          },
+          "0X28": {
+            "CW_GSP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 267504
+            }
+          },
+          "0X29": {
+            "MOD_GSP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 266686
+            }
+          },
+          "0X2A": {
+            "T_MODE": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 275735
+            }
+          },
+          "0X2B": {
+            "T_PRESCALER": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 265692
+            }
+          },
+          "0X2C": {
+            "T_RELOAD": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5400
+            },
+            "T_RELOAD_L": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68926
+            }
+          },
+          "0X2D": {
+            "T_RELOAD": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5170
+            },
+            "T_RELOAD_H": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68828
+            }
+          },
+          "0X2E": {
+            "T_COUNTER_VAL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5402
+            },
+            "T_COUNTER_VAL_L": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 69095
+            }
+          },
+          "0X2F": {
+            "T_COUNTER_VAL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5335
+            },
+            "T_COUNTER_VAL_H": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68703
+            }
+          },
+          "0X31": {},
+          "0X32": {},
+          "0X33": {},
+          "0X34": {},
+          "0X35": {},
+          "0X36": {},
+          "0X37": {},
+          "0X38": {},
+          "0X39": {},
+          "0X3A": {},
+          "0X3B": {},
+          "0X0D": {
+            "START_SEND": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 268256
+            },
+            "RX_ALIGN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 268256
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 268256
+            },
+            "TX_LAST_BITS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 268256
+            }
+          },
+          "0X0E": {
+            "VALUES_AFTER_COLL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 354234
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 354234
+            },
+            "COLL_POS_NOT_VALID": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 354234
+            },
+            "COLL_POS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 354234
+            }
+          },
+          "0X12": {
+            "TX_CRC_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 284403
+            },
+            "TX_SPEED": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 284403
+            },
+            "INV_MOD": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 284403
+            },
+            "RESERVED_2_0": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 284403
+            }
+          },
+          "0X13": {
+            "RX_CRC_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 319921
+            },
+            "RX_SPEED": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 319921
+            },
+            "RX_NO_ERR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 319921
+            },
+            "RX_MULTIPLE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 319921
+            },
+            "RESERVED_1_0": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 319921
+            }
+          },
+          "0X14": {
+            "INV_TX2_RF_ON": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 295149
+            },
+            "INV_TX1_RF_ON": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 295149
+            },
+            "INV_TX2_RF_OFF": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 295149
+            },
+            "INV_TX1_RF_OFF": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 295149
+            },
+            "TX2_CW": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 295149
+            },
+            "RESERVED_2": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 295149
+            },
+            "TX2_RF_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 295149
+            },
+            "TX1_RF_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 295149
+            }
+          },
+          "0X15": {
+            "RESERVED_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 285100
+            },
+            "FORCE_100_ASK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 285100
+            },
+            "RESERVED_5_0": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 285100
+            }
+          },
+          "0X16": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 538669
+            },
+            "DRIVER_SEL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 538669
+            },
+            "MFOUT_SEL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 538669
+            }
+          },
+          "0X17": {
+            "UART_SEL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 509228
+            },
+            "RX_WAIT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 509228
+            }
+          },
+          "0X18": {
+            "MIN_LEVEL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 509275
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 509275
+            },
+            "COLL_LEVEL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 509275
+            }
+          },
+          "0X19": {
+            "ADD_IQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 509070
+            },
+            "FIX_IQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 509070
+            },
+            "TPRESCAL_EVEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 509070
+            },
+            "TAU_RCV": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 509070
+            },
+            "TAU_SYNC": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 509070
+            }
+          }
+        },
+        "fields_cross_section_augmented": 50,
+        "fields_name_matched": 83,
+        "fields_consistent_promoted": 19,
+        "fields_bit_llm_fallback": 7,
+        "diagnostic_summary": {
+          "verified_name": 83,
+          "quote_not_found": 12,
+          "reserved": 27,
+          "name_not_found": 11
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 2243,
+        "output_tokens": 99,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000498
+      },
+      "extraction": {
+        "input_tokens": 248962,
+        "output_tokens": 104927,
+        "thinking_tokens": 0,
+        "calls": 44,
+        "total_cost_usd": 0.102256
+      },
+      "evidence": {
+        "input_tokens": 11063,
+        "output_tokens": 339,
+        "thinking_tokens": 0,
+        "calls": 20,
+        "total_cost_usd": 0.002382
+      },
+      "correction": {
+        "input_tokens": 66144,
+        "output_tokens": 13681,
+        "thinking_tokens": 0,
+        "calls": 62,
+        "total_cost_usd": 0.020069
+      },
+      "agents": {
+        "input_tokens": 174835,
+        "output_tokens": 39341,
+        "thinking_tokens": 24904,
+        "calls": 35,
+        "total_cost_usd": 0.060444
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 1277,
+        "output_tokens": 238,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000374
+      }
+    }
+  }
+}

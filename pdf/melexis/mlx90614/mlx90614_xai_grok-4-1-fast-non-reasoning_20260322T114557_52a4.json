@@ -1,0 +1,794 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "MLX90614",
+  "description": "Non-contact infrared thermometer",
+  "vendor": "Melexis",
+  "source": "MLX90614.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.melexis.com/-/media/files/documents/datasheets/mlx90614-datasheet-melexis.pdf",
+  "peripherals": {
+    "Temperature RAM Registers": [
+      {
+        "name": "TA",
+        "address": "0x06",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Ambient temperature RAM register",
+        "fields": [
+          {
+            "name": "TA",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Ambient temperature value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TO1",
+        "address": "0x07",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "TO1 register",
+        "fields": [
+          {
+            "name": "ERROR",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Error flag for linearized temperature (active high)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TEMP",
+            "bit_high": 14,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Linearized temperature value (0x27AD to 0x7FFF corresponding to -70.01\u00b0C to +382.19\u00b0C)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TOBJ2",
+        "address": "0x08",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Object 2 temperature RAM register",
+        "fields": [
+          {
+            "name": "TOBJ2",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Object 2 temperature value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "User Limits": [
+      {
+        "name": "TO_MAX",
+        "address": "0x00",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Customer defined maximum object temperature",
+        "fields": [
+          {
+            "name": "TO_MAX",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Maximum object temperature value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          14
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TO_MIN",
+        "address": "0x01",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Customer defined minimum object temperature",
+        "fields": [
+          {
+            "name": "TO_MIN",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Minimum object temperature value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          14
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence",
+          "address 0x01 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "PWM Control": [
+      {
+        "name": "PWMCTRL",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "PWM control register with bits for configuring PWM/SDA pin",
+        "fields": [
+          {
+            "name": "PWMCTRL",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PWM control bits (period in bits 15-9)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          14
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Emissivity": [
+      {
+        "name": "Emissivity",
+        "address": "0x04",
+        "size_bits": 16,
+        "reset_value": "0xFFFF",
+        "description": "Object emissivity (factory default 1.0 = 0xFFFF)",
+        "fields": [
+          {
+            "name": "EMISSIVITY",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 65535,
+            "description": "Emissivity = dec2hex[round(65535 x \u03b5)]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          14
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Device ID": [
+      {
+        "name": "ID_NUMBER_1C",
+        "address": "0x1C",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "ID number register",
+        "fields": [
+          {
+            "name": "ID_NUMBER",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Device ID number",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          12
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0x1C not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ID_NUMBER_1D",
+        "address": "0x1D",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "ID number register",
+        "fields": [
+          {
+            "name": "ID_NUMBER",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Device ID number",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          12
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "identical field layout as adjacent register 0x1C",
+          "address 0x1D not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ID_NUMBER_1E",
+        "address": "0x1E",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "ID number register",
+        "fields": [
+          {
+            "name": "ID_NUMBER",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Device ID number",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          12
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "identical field layout as adjacent register 0x1D",
+          "address 0x1E not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ID_NUMBER_1F",
+        "address": "0x1F",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "ID number register",
+        "fields": [
+          {
+            "name": "ID_NUMBER",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Device ID number",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence",
+          "identical field layout as adjacent register 0x1E",
+          "address 0x1F not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "SMBus Config": [
+      {
+        "name": "SMBUS_ADDRESS_LSB",
+        "address": "0x0E",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "SMBus address (LSB only)",
+        "fields": [
+          {
+            "name": "SMBUS_ADDRESS_LSB",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "SMBus slave address LSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          12,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0x0E not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Raw IR Data": [
+      {
+        "name": "Raw data IR channel 1",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Raw data IR channel 1 register",
+        "fields": [
+          {
+            "name": "Raw data IR channel 1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Raw data IR channel 1",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x03 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Other": [
+      {
+        "name": "TA",
+        "address": "0x05",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "TA register",
+        "fields": [
+          {
+            "name": "Raw data IR channel 2",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Raw data IR channel 2",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x05 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TA",
+        "address": "0x05",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "TA register",
+        "fields": [
+          {
+            "name": "TA",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Ambient temperature",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0x05 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T15:45:57.597670+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 15,
+        "by_confidence": {
+          "high": 14,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 10,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 16,
+        "by_source": {
+          "evidence_verified": 11,
+          "agent_verified": 4,
+          "section_agent": 1
+        }
+      },
+      "peripherals": {
+        "total": 8,
+        "by_name": {
+          "Temperature RAM Registers": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "User Limits": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "PWM Control": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Emissivity": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Device ID": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "SMBus Config": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Raw IR Data": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Other": {
+            "registers": 2,
+            "confidence": {
+              "high": 1,
+              "medium": 1,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 6,
+        "batches_total": 3,
+        "batches_sent": 3,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 1,
+        "warnings_detail": [
+          "duplicate address 0x05: 'TA' and 'TA'"
+        ],
+        "issue_breakdown": {
+          "zone_validation": 11,
+          "address 0x01 not found in register summary table": 1,
+          "address 0x1C not found in register summary table": 1,
+          "identical field layout as adjacent register 0x1C": 1,
+          "address 0x1D not found in register summary table": 1,
+          "identical field layout as adjacent register 0x1D": 1,
+          "address 0x1E not found in register summary table": 1,
+          "identical field layout as adjacent register 0x1E": 1,
+          "address 0x1F not found in register summary table": 1,
+          "address 0x0E not found in register summary table": 1,
+          "address 0x03 not found in register summary table": 1,
+          "address 0x05 not found in register summary table": 2
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 14,
+        "fields_verified": 14,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 14,
+        "field_diagnostics": {
+          "0X00": {
+            "TO_MAX": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 112255
+            }
+          },
+          "0X01": {
+            "TO_MIN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 111112
+            }
+          },
+          "0X02": {
+            "PWMCTRL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 127638
+            }
+          },
+          "0X03": {
+            "TA_RANGE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16656
+            }
+          },
+          "0X04": {
+            "EMISSIVITY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 145085
+            }
+          },
+          "0X05": {
+            "CONFIG_REGISTER1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16656
+            }
+          },
+          "0X0E": {
+            "SMBUS_ADDRESS_LSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19101
+            }
+          },
+          "0X1C": {
+            "ID_NUMBER": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16458
+            }
+          },
+          "0X1D": {
+            "ID_NUMBER": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16458
+            }
+          },
+          "0X1E": {
+            "ID_NUMBER": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16458
+            }
+          },
+          "0X1F": {
+            "ID_NUMBER": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16591
+            }
+          },
+          "0X06": {
+            "TA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 187449
+            }
+          },
+          "0X07": {
+            "TOBJ1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 98332
+            }
+          },
+          "0X08": {
+            "TOBJ2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22376
+            }
+          }
+        },
+        "fields_cross_section_augmented": 7,
+        "fields_consistent_promoted": 11,
+        "fields_bit_llm_fallback": 5,
+        "diagnostic_summary": {
+          "verified_quote": 14
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1769,
+        "output_tokens": 108,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000408
+      },
+      "extraction": {
+        "input_tokens": 24271,
+        "output_tokens": 3063,
+        "thinking_tokens": 0,
+        "calls": 5,
+        "total_cost_usd": 0.006386
+      },
+      "evidence": {
+        "input_tokens": 4493,
+        "output_tokens": 177,
+        "thinking_tokens": 0,
+        "calls": 8,
+        "total_cost_usd": 0.000987
+      },
+      "correction": {
+        "input_tokens": 14163,
+        "output_tokens": 2082,
+        "thinking_tokens": 0,
+        "calls": 14,
+        "total_cost_usd": 0.003874
+      },
+      "agents": {
+        "input_tokens": 26179,
+        "output_tokens": 12563,
+        "thinking_tokens": 11708,
+        "calls": 21,
+        "total_cost_usd": 0.006684
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 507,
+        "output_tokens": 83,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000143
+      }
+    }
+  }
+}

@@ -1,0 +1,908 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "HMC5883L",
+  "description": "3-axis digital compass/magnetometer",
+  "vendor": "Honeywell",
+  "source": "HMC5883L.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/HMC5883L_3-Axis_Digital_Compass_IC.pdf",
+  "peripherals": {
+    "Configuration": [
+      {
+        "name": "CONFIGURATION_REGISTER_A",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "Configuration register for data output rate and measurement configuration",
+        "fields": [
+          {
+            "name": "CRA7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved for future function. Set to 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MA",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Select number of samples averaged (1 to 8) per measurement output",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DO",
+            "bit_high": 4,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Data Output Rate Bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MS",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Measurement Configuration Bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CONFIGURATION_REGISTER_B",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": "0x20",
+        "description": "Configuration register for setting the device gain",
+        "fields": [
+          {
+            "name": "RSVD_4_0",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Must be cleared for correct operation",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "GN",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Gain Configuration Bits",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14,
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Mode Register",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Mode register register",
+        "fields": [
+          {
+            "name": "Reserved",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved bits, must be written as 0.",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "Mode",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Mode selection: 00 continuous, 01 single measurement, 10 idle, 11 reserved.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Data Output": [
+      {
+        "name": "DATA_OUTPUT_X_MSB_REGISTER",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output X MSB Register",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X axis MSB data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Data Output X LSB Register",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output X LSB Register",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X axis LSB data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Data Output Z MSB Register",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data output Z MSB register register",
+        "fields": [
+          {
+            "name": "Z_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Data output Z MSB",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Data Output Z LSB Register",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data output Z LSB register register",
+        "fields": [
+          {
+            "name": "Z_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Data Output Z LSB Register",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Data Output Y MSB Register",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data output Y MSB register register",
+        "fields": [
+          {
+            "name": "Y_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Most significant byte of Y-axis magnetic field measurement",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Data Output Y LSB Register",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data output Y LSB register register",
+        "fields": [
+          {
+            "name": "Data Output Y LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Least significant byte of Y-axis magnetic field data",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Status": [
+      {
+        "name": "STATUS_REGISTER",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Device status register",
+        "fields": [
+          {
+            "name": "RSVD_7_2",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved bits",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LOCK",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Data output register lock",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RDY",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Ready bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          17,
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Identification": [
+      {
+        "name": "IDENTIFICATION_REGISTER_A",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": "0x48",
+        "description": "Device identification register A (ASCII 'H')",
+        "fields": [
+          {
+            "name": "IRA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 72,
+            "description": "Identification value A",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IDENTIFICATION_REGISTER_B",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": "0x34",
+        "description": "Device identification register B (ASCII '4')",
+        "fields": [
+          {
+            "name": "IRB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 52,
+            "description": "Identification value B",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          17,
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IDENTIFICATION_REGISTER_C",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": "0x33",
+        "description": "The identification register C is used to identify the device. IRC0 through IRC7 indicate bit locations, with IRC denoting the bits that are in the identification register A. IRC7 denotes the first bit of the data stream. Register values. ASCII value 3",
+        "fields": [
+          {
+            "name": "IRC7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Identification bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IRC6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Identification bit 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IRC5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Identification bit 5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IRC4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Identification bit 4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IRC3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Identification bit 3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IRC2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Identification bit 2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IRC1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Identification bit 1",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IRC0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Identification bit 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          17,
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T14:54:32.236066+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 13,
+        "by_confidence": {
+          "high": 10,
+          "medium": 3,
+          "low": 0
+        },
+        "with_quality_issues": 2,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 27,
+        "by_source": {
+          "evidence_verified": 10,
+          "synthetic": 2,
+          "agent_verified": 11,
+          "section_agent": 4
+        }
+      },
+      "peripherals": {
+        "total": 4,
+        "by_name": {
+          "Configuration": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Data Output": {
+            "registers": 6,
+            "confidence": {
+              "high": 3,
+              "medium": 3,
+              "low": 0
+            }
+          },
+          "Status": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Identification": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 4,
+        "batches_sent": 4,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 4
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 20,
+        "fields_verified": 18,
+        "fields_unverified": 2,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 25,
+        "field_diagnostics": {
+          "0X00": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 15030
+            },
+            "CRA7": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 31706
+            },
+            "MA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 31706
+            },
+            "DO": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 31706
+            },
+            "MS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 31706
+            }
+          },
+          "0X01": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17063
+            },
+            "GN": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 33739
+            },
+            "RSVD_4_0": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 33739
+            }
+          },
+          "0X02": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 15030
+            },
+            "HS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 83047
+            },
+            "MD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 83047
+            }
+          },
+          "0X03": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15030
+            },
+            "DXRA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 14994
+            }
+          },
+          "0X04": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 9571
+            },
+            "DXRB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 16680
+            }
+          },
+          "0X05": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 9571
+            },
+            "DYRA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 16680
+            }
+          },
+          "0X06": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 14971
+            },
+            "DYRB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 14943
+            }
+          },
+          "0X07": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 9520
+            },
+            "DZRA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 16629
+            }
+          },
+          "0X08": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 9670
+            },
+            "DZRB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 16629
+            }
+          },
+          "0X09": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 9571
+            },
+            "RSVD_7_2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26910
+            },
+            "LOCK": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26910
+            },
+            "RDY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26910
+            }
+          },
+          "0X0A": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 9571
+            },
+            "IRA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 21544
+            }
+          },
+          "0X0B": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 9571
+            },
+            "IRB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26910
+            }
+          },
+          "0X0C": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 9558
+            },
+            "IRC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26897
+            }
+          }
+        },
+        "fields_name_matched": 13,
+        "fields_bit_llm_fallback": 10,
+        "fields_consistent_promoted": 6,
+        "fields_cross_section_augmented": 1,
+        "diagnostic_summary": {
+          "verified_name": 13,
+          "verified_quote": 18,
+          "quote_not_found": 2
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1191,
+        "output_tokens": 89,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000283
+      },
+      "extraction": {
+        "input_tokens": 22940,
+        "output_tokens": 4321,
+        "thinking_tokens": 0,
+        "calls": 4,
+        "total_cost_usd": 0.006749
+      },
+      "evidence": {
+        "input_tokens": 3345,
+        "output_tokens": 284,
+        "thinking_tokens": 0,
+        "calls": 5,
+        "total_cost_usd": 0.000811
+      },
+      "correction": {
+        "input_tokens": 28016,
+        "output_tokens": 8947,
+        "thinking_tokens": 0,
+        "calls": 26,
+        "total_cost_usd": 0.010077
+      },
+      "agents": {
+        "input_tokens": 172425,
+        "output_tokens": 32081,
+        "thinking_tokens": 19981,
+        "calls": 35,
+        "total_cost_usd": 0.059542
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 687,
+        "output_tokens": 65,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.00017
+      }
+    }
+  }
+}

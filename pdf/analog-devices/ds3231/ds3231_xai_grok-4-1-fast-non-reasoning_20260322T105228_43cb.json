@@ -1,0 +1,1705 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "DS3231",
+  "description": "Extremely accurate RTC",
+  "vendor": "Analog Devices",
+  "source": "DS3231.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn.sparkfun.com/datasheets/Dev/Beagle/DS3231M.pdf",
+  "peripherals": {
+    "RTC Timekeeping": [
+      {
+        "name": "Seconds",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Seconds register",
+        "fields": [
+          {
+            "name": "ST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Seconds tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SECONDS_UNITS",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Seconds units (0-5)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SECONDS_ONES",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Seconds ones",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Minutes",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Minutes register",
+        "fields": [
+          {
+            "name": "ST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Minutes tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MINUTES_UNITS",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Minutes units (0-5)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MINUTES_ONES",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Minutes ones",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Hours",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Hours register",
+        "fields": [
+          {
+            "name": "ST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Hours tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOUR_MODE",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "12/24 hour mode select",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOUR_20PM",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "AM/PM or 20-hours bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOUR_TENS",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Hour tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOUR_UNITS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Hour units",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Day",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Day of week register",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved (read 0)",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "DAY",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Day of week (1-7)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Date",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Date register",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved (read 0)",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "DATE_TENS",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Date tens (0-3)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DATE_UNITS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Date units",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MONTH_CENTURY",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Month and century register",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved (read 0)",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "CENTURY",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Century flag",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MONTH_TENS",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Month tens (0 or 1)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MONTH_UNITS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Month units",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Year",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Year register",
+        "fields": [
+          {
+            "name": "YEAR_TENS",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Year tens (0-9)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YEAR_UNITS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Year units",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Alarm 1": [
+      {
+        "name": "ALARM1_SECONDS",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 1 seconds register",
+        "fields": [
+          {
+            "name": "A1M1",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alarm 1 seconds match bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SECONDS_TENS",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Seconds tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SECONDS_UNITS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Seconds units",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALARM1_MINUTES",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 1 minutes register",
+        "fields": [
+          {
+            "name": "A1M2",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alarm 1 minutes match bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MINUTES_TENS",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Minutes tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MINUTES_UNITS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Minutes units",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)",
+          "address 0x08 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALARM1_HOURS",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 1 hours register",
+        "fields": [
+          {
+            "name": "A1M3",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alarm 1 hours match bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOUR_MODE",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "12/24 hour mode select",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOUR_20PM",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "AM/PM or 20-hours bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOUR_TENS",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Hour tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOUR_UNITS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Hour units",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALARM1_DAY_DATE",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 1 day/date register",
+        "fields": [
+          {
+            "name": "A1M4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alarm 1 day/date match bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DY_DT",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Day/Date select",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DATE_TENS",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Date tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DAY_DATE_UNITS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Day or date units",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Alarm 2": [
+      {
+        "name": "ALARM2_MINUTES",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 2 minutes register",
+        "fields": [
+          {
+            "name": "A2M2",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alarm 2 minutes match bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MINUTES_TENS",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Minutes tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MINUTES_UNITS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Minutes units",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALARM2_HOURS",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 2 hours register",
+        "fields": [
+          {
+            "name": "A2M3",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alarm 2 hours match bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOUR_MODE",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "12/24 hour mode select",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOUR_20PM",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "AM/PM or 20-hours bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOUR_TENS",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Hour tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOUR_UNITS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Hour units",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALARM2_DAY_DATE",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 2 day/date register",
+        "fields": [
+          {
+            "name": "A2M4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alarm 2 day/date match bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DY_DT",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Day/Date select",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DATE_TENS",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Date tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DAY_DATE_UNITS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Day or date units",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Control and Status": [
+      {
+        "name": "Control",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": "0x18",
+        "description": "Control register",
+        "fields": [
+          {
+            "name": "EOSC",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable oscillator. When set to logic 0, the oscillator is started. When set to logic 1, the oscillator is stopped when the device switches to VBAT.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BBSQW",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Battery-backed square-wave enable. When set to logic 1 with INTCN = 0 and VCC < VPF, this bit enables the 1Hz square wave.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CONV",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Convert temperature. Setting this bit to 1 forces the temperature sensor to convert the temperature into digital code.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "NA",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "Not applicable. These bits have no affect on the device and can be set to either 0 or 1.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "INTCN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Interrupt control. This bit controls the INT/SQW output signal.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "A2IE",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alarm 2 interrupt enable. When set to logic 1, this bit permits the alarm 2 flag (A2F) bit in the status register to assert INT/SQW.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "A1IE",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alarm 1 interrupt enable. When set to logic 1, this bit permits the alarm 1 flag (A1F) bit in the status register to assert INT/SQW.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 5,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Status Register",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Status register register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved bits, must be 0.",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "OSF",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Oscillator stop flag. A logic 1 indicates the oscillator is stopped or was stopped; cleared by writing 0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EN32KHZ",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Enable 32.768kHz output. 1 = enabled, 0 = high impedance.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BSY",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Busy flag for temperature conversion. 1 while conversion in progress.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "A2F",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alarm 2 flag. 1 when time matches Alarm 2; cleared by writing 0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "A1F",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alarm 1 flag. 1 when time matches Alarm 1; cleared by writing 0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Temperature Sensor": [
+      {
+        "name": "Temperature Register (Upper Byte)",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature register (upper byte) register",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sign bit of the temperature integer portion.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DATA",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Temperature integer data bits (bits 6-0).",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Temperature Register (Lower Byte)",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature register (lower byte) register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved, always 0.",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "DATA",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Fractional portion of temperature (2 bits).",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x12 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Aging Offset": [
+      {
+        "name": "Aging Offset Register",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Aging Offset Register",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sign bit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DATA",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Data bits",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x10 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T14:52:28.892282+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 19,
+        "by_confidence": {
+          "high": 19,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 15,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 68,
+        "by_source": {
+          "evidence_verified": 52,
+          "synthetic": 3,
+          "agent_verified": 11,
+          "section_agent": 2
+        }
+      },
+      "peripherals": {
+        "total": 6,
+        "by_name": {
+          "RTC Timekeeping": {
+            "registers": 7,
+            "confidence": {
+              "high": 7,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Alarm 1": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Alarm 2": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Control and Status": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Temperature Sensor": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Aging Offset": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 22,
+        "batches_total": 10,
+        "batches_sent": 10,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "all fields have default RW access (may be missing real access types)": 12,
+          "zone_validation": 1,
+          "address 0x08 not found in register summary table": 1,
+          "address 0x12 not found in register summary table": 1,
+          "address 0x10 not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 70,
+        "fields_verified": 67,
+        "fields_unverified": 3,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 18,
+        "field_diagnostics": {
+          "0X00": {
+            "ST": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49765
+            },
+            "SECONDS_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49765
+            },
+            "SECONDS_ONES": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49765
+            }
+          },
+          "0X01": {
+            "ST": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 46971
+            },
+            "MINUTES_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 46971
+            },
+            "MINUTES_ONES": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 46971
+            }
+          },
+          "0X02": {
+            "ST": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54509
+            },
+            "HOUR_MODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54509
+            },
+            "HOUR_20PM": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54509
+            },
+            "HOUR_TENS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54509
+            },
+            "HOUR_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54509
+            }
+          },
+          "0X03": {
+            "RSVD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 56795
+            },
+            "DAY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 56795
+            }
+          },
+          "0X04": {
+            "RSVD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 73182
+            },
+            "DATE_TENS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 73182
+            },
+            "DATE_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 73182
+            }
+          },
+          "0X05": {
+            "CENTURY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "RSVD": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "MONTH_TENS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "MONTH_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            }
+          },
+          "0X06": {
+            "YEAR_TENS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 43392
+            },
+            "YEAR_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 43392
+            }
+          },
+          "0X07": {
+            "A1M1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "SECONDS_TENS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "SECONDS_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            }
+          },
+          "0X08": {
+            "A1M2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "MINUTES_TENS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "MINUTES_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            }
+          },
+          "0X09": {
+            "A1M3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "HOUR_MODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "HOUR_20PM": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "HOUR_TENS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "HOUR_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            }
+          },
+          "0X0A": {
+            "A1M4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "DY_DT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "DATE_TENS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "DAY_DATE_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            }
+          },
+          "0X0B": {
+            "A2M2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "MINUTES_TENS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "MINUTES_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            }
+          },
+          "0X0C": {
+            "A2M3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "HOUR_MODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "HOUR_20PM": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "HOUR_TENS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "HOUR_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            }
+          },
+          "0X0D": {
+            "A2M4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "DY_DT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "DATE_TENS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            },
+            "DAY_DATE_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28845
+            }
+          },
+          "0X10": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26742
+            },
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26742
+            }
+          },
+          "0X11": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 9210
+            },
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 9210
+            }
+          },
+          "0X12": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 9210
+            },
+            "RSVD": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 9210
+            }
+          },
+          "0X0E": {
+            "EOSC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 52852
+            },
+            "BBSQW": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 52852
+            },
+            "CONV": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 52852
+            },
+            "INTCN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 52852
+            },
+            "A2IE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 52852
+            },
+            "A1IE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 52852
+            },
+            "NA": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 52852
+            }
+          },
+          "0X0F": {
+            "OSF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 48693
+            },
+            "EN32KHZ": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 48693
+            },
+            "BSY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 48693
+            },
+            "A2F": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 48693
+            },
+            "A1F": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 48693
+            },
+            "UNUSED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 48693
+            }
+          }
+        },
+        "fields_cross_section_augmented": 8,
+        "fields_consistent_promoted": 2,
+        "diagnostic_summary": {
+          "verified_quote": 64,
+          "quote_not_found": 2,
+          "name_too_short": 1,
+          "reserved": 1
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 881,
+        "output_tokens": 65,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000209
+      },
+      "extraction": {
+        "input_tokens": 69441,
+        "output_tokens": 9083,
+        "thinking_tokens": 0,
+        "calls": 13,
+        "total_cost_usd": 0.01843
+      },
+      "evidence": {
+        "input_tokens": 4074,
+        "output_tokens": 351,
+        "thinking_tokens": 0,
+        "calls": 7,
+        "total_cost_usd": 0.00099
+      },
+      "correction": {
+        "input_tokens": 25067,
+        "output_tokens": 4300,
+        "thinking_tokens": 0,
+        "calls": 21,
+        "total_cost_usd": 0.007163
+      },
+      "agents": {
+        "input_tokens": 30884,
+        "output_tokens": 12650,
+        "thinking_tokens": 10595,
+        "calls": 22,
+        "total_cost_usd": 0.009638
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 548,
+        "output_tokens": 130,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000175
+      }
+    }
+  }
+}

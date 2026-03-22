@@ -1,0 +1,2044 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "INA3221",
+  "description": "26V triple-channel 13-bit I2C shunt current and bus voltage monitor",
+  "vendor": "Texas Instruments",
+  "source": "INA3221.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/ina3221.pdf",
+  "peripherals": {
+    "Configuration": [
+      {
+        "name": "Configuration",
+        "address": "0x00",
+        "size_bits": 16,
+        "reset_value": "0x7127",
+        "description": "All-register reset, shunt and bus voltage ADC conversion times and averaging, operating mode.",
+        "fields": [
+          {
+            "name": "RST",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reset bit. Set to 1 for system reset (POR), self-clears.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CH1_EN",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Channel 1 enable. 0=disable, 1=enable (default).",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CH2_EN",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Channel 2 enable. 0=disable, 1=enable (default).",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "CH3_EN",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Channel 3 enable. 0=disable, 1=enable (default).",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AVG",
+            "bit_high": 11,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Averaging mode: 000=1,001=4,010=16,011=64,100=128,101=256,110=512,111=1024 samples.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "V_BUS_CT",
+            "bit_high": 8,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 4,
+            "description": "Bus voltage conversion time: 000=140\u03bcs to 111=8.244ms.",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "V_SH_CT",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 4,
+            "description": "Shunt voltage conversion time: same settings as V_BUS_CT.",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "MODE",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 7,
+            "description": "Operating mode: 000/100=power-down, 101=shunt cont, 110=bus cont, 111=shunt+bus cont.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Mask/Enable Register",
+        "address": "0x0F",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "Mask enable register register",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "RSVD_31_16",
+            "bit_high": 31,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SCC1",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Summation channel control for channel 1 (0=disabled, 1=enabled).",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SCC2",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Summation channel control for channel 2 (0=disabled, 1=enabled).",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SCC3",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Summation channel control for channel 3 (0=disabled, 1=enabled).",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "WEN",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Warning alert latch enable (0=transparent, 1=latch).",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CEN",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Critical alert latch enable (0=transparent, 1=latch).",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CF1",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Critical alert flag for channel 1. Cleared by reading this register.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CF2",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Critical alert flag for channel 2. Cleared by reading this register.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CF3",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Critical alert flag for channel 3. Cleared by reading this register.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SF",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Summation alert flag. Cleared by reading this register.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "WF1",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Warning alert flag for channel 1. Cleared by reading this register.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "WF2",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Warning alert flag for channel 2. Cleared by reading this register.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "WF3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Warning alert flag for channel 3. Cleared by reading this register.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PVF",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power-valid alert flag. Reflects PV pin state.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TCF",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Timing-control alert flag. Remains set until power cycle or reset.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CVRF",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Current-valid alert flag.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 34,
+        "source_pages": [
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0F not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Channel 1": [
+      {
+        "name": "CHANNEL_1_SHUNT_VOLTAGE",
+        "address": "0x01",
+        "size_bits": 16,
+        "reset_value": "0x00",
+        "description": "Averaged shunt voltage measurement for channel 1 (full-scale 163.8mV, LSB=40\u03bcV).",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Sign bit. 0=positive, 1=negative (2s complement).",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Channel-1 shunt voltage data bits.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x01 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_1_BUS_VOLTAGE",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": "0x00",
+        "description": "Bus voltage measurement for channel 1 (full-scale 32.76V, LSB=8mV).",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Sign bit. 0=positive, 1=negative (2s complement).",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Channel-1 bus voltage data bits.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x02 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_1_CRITICAL_ALERT_LIMIT",
+        "address": "0x07",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Critical alert limit value for channel 1 shunt voltage overcurrent detection.",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "C1L",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 4095,
+            "description": "Channel-1 critical-alert-limit data bits.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Channel-1 Warning-Alert Limit",
+        "address": "0x08",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Channel 1 warning alert limit register",
+        "fields": [
+          {
+            "name": "RESERVED15_13",
+            "bit_high": 15,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "RSVD_4_0",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "W1L12",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel-1 Warning-Alert Limit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "W1L11",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel-1 Warning-Alert Limit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "W1L10",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel-1 Warning-Alert Limit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "W1L9",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel-1 Warning-Alert Limit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "W1L8",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel-1 Warning-Alert Limit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "W1L7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel-1 Warning-Alert Limit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "W1L6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel-1 Warning-Alert Limit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "W1L5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Channel-1 Warning-Alert Limit",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x08 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Channel 2": [
+      {
+        "name": "CHANNEL_2_SHUNT_VOLTAGE",
+        "address": "0x03",
+        "size_bits": 16,
+        "reset_value": "0x00",
+        "description": "Averaged shunt voltage measurement for channel 2 (full-scale 163.8mV, LSB=40\u03bcV).",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Sign bit. 0=positive, 1=negative (2s complement).",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Channel-2 shunt voltage data bits.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x03 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_2_BUS_VOLTAGE",
+        "address": "0x04",
+        "size_bits": 16,
+        "reset_value": "0x00",
+        "description": "Bus voltage measurement for channel 2 (full-scale 32.76V, LSB=8mV).",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Sign bit. 0=positive, 1=negative (2s complement).",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Channel-2 bus voltage data bits.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x04 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_2_CRITICAL_ALERT_LIMIT",
+        "address": "0x09",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Critical alert limit value for channel 2 shunt voltage overcurrent detection.",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "C2L",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 4095,
+            "description": "Channel-2 critical-alert-limit data bits.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x09 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_2_WARNING_ALERT_LIMIT",
+        "address": "0x0A",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Warning alert limit value for averaged channel 2 shunt voltage overcurrent detection.",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "W2L",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 4095,
+            "description": "Channel-2 warning-alert-limit data bits.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0A not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Channel 3": [
+      {
+        "name": "CHANNEL_3_SHUNT_VOLTAGE",
+        "address": "0x05",
+        "size_bits": 16,
+        "reset_value": "0x00",
+        "description": "Averaged shunt voltage measurement for channel 3 (full-scale 163.8mV, LSB=40\u03bcV).",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Sign bit. 0=positive, 1=negative (2s complement).",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SD",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Channel-3 shunt voltage data bits.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x05 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_3_BUS_VOLTAGE",
+        "address": "0x06",
+        "size_bits": 16,
+        "reset_value": "0x00",
+        "description": "Bus voltage measurement for channel 3 (full-scale 32.76V, LSB=8mV).",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Sign bit. 0=positive, 1=negative (2s complement).",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BD",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Channel-3 bus voltage data bits.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x06 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_3_CRITICAL_ALERT_LIMIT",
+        "address": "0x0B",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Critical alert limit value for channel 3 shunt voltage overcurrent detection.",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "C3L",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 4095,
+            "description": "Channel-3 critical-alert-limit data bits.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0B not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CHANNEL_3_WARNING_ALERT_LIMIT",
+        "address": "0x0C",
+        "size_bits": 16,
+        "reset_value": "0x7FF8",
+        "description": "Channel-3 warning-alert limit register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "W3L",
+            "bit_high": 15,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 4095,
+            "description": "Channel-3 warning-alert limit data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0C not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "System": [
+      {
+        "name": "SHUNT_VOLTAGE_SUM",
+        "address": "0x0D",
+        "size_bits": 16,
+        "reset_value": "0x00",
+        "description": "Shunt-voltage sum register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = positive number 1 = negative number in twos complement format",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SV",
+            "bit_high": 14,
+            "bit_low": 1,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Shunt-voltage sum data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0D not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SHUNT_VOLTAGE_SUM_LIMIT",
+        "address": "0x0E",
+        "size_bits": 16,
+        "reset_value": "0x7FFE",
+        "description": "Shunt-voltage sum-limit register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = positive number 1 = negative number in twos complement format",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SVL",
+            "bit_high": 14,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 16383,
+            "description": "Shunt-voltage sum-limit data bits",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0E not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "POWER_VALID_UPPER_LIMIT",
+        "address": "0x10",
+        "size_bits": 16,
+        "reset_value": "0x2710",
+        "description": "Power-valid upper-limit register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Power-valid upper-limit data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVU",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 1250,
+            "description": "Power-valid upper-limit data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x10 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "POWER_VALID_LOWER_LIMIT",
+        "address": "0x11",
+        "size_bits": 16,
+        "reset_value": "0x2328",
+        "description": "Power-valid lower-limit register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Power-valid lower-limit data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PVL",
+            "bit_high": 14,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 1128,
+            "description": "Power-valid lower-limit data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "ID": [
+      {
+        "name": "Manufacturer ID Register",
+        "address": "0xFE",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Manufacturer ID register register",
+        "fields": [
+          {
+            "name": "D15-0",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 21577,
+            "description": "Manufacturer ID bits",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xFE not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Die ID Register",
+        "address": "0xFF",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Die ID register register",
+        "fields": [
+          {
+            "name": "D15-0",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 12800,
+            "description": "Die ID bits",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xFF not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Other": [
+      {
+        "name": "FFFh",
+        "address": "0xFFF",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Fffh register",
+        "fields": [
+          {
+            "name": "Device",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Device",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Package_Type",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Package type",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "Package_Drawing",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Package drawing",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "Pins",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Pins",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SPQ",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "SPQ",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Length_(mm)",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Length (mm)",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "Width_(mm)",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Width (mm)",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "Height_(mm)",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Height (mm)",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [],
+        "confidence": "medium",
+        "quality_issues": [
+          "Address outlier: 0xFFF is far from other registers (gap=0xf00, threshold=0x100)",
+          "address_likely_typo:0xFFF->0xFF",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T15:05:52.617415+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 21,
+        "by_confidence": {
+          "high": 19,
+          "medium": 2,
+          "low": 0
+        },
+        "with_quality_issues": 18,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 85,
+        "by_source": {
+          "evidence_verified": 29,
+          "llm_only": 3,
+          "agent_verified": 29,
+          "synthetic": 17,
+          "section_agent": 6,
+          "llm_verified": 1
+        }
+      },
+      "peripherals": {
+        "total": 7,
+        "by_name": {
+          "Configuration": {
+            "registers": 2,
+            "confidence": {
+              "high": 1,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Channel 1": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Channel 2": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Channel 3": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "System": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "ID": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Other": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 7,
+        "batches_total": 4,
+        "batches_sent": 4,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "address 0x0F not found in register summary table": 1,
+          "address 0x01 not found in register summary table": 1,
+          "address 0x02 not found in register summary table": 1,
+          "address 0x08 not found in register summary table": 1,
+          "address 0x03 not found in register summary table": 1,
+          "address 0x04 not found in register summary table": 1,
+          "address 0x09 not found in register summary table": 1,
+          "address 0x0A not found in register summary table": 1,
+          "address 0x05 not found in register summary table": 1,
+          "address 0x06 not found in register summary table": 1,
+          "address 0x0B not found in register summary table": 1,
+          "address 0x0C not found in register summary table": 1,
+          "address 0x0D not found in register summary table": 1,
+          "address 0x0E not found in register summary table": 1,
+          "address 0x10 not found in register summary table": 1,
+          "address 0xFE not found in register summary table": 1,
+          "address 0xFF not found in register summary table": 1,
+          "Address outlier": 1,
+          "address_likely_typo": 1,
+          "missing_source_location": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 47,
+        "fields_verified": 47,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 20,
+        "field_diagnostics": {
+          "0X00": {
+            "RST": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 153793
+            },
+            "AVG": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 153793
+            },
+            "MODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 153793
+            },
+            "CH1_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 153793
+            },
+            "CH2_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 153793
+            },
+            "CH3_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 153793
+            },
+            "V_BUS_CT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 153793
+            },
+            "V_SH_CT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 153793
+            }
+          },
+          "0X01": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "SD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 63384
+            }
+          },
+          "0X02": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "BD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 63384
+            }
+          },
+          "0X03": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "SD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 63384
+            }
+          },
+          "0X04": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "BD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 63384
+            }
+          },
+          "0X05": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "SD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 63384
+            }
+          },
+          "0X06": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "BD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 63384
+            }
+          },
+          "0X07": {
+            "C1L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 63384
+            }
+          },
+          "0X08": {
+            "W1L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 63384
+            }
+          },
+          "0X09": {
+            "C2L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 63384
+            }
+          },
+          "0X0A": {
+            "W2L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63384
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 63384
+            }
+          },
+          "0X0B": {
+            "C3L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 86586
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 86586
+            }
+          },
+          "0X0C": {
+            "W3L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 59595
+            }
+          },
+          "0X0D": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "SV": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 59595
+            }
+          },
+          "0X0E": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "SVL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 59595
+            }
+          },
+          "0X0F": {
+            "RSVD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "SCC1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "SCC2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "SCC3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "WEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "CEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "CF1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "CF2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "CF3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "SF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "WF1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "WF2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "WF3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "PVF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "TCF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "CVRF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            }
+          },
+          "0X10": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "PVU": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 59595
+            }
+          },
+          "0X11": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "PVL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 59595
+            }
+          },
+          "0XFE": {
+            "ID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            }
+          },
+          "0XFF": {
+            "ID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59595
+            }
+          },
+          "0XFFF": {
+            "Device": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 47581
+            },
+            "Package_Type": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 47581
+            },
+            "Package_Drawing": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 47581
+            },
+            "Pins": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 47581
+            },
+            "SPQ": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 47581
+            },
+            "Length_(mm)": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 47581
+            },
+            "Width_(mm)": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 47581
+            },
+            "Height_(mm)": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 47581
+            }
+          }
+        },
+        "fields_cross_section_augmented": 1,
+        "fields_name_matched": 2,
+        "fields_bit_llm_fallback": 8,
+        "fields_consistent_promoted": 7,
+        "diagnostic_summary": {
+          "verified_quote": 47,
+          "verified_name": 2,
+          "name_not_found": 3,
+          "reserved": 16,
+          "already_verified": 8
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 3667,
+        "output_tokens": 171,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000819
+      },
+      "extraction": {
+        "input_tokens": 36306,
+        "output_tokens": 10355,
+        "thinking_tokens": 0,
+        "calls": 4,
+        "total_cost_usd": 0.012439
+      },
+      "evidence": {
+        "input_tokens": 4609,
+        "output_tokens": 135,
+        "thinking_tokens": 0,
+        "calls": 8,
+        "total_cost_usd": 0.000989
+      },
+      "correction": {
+        "input_tokens": 24821,
+        "output_tokens": 2980,
+        "thinking_tokens": 0,
+        "calls": 20,
+        "total_cost_usd": 0.006454
+      },
+      "agents": {
+        "input_tokens": 57907,
+        "output_tokens": 15751,
+        "thinking_tokens": 10946,
+        "calls": 23,
+        "total_cost_usd": 0.016952
+      },
+      "convergence": {
+        "input_tokens": 10133,
+        "output_tokens": 6921,
+        "thinking_tokens": 6704,
+        "calls": 7,
+        "total_cost_usd": 0.002836
+      },
+      "grouping": {
+        "input_tokens": 789,
+        "output_tokens": 105,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.00021
+      }
+    }
+  }
+}

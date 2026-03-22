@@ -1,0 +1,459 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "ADS1115",
+  "description": "16-bit precision ADC",
+  "vendor": "Texas Instruments",
+  "source": "ADS1115.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/ads1115.pdf",
+  "peripherals": {
+    "ADC Core": [
+      {
+        "name": "Conversion",
+        "address": "0x00",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "16-bit Conversion register contains the result of the last conversion in binary two's-complement format. Following power-up, the Conversion register is cleared to 0000h, and remains 0000h until the first conversion completes.",
+        "fields": [
+          {
+            "name": "Conversion_Result",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Result of the last conversion in binary two's-complement format",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Configuration": [
+      {
+        "name": "CONFIG",
+        "address": "0x01",
+        "size_bits": 16,
+        "reset_value": "0x8583",
+        "description": "16-bit configuration register controlling operating mode, input selection, data rate, FSR, and comparator modes",
+        "fields": [
+          {
+            "name": "OS",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Operational status or single-shot conversion start",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MUX",
+            "bit_high": 14,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Input multiplexer configuration (ADS1115 only)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PGA",
+            "bit_high": 11,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Programmable gain amplifier configuration",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MODE",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Device operating mode",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DR",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 4,
+            "description": "Data rate",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COMP_MODE",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Comparator mode (ADS1114/ADS1115 only)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COMP_POL",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Comparator polarity (ADS1114/ADS1115 only)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COMP_LAT",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Latching comparator (ADS1114/ADS1115 only)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "COMP_QUE",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "Comparator queue and disable (ADS1114/ADS1115 only)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "outlier field count (9 fields vs median 1)",
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Comparator": [
+      {
+        "name": "LO_THRESH",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": "0x8000",
+        "description": "16-bit low threshold register for comparator (ADS1114/ADS1115 only)",
+        "fields": [
+          {
+            "name": "lo_thresh",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 32768,
+            "description": "Low threshold value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "HI_THRESH",
+        "address": "0x03",
+        "size_bits": 16,
+        "reset_value": "0x8000",
+        "description": "16-bit high threshold register for comparator (ADS1114/ADS1115 only)",
+        "fields": [
+          {
+            "name": "HI_THRESH",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": -32768,
+            "description": "High threshold value",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T14:29:59.494045+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 4,
+        "by_confidence": {
+          "high": 4,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 1,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 12,
+        "by_source": {
+          "agent_verified": 2,
+          "evidence_verified": 10
+        }
+      },
+      "peripherals": {
+        "total": 3,
+        "by_name": {
+          "ADC Core": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Configuration": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Comparator": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 3,
+        "batches_sent": 3,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "outlier field count (9 fields vs median 1)": 1,
+          "all fields have default RW access (may be missing real access types)": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 12,
+        "fields_verified": 12,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 4,
+        "field_diagnostics": {
+          "0X00": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 66166
+            },
+            "P": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 66166
+            },
+            "D": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 72113
+            }
+          },
+          "0X01": {
+            "OS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 46915
+            },
+            "MUX": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 46915
+            },
+            "PGA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 46915
+            },
+            "MODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 46915
+            },
+            "DR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 46915
+            },
+            "COMP_MODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 46915
+            },
+            "COMP_POL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 46915
+            },
+            "COMP_LAT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 46915
+            },
+            "COMP_QUE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 46915
+            }
+          },
+          "0X02": {
+            "LO_THRESH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54726
+            }
+          },
+          "0X03": {
+            "HI_THRESH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54391
+            }
+          }
+        },
+        "fields_consistent_promoted": 4,
+        "fields_cross_section_augmented": 4,
+        "diagnostic_summary": {
+          "reserved": 1,
+          "name_too_short": 1,
+          "verified_quote": 12
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1693,
+        "output_tokens": 152,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000415
+      },
+      "extraction": {
+        "input_tokens": 20285,
+        "output_tokens": 1250,
+        "thinking_tokens": 0,
+        "calls": 3,
+        "total_cost_usd": 0.004682
+      },
+      "evidence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "correction": {
+        "input_tokens": 5934,
+        "output_tokens": 940,
+        "thinking_tokens": 0,
+        "calls": 5,
+        "total_cost_usd": 0.001657
+      },
+      "agents": {
+        "input_tokens": 11088,
+        "output_tokens": 2605,
+        "thinking_tokens": 2320,
+        "calls": 11,
+        "total_cost_usd": 0.00274
+      },
+      "convergence": {
+        "input_tokens": 4536,
+        "output_tokens": 1847,
+        "thinking_tokens": 1644,
+        "calls": 3,
+        "total_cost_usd": 0.000894
+      },
+      "grouping": {
+        "input_tokens": 464,
+        "output_tokens": 30,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000108
+      }
+    }
+  }
+}

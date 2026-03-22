@@ -1,0 +1,2307 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "ADXL345",
+  "description": "3-axis digital accelerometer",
+  "vendor": "Analog Devices",
+  "source": "ADXL345.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/adxl345.pdf",
+  "peripherals": {
+    "Device ID": [
+      {
+        "name": "DEVID",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Device ID register",
+        "fields": [
+          {
+            "name": "DEVID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Device ID",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Offsets": [
+      {
+        "name": "OFSX",
+        "address": "0x1E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "X-axis offset register",
+        "fields": [
+          {
+            "name": "OFSX",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "X-axis offset adjustment",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OFSY",
+        "address": "0x1F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Y-axis offset register",
+        "fields": [
+          {
+            "name": "OFSY",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Y-axis offset adjustment",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OFSZ",
+        "address": "0x20",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "User-set offset adjustment in twos complement format with a scale factor of 15.6 mg/LSB (0x7F = +2 g)",
+        "fields": [
+          {
+            "name": "OFFSET",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "User-set offset adjustment (two's complement)",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Data Output": [
+      {
+        "name": "DATA_FORMAT",
+        "address": "0x31",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data format control register",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SELF_TEST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Self test enable",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "SPI",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SPI mode",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "INT_INVERT",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt invert",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "FULL_RES",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Full resolution",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "JUSTIFY",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Data justification",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "RANGE",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Range selection",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATAX",
+        "address": "0x32",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "X-axis data low byte register | X-axis data high byte register",
+        "fields": [
+          {
+            "name": "DATAX0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X-axis data LSB",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DATAX1",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X-axis data MSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATAX1",
+        "address": "0x33",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "X-axis data MSB",
+        "fields": [
+          {
+            "name": "DATAX_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X-axis data most significant byte",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATAY",
+        "address": "0x34",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Y-axis data low byte register | Y-axis data high byte register",
+        "fields": [
+          {
+            "name": "DATAY0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y-axis data LSB",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DATAY1",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y-axis data MSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATAY1",
+        "address": "0x35",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Y-axis data MSB",
+        "fields": [
+          {
+            "name": "DATAY_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y-axis data most significant byte",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATAZ",
+        "address": "0x36",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Z-axis data low byte register | Z-axis data high byte register",
+        "fields": [
+          {
+            "name": "DATAZ0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z-axis data LSB",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DATAZ1",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z-axis data MSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATAZ1",
+        "address": "0x37",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Z-axis data MSB",
+        "fields": [
+          {
+            "name": "DATAZ_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z-axis data most significant byte",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Tap Detection": [
+      {
+        "name": "THRESH_TAP",
+        "address": "0x1D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Tap threshold register",
+        "fields": [
+          {
+            "name": "THRESH_TAP",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Threshold value for tap interrupts (62.5 mg/LSB)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          10,
+          12,
+          14,
+          15,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "address 0x1D not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DUR",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Tap duration register",
+        "fields": [
+          {
+            "name": "DUR",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Duration of tap event",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Latent",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Latent register for tap detection. Specifies the time after the first tap before the second tap can start.",
+        "fields": [
+          {
+            "name": "LATENT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Time before second tap",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Window",
+        "address": "0x23",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Window register. Specifies the amount of time after the latency time within which the second tap must occur.",
+        "fields": [
+          {
+            "name": "WINDOW",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Time window for second tap",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TAP_AXES",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Axis control for tap/double tap",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SUPPRESS",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Suppress double tap if accel > THRESH_TAP between taps",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TAP_X_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "TAP_X enable",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "TAP_Y_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "TAP_Y enable",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "TAP_Z_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "TAP_Z enable",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          15
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ACT_TAP_STATUS",
+        "address": "0x2B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Source of tap/double tap and activity events",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ACT_X_SRC",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ACT_X source",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ACT_Y_SRC",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ACT_Y source",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ACT_Z_SRC",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ACT_Z source",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ASLEEP",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Part asleep status",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TAP_X_SRC",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "TAP_X source",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TAP_Y_SRC",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "TAP_Y source",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TAP_Z_SRC",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "TAP_Z source",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Activity/Inactivity": [
+      {
+        "name": "THRESH_ACT",
+        "address": "0x24",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Activity threshold register",
+        "fields": [
+          {
+            "name": "THRESH_ACT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Activity threshold",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "THRESH_INACT",
+        "address": "0x25",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Inactivity threshold register",
+        "fields": [
+          {
+            "name": "THRESH_INACT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Inactivity threshold",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TIME_INACT",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TIME INACT register",
+        "fields": [
+          {
+            "name": "TIME_INACT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "The TIME_INACT register is eight bits and contains an unsigned time value representing the amount of time that acceleration must be less than the value in the THRESH_INACT register for inactivity to be declared. The scale factor is 1 sec/LSB. A value of 0 results in an interrupt when the output data is less than the value in the THRESH_INACT register.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ACT_INACT_CTL",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Axis enable control for activity and inactivity detection",
+        "fields": [
+          {
+            "name": "ACT_ACDC",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ACT AC/DC coupling",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "ACT_X_EN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ACT_X enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ACT_Y_EN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ACT_Y enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ACT_Z_EN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ACT_Z enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "INACT_ACDC",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "INACT AC/DC coupling",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "INACT_X_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "INACT_X enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "INACT_Y_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "INACT_Y enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "INACT_Z_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "INACT_Z enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          15
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Free Fall": [
+      {
+        "name": "THRESH_FF",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Free-fall threshold register",
+        "fields": [
+          {
+            "name": "THRESH_FF",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Free-fall threshold",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TIME_FF",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Free-fall time register",
+        "fields": [
+          {
+            "name": "TIME_FF",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Free-fall time",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Power/BW": [
+      {
+        "name": "BW_RATE",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "BW_RATE register (Read/Write)",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LOW_POWER",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Low power mode",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RATE",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Data rate selection",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "POWER_CTL",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Power control register (Read/Write)",
+        "fields": [
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LINK",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Link bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AUTO_SLEEP",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Auto sleep enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MEASURE",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Measurement enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLEEP",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sleep mode",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "WAKEUP",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Wakeup mode selection",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 5,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Interrupts": [
+      {
+        "name": "INT_ENABLE",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Interrupt enable register",
+        "fields": [
+          {
+            "name": "DATA_READY",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Data ready interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SINGLE_TAP",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Single tap interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DOUBLE_TAP",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Double tap interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ACTIVITY",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Activity interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INACTIVITY",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Inactivity interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FREE_FALL",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Free fall interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "WATERMARK",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Watermark interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "OVERRUN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Overrun interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_MAP",
+        "address": "0x2F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Interrupt mapping register",
+        "fields": [
+          {
+            "name": "DATA_READY",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Data ready interrupt map",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SINGLE_TAP",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Single tap interrupt map",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DOUBLE_TAP",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Double tap interrupt map",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ACTIVITY",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Activity interrupt map",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INACTIVITY",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Inactivity interrupt map",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FREE_FALL",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Free fall interrupt map",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "WATERMARK",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Watermark interrupt map",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OVERRUN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Overrun interrupt map",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_SOURCE",
+        "address": "0x30",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Interrupt source register",
+        "fields": [
+          {
+            "name": "DATA_READY",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Data ready source",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SINGLE_TAP",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Single tap source",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DOUBLE_TAP",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Double tap source",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ACTIVITY",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Activity source",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INACTIVITY",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Inactivity source",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FREE_FALL",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Free fall source",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "WATERMARK",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Watermark source",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OVERRUN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Overrun source",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "FIFO": [
+      {
+        "name": "FIFO_CTL",
+        "address": "0x38",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FIFO control register",
+        "fields": [
+          {
+            "name": "FIFO_MODE",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO mode selection",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "TRIGGER",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Trigger pin selection",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "SAMPLES",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Number of samples",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_STATUS",
+        "address": "0x39",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FIFO status register",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FIFO_TRIG",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "FIFO trigger status",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ENTRIES",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Number of FIFO entries",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T14:31:31.816983+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 30,
+        "by_confidence": {
+          "high": 26,
+          "medium": 4,
+          "low": 0
+        },
+        "with_quality_issues": 6,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 90,
+        "by_source": {
+          "llm_consistent": 7,
+          "agent_verified": 38,
+          "llm_verified": 1,
+          "synthetic": 7,
+          "llm_only": 13,
+          "evidence_verified": 24
+        }
+      },
+      "peripherals": {
+        "total": 9,
+        "by_name": {
+          "Device ID": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Offsets": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Data Output": {
+            "registers": 7,
+            "confidence": {
+              "high": 6,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Tap Detection": {
+            "registers": 6,
+            "confidence": {
+              "high": 5,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Activity/Inactivity": {
+            "registers": 4,
+            "confidence": {
+              "high": 3,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Free Fall": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Power/BW": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Interrupts": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "FIFO": {
+            "registers": 2,
+            "confidence": {
+              "high": 1,
+              "medium": 1,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 23,
+        "batches_total": 10,
+        "batches_sent": 10,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 9,
+          "address 0x1D not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 16,
+        "fields_verified": 1,
+        "fields_unverified": 15,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 13,
+        "field_diagnostics": {
+          "0X00": {
+            "DEVID": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 82160
+            }
+          },
+          "0X1E": {
+            "OFSX": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 44031
+            }
+          },
+          "0X1F": {
+            "OFSY": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 44031
+            }
+          },
+          "0X20": {
+            "OFSZ": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 44031
+            }
+          },
+          "0X21": {
+            "DUR": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 71244
+            }
+          },
+          "0X22": {
+            "LATENT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58060
+            }
+          },
+          "0X23": {
+            "WINDOW": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 70824
+            }
+          },
+          "0X24": {
+            "THRESH_ACT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 6385
+            }
+          },
+          "0X25": {
+            "THRESH_INACT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 6385
+            }
+          },
+          "0X26": {
+            "TIME_INACT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 6385
+            }
+          },
+          "0X28": {
+            "THRESH_FF": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 6385
+            }
+          },
+          "0X29": {
+            "TIME_FF": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 6385
+            }
+          },
+          "0X1D": {
+            "THRESH_TAP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 35123
+            }
+          },
+          "0X27": {
+            "ACT_ACDC": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20870
+            },
+            "ACT_X_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20870
+            },
+            "ACT_Y_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20870
+            },
+            "ACT_Z_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20870
+            },
+            "INACT_ACDC": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20870
+            },
+            "INACT_X_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20870
+            },
+            "INACT_Y_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20870
+            },
+            "INACT_Z_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20870
+            }
+          },
+          "0X2A": {
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20931
+            },
+            "SUPPRESS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20931
+            },
+            "TAP_X_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20931
+            },
+            "TAP_Y_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20931
+            },
+            "TAP_Z_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20931
+            }
+          },
+          "0X2B": {
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20506
+            },
+            "ACT_X_SRC": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20506
+            },
+            "ACT_Y_SRC": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20506
+            },
+            "ACT_Z_SRC": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20506
+            },
+            "ASLEEP": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20506
+            },
+            "TAP_X_SRC": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20506
+            },
+            "TAP_Y_SRC": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20506
+            },
+            "TAP_Z_SRC": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20506
+            }
+          },
+          "0X2C": {
+            "RSVD_7_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5983
+            },
+            "LOW_POWER": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5983
+            },
+            "RATE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5983
+            }
+          },
+          "0X2D": {
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5993
+            },
+            "RSVD_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5993
+            },
+            "LINK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5993
+            },
+            "AUTO_SLEEP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5993
+            },
+            "MEASURE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5993
+            },
+            "SLEEP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5993
+            },
+            "WAKEUP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5993
+            }
+          },
+          "0X2E": {
+            "DATA_READY": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13089
+            },
+            "SINGLE_TAP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13089
+            },
+            "DOUBLE_TAP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13089
+            },
+            "ACTIVITY": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13089
+            },
+            "INACTIVITY": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13089
+            },
+            "FREE_FALL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13089
+            },
+            "WATERMARK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13089
+            },
+            "OVERRUN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13089
+            }
+          },
+          "0X2F": {
+            "DATA_READY": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13591
+            },
+            "SINGLE_TAP": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13591
+            },
+            "DOUBLE_TAP": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13591
+            },
+            "ACTIVITY": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13591
+            },
+            "INACTIVITY": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13591
+            },
+            "FREE_FALL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13591
+            },
+            "WATERMARK": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13591
+            },
+            "OVERRUN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13591
+            }
+          },
+          "0X30": {
+            "DATA_READY": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13748
+            },
+            "SINGLE_TAP": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13748
+            },
+            "DOUBLE_TAP": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13748
+            },
+            "ACTIVITY": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13748
+            },
+            "INACTIVITY": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13748
+            },
+            "FREE_FALL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13748
+            },
+            "WATERMARK": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13748
+            },
+            "OVERRUN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13748
+            }
+          },
+          "0X31": {
+            "SELF_TEST": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 76237
+            },
+            "SPI": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 76237
+            },
+            "INT_INVERT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 76237
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 76237
+            },
+            "FULL_RES": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 76237
+            },
+            "JUSTIFY": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 76237
+            },
+            "RSVD_1": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 76237
+            },
+            "RANGE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 76237
+            }
+          },
+          "0X32": {
+            "DATAX_LSB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 132571
+            },
+            "DATAX0": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 79500
+            },
+            "DATAX1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 79500
+            }
+          },
+          "0X33": {
+            "DATAX_MSB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 132571
+            }
+          },
+          "0X34": {
+            "DATAY_LSB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128185
+            },
+            "DATAY0": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 79500
+            },
+            "DATAY1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 79500
+            }
+          },
+          "0X35": {
+            "DATAY_MSB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128185
+            }
+          },
+          "0X36": {
+            "DATAZ_LSB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128169
+            },
+            "DATAZ0": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 79500
+            },
+            "DATAZ1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 79500
+            }
+          },
+          "0X37": {
+            "DATAZ_MSB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 134894
+            }
+          },
+          "0X38": {
+            "FIFO_MODE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83340
+            },
+            "TRIGGER": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83340
+            },
+            "SAMPLES": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83340
+            }
+          },
+          "0X39": {
+            "FIFO_TRIG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51877
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51877
+            },
+            "ENTRIES": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51877
+            }
+          }
+        },
+        "fields_consistent_promoted": 9,
+        "fields_cross_section_augmented": 20,
+        "fields_name_matched": 23,
+        "diagnostic_summary": {
+          "quote_not_found": 15,
+          "verified_quote": 1,
+          "name_not_found": 47,
+          "reserved": 8,
+          "verified_name": 23
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1829,
+        "output_tokens": 100,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000416
+      },
+      "extraction": {
+        "input_tokens": 41993,
+        "output_tokens": 18502,
+        "thinking_tokens": 0,
+        "calls": 10,
+        "total_cost_usd": 0.01765
+      },
+      "evidence": {
+        "input_tokens": 1021,
+        "output_tokens": 91,
+        "thinking_tokens": 0,
+        "calls": 2,
+        "total_cost_usd": 0.00025
+      },
+      "correction": {
+        "input_tokens": 31801,
+        "output_tokens": 7314,
+        "thinking_tokens": 0,
+        "calls": 33,
+        "total_cost_usd": 0.010017
+      },
+      "agents": {
+        "input_tokens": 108764,
+        "output_tokens": 16881,
+        "thinking_tokens": 7031,
+        "calls": 16,
+        "total_cost_usd": 0.036852
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 866,
+        "output_tokens": 195,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000271
+      }
+    }
+  }
+}

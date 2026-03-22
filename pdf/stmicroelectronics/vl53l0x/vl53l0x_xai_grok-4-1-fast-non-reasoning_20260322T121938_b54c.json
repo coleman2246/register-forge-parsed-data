@@ -1,0 +1,255 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "VL53L0X",
+  "description": "Time-of-flight ranging sensor, up to 2m range, I2C interface",
+  "vendor": "STMicroelectronics",
+  "source": "VL53L0X.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn.sparkfun.com/assets/8/9/9/a/6/VL53L0X_DS.pdf",
+  "peripherals": {
+    "Identification": [
+      {
+        "name": "MODEL_ID",
+        "address": "0x10F",
+        "size_bits": 8,
+        "reset_value": "0xEA",
+        "description": "Model ID register",
+        "fields": [
+          {
+            "name": "MODEL_ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 234,
+            "description": "Model identification value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0x10F not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MODULE_TYPE",
+        "address": "0x110",
+        "size_bits": 8,
+        "reset_value": "0xCC",
+        "description": "Module type register",
+        "fields": [
+          {
+            "name": "MODULE_TYPE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 204,
+            "description": "Module type identification value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0x110 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MASK_REVISION",
+        "address": "0x111",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "Mask revision register",
+        "fields": [
+          {
+            "name": "MASK_REVISION",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 16,
+            "description": "Mask revision identification value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0x111 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T16:19:38.862503+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 3,
+        "by_confidence": {
+          "high": 3,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 3,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 3,
+        "by_source": {
+          "evidence_verified": 3
+        }
+      },
+      "peripherals": {
+        "total": 1,
+        "by_name": {
+          "Identification": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 1,
+        "batches_total": 1,
+        "batches_sent": 1,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 6,
+          "address 0x10F not found in register summary table": 1,
+          "address 0x110 not found in register summary table": 1,
+          "address 0x111 not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 3,
+        "fields_verified": 3,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 3,
+        "field_diagnostics": {
+          "0X10F": {
+            "MODEL_ID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 6427
+            }
+          },
+          "0X110": {
+            "MODULE_TYPE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 6427
+            }
+          },
+          "0X111": {
+            "MASK_REVISION": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 6427
+            }
+          }
+        },
+        "fields_consistent_promoted": 3,
+        "fields_bit_llm_fallback": 3,
+        "diagnostic_summary": {
+          "verified_quote": 3
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1057,
+        "output_tokens": 62,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000242
+      },
+      "extraction": {
+        "input_tokens": 4348,
+        "output_tokens": 466,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.001103
+      },
+      "evidence": {
+        "input_tokens": 1129,
+        "output_tokens": 20,
+        "thinking_tokens": 0,
+        "calls": 2,
+        "total_cost_usd": 0.000236
+      },
+      "correction": {
+        "input_tokens": 2948,
+        "output_tokens": 455,
+        "thinking_tokens": 0,
+        "calls": 3,
+        "total_cost_usd": 0.000817
+      },
+      "agents": {
+        "input_tokens": 7211,
+        "output_tokens": 5822,
+        "thinking_tokens": 4843,
+        "calls": 11,
+        "total_cost_usd": 0.003834
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 333,
+        "output_tokens": 19,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 7.6e-05
+      }
+    }
+  }
+}

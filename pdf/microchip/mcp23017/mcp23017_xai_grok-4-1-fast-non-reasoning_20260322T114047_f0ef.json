@@ -1,0 +1,2198 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "MCP23017",
+  "description": "16-bit I/O expander",
+  "vendor": "Microchip",
+  "source": "MCP23017.pdf",
+  "source_type": "pdf",
+  "source_url": "https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf",
+  "peripherals": {
+    "Configuration": [
+      {
+        "name": "IODIR",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "I/O DIRECTION REGISTER. Controls the direction of the data I/O. When a bit is set, the corresponding pin becomes an input. When a bit is clear, the corresponding pin becomes an output.",
+        "fields": [
+          {
+            "name": "IODIR",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "I/O direction bits",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          19,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IPOL",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INPUT POLARITY PORT REGISTER",
+        "fields": [
+          {
+            "name": "IP7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls the polarity inversion of the input pin 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IP6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls the polarity inversion of the input pin 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IP5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls the polarity inversion of the input pin 5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IP4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls the polarity inversion of the input pin 4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IP3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls the polarity inversion of the input pin 3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IP2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls the polarity inversion of the input pin 2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IP1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls the polarity inversion of the input pin 1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "IP0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls the polarity inversion of the input pin 0",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IOCON",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "I/O EXPANDER CONFIGURATION REGISTER",
+        "fields": [
+          {
+            "name": "Reserved",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Unimplemented bit, read as \u20180\u2019",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "BANK",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls how the registers are addressed. 1 = The registers associated with each port are separated into different banks. 0 = The registers are in the same bank (addresses are sequential).",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "MIRROR",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "INT Pins Mirror bit. 1 = The INT pins are internally connected",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SEQOP",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SEQOP",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "DISSLW",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Disslw",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "HAEN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "HAEN",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "ODR",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ODR",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "INTPOL",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Intpol",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IOCON",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I/O control configuration register",
+        "fields": [
+          {
+            "name": "RSVD_3_0",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SEQOP",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Sequential mode enable (0 = sequential mode enabled, default)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "GPIO": [
+      {
+        "name": "GPIOA",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "GENERAL PURPOSE INPUT/OUTPUT PORT A",
+        "fields": [
+          {
+            "name": "GP7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "General purpose I/O port bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GP6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "General purpose I/O port bit 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GP5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "General purpose I/O port bit 5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GP4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "General purpose I/O port bit 4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GP3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "General purpose I/O port bit 3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GP2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "General purpose I/O port bit 2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GP1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "General purpose I/O port bit 1",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GP0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "General purpose I/O port bit 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GPIOB",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "GENERAL PURPOSE INPUT/OUTPUT PORT B",
+        "fields": [
+          {
+            "name": "GP7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "GPIO register bit reflecting pin state.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GP6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "GPIO register bit reflecting pin state.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GP5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "GPIO register bit reflecting pin state.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "GP4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "GPIO register bit reflecting pin state.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "GP3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "GPIO register bit reflecting pin state.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "GP2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "GPIO register bit reflecting pin state.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "GP1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "GPIO register bit reflecting pin state.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "GP0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "GPIO register bit reflecting pin state.",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GPIOB",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Port B data register (BANK=1)",
+        "fields": [
+          {
+            "name": "GP",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Port B data pins",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "GPINTEN": [
+      {
+        "name": "GPINTEN",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INTERRUPT-ON-CHANGE PINS",
+        "fields": [
+          {
+            "name": "GPINT7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables GPIO input pin for interrupt-on-change event.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GPINT6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables GPIO input pin for interrupt-on-change event.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GPINT5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables GPIO input pin for interrupt-on-change event.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GPINT4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables GPIO input pin for interrupt-on-change event.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GPINT3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables GPIO input pin for interrupt-on-change event.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GPINT2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables GPIO input pin for interrupt-on-change event.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GPINT1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables GPIO input pin for interrupt-on-change event.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GPINT0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables GPIO input pin for interrupt-on-change event.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "INTCON": [
+      {
+        "name": "INTCON",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INTERRUPT-ON-CHANGE CONTROL REGISTER",
+        "fields": [
+          {
+            "name": "IOC7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls how the associated pin value is compared for interrupt-on-change. 1 = compare against DEFVAL, 0 = compare against previous value.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IOC6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls how the associated pin value is compared for interrupt-on-change. 1 = compare against DEFVAL, 0 = compare against previous value.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IOC5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls how the associated pin value is compared for interrupt-on-change. 1 = compare against DEFVAL, 0 = compare against previous value.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IOC4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls how the associated pin value is compared for interrupt-on-change. 1 = compare against DEFVAL, 0 = compare against previous value.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IOC3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls how the associated pin value is compared for interrupt-on-change. 1 = compare against DEFVAL, 0 = compare against previous value.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IOC2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls how the associated pin value is compared for interrupt-on-change. 1 = compare against DEFVAL, 0 = compare against previous value.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "IOC1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls how the associated pin value is compared for interrupt-on-change. 1 = compare against DEFVAL, 0 = compare against previous value.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "IOC0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls how the associated pin value is compared for interrupt-on-change. 1 = compare against DEFVAL, 0 = compare against previous value.",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INTCONA",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INTCONA alternate address",
+        "fields": [
+          {
+            "name": "INTCONA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Port A interrupt control bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INTCONB",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INTCONB alternate address",
+        "fields": [
+          {
+            "name": "INTCONB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Port B interrupt control bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "DEFVAL": [
+      {
+        "name": "DEFVAL",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Default value register for interrupt-on-change comparison",
+        "fields": [
+          {
+            "name": "DEF7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sets the compare value for pins configured for interrupt-on-change from defaults",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "DEF6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sets the compare value for pins configured for interrupt-on-change from defaults",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "DEF5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sets the compare value for pins configured for interrupt-on-change from defaults",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "DEF4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sets the compare value for pins configured for interrupt-on-change from defaults",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "DEF3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sets the compare value for pins configured for interrupt-on-change from defaults",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "DEF2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sets the compare value for pins configured for interrupt-on-change from defaults",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "DEF1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sets the compare value for pins configured for interrupt-on-change from defaults",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "DEF0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sets the compare value for pins configured for interrupt-on-change from defaults",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 4,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DEFVALA",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "DEFVALA alternate address",
+        "fields": [
+          {
+            "name": "DEFVALA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Port A interrupt default value bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DEFVALB",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "DEFVALB alternate address",
+        "fields": [
+          {
+            "name": "DEFVALB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Port B interrupt default value bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "GPPU": [
+      {
+        "name": "GPPUA_BANK0",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Port A pull-up resistor control register (BANK=0)",
+        "fields": [
+          {
+            "name": "PU",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Individual pin pull-up resistor controls",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          19,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GPPUB",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Port B pull-up resistor control register (BANK=0)",
+        "fields": [
+          {
+            "name": "PU",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Individual pin pull-up resistor controls",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          19,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x0C"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GPPUB_BANK0",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Port B pull-up resistor control register (BANK=0)",
+        "fields": [
+          {
+            "name": "PU",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Individual pin pull-up resistor controls",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          19,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x0C"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GPPUB",
+        "address": "0x16",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Port B pull-up resistor control register (BANK=1)",
+        "fields": [
+          {
+            "name": "PU",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Individual pin pull-up resistor controls",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "OLAT": [
+      {
+        "name": "OLAT",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "OUTPUT LATCH REGISTER 0 (ADDR 0x0A)",
+        "fields": [
+          {
+            "name": "OL7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reflects the logic level on the output latch bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reflects the logic level on the output latch bit 6",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "OL5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reflects the logic level on the output latch bit 5",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "OL4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reflects the logic level on the output latch bit 4",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "OL3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reflects the logic level on the output latch bit 3",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "OL2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reflects the logic level on the output latch bit 2",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "OL1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reflects the logic level on the output latch bit 1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "OL0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reflects the logic level on the output latch bit 0",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OLATA",
+        "address": "0x14",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Port A output latch register",
+        "fields": [
+          {
+            "name": "OL7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output latch bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output latch bit 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output latch bit 5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output latch bit 4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output latch bit 3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output latch bit 2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output latch bit 1",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output latch bit 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          19,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OLATB",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Output Latch Register B",
+        "fields": [
+          {
+            "name": "OL7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output Latch Bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output Latch Bit 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output Latch Bit 5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output Latch Bit 4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output Latch Bit 3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output Latch Bit 2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output Latch Bit 1",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OL0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output Latch Bit 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          19,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OLATB",
+        "address": "0x1A",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Port B output latch register (BANK=1)",
+        "fields": [
+          {
+            "name": "OL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Port B output latch values",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "INTF": [
+      {
+        "name": "INTFA",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INTFA alternate address",
+        "fields": [
+          {
+            "name": "INTFA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Port A interrupt flag bits",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INTFB",
+        "address": "0x17",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Port B interrupt flag",
+        "fields": [
+          {
+            "name": "INTFB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Port B interrupt flag bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          15,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "INTCAP": [
+      {
+        "name": "INTCAPA",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INTCAPA alternate address",
+        "fields": [
+          {
+            "name": "INTCAPA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Port A interrupt capture bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INTCAPB",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INTCAPB alternate address",
+        "fields": [
+          {
+            "name": "INTCAPB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Port B interrupt capture bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INTCAPB_BANK1",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Port B interrupt capture register (BANK=1)",
+        "fields": [
+          {
+            "name": "ICP",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Pin state when interrupt occurred",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          19,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Other": [
+      {
+        "name": "INTFB",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INTFB alternate address",
+        "fields": [
+          {
+            "name": "INTFB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Port B interrupt flag bits",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T15:40:47.311890+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 28,
+        "by_confidence": {
+          "high": 28,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 3,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 100,
+        "by_source": {
+          "agent_verified": 50,
+          "llm_verified": 31,
+          "synthetic": 3,
+          "evidence_verified": 14,
+          "llm_consistent": 2
+        }
+      },
+      "peripherals": {
+        "total": 10,
+        "by_name": {
+          "Configuration": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "GPIO": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "GPINTEN": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "INTCON": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "DEFVAL": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "GPPU": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "OLAT": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "INTF": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "INTCAP": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Other": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 43,
+        "batches_total": 9,
+        "batches_sent": 9,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 1,
+        "warnings_detail": [
+          "duplicate address 0x0D: 'GPPUB' and 'GPPUB_BANK0'"
+        ],
+        "issue_breakdown": {
+          "identical field layout as adjacent register 0x0C": 2,
+          "zone_validation": 2
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 33,
+        "fields_verified": 30,
+        "fields_unverified": 3,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 58,
+        "field_diagnostics": {
+          "0X00": {
+            "IO": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 108532
+            }
+          },
+          "0X01": {
+            "IP": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 106442
+            },
+            "IO": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42399
+            }
+          },
+          "0X02": {
+            "GPINT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 106442
+            },
+            "IP": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42141
+            }
+          },
+          "0X06": {
+            "PU": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 88979
+            },
+            "DEFVALA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 77486
+            },
+            "DEF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26496
+            }
+          },
+          "0X09": {
+            "GP": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 96012
+            },
+            "INTCONB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 77628
+            },
+            "IOC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26329
+            }
+          },
+          "0X0A": {
+            "OL": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 90345
+            },
+            "IOCON": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 218769
+            },
+            "CONFIG": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 27862
+            }
+          },
+          "0X10": {
+            "IO": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90550
+            },
+            "INTCAPA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 77486
+            }
+          },
+          "0X11": {
+            "IP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90550
+            },
+            "INTCAPB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 77486
+            }
+          },
+          "0X12": {
+            "GPINT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 106603
+            },
+            "GP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 45738
+            }
+          },
+          "0X16": {
+            "PU": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 91526
+            }
+          },
+          "0X19": {
+            "GP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90521
+            }
+          },
+          "0X1A": {
+            "OL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 101135
+            }
+          },
+          "0X03": {
+            "IP": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 41991
+            },
+            "DEFVALA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 78177
+            },
+            "DEF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 87849
+            }
+          },
+          "0X04": {
+            "GPINT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 93423
+            },
+            "INTCONA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 78177
+            },
+            "IOC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 95427
+            }
+          },
+          "0X05": {
+            "GPINT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 93584
+            },
+            "BANK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 252466
+            },
+            "MIRROR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 252466
+            },
+            "SEQOP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 252466
+            },
+            "DISSLW": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 252466
+            },
+            "HAEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 252466
+            },
+            "ODR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 252466
+            },
+            "INTPOL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 252466
+            },
+            "UNIMPLEMENTED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 252466
+            }
+          },
+          "0X0C": {
+            "PU": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 18388
+            }
+          },
+          "0X0D": {
+            "PU": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 18388
+            }
+          },
+          "0X13": {
+            "GP": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 30136
+            },
+            "DEFVALB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 79831
+            },
+            "DEF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 30136
+            }
+          },
+          "0X14": {
+            "OL": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 45738
+            },
+            "INTCONB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 79831
+            },
+            "IOC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 45738
+            }
+          },
+          "0X15": {
+            "OL": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 29915
+            },
+            "IOCON": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 221185
+            },
+            "CONFIG": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29915
+            }
+          },
+          "0X07": {
+            "INTFA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 79436
+            },
+            "DEFVALB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 77486
+            },
+            "INT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 88979
+            },
+            "DEF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26657
+            }
+          },
+          "0X08": {
+            "INTCAPA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 78177
+            },
+            "INTCONA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 77486
+            },
+            "ICP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 96012
+            },
+            "IOC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26329
+            }
+          },
+          "0X17": {
+            "INTFB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 78259
+            },
+            "INT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 18215
+            }
+          },
+          "0X18": {
+            "INTCAPB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 78259
+            },
+            "ICP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 18388
+            }
+          },
+          "0X0B": {
+            "IOCON": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 215445
+            },
+            "CONFIG": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 18388
+            }
+          },
+          "0X0E": {
+            "INTFA": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 75914
+            }
+          },
+          "0X0F": {
+            "INTFB": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 75914
+            }
+          }
+        },
+        "fields_cross_section_augmented": 50,
+        "fields_name_matched": 32,
+        "fields_consistent_promoted": 19,
+        "fields_bit_llm_fallback": 4,
+        "diagnostic_summary": {
+          "verified_quote": 23,
+          "name_too_short": 8,
+          "verified_name": 30,
+          "quote_not_found": 3,
+          "reserved": 1
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1538,
+        "output_tokens": 132,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000374
+      },
+      "extraction": {
+        "input_tokens": 58381,
+        "output_tokens": 21234,
+        "thinking_tokens": 0,
+        "calls": 9,
+        "total_cost_usd": 0.022293
+      },
+      "evidence": {
+        "input_tokens": 2376,
+        "output_tokens": 219,
+        "thinking_tokens": 0,
+        "calls": 5,
+        "total_cost_usd": 0.000585
+      },
+      "correction": {
+        "input_tokens": 82796,
+        "output_tokens": 32258,
+        "thinking_tokens": 0,
+        "calls": 76,
+        "total_cost_usd": 0.032688
+      },
+      "agents": {
+        "input_tokens": 208925,
+        "output_tokens": 35131,
+        "thinking_tokens": 18932,
+        "calls": 33,
+        "total_cost_usd": 0.073217
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 1328,
+        "output_tokens": 151,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000341
+      }
+    }
+  }
+}

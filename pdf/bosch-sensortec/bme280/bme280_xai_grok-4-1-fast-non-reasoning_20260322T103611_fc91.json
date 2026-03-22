@@ -1,0 +1,967 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "BME280",
+  "description": "Humidity, pressure, and temperature sensor",
+  "vendor": "Bosch Sensortec",
+  "source": "BME280.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf",
+  "peripherals": {
+    "Device ID": [
+      {
+        "name": "id",
+        "address": "0xD0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Device ID register",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Chip ID",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          5
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Control": [
+      {
+        "name": "ctrl_hum",
+        "address": "0xF2",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "The 'ctrl_hum' register sets the humidity data acquisition options of the device. Changes to this register only become effective after a write operation to ' ctrl_meas'.",
+        "fields": [
+          {
+            "name": "RSVD_7_3",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "osrs_h",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Controls oversampling of humidity data. See Table 20 for settings and chapter 3.4.1 for details.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          5,
+          27,
+          28
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ctrl_meas",
+        "address": "0xF4",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "The 'ctrl_meas' register sets the pressure and temperature data acquisition options of the device. The register needs to be written after changing 'ctrl_hum' for the changes to become effective.",
+        "fields": [
+          {
+            "name": "osrs_t",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Controls oversampling of temperature data. See Table 24 for settings and chapter 3.4.3 for details.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "osrs_p",
+            "bit_high": 4,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Controls oversampling of pressure data. See Table 23 for settings and chapter 3.4.2 for details.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "mode",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Controls the sensor mode of the device. See Table 25 for settings and chapter 3.3 for details.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          5,
+          28,
+          29,
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "config",
+        "address": "0xF5",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "The 'config' register sets the rate, filter and interface options of the device. Writes to the 'config' register in normal mode may be ignored. In sleep mode writes are not ignored.",
+        "fields": [
+          {
+            "name": "RSVD_4_1",
+            "bit_high": 4,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "t_sb",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls inactive duration t_standby in normal mode. See Table 27 for settings and chapter 3.3.4 for details.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "filter",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls the time constant of the IIR filter. See Table 27 for settings and chapter 3.4.4 for details.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "spi3w_en",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables 3-wire SPI interface when set to '1'. See chapter 6.3 for details.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 5,
+        "source_pages": [
+          30,
+          38
+        ],
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: filter[0:0] and spi3w_en[0:0]",
+          "Overlapping fields: filter[0:0] and spi3w_en[0:0]",
+          "Overlapping fields: filter[0:0] and spi3w_en[0:0]",
+          "fields 'filter' [0:0] and 'spi3w_en' [0:0] overlap"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Status": [
+      {
+        "name": "status",
+        "address": "0xF3",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "The 'status' register contains two bits which indicate the status of the device.",
+        "fields": [
+          {
+            "name": "RSVD_2_1",
+            "bit_high": 2,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_7_4",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "measuring[0]",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Automatically set to '1' whenever a conversion is running and back to '0' when the results have been transferred to the data registers.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "im_update[0]",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Automatically set to '1' when the NVM data are being copied to image registers and back to '0' when the copying is done. The data are copied at power-on- reset and before every conversion.",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          5,
+          28
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Reset": [
+      {
+        "name": "reset",
+        "address": "0xE0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Software reset register",
+        "fields": [
+          {
+            "name": "RESET",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Write 0xB6 to trigger soft reset",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          5
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Pressure Data": [
+      {
+        "name": "PRESS_MSB",
+        "address": "0xF7",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of PRESS register",
+        "fields": [
+          {
+            "name": "press_msb",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Raw pressure measurement output data bits 19:12",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "weak_split_placeholder: split register still uses unresolved placeholder field shape"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PRESS_LSB",
+        "address": "0xF8",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Contains LSB part[11:4] of raw pressure measurement",
+        "fields": [
+          {
+            "name": "press_lsb",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "LSB part of raw pressure",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0xF8 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PRESS_XLSB",
+        "address": "0xF9",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Contains XLSB part[3:0] of raw pressure measurement",
+        "fields": [
+          {
+            "name": "RSVD_3_0",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "press_xlsb",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "XLSB part[3:0] of raw pressure",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          5,
+          26,
+          30,
+          31
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0xF9 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Temperature Data": [
+      {
+        "name": "TEMP_MSB",
+        "address": "0xFA",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of TEMP register",
+        "fields": [
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "temp_msb[7:0]",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Temp msb[7:0]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TEMP_LSB",
+        "address": "0xFB",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower bits of TEMP register",
+        "fields": [
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "temp_lsb[7:0]",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Temp lsb[7:0]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xFB not found in register summary table",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TEMP_XLSB",
+        "address": "0xFC",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TEMP XLSB register",
+        "fields": [
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "temp_xlsb[3:0]",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Temp xlsb[3:0]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xFC not found in register summary table",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Humidity Data": [
+      {
+        "name": "HUM_MSB",
+        "address": "0xFD",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of HUM register",
+        "fields": [
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "hum_msb[7:0]",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Hum msb[7:0]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TEMP_LSB",
+        "address": "0xFE",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower bits of TEMP register",
+        "fields": [
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "temp_lsb[7:0]",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Temp lsb[7:0]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xFE not found in register summary table",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T14:36:11.099349+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 14,
+        "by_confidence": {
+          "high": 12,
+          "medium": 1,
+          "low": 1
+        },
+        "with_quality_issues": 9,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 29,
+        "by_source": {
+          "agent_verified": 10,
+          "synthetic": 10,
+          "evidence_verified": 6,
+          "llm_verified": 2,
+          "section_agent": 1
+        }
+      },
+      "peripherals": {
+        "total": 7,
+        "by_name": {
+          "Device ID": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Control": {
+            "registers": 3,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 1
+            }
+          },
+          "Status": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Reset": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Pressure Data": {
+            "registers": 3,
+            "confidence": {
+              "high": 2,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Temperature Data": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Humidity Data": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 9,
+        "batches_total": 9,
+        "batches_sent": 9,
+        "batches_failed": 2
+      },
+      "validation": {
+        "warnings_total": 1,
+        "warnings_detail": [
+          "config (0xF5): fields 'filter' [0:0] and 'spi3w_en' [0:0] overlap"
+        ],
+        "issue_breakdown": {
+          "Overlapping fields": 3,
+          "fields 'filter' [0": 1,
+          "weak_split_placeholder": 1,
+          "zone_validation": 4,
+          "address 0xF8 not found in register summary table": 1,
+          "address 0xF9 not found in register summary table": 1,
+          "missing_source_location": 5,
+          "address 0xFB not found in register summary table": 1,
+          "address 0xFC not found in register summary table": 1,
+          "address 0xFE not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 17,
+        "fields_verified": 17,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 17,
+        "field_diagnostics": {
+          "0XD0": {
+            "chip_id": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15450
+            },
+            "ID": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 72496
+            }
+          },
+          "0XF2": {
+            "osr_h": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 21576
+            },
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 18260
+            }
+          },
+          "0XF4": {
+            "mode": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17049
+            },
+            "osr_t": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17049
+            },
+            "osr_p": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17049
+            },
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 19709
+            }
+          },
+          "0XF7": {
+            "press_msb": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 32453
+            },
+            "PRESS_MSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 39215
+            }
+          },
+          "0XF8": {
+            "press_lsb": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17375
+            }
+          },
+          "0XF9": {
+            "press_xlsb": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 25216
+            }
+          },
+          "0XFA": {
+            "temp_msb": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22248
+            },
+            "TEMP_MSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 55258
+            }
+          },
+          "0XFB": {
+            "temp_lsb": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 20721
+            }
+          },
+          "0XFC": {
+            "temp_xlsb": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 27093
+            }
+          },
+          "0XFD": {
+            "hum_msb": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16769
+            },
+            "HUM_MSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 23661
+            }
+          },
+          "0XFE": {
+            "hum_lsb": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15429
+            }
+          },
+          "0XE0": {
+            "RESET": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 96877
+            }
+          },
+          "0XF3": {
+            "osr_h": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 30822
+            },
+            "osrs_p": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 30822
+            },
+            "osrs": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 30822
+            }
+          },
+          "0XF5": {
+            "T_SB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 53546
+            },
+            "FILTER": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 53546
+            },
+            "SPI3W_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 53546
+            }
+          }
+        },
+        "fields_consistent_promoted": 11,
+        "fields_cross_section_augmented": 18,
+        "fields_bit_llm_fallback": 3,
+        "fields_name_matched": 2,
+        "fields_bit_corrected": 1,
+        "diagnostic_summary": {
+          "verified_quote": 17,
+          "name_too_short": 1,
+          "name_not_found": 6,
+          "verified_name": 2
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1172,
+        "output_tokens": 70,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000269
+      },
+      "extraction": {
+        "input_tokens": 104273,
+        "output_tokens": 14530,
+        "thinking_tokens": 0,
+        "calls": 14,
+        "total_cost_usd": 0.02812
+      },
+      "evidence": {
+        "input_tokens": 4022,
+        "output_tokens": 266,
+        "thinking_tokens": 0,
+        "calls": 8,
+        "total_cost_usd": 0.000937
+      },
+      "correction": {
+        "input_tokens": 19293,
+        "output_tokens": 4932,
+        "thinking_tokens": 0,
+        "calls": 20,
+        "total_cost_usd": 0.006325
+      },
+      "agents": {
+        "input_tokens": 199706,
+        "output_tokens": 27386,
+        "thinking_tokens": 15601,
+        "calls": 35,
+        "total_cost_usd": 0.064326
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 688,
+        "output_tokens": 104,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.00019
+      }
+    }
+  }
+}

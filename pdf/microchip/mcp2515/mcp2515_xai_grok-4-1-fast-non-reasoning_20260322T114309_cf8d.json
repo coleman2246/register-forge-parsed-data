@@ -1,0 +1,4678 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "MCP2515",
+  "description": "CAN controller with SPI",
+  "vendor": "Microchip",
+  "source": "MCP2515.pdf",
+  "source_type": "pdf",
+  "source_url": "https://ww1.microchip.com/downloads/en/DeviceDoc/MCP2515-Stand-Alone-CAN-Controller-with-SPI-20001801J.pdf",
+  "peripherals": {
+    "Error Management": [
+      {
+        "name": "TEC",
+        "address": "0x1C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Transmit Error Counter",
+        "fields": [
+          {
+            "name": "TEC7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Transmit Error Counter bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TEC6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Transmit Error Counter bit 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TEC5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Transmit Error Counter bit 5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TEC4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Transmit Error Counter bit 4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TEC3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Transmit Error Counter bit 3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TEC2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Transmit Error Counter bit 2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TEC1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Transmit Error Counter bit 1",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TEC0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Transmit Error Counter bit 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 6,
+        "source_pages": [
+          59
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "REC",
+        "address": "0x1D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Receive Error Counter",
+        "fields": [
+          {
+            "name": "REC",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Receive Error Counter value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          59
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EFLG",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Error Flag register",
+        "fields": [
+          {
+            "name": "RX1OVR",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Receive Buffer 1 Overflow Flag bit - Set when a valid message is received for RXB1 and CANINTF.RX1IF = 1 - Must be reset by MCU",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX0OVR",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Receive Buffer 0 Overflow Flag bit - Set when a valid message is received for RXB0 and CANINTF.RX0IF = 1 - Must be reset by MCU",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TXBO",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Bus-Off Error Flag bit - Bit set when TEC reaches 255 - Reset after a successful bus recovery sequence",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TXEP",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Transmit Error-Passive Flag bit - Set when TEC is equal to or greater than 128 - Reset when TEC is less than 128",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RXEP",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Receive Error-Passive Flag bit - Set when REC is equal to or greater than 128 - Reset when REC is less than 128",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TXWAR",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Transmit Error Warning Flag bit - Set when TEC is equal to or greater than 96 - Reset when TEC is less than 96",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RXWAR",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Receive Error Warning Flag bit - Set when REC is equal to or greater than 96 - Reset when REC is less than 96",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "EWARN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Error Warning Flag bit - Set when TEC or REC is equal to or greater than 96 (TXWAR or RXWAR = 1 ) - Reset when both REC and TEC are less than 96",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          59
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "CAN Control": [
+      {
+        "name": "CANSTAT",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "CAN Status Register",
+        "fields": [
+          {
+            "name": "OPMOD",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": null,
+            "description": "Operation Mode bit 2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "U0",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Unimplemented, read as 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "U0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Unimplemented, read as 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ICOD",
+            "bit_high": 3,
+            "bit_low": 1,
+            "access": "R",
+            "reset_value": null,
+            "description": "Interrupt Code bit 2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 17,
+        "source_pages": [
+          55,
+          56
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "outlier field count (8 fields vs median 1.0)",
+          "address 0x0E not found in register summary table",
+          "duplicate field name 'U0'"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CANCTRL",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": "0xE0",
+        "description": "CAN control register",
+        "fields": [
+          {
+            "name": "REQOP",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 7,
+            "description": "Request Operation Mode bits <2:0>. 000=Normal, 001=Sleep, 010=Loopback, 011=Listen-only, 100=Configuration",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CANSTAT",
+            "bit_high": 4,
+            "bit_low": 2,
+            "access": "R",
+            "reset_value": 1,
+            "description": "Actual Operation Mode bits",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ICOD",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Interrupt Code bits",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 18,
+        "source_pages": [
+          58
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0F not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CANSTAT",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "CAN Status Register showing operating mode and interrupt flags",
+        "fields": [
+          {
+            "name": "OPMOD",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": null,
+            "description": "Operating Mode bit 2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ICOD",
+            "bit_high": 4,
+            "bit_low": 2,
+            "access": "R",
+            "reset_value": null,
+            "description": "Interrupt Code bit 2",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "UNUSED",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Unimplemented, read as 0",
+            "enum_values": null,
+            "source": "synthetic"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "outlier field count (8 fields vs median 1.0)",
+          "outlier field count (8 fields vs median 1.0)",
+          "address 0x2E not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Interrupts": [
+      {
+        "name": "CANINTE",
+        "address": "0x2B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt enable register",
+        "fields": [
+          {
+            "name": "MERRE",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Message Error Interrupt Enable bit. 1 = Interrupt on error during message reception or transmission. 0 = Disabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "WAKIE",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Wakeup Interrupt Enable bit. 1 = Interrupt on CAN bus activity. 0 = Disabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ERRIE",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Error Interrupt Enable bit (multiple sources in EFLG register). 1 = Interrupt on EFLG error condition change. 0 = Disabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX2IE",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Transmit Buffer 2 Empty Interrupt Enable bit. 1 = Interrupt on TXB2 becoming empty. 0 = Disabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX1IE",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Transmit Buffer 1 Empty Interrupt Enable bit. 1 = Interrupt on TXB1 becoming empty. 0 = Disabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX0IE",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Transmit Buffer 0 Empty Interrupt Enable bit. 1 = Interrupt on TXB0 becoming empty. 0 = Disabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX1IE",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Receive Buffer 1 Full Interrupt Enable bit. 1 = Interrupt when message received in RXB1. 0 = Disabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX0IE",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Receive Buffer 0 Full Interrupt Enable bit. 1 = Interrupt when message received in RXB0. 0 = Disabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 15,
+        "source_pages": [
+          59
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CANINTF",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt flag register",
+        "fields": [
+          {
+            "name": "MERRF",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Message Error Interrupt Flag bit. 1 = Interrupt pending (must be cleared by MCU to reset interrupt condition). 0 = No interrupt pending",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "WAKIF",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Wakeup Interrupt Flag bit. 1 = Interrupt pending (must be cleared by MCU to reset interrupt condition). 0 = No interrupt pending",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ERRIF",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Error Interrupt Flag bit (multiple sources in EFLG register). 1 = Interrupt pending (must be cleared by MCU to reset interrupt condition). 0 = No interrupt pending",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX2IF",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Transmit Buffer 2 Empty Interrupt Flag bit. 1 = Interrupt pending (must be cleared by MCU to reset interrupt condition). 0 = No interrupt pending",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX1IF",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Transmit Buffer 1 Empty Interrupt Flag bit. 1 = Interrupt pending (must be cleared by MCU to reset interrupt condition). 0 = No interrupt pending",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TX0IF",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Transmit Buffer 0 Empty Interrupt Flag bit. 1 = Interrupt pending (must be cleared by MCU to reset interrupt condition). 0 = No interrupt pending",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX1IF",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Receive Buffer 1 Full Interrupt Flag bit. 1 = Interrupt pending (must be cleared by MCU to reset interrupt condition). 0 = No interrupt pending",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX0IF",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Receive Buffer 0 Full Interrupt Flag bit. 1 = Interrupt pending (must be cleared by MCU to reset interrupt condition). 0 = No interrupt pending",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 16,
+        "source_pages": [
+          59
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Bit Timing": [
+      {
+        "name": "CNF3",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Configuration 3 register",
+        "fields": [
+          {
+            "name": "RSVD_5_3",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SOF",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Start of Frame bit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "WAKFIL",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Wake-up Filter bit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PHSEG22",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Phase Segment 2 bits <2:0>",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 15,
+        "source_pages": [
+          59
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CNF2",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Configuration 2 register for bit timing",
+        "fields": [
+          {
+            "name": "BTLMODE",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "PS2 Bit Time Length bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SAM",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sample Point Configuration bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PHSEG1",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "PS1 Length bits<2:0>",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PRSEG",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Propagation Segment Length bits <2:0>",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 13,
+        "source_pages": [
+          59
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CNF1",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Configuration 1 register for bit timing",
+        "fields": [
+          {
+            "name": "SJW",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Synchronization Jump Width Length bits <1:0>",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BRP",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Baud Rate Prescaler bits <5:0>",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 13,
+        "source_pages": [
+          59
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "TX Buffers": [
+      {
+        "name": "TXBnCTRL",
+        "address": "0x30",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Transmit Buffer n Control Register",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented. Read as 0.",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ABTF",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Message Aborted Flag bit. 1 = Message was aborted, 0 = Message completed transmission successfully.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "MLOA",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Message Lost Arbitration bit. 1 = Message lost arbitration while being sent, 0 = Message did not lose arbitration while being sent.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TXERR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Transmission Error Detected bit. 1 = A bus error occurred while the message was being transmitted, 0 = No bus error occurred while the message was being transmitted.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TXREQ",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Message Transmit Request bit. 1 = Buffer is currently pending transmission. 0 = Buffer is not currently pending transmission.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TXP1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Transmit Buffer Priority bit 1.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TXP0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Transmit Buffer Priority bit 0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 18,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TXBnSIDH",
+        "address": "0x31",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Txbn SIDH register",
+        "fields": [
+          {
+            "name": "SID10",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard Identifier bit 10",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID9",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard Identifier bit 9",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID8",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard Identifier bit 8",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID7",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard Identifier bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID6",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard Identifier bit 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID5",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard Identifier bit 5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID4",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard Identifier bit 4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID3",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard Identifier bit 3",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x31 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TXBnSIDL",
+        "address": "0x32",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TRANSMIT BUFFER n STANDARD IDENTIFIER LOW",
+        "fields": [
+          {
+            "name": "SID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Standard Identifier bits <10:3>",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x32 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TXBnEID8",
+        "address": "0x33",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Txbn EID8 register",
+        "fields": [
+          {
+            "name": "RSVD_3_0",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "EID15",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bit 15",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID14",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bit 14",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID13",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bit 13",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID12",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bit 12",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x33 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TXBnEID0",
+        "address": "0x34",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Txbn EID0 register",
+        "fields": [
+          {
+            "name": "EID7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bit 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bit 5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bit 4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bit 3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bit 2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bit 1",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bit 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x34 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TXB0_DLC",
+        "address": "0x35",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Transmit buffer 0 data length code",
+        "fields": [
+          {
+            "name": "RSVD7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented, reads as 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD5_4",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented, reads as 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RTR",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Remote Transmission Request bit. 1 = Remote Transmit Request, 0 = Data Frame",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DLC",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Data Length Code <3:0> bits. Sets number of data bytes (0 to 8)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": 3,
+        "dim_increment": 16,
+        "page": 3,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "address 0x35 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TXB0_D",
+        "address": "0x36",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "Transmit buffer 0 data byte 0 | Transmit buffer 0 data byte 1 | Transmit buffer 0 data byte 2 | Transmit buffer 0 data byte 3",
+        "fields": [
+          {
+            "name": "TXB0_D0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Transmit buffer 0 data field byte 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TXB0_D1",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Transmit buffer 0 data field byte 1",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "TXB0_D2",
+            "bit_high": 23,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Transmit buffer 0 data field byte 2",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "TXB0_D3",
+            "bit_high": 31,
+            "bit_low": 24,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Transmit buffer 0 data field byte 3",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          20
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)",
+          "address 0x36 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TXB0_D4",
+        "address": "0x3A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Transmit buffer 0 data byte 4",
+        "fields": [
+          {
+            "name": "TXB0_D4",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Transmit buffer 0 data field byte 4",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": 3,
+        "dim_increment": 16,
+        "page": 3,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0x3A not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TXB0_D5",
+        "address": "0x3B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Transmit buffer 0 data byte 5",
+        "fields": [
+          {
+            "name": "TXB0_D5",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Transmit buffer 0 data field byte 5",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": 3,
+        "dim_increment": 16,
+        "page": 3,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0x3B not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TXB0_D6",
+        "address": "0x3C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Transmit buffer 0 data byte 6",
+        "fields": [
+          {
+            "name": "TXB0_D6",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Transmit buffer 0 data field byte 6",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": 3,
+        "dim_increment": 16,
+        "page": 3,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0x3C not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TXB1CTRL",
+        "address": "0x40",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "TX Buffer 1 Control Register",
+        "fields": [
+          {
+            "name": "UNIMP_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Unimplemented",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ABTF",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ABTF",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MLOA",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "MLOA",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TXERR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "TXERR",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TXREQ",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "TXREQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "UNIMP_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Unimplemented",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "TXP",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "TXP <1:0>",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 19,
+        "source_pages": [
+          59
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TXB2CTRL",
+        "address": "0x50",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "TX Buffer 2 Control Register",
+        "fields": [
+          {
+            "name": "UNIMP_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Unimplemented",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ABTF",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ABTF",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MLOA",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "MLOA",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TXERR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "TXERR",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TXREQ",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "TXREQ",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "UNIMP_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Unimplemented",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "TXP",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "TXP <1:0>",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 19,
+        "source_pages": [
+          59
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "RX Buffers": [
+      {
+        "name": "RXB0CTRL",
+        "address": "0x60",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Receive Buffer 0 Control",
+        "fields": [
+          {
+            "name": "UNUSED_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RXM",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Receive Buffer Operating Mode bits",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "UNUSED_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RXRTR",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Received Remote Transfer Request bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BUKT",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Rollover Enable bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BUKT1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Read-only Copy of BUKT bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FILHIT0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Filter Hit bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 6,
+        "source_pages": [
+          59
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXBnSIDH",
+        "address": "0x61",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Rxbn SIDH register",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SID10",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Standard Identifier bit 10",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID9",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Standard Identifier bit 9",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID8",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Standard Identifier bit 8",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID7",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Standard Identifier bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID6",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Standard Identifier bit 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          29
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x61 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXBnSIDL",
+        "address": "0x62",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Rxbn SIDL register",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SID",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Standard Identifier bits <2:0>",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SRR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Standard Frame Remote Transmit Request bit (valid only if IDE bit = '0')",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IDE",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Extended Identifier Flag bit",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x62 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXBnEID8",
+        "address": "0x63",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Rxbn EID8 register",
+        "fields": [
+          {
+            "name": "EID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Extended Identifier bits <15:8>",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x63 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXB0EID0",
+        "address": "0x64",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Receive Buffer 0 Extended Identifier bits <7:0>",
+        "fields": [
+          {
+            "name": "EID7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "R",
+            "reset_value": null,
+            "description": "Extended Identifier bit 7",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "EID6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "R",
+            "reset_value": null,
+            "description": "Extended Identifier bit 6",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "EID5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": null,
+            "description": "Extended Identifier bit 5",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "EID4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "R",
+            "reset_value": null,
+            "description": "Extended Identifier bit 4",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "EID3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "R",
+            "reset_value": null,
+            "description": "Extended Identifier bit 3",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "EID2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "R",
+            "reset_value": null,
+            "description": "Extended Identifier bit 2",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "EID1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "R",
+            "reset_value": null,
+            "description": "Extended Identifier bit 1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "EID0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "Extended Identifier bit 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 6,
+        "source_pages": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x64 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXB1CTRL",
+        "address": "0x70",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Receive Buffer 1 Control",
+        "fields": [
+          {
+            "name": "UNUSED_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RXM",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Receive Buffer Operating Mode bits",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "UNUSED_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RXRTR",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Received Remote Transfer Request bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FILHIT",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Filter Hit bits",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 6,
+        "source_pages": [
+          59
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXBnSIDH",
+        "address": "0x71",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Rxbn SIDH register",
+        "fields": [
+          {
+            "name": "SID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "These bits contain the eight most significant bits of the Standard Identifier for the received message",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          29
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x71 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXBnSIDL",
+        "address": "0x72",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Rxbn SIDL register",
+        "fields": [
+          {
+            "name": "SID",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Standard Identifier bits <2:0> \u2013 These bits contain the three least significant bits of the Standard Identifier for the received message",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SRR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Standard Frame Remote Transmit Request bit (valid only if IDE bit = '0') \u2013 1 = Standard Frame Remote Transmit Request Received, 0 = Standard Data Frame Received",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "IDE",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Extended Identifier Flag bit \u2013 Indicates whether the received message was a Standard or an Extended Frame. 1 = Received message was an Extended Frame, 0 = Received message was a Standard Frame",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "UNIMPLEMENTED",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Reads as '0'",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Extended Identifier bits <17:16> \u2013 These bits contain the two most significant bits of the Extended Identifier for the received message",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x72 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXBnEID8",
+        "address": "0x73",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Rxbn EID8 register",
+        "fields": [
+          {
+            "name": "EID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Extended Identifier bits <15:8>",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x73 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXB1EID0",
+        "address": "0x74",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Receive Buffer 1 Extended Identifier Low",
+        "fields": [
+          {
+            "name": "EID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Extended Identifier bits <7:0>",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 6,
+        "source_pages": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "identical field layout as adjacent register 0x73",
+          "address 0x74 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Filters and Masks": [
+      {
+        "name": "RXF0EID0",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Filter 0 extended identifier low",
+        "fields": [
+          {
+            "name": "EID7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID1",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 10,
+        "source_pages": [
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x03 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXF1EID0",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FILTER 1 EXTENDED IDENTIFIER LOW",
+        "fields": [
+          {
+            "name": "EID7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID1",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 10,
+        "source_pages": [
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x07 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXF2EID0",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Filter 2 extended identifier low",
+        "fields": [
+          {
+            "name": "EID7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID1",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EID0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 10,
+        "source_pages": [
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0B not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXF4EID0",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Filter 4 extended identifier low",
+        "fields": [
+          {
+            "name": "EID7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Extended identifier bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Extended identifier bit 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Extended identifier bit 5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Extended identifier bit 4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Extended identifier bit 3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Extended identifier bit 2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Extended identifier bit 1",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Extended identifier bit 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 10,
+        "source_pages": [
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x13 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXF4EID0",
+        "address": "0x17",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Filter 4 extended identifier low",
+        "fields": [
+          {
+            "name": "EID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Extended identifier bits [7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 10,
+        "source_pages": [
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x13",
+          "address 0x17 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXF5EID0",
+        "address": "0x1B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Filter 5 extended identifier low",
+        "fields": [
+          {
+            "name": "EID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Extended identifier bits [7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 10,
+        "source_pages": [
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x17",
+          "address 0x1B not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXMnSIDH",
+        "address": "0x20",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "MASK n STANDARD IDENTIFIER HIGH",
+        "fields": [
+          {
+            "name": "SID10",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SID10",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID9",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SID9",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID8",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SID8",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID7",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SID7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID6",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SID6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID5",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SID5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID4",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SID4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID3",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SID3",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 19,
+        "source_pages": [
+          59
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x20 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXMnSIDL \u2013 MASK n STANDARD IDENTIFIER LOW",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Rxmn SIDL \u2013 MASK n standard identifier LOW register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 4,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented bits, read as 0",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "SID",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard Identifier Mask bits <2:0> \u2013 mask bits applied to bits<2:0> of the Standard Identifier portion of a received message",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier Mask bits <17:16> \u2013 mask bits applied to bits <17:16> of the Extended Identifier portion of a received message",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x21 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXMnEID8 \u2013 MASK n EXTENDED IDENTIFIER HIGH",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Rxmn EID8 \u2013 MASK n extended identifier HIGH register",
+        "fields": [
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "EID15",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bit 15",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x22 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXMnEID0 \u2013 MASK n EXTENDED IDENTIFIER LOW",
+        "address": "0x23",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Rxmn EID0 \u2013 MASK n extended identifier LOW register",
+        "fields": [
+          {
+            "name": "EID7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier Mask bit <7>",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier Mask bit <6>",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier Mask bit <5>",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier Mask bit <4>",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier Mask bit <3>",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier Mask bit <2>",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier Mask bit <1>",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier Mask bit <0>",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x23 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXMN_SIDH",
+        "address": "0x24",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "MASK n STANDARD IDENTIFIER HIGH (ADDRESS: 20h, 24h)",
+        "fields": [
+          {
+            "name": "SID10",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard identifier bit SID10",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID9",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard identifier bit SID9",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID8",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard identifier bit SID8",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID7",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard identifier bit SID7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID6",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard identifier bit SID6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID5",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard identifier bit SID5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID4",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard identifier bit SID4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SID3",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard identifier bit SID3",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": 1,
+        "dim_increment": 4,
+        "page": 11,
+        "source_pages": [
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x24 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXM1SIDL",
+        "address": "0x25",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Mask 1 standard identifier low",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 4,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented, reads as 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SID",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Standard Identifier Mask bits <2:0>",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "EID",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier Mask bits <17:16>",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 12,
+        "source_pages": [
+          36
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x25 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXM1EID8",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Mask 1 extended identifier high",
+        "fields": [
+          {
+            "name": "EID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier bits <15:8>",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 12,
+        "source_pages": [
+          36
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0x26 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RXM1EID0",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Mask 1 extended identifier low",
+        "fields": [
+          {
+            "name": "EID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Extended Identifier Mask bits <7:0>",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 12,
+        "source_pages": [
+          36
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x26",
+          "address 0x27 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Pin Control": [
+      {
+        "name": "BFPCTRL",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "RXnBF Pin Control and Status",
+        "fields": [
+          {
+            "name": "UNUSED_",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "B1BFS",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "RX1BF Pin State bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "B0BFS",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "RX0BF Pin State bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "B1BFE",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "RX1BF Pin Function Enable bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "B0BFE",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "RX0BF Pin Function Enable bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "B1BFM",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "RX1BF Pin Operation Mode bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "B0BFM",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "RX0BF Pin Operation Mode bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 6,
+        "source_pages": [
+          59
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TXRTSCTRL",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "TX RTS Control Register",
+        "fields": [
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "B2RTS",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Buffer 2 RTS",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "B1RTS",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Buffer 1 RTS",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "B0RTS",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Buffer 0 RTS",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "B2RTSM",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Buffer 2 RTSM",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "B1RTSM",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Buffer 1 RTSM",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "B0RTSM",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Buffer 0 RTSM",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 19,
+        "source_pages": [
+          59
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Other": [
+      {
+        "name": "TXB0_D7",
+        "address": "0x3D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Transmit buffer 0 data byte 7",
+        "fields": [
+          {
+            "name": "TXB0_D7",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Transmit buffer 0 data field byte 7",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": 3,
+        "dim_increment": 16,
+        "page": 3,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0x3D not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T15:43:09.516283+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 50,
+        "by_confidence": {
+          "high": 45,
+          "medium": 5,
+          "low": 0
+        },
+        "with_quality_issues": 40,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 230,
+        "by_source": {
+          "agent_verified": 132,
+          "evidence_verified": 62,
+          "synthetic": 16,
+          "section_agent": 2,
+          "llm_only": 7,
+          "llm_consistent": 4,
+          "llm_verified": 7
+        }
+      },
+      "peripherals": {
+        "total": 9,
+        "by_name": {
+          "Error Management": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "CAN Control": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Interrupts": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Bit Timing": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "TX Buffers": {
+            "registers": 12,
+            "confidence": {
+              "high": 9,
+              "medium": 3,
+              "low": 0
+            }
+          },
+          "RX Buffers": {
+            "registers": 10,
+            "confidence": {
+              "high": 10,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Filters and Masks": {
+            "registers": 14,
+            "confidence": {
+              "high": 12,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "Pin Control": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Other": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 15,
+        "batches_total": 22,
+        "batches_sent": 22,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 1,
+        "warnings_detail": [
+          "CANSTAT (0x0E): duplicate field name 'U0'"
+        ],
+        "issue_breakdown": {
+          "zone_validation": 22,
+          "outlier field count (8 fields vs median 1.0)": 3,
+          "address 0x0E not found in register summary table": 1,
+          "duplicate field name 'U0'": 1,
+          "address 0x0F not found in register summary table": 1,
+          "address 0x2E not found in register summary table": 1,
+          "address 0x31 not found in register summary table": 1,
+          "address 0x32 not found in register summary table": 1,
+          "address 0x33 not found in register summary table": 1,
+          "address 0x34 not found in register summary table": 1,
+          "address 0x35 not found in register summary table": 1,
+          "all fields have default RW access (may be missing real access types)": 1,
+          "address 0x36 not found in register summary table": 1,
+          "address 0x3A not found in register summary table": 1,
+          "address 0x3B not found in register summary table": 1,
+          "address 0x3C not found in register summary table": 1,
+          "address 0x61 not found in register summary table": 1,
+          "address 0x62 not found in register summary table": 1,
+          "address 0x63 not found in register summary table": 1,
+          "address 0x64 not found in register summary table": 1,
+          "address 0x71 not found in register summary table": 1,
+          "address 0x72 not found in register summary table": 1,
+          "address 0x73 not found in register summary table": 1,
+          "identical field layout as adjacent register 0x73": 1,
+          "address 0x74 not found in register summary table": 1,
+          "address 0x03 not found in register summary table": 1,
+          "address 0x07 not found in register summary table": 1,
+          "address 0x0B not found in register summary table": 1,
+          "address 0x13 not found in register summary table": 1,
+          "identical field layout as adjacent register 0x13": 1,
+          "address 0x17 not found in register summary table": 1,
+          "identical field layout as adjacent register 0x17": 1,
+          "address 0x1B not found in register summary table": 1,
+          "address 0x20 not found in register summary table": 1,
+          "address 0x21 not found in register summary table": 1,
+          "address 0x22 not found in register summary table": 1,
+          "address 0x23 not found in register summary table": 1,
+          "address 0x24 not found in register summary table": 1,
+          "address 0x25 not found in register summary table": 1,
+          "address 0x26 not found in register summary table": 1,
+          "identical field layout as adjacent register 0x26": 1,
+          "address 0x27 not found in register summary table": 1,
+          "address 0x3D not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 131,
+        "fields_verified": 89,
+        "fields_unverified": 42,
+        "fields_bit_mismatch": 40,
+        "regs_upgraded": 25,
+        "field_diagnostics": {
+          "0X1C": {
+            "TEC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59142
+            }
+          },
+          "0X1D": {
+            "REC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 65901
+            }
+          },
+          "0X2E": {
+            "OPMOD2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67585
+            },
+            "OPMOD1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67585
+            },
+            "OPMOD0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67585
+            },
+            "ICOD2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67585
+            },
+            "ICOD1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67585
+            },
+            "ICOD0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67585
+            },
+            "UNUSED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 67585
+            }
+          },
+          "0X30": {
+            "ABTF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "MLOA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "TXERR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "TXREQ": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "TXP": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "UNIMP7": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "UNIMP2": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "TXB1CTRL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "TXB2CTRL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "TXRTSCTRL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "UNIMP6": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "B2RTS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "B1RTS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "B0RTS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "B2RTSM": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "B1RTSM": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11027
+            },
+            "B0RTSM": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11027
+            }
+          },
+          "0X31": {
+            "SID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 25506
+            }
+          },
+          "0X32": {
+            "SID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 24393
+            },
+            "RSVD4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 24393
+            },
+            "EXIDE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 24393
+            },
+            "RSVD2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 24393
+            },
+            "EID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 24393
+            }
+          },
+          "0X33": {
+            "EID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19301
+            }
+          },
+          "0X34": {
+            "EID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19510
+            }
+          },
+          "0X35": {
+            "RSVD7": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 20637
+            },
+            "RTR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 20637
+            },
+            "RSVD5_4": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 20637
+            },
+            "DLC": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 20637
+            }
+          },
+          "0X3A": {
+            "TXB0_D4": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19278
+            }
+          },
+          "0X3B": {
+            "TXB0_D5": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19668
+            }
+          },
+          "0X3C": {
+            "TXB0_D6": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 20180
+            }
+          },
+          "0X3D": {
+            "TXB0_D7": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19422
+            }
+          },
+          "0X60": {
+            "RXM": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 147488
+            },
+            "RXRTR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 147488
+            },
+            "BUKT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 147488
+            },
+            "UNUSED_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 147488
+            },
+            "UNUSED_4": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 147488
+            },
+            "BUKT1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 147488
+            },
+            "FILHIT0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 147488
+            }
+          },
+          "0X70": {
+            "RXRTR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 96095
+            },
+            "FILHIT": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 96095
+            },
+            "UNUSED_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 96095
+            },
+            "RXM": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 96095
+            },
+            "UNUSED_4": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 96095
+            }
+          },
+          "0X0C": {
+            "B1BFS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64278
+            },
+            "B0BFS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64278
+            },
+            "B1BFE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64278
+            },
+            "B0BFE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64278
+            },
+            "B1BFM": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64278
+            },
+            "B0BFM": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64278
+            },
+            "UNUSED_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 64278
+            },
+            "UNUSED_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 64278
+            }
+          },
+          "0X61": {
+            "SID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42232
+            }
+          },
+          "0X71": {
+            "SID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42261
+            }
+          },
+          "0X62": {
+            "SID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 41244
+            },
+            "SRR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 41244
+            },
+            "IDE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 41244
+            },
+            "UNUSED_2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 41244
+            },
+            "EID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 41244
+            }
+          },
+          "0X72": {
+            "SID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42503
+            },
+            "SRR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42503
+            },
+            "IDE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42503
+            },
+            "UNUSED_2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42503
+            },
+            "EID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42503
+            }
+          },
+          "0X63": {
+            "EID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37429
+            }
+          },
+          "0X73": {
+            "EID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37429
+            }
+          },
+          "0X64": {
+            "EID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 38630
+            }
+          },
+          "0X74": {
+            "EID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 38446
+            }
+          },
+          "0X03": {
+            "EID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12359
+            }
+          },
+          "0X07": {
+            "EID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12359
+            }
+          },
+          "0X0B": {
+            "EID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12359
+            }
+          },
+          "0X13": {
+            "EID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12359
+            }
+          },
+          "0X17": {
+            "EID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12359
+            }
+          },
+          "0X1B": {
+            "EID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12359
+            }
+          },
+          "0X20": {
+            "SID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59892
+            }
+          },
+          "0X24": {
+            "SID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59892
+            }
+          },
+          "0X21": {
+            "SID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17835
+            },
+            "RSVD": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17835
+            },
+            "EID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17835
+            }
+          },
+          "0X25": {
+            "SID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19194
+            },
+            "RSVD": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19194
+            },
+            "EID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19194
+            }
+          },
+          "0X22": {
+            "EID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 23396
+            }
+          },
+          "0X26": {
+            "EID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19645
+            }
+          },
+          "0X23": {
+            "EID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17907
+            }
+          },
+          "0X27": {
+            "EID": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17696
+            }
+          },
+          "0X2A": {
+            "SJW": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 137704
+            },
+            "BRP": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 137704
+            }
+          },
+          "0X29": {
+            "BTLMODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63918
+            },
+            "SAM": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63918
+            },
+            "PHSEG1": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63918
+            },
+            "PRSEG": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 63918
+            }
+          },
+          "0X28": {
+            "SOF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 91599
+            },
+            "WAKFIL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 91599
+            },
+            "PHSEG2": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 91599
+            },
+            "UNIMPLEMENTED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 91599
+            }
+          },
+          "0X2D": {
+            "RX1OVR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26588
+            },
+            "RX0OVR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26588
+            },
+            "TXBO": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26588
+            },
+            "TXEP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26588
+            },
+            "RXEP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26588
+            },
+            "TXWAR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26588
+            },
+            "RXWAR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26588
+            },
+            "EWARN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26588
+            }
+          },
+          "0X2B": {
+            "MERRE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68952
+            },
+            "WAKIE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68952
+            },
+            "ERRIE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68952
+            },
+            "TX2IE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68952
+            },
+            "TX1IE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68952
+            },
+            "TX0IE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68952
+            },
+            "RX1IE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68952
+            },
+            "RX0IE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68952
+            }
+          },
+          "0X2C": {
+            "MERRF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 148369
+            },
+            "WAKIF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 148369
+            },
+            "ERRIF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 148369
+            },
+            "TX2IF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 148369
+            },
+            "TX1IF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 148369
+            },
+            "TX0IF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 148369
+            },
+            "RX1IF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 148369
+            },
+            "RX0IF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 148369
+            }
+          },
+          "0X0E": {
+            "OPMOD2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 55202
+            },
+            "OPMOD1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 55202
+            },
+            "OPMOD0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 55202
+            },
+            "U0": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 55202
+            },
+            "ICOD2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 55202
+            },
+            "ICOD1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 55202
+            },
+            "ICOD0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 55202
+            }
+          },
+          "0X0F": {
+            "REQOP": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 82018
+            },
+            "CANSTAT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 82018
+            },
+            "ICOD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 82018
+            }
+          },
+          "0X0D": {
+            "B2RTS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 61166
+            },
+            "B1RTS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 61166
+            },
+            "B0RTS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 61166
+            },
+            "B2RTSM": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 61166
+            },
+            "B1RTSM": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 61166
+            },
+            "B0RTSM": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 61166
+            }
+          },
+          "0X40": {
+            "UNIMP_7": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26473
+            },
+            "ABTF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26473
+            },
+            "MLOA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26473
+            },
+            "TXERR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26473
+            },
+            "TXREQ": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26473
+            },
+            "UNIMP_2": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26473
+            },
+            "TXP": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26473
+            }
+          },
+          "0X50": {
+            "UNIMP_7": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26229
+            },
+            "ABTF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26229
+            },
+            "MLOA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26229
+            },
+            "TXERR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26229
+            },
+            "TXREQ": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26229
+            },
+            "UNIMP_2": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26229
+            },
+            "TXP": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26229
+            }
+          },
+          "0X36": {
+            "TXB0_D0": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 9971
+            },
+            "TXB0_D1": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 9971
+            },
+            "TXB0_D2": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 9971
+            },
+            "TXB0_D3": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 9971
+            }
+          }
+        },
+        "fields_cross_section_augmented": 48,
+        "fields_consistent_promoted": 4,
+        "fields_name_matched": 8,
+        "fields_bit_corrected": 1,
+        "fields_bit_llm_fallback": 1,
+        "diagnostic_summary": {
+          "verified_quote": 89,
+          "reserved": 8,
+          "bit_mismatch": 40,
+          "name_not_found": 16,
+          "verified_name": 8,
+          "name_too_short": 1,
+          "quote_not_found": 2
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 2264,
+        "output_tokens": 75,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.00049
+      },
+      "extraction": {
+        "input_tokens": 137944,
+        "output_tokens": 23006,
+        "thinking_tokens": 0,
+        "calls": 28,
+        "total_cost_usd": 0.039092
+      },
+      "evidence": {
+        "input_tokens": 1190,
+        "output_tokens": 67,
+        "thinking_tokens": 0,
+        "calls": 2,
+        "total_cost_usd": 0.000272
+      },
+      "correction": {
+        "input_tokens": 55798,
+        "output_tokens": 19298,
+        "thinking_tokens": 0,
+        "calls": 50,
+        "total_cost_usd": 0.020809
+      },
+      "agents": {
+        "input_tokens": 77580,
+        "output_tokens": 40121,
+        "thinking_tokens": 32561,
+        "calls": 70,
+        "total_cost_usd": 0.023384
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 1182,
+        "output_tokens": 240,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000356
+      }
+    }
+  }
+}

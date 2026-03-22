@@ -1,0 +1,4696 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "CC1101",
+  "description": "Low-power sub-1 GHz RF transceiver for ISM/SRD bands, SPI interface",
+  "vendor": "Texas Instruments",
+  "source": "CC1101.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/cc1101.pdf",
+  "peripherals": {
+    "Packet Handling": [
+      {
+        "name": "PKTLEN",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": "0xFF",
+        "description": "Packet Length",
+        "fields": [
+          {
+            "name": "PACKET_LENGTH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 255,
+            "description": "Indicates the packet length when fixed packet length mode is enabled. If variable packet length mode is used, this value indicates the maximum packet length allowed. This value must be different from 0.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PKTCTRL1",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": "0x06",
+        "description": "Packet Automation Control",
+        "fields": [
+          {
+            "name": "RSVD_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "PQT",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Preamble quality estimator threshold. The preamble quality estimator increases an internal counter by one each time a bit is received that is different from the previous bit, and decreases the counter by 8 each time a bit is received that is the same as the last bit. A threshold of 4\u2219 PQT for this counter is used to gate sync word detection.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CRC_AUTOFLUSH",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable automatic flush of RX FIFO when CRC is not OK. This requires that only one packet is in the RXIFIFO and that packet length is limited to the RX FIFO size.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "APPEND_STATUS",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "When enabled, two status bytes will be appended to the payload of the packet. The status bytes contain RSSI and LQI values, as well as CRC OK.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ADR_CHK",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls address check configuration of received packages.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PKTCTRL0",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Packet automation control register 0",
+        "fields": [
+          {
+            "name": "RSVD_5_3",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LENGTH_CONFIG",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Packet length configuration: 0=fixed, 1=variable, 2=infinite",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CRC_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "CRC enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "WHITE_DATA",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Data whitening enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          61,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ADDR",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Device address configuration register",
+        "fields": [
+          {
+            "name": "DEVICE_ADDR",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Address used for packet filtration. Optional broadcast addresses are 0 (0x00) and 255 (0xFF)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence",
+          "address 0x09 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "FIFO/GDO": [
+      {
+        "name": "IOCFG1",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "GDO1 output pin configuration",
+        "fields": [
+          {
+            "name": "GDO_DS",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Set high (1) or low (0) output drive strength on the GDO pins",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GDO1_INV",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Invert output, i.e. select active low (1) / high (0)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GDO1_CFG",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 46,
+            "description": "Default is 3-state (See Table 41 on page 62)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IOCFG0",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "GDO0 output pin configuration",
+        "fields": [
+          {
+            "name": "TEMP_SENSOR_ENABLE",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable analog temperature sensor. Write 0 in all other register bits when using temperature sensor",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GDO0_INV",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Invert output, i.e. select active low (1) / high (0)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GDO0_CFG",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 63,
+            "description": "Default is CLK_XOSC/192 (See Table 41 on page 62). It is recommended to disable the clock output in initialization, in order to optimize RF performance",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61,
+          63
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFOTHR",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "RX FIFO and TX FIFO thresholds",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved, write 0 for compatibility with possible future extensions",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ADC_RETENTION",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "0: TEST1 = 0x31 and TEST2= 0x88 when waking up from SLEEP 1: TEST1 = 0x35 and TEST2 = 0x81 when waking up from SLEEP",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CLOSE_IN_RX",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "For more details, please see DN010 [8]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FIFO_THR",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 7,
+            "description": "Set the threshold for the TX FIFO and RX FIFO. The threshold is exceeded when the number of bytes in the FIFO is equal to or higher than",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61,
+          63
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Sync Word": [
+      {
+        "name": "SYNC1",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": "0xD3",
+        "description": "Sync Word, High Byte",
+        "fields": [
+          {
+            "name": "SYNC",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 211,
+            "description": "8 MSB of 16-bit sync word",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61,
+          63
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SYNC0",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": "0x91",
+        "description": "Sync Word, Low Byte",
+        "fields": [
+          {
+            "name": "SYNC",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 145,
+            "description": "8 LSB of 16-bit sync word",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61,
+          63
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Frequency Synthesizer": [
+      {
+        "name": "FSCTRL1",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": "0x0F",
+        "description": "Frequency synthesizer control register 1",
+        "fields": [
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FREQ_IF",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 15,
+            "description": "The desired IF frequency to employ in RX. Subtracted from FS base frequency in RX and controls the digital complex mixer in the demodulator",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FSCTRL0",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Frequency synthesizer control register 0",
+        "fields": [
+          {
+            "name": "FREQOFF",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Frequency offset added to the base frequency before being used by the frequency synthesizer. (2s-complement)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FREQ2",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": "0x1E",
+        "description": "Frequency control word, high byte",
+        "fields": [
+          {
+            "name": "FREQ",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 30,
+            "description": "FREQ[23:16] is the base frequency for the frequency synthesizer in increments of f_XOSC/2^16",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FREQ1",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Frequency control word, middle byte",
+        "fields": [
+          {
+            "name": "FREQ",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Frequency word middle byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 11,
+        "source_pages": [
+          61,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FREQ0",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Frequency control word, low byte",
+        "fields": [
+          {
+            "name": "FREQ",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Frequency word low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 11,
+        "source_pages": [
+          61,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MDMCFG4",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": "0x2C",
+        "description": "Modem configuration register 4",
+        "fields": [
+          {
+            "name": "CHANBW_E",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Sets the decimation ratio for the delta-sigma ADC input stream and thus the channel bandwidth",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CHANBW_M",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sets the decimation ratio for the delta-sigma ADC input stream and thus the channel bandwidth",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DRATE_E",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 12,
+            "description": "The exponent of the user specified symbol rate",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Modem Config": [
+      {
+        "name": "MDMCFG3",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": "0x22",
+        "description": "Modem configuration register 3",
+        "fields": [
+          {
+            "name": "DRATE_M",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 34,
+            "description": "The mantissa of the user specified symbol rate",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MDMCFG2",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": "0x12",
+        "description": "Modem configuration register 2",
+        "fields": [
+          {
+            "name": "DEM_DCFILT_OFF",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Disable digital DC blocking filter before demodulator. 0 = Enable (better sensitivity)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MOD_FORMAT",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "The modulation format of the radio signal",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MANCHESTER_EN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables Manchester encoding/decoding. 0 = Disable 1 = Enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SYNC_MODE",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Sync-word qualifier mode",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MDMCFG1",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": "0x32",
+        "description": "Modem configuration register 1",
+        "fields": [
+          {
+            "name": "RSVD_3_2",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FEC_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable Forward Error Correction (FEC) with interleaving for packet payload",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "NUM_PREAMBLE",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Sets the minimum number of preamble bytes to be transmitted",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CHANSPC_E",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "2 bit exponent of channel spacing",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          61,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MDMCFG0",
+        "address": "0x14",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Modem configuration register 0",
+        "fields": [
+          {
+            "name": "CHANSPC_M",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Channel spacing mantissa",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 11,
+        "source_pages": [
+          61,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DEVIATN",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": "0x47",
+        "description": "Modem deviation setting register",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "DEVIATION_E",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 4,
+            "description": "Deviation exponent",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DEVIATION_M",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 7,
+            "description": "Specifies the nominal frequency deviation from the carrier for a '0' (-DEVIATN) and '1' (+DEVIATN)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          62,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "State Machine": [
+      {
+        "name": "MCSM2",
+        "address": "0x16",
+        "size_bits": 8,
+        "reset_value": "0x07",
+        "description": "Main radio control state machine configuration register 2",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RX_TIME_RSSI",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Direct RX termination based on RSSI measurement (carrier sense)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_TIME_QUAL",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "When the RX_TIME timer expires, the chip checks if sync word is found when RX_TIME_QUAL=0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RX_TIME",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 7,
+            "description": "Timeout for sync word search in RX for both WORmode and normal RX operation",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          62,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MCSM1",
+        "address": "0x17",
+        "size_bits": 8,
+        "reset_value": "0x18",
+        "description": "Main Radio Control State Machine Configuration",
+        "fields": [
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "CCA_MODE",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "Selects CCA_MODE; Reflected in CCA signal",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RXOFF_MODE",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Select what should happen when a packet has been received",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TXOFF_MODE",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Select what should happen when a packet has been sent (TX)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          62,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MCSM0",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": "0x12",
+        "description": "Main Radio Control State Machine Configuration",
+        "fields": [
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FS_AUTOCAL",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Automatically calibrate when going to RX or TX, or back to IDLE",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PO_TIMEOUT",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Programs the number of times the six-bit ripple counter must expire after XOSC has stabilized before CHP_RDYn goes low",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PIN_CTRL_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enables the pin radio control option",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "XOSC_FORCE_ON",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Force the XOSC to stay on in the SLEEP state",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          62,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Compensation": [
+      {
+        "name": "FOCCFG",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": "0x36",
+        "description": "Frequency Offset Compensation Configuration",
+        "fields": [
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FOC_BS_CS_GATE",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "If set, the demodulator freezes the frequency offset compensation and clock recovery feedback loops until the CS signal goes high",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FOC_PRE_K",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "The frequency compensation loop gain to be used before a sync word is detected",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FOC_POST_K",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "The frequency compensation loop gain to be used after a sync word is detected",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FOC_LIMIT",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "The saturation point for the frequency offset compensation algorithm",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          62,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "BSCFG",
+        "address": "0x1A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Bit Synchronization Configuration",
+        "fields": [
+          {
+            "name": "BS_PRE_KI",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "The clock recovery feedback loop integral gain to be used before a sync word is detected (used to correct offsets in data rate)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BS_PRE_KP",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "The clock recovery feedback loop proportional gain to be used before a sync word is detected",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BS_POST_KI",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Clock recovery integral gain after sync word detection",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "BS_POST_KP",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Clock recovery proportional gain after sync word detection",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          62
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "AGC": [
+      {
+        "name": "AGCCTRL2",
+        "address": "0x1B",
+        "size_bits": 8,
+        "reset_value": "0x1B",
+        "description": "AGC control register 2",
+        "fields": [
+          {
+            "name": "MAX_DVGA_GAIN",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reduces the maximum allowable DVGA gain",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MAX_LNA_GAIN",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sets the maximum allowable LNA + LNA 2 gain relative to the maximum possible gain",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MAGN_TARGET",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "Sets the target value for the averaged amplitude from the digital channel filter",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          62,
+          68,
+          85
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AGCTRL1",
+        "address": "0x1C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Configuration register: AGC control",
+        "fields": [
+          {
+            "name": "AGCTRL1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "AGC control 1",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 15,
+        "source_pages": [
+          62
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Wake On Radio": [
+      {
+        "name": "WOREVT1",
+        "address": "0x1E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Wake on radio event 1 timer configuration register.",
+        "fields": [
+          {
+            "name": "EVENT0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Event 0 mantissa value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 11,
+        "source_pages": [
+          62
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "WOREVT0",
+        "address": "0x1F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Wake on radio event 0 timer configuration register.",
+        "fields": [
+          {
+            "name": "EVENT0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Event 0 mantissa value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 11,
+        "source_pages": [
+          62,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "WORCTRL",
+        "address": "0x20",
+        "size_bits": 8,
+        "reset_value": "0xF7",
+        "description": "Wake On Radio control register",
+        "fields": [
+          {
+            "name": "RSVD_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RC_PD",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Power down signal to RC oscillator",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "EVENT1",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 7,
+            "description": "Timeout setting for Event 1",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RC_CAL",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "RC oscillator calibration enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FRC",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "Force WOR receiver on",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          62,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "WORTIME0",
+        "address": "0x37",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Low byte of WOR time",
+        "fields": [
+          {
+            "name": "TIME",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "Low byte of timer value in WORmodule",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          62,
+          69,
+          93
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x37 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Front End": [
+      {
+        "name": "FREND1",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": "0xAA",
+        "description": "Front End RX Configuration",
+        "fields": [
+          {
+            "name": "LNA_CURRENT",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Adjusts front-end LNA PTAT current output",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LNA2MIX_CURRENT",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Adjusts front-end PTAT outputs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LODIV_BUF_CURRENT_RX",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Adjusts current in RX LO buffer (LO input to mixer)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MIX_CURRENT",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Adjusts current in mixer",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          62
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FREND0",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": "0x24",
+        "description": "Front End TX Configuration",
+        "fields": [
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LODIV_BUF_CURRENT_TX",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Adjusts current TX LO buffer (input to PA)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PA_POWER",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Selects PA power setting. This value is an index to the PATABLE",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          62
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "PA Power": [
+      {
+        "name": "PATABLE",
+        "address": "0x3E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "PA Power table index register",
+        "fields": [
+          {
+            "name": "INDEX",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Index into PATABLE[7:0]",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          33,
+          62
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0x3E not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Frequency Calibration": [
+      {
+        "name": "FSCAL3",
+        "address": "0x23",
+        "size_bits": 8,
+        "reset_value": "0xA9",
+        "description": "Frequency Synthesizer Calibration",
+        "fields": [
+          {
+            "name": "RSVD_5_4",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FSCAL3",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Frequency synthesizer calibration configuration",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CHP_CURR_CAL_EN",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 2,
+            "description": "Disable charge pump calibration stage when 0",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          63
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FSCAL2",
+        "address": "0x24",
+        "size_bits": 8,
+        "reset_value": "0x2A",
+        "description": "Frequency Synthesizer Calibration",
+        "fields": [
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "VCO_CORE_H_EN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Choose high (1) / low (0) VCO",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FSCAL2",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 10,
+            "description": "Frequency synthesizer calibration result register",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          63
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FSCAL1",
+        "address": "0x25",
+        "size_bits": 8,
+        "reset_value": "0x20",
+        "description": "Frequency Synthesizer Calibration",
+        "fields": [
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FSCAL1",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 32,
+            "description": "Frequency synthesizer calibration result register",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          63,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FSCAL0",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": "0x0D",
+        "description": "Frequency Synthesizer Calibration",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FSCAL0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 13,
+            "description": "Frequency synthesizer calibration control",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          63
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "RC Oscillator": [
+      {
+        "name": "RCCTRL1",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": "0x41",
+        "description": "RC Oscillator Configuration",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RCCTRL1",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 65,
+            "description": "RC oscillator configuration",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          63
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RCCTRL0",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "RC Oscillator Configuration",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RCCTRL0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "RC oscillator configuration",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          63
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Test Registers": [
+      {
+        "name": "FSTEST",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": "0x59",
+        "description": "Frequency Synthesizer Calibration Control",
+        "fields": [
+          {
+            "name": "FSTEST",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 89,
+            "description": "For test only. Do not write to this register",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          63
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PTEST",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": "0x7F",
+        "description": "Production Test",
+        "fields": [
+          {
+            "name": "PTEST",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 127,
+            "description": "Writing 0xBF to this register makes the on-chip temperature sensor available",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          63
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AGCTEST",
+        "address": "0x2B",
+        "size_bits": 8,
+        "reset_value": "0x3F",
+        "description": "AGC Test",
+        "fields": [
+          {
+            "name": "AGCTEST",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 63,
+            "description": "For test only. Do not write to this register",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          63,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TEST2",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": "0x88",
+        "description": "Various Test Settings",
+        "fields": [
+          {
+            "name": "TEST2",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 136,
+            "description": "The value to use in this register is given by the SmartRF Studio software",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 14,
+        "source_pages": [
+          63
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TEST1",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TEST1 register",
+        "fields": [
+          {
+            "name": "TEST1",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 49,
+            "description": "The value to use in this register is given by the SmartRF Studio software [5]. This register will be forced to 0x31 or 0x35 when it wakes up from SLEEP mode, depending on the configuration of FIFOTHR.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          91
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Strobe Commands": [
+      {
+        "name": "SFSTXON",
+        "address": "0x31",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Enable frequency synthesizer for TX. Activate TX with STX strobe.",
+        "fields": [
+          {
+            "name": "SFSTXON",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Fast TX on strobe command",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 11,
+        "source_pages": [
+          60
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Channel": [
+      {
+        "name": "CHANNR",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Channel number register",
+        "fields": [
+          {
+            "name": "CHAN",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Channel number",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 11,
+        "source_pages": [
+          61,
+          64
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Chip Control and Status": [
+      {
+        "name": "SRES",
+        "address": "0x30",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Reset chip.",
+        "fields": [
+          {
+            "name": "SRES",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reset chip.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SXOFF",
+        "address": "0x32",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Turn off crystal oscillator.",
+        "fields": [
+          {
+            "name": "Command",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Turn off crystal oscillator.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SCAL",
+        "address": "0x33",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Calibrate frequency synthesizer and turn it off.",
+        "fields": [
+          {
+            "name": "SCAL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SCAL can be strobed from IDLE mode without setting manual calibration mode (MCSM0.FS_AUTOCAL=0).",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SWORRST",
+        "address": "0x3C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Reset real time clock to Event1 value.",
+        "fields": [
+          {
+            "name": "SWORRST",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Sworrst",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SNOP",
+        "address": "0x3D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "No operation. May be used to get access to the chip status byte.",
+        "fields": [
+          {
+            "name": "NOP",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "No operation. May be used to get access to the chip status byte.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "State Machine Commands": [
+      {
+        "name": "SRX",
+        "address": "0x34",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "SRX register",
+        "fields": [
+          {
+            "name": "SRX",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Enable RX. Perform calibration first if coming from IDLE and MCSM0.FS_AUTOCAL=1.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "STX",
+        "address": "0x35",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "STX register",
+        "fields": [
+          {
+            "name": "STX",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "In IDLE state: Enable TX. Perform calibration first if MCSM0.FS_AUTOCAL=1. If in RX state and CCA is enabled: Only go to TX if channel is clear.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SIDLE",
+        "address": "0x36",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Exit RX / TX, turn off frequency synthesizer and exit Wake-On-Radio mode if applicable.",
+        "fields": [
+          {
+            "name": "SIDLE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Exit RX / TX, turn off frequency synthesizer and exit Wake-On-Radio mode if applicable.",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SWOR",
+        "address": "0x38",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "SWOR register",
+        "fields": [
+          {
+            "name": "SWOR",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Start automatic RX polling sequence (Wake-on-Radio) as described in Section 19.5 if WORCTRL.RC_PD=0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SPWD",
+        "address": "0x39",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Enter power down mode when CSn goes high.",
+        "fields": [
+          {
+            "name": "SPWD",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Enter power down mode when CSn goes high.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "TX/RX FIFO Commands": [
+      {
+        "name": "SFRX",
+        "address": "0x3A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "SFRX register",
+        "fields": [
+          {
+            "name": "SFRX",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Flush the RX FIFO buffer. Only issue SFRX in IDLE or RXFIFO_OVERFLOW states.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SFTX",
+        "address": "0x3B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "SFTX register",
+        "fields": [
+          {
+            "name": "SFTX",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Flush the TX FIFO buffer. Only issue SFTX in IDLE or TXFIFO_UNDERFLOW states.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          67
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Analog Configuration": [
+      {
+        "name": "AGCTRL0",
+        "address": "0x1D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Agctrl0 register",
+        "fields": [
+          {
+            "name": "AGCREF",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "AGC reference",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AGCGAIN",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "AGC gain",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          68
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "IO Configuration": [
+      {
+        "name": "IOCFG2",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Iocfg2 register",
+        "fields": [
+          {
+            "name": "R0",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "GDO2_INV",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Invert output, i.e. select active low (1) / high (0)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GDO2_CFG",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 41,
+            "description": "Default is CHP_RDYn (See Table 41 on page 62)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          71
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Miscellaneous": [
+      {
+        "name": "0x3C",
+        "address": "0xFC",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x3 C register",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RCCTRL1_STATUS[6:0]",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Contains the value from the last run of the RC oscillator calibration routine.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          94,
+          96
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xFC not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "0x3D",
+        "address": "0xFD",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x3 D register",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RCCTRL0_STATUS[6:0]",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Contains the value from the last run of the RC oscillator calibration routine.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          95,
+          97
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xFD not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Other": [
+      {
+        "name": "0x30",
+        "address": "0xF0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x30 register",
+        "fields": [
+          {
+            "name": "PARTNUM[7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "0 (0x00) R Chip part number",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          92,
+          94
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF0 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "0x31",
+        "address": "0xF1",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x31 register",
+        "fields": [
+          {
+            "name": "VERSION[7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "20 (0x14) R Chip version number. Subject to change without notice.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          92,
+          94
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF1 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "0x32",
+        "address": "0xF2",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x32 register",
+        "fields": [
+          {
+            "name": "FREQOFF_EST",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R The estimated frequency offset (2's complement) of the carrier. Resolution is F_XTAL /2 14 (1.59 - 1.65 kHz); range is \u00b1202 kHz to \u00b1210 kHz, depending on XTAL frequency. Frequency offset compensation is only supported for 2-FSK, GFSK, 4-FSK, and MSK modulation. This register will read 0 when using ASK or OOK modulation.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          92,
+          94
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF2 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "0x33",
+        "address": "0xF3",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x33 register",
+        "fields": [
+          {
+            "name": "CRC OK",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R The last CRC comparison matched. Cleared when entering/restarting RX mode.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "LQI_EST[6:0]",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R The Link Quality Indicator estimates how easily a received signal can be demodulated. Calculated over the 64 symbols following the sync word",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          92,
+          94
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF3 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "0x34",
+        "address": "0xF4",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x34 register",
+        "fields": [
+          {
+            "name": "RSSI",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Received signal strength indicator",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          92,
+          95
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF4 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "0x35",
+        "address": "0xF5",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x35 register",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "MARC_STATE[4:0]",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Main Radio Control FSM State Main Radio Control FSM State Main Radio Control FSM State",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          93,
+          95
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF5 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "0x36",
+        "address": "0xF6",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x36 register",
+        "fields": [
+          {
+            "name": "TIME[15:8]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R High byte of timer value in WORmodule",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          93,
+          96
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF6 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "0x37",
+        "address": "0xF7",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x37 register",
+        "fields": [
+          {
+            "name": "TIME[7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Low byte of timer value in WORmodule",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          93,
+          96
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF7 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "0x38",
+        "address": "0xF8",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x38 register",
+        "fields": [
+          {
+            "name": "RSVD_1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "CRC_OK",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R The last CRC comparison matched. Cleared when entering/restarting RX mode.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CS",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Carrier sense. Cleared when entering IDLE mode.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PQT_REACHED",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Preamble Quality reached. If leaving RX state when this bit is set it will remain asserted until the chip re-enters RX state ( MARCSTATE=0x0D ). The bit will also be cleared if PQI goes below the programmed PQT value.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CCA",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Channel is clear",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SFD",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Start of Frame Delimiter. In RX, this bit is asserted when sync word has been received and de-asserted at the end of the packet. It will also de- assert when a packet is discarded due to address or maximum length filtering or the radio enters RXFIFO_OVERFLOW state. In TX this bit will always read as 0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GDO2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Current GDO2 value. Note: the reading gives the non-inverted value irrespective of what IOCFG2.GDO2_INV is programmed to. It is not recommended to check for PLL lock by reading PKTSTATUS[2] with GDO2_CFG=0x0A .",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GDO0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Current GDO0 value. Note: the reading gives the non-inverted value irrespective of what IOCFG0.GDO0_INV is programmed to. It is not recommended to check for PLL lock by reading PKTSTATUS[0] with GDO0_CFG=0x0A .",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          78,
+          94,
+          96
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF8 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "0x39",
+        "address": "0xF9",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x39 register",
+        "fields": [
+          {
+            "name": "VCO_VC_DAC[7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Status register for test only.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          94,
+          96
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF9 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "0x3A",
+        "address": "0xFA",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x3 A register",
+        "fields": [
+          {
+            "name": "TXFIFO_UNDERFLOW",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "NUM_TXBYTES",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Number of bytes in TX FIFO",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          94,
+          96
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xFA not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "0x3B",
+        "address": "0xFB",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "0x3 B register",
+        "fields": [
+          {
+            "name": "RXFIFO_OVERFLOW",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "NUM_RXBYTES",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "R Number of bytes in RX FIFO",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          69,
+          94,
+          96
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xFB not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T14:47:45.457558+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 75,
+        "by_confidence": {
+          "high": 74,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 27,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 156,
+        "by_source": {
+          "evidence_verified": 73,
+          "synthetic": 26,
+          "llm_verified": 5,
+          "llm_consistent": 10,
+          "agent_verified": 40,
+          "section_agent": 2
+        }
+      },
+      "peripherals": {
+        "total": 23,
+        "by_name": {
+          "Packet Handling": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "FIFO/GDO": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Sync Word": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Frequency Synthesizer": {
+            "registers": 6,
+            "confidence": {
+              "high": 6,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Modem Config": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "State Machine": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Compensation": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "AGC": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Wake On Radio": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Front End": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "PA Power": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Frequency Calibration": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "RC Oscillator": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Test Registers": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Strobe Commands": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Channel": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Chip Control and Status": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "State Machine Commands": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "TX/RX FIFO Commands": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Analog Configuration": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "IO Configuration": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Miscellaneous": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Other": {
+            "registers": 12,
+            "confidence": {
+              "high": 12,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 59,
+        "batches_total": 31,
+        "batches_sent": 31,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 17,
+          "all fields have default RW access (may be missing real access types)": 1,
+          "address 0x09 not found in register summary table": 1,
+          "address 0x37 not found in register summary table": 1,
+          "address 0x3E not found in register summary table": 1,
+          "address 0xFC not found in register summary table": 1,
+          "address 0xFD not found in register summary table": 1,
+          "address 0xF0 not found in register summary table": 1,
+          "address 0xF1 not found in register summary table": 1,
+          "address 0xF2 not found in register summary table": 1,
+          "address 0xF3 not found in register summary table": 1,
+          "address 0xF4 not found in register summary table": 1,
+          "address 0xF5 not found in register summary table": 1,
+          "address 0xF6 not found in register summary table": 1,
+          "address 0xF7 not found in register summary table": 1,
+          "address 0xF8 not found in register summary table": 1,
+          "address 0xF9 not found in register summary table": 1,
+          "address 0xFA not found in register summary table": 1,
+          "address 0xFB not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 28,
+        "fields_verified": 3,
+        "fields_unverified": 25,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 55,
+        "field_diagnostics": {
+          "0X3E": {
+            "INDEX": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 325747
+            }
+          },
+          "0X00": {
+            "CHIP_RDYn": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 50916
+            },
+            "STATE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 50916
+            },
+            "FIFO_BYTES_AVAILABLE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 50916
+            },
+            "GDx_CFG0": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 45513
+            },
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 272863
+            },
+            "GDO2_INV": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 272863
+            },
+            "GDO2_CFG": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 272863
+            },
+            "GDx_CFG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 214670
+            }
+          },
+          "0X31": {
+            "SFSTXON": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 565051
+            },
+            "VERSION": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 518578
+            }
+          },
+          "0X08": {
+            "LENGTH_CONFIG": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 274595
+            },
+            "CRC_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 274595
+            },
+            "WHITE_DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 274595
+            }
+          },
+          "0X1D": {
+            "CARRIER_SENSE_ABS_THR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 199226
+            },
+            "HYST_LEVEL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 244413
+            }
+          },
+          "0X30": {
+            "SRES": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 575741
+            },
+            "PARTNUM": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 517494
+            }
+          },
+          "0X32": {
+            "SXOFF": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 572151
+            },
+            "FREQOFF_EST": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 516417
+            }
+          },
+          "0X33": {
+            "SCAL": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 564097
+            },
+            "CRC_OK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 633405
+            },
+            "LQI_EST": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 633405
+            }
+          },
+          "0X34": {
+            "SRX": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 575310
+            },
+            "RSSI": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 672938
+            }
+          },
+          "0X35": {
+            "STX": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 575310
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 653799
+            },
+            "MARC_STATE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 653799
+            }
+          },
+          "0X36": {
+            "SIDLE": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 569347
+            },
+            "TIME": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 591215
+            }
+          },
+          "0X38": {
+            "SWOR": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 222447
+            },
+            "CRC_OK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 267135
+            },
+            "CS": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 267135
+            },
+            "PQT_REACHED": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 267135
+            },
+            "CCA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 267135
+            },
+            "SFD": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 267135
+            },
+            "GDO2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 267135
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 267135
+            },
+            "GDO0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 267135
+            }
+          },
+          "0X39": {
+            "SPWD": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 242651
+            },
+            "VCO_VC_DAC": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 247069
+            }
+          },
+          "0X1E": {
+            "EVENT0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 208618
+            }
+          },
+          "0X1F": {
+            "EVENT0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 212631
+            }
+          },
+          "0X2D": {
+            "TEST1": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 326103
+            }
+          },
+          "0X14": {
+            "CHANSPC_M": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 218839
+            }
+          },
+          "0X0A": {
+            "CHAN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 220104
+            }
+          },
+          "0X0E": {
+            "FREQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 217641
+            }
+          },
+          "0X0F": {
+            "FREQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 217641
+            }
+          },
+          "0X3A": {
+            "SFRX": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 256874
+            },
+            "TXFIFO_UNDERFLOW": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 284443
+            },
+            "NUM_TXBYTES": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 284443
+            }
+          },
+          "0X3B": {
+            "SFTX": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 263507
+            },
+            "RXFIFO_OVERFLOW": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 273661
+            },
+            "NUM_RXBYTES": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 273661
+            }
+          },
+          "0X3C": {
+            "SWORRST": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 240743
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 247046
+            },
+            "RCCTRL1_STATUS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 247046
+            }
+          },
+          "0X3D": {
+            "RCCTRL0_STATUS": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 160356
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 160356
+            }
+          },
+          "0X01": {
+            "GDO_DS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 242417
+            },
+            "GDO1_INV": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 242417
+            },
+            "GDO1_CFG": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 242417
+            }
+          },
+          "0X02": {
+            "TEMP_SENSOR_ENABLE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 276178
+            },
+            "GDO0_INV": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 276178
+            },
+            "GDO0_CFG": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 276178
+            }
+          },
+          "0X03": {
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 237724
+            },
+            "ADC_RETENTION": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 237724
+            },
+            "CLOSE_IN_RX": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 237724
+            },
+            "FIFO_THR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 237724
+            }
+          },
+          "0X04": {
+            "SYNC": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 227783
+            }
+          },
+          "0X05": {
+            "SYNC": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 230395
+            }
+          },
+          "0X06": {
+            "PACKET_LENGTH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 224075
+            }
+          },
+          "0X07": {
+            "PQT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 249821
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 249821
+            },
+            "CRC_AUTOFLUSH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 249821
+            },
+            "APPEND_STATUS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 249821
+            },
+            "ADR_CHK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 249821
+            }
+          },
+          "0X09": {
+            "DEVICE_ADDR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 228320
+            }
+          },
+          "0X0B": {
+            "RSVD_7_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 226955
+            },
+            "RSVD_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 226955
+            },
+            "FREQ_IF": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 226955
+            }
+          },
+          "0X0C": {
+            "FREQOFF": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 226955
+            }
+          },
+          "0X0D": {
+            "FREQ": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 226955
+            }
+          },
+          "0X10": {
+            "CHANBW_E": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 224557
+            },
+            "CHANBW_M": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 224557
+            },
+            "DRATE_E": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 224557
+            }
+          },
+          "0X11": {
+            "DRATE_M": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 228703
+            }
+          },
+          "0X12": {
+            "DEM_DCFILT_OFF": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 405109
+            },
+            "MOD_FORMAT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 405109
+            },
+            "MANCHESTER_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 405109
+            },
+            "SYNC_MODE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 405109
+            }
+          },
+          "0X13": {
+            "FEC_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 242998
+            },
+            "NUM_PREAMBLE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 242998
+            },
+            "RSVD_3_2": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 242998
+            },
+            "CHANSPC_E": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 242998
+            }
+          },
+          "0X15": {
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 227731
+            },
+            "DEVIATION_E": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 227731
+            },
+            "RSVD_3": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 227731
+            },
+            "DEVIATION_M": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 227731
+            }
+          },
+          "0X16": {
+            "RSVD_7_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 237557
+            },
+            "RX_TIME_RSSI": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 237557
+            },
+            "RX_TIME_QUAL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 237557
+            },
+            "RX_TIME": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 237557
+            }
+          },
+          "0X17": {
+            "RSVD_7_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 315550
+            },
+            "CCA_MODE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 315550
+            },
+            "RXOFF_MODE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 315550
+            },
+            "TXOFF_MODE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 315550
+            }
+          },
+          "0X18": {
+            "RSVD_7_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 326700
+            },
+            "FS_AUTOCAL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 326700
+            },
+            "PO_TIMEOUT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 326700
+            },
+            "PIN_CTRL_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 326700
+            },
+            "XOSC_FORCE_ON": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 326700
+            }
+          },
+          "0X19": {
+            "RSVD_7_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 295048
+            },
+            "FOC_BS_CS_GATE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 295048
+            },
+            "FOC_PRE_K": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 295048
+            },
+            "FOC_POST_K": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 295048
+            },
+            "FOC_LIMIT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 295048
+            }
+          },
+          "0X1A": {
+            "BS_PRE_KI": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 289675
+            },
+            "BS_PRE_KP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 289675
+            }
+          },
+          "0X1B": {
+            "MAX_DVGA_GAIN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 308905
+            },
+            "MAX_LNA_GAIN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 308905
+            },
+            "MAGN_TARGET": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 308905
+            }
+          },
+          "0X1C": {
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 233915
+            },
+            "AGC_LNA_PRIORITY": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 233915
+            },
+            "CARRIER_SENSE_REL_THR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 233915
+            },
+            "CARRIER_SENSE_ABS_THR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 233915
+            },
+            "AGCTRL1": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29943
+            }
+          },
+          "0X20": {
+            "RC_PD": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 238693
+            },
+            "EVENT1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 238693
+            },
+            "RC_CAL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 238693
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 238693
+            }
+          },
+          "0X21": {
+            "LNA_CURRENT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 222487
+            },
+            "LNA2MIX_CURRENT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 222487
+            },
+            "LODIV_BUF_CURRENT_RX": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 222487
+            },
+            "MIX_CURRENT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 222487
+            }
+          },
+          "0X22": {
+            "RSVD_7_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 263076
+            },
+            "LODIV_BUF_CURRENT_TX": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 263076
+            },
+            "RSVD_3": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 263076
+            },
+            "PA_POWER": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 263076
+            }
+          },
+          "0X23": {
+            "FSCAL3": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 281998
+            },
+            "CHP_CURR_CAL_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 281998
+            },
+            "FSCAL3_LO": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 281998
+            }
+          },
+          "0X24": {
+            "FSCAL2": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 228919
+            },
+            "RSVD_7_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 228919
+            },
+            "VCO_CORE_H_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 228919
+            }
+          },
+          "0X25": {
+            "FSCAL1": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 242710
+            },
+            "RSVD_7_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 242710
+            }
+          },
+          "0X26": {
+            "FSCAL0": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 226859
+            },
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 226859
+            }
+          },
+          "0X27": {
+            "RCCTRL1": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 228626
+            },
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 228626
+            }
+          },
+          "0X28": {
+            "RCCTRL0": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 228343
+            },
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 228343
+            }
+          },
+          "0X29": {
+            "FSTEST": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 226810
+            }
+          },
+          "0X2A": {
+            "PTEST": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 231988
+            }
+          },
+          "0X2B": {
+            "AGCTEST": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 230974
+            }
+          },
+          "0X2C": {
+            "TEST2": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 320220
+            }
+          },
+          "0X2E": {
+            "TEST0_HI": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 388363
+            },
+            "VCO_SEL_CAL_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 388363
+            },
+            "TEST0_LO": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 388363
+            }
+          },
+          "0X37": {
+            "TIME": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 566090
+            }
+          },
+          "0XF0": {
+            "PARTNUM[7:0]": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 500576
+            }
+          },
+          "0XF1": {
+            "VERSION[7:0]": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 578257
+            }
+          },
+          "0XF2": {
+            "FREQOFF_EST": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 579087
+            }
+          },
+          "0XF3": {
+            "CRC OK": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 578742
+            },
+            "LQI_EST[6:0]": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 578742
+            }
+          },
+          "0XF4": {
+            "RSSI": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 586832
+            }
+          },
+          "0XF5": {
+            "RSVD_7_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 588206
+            },
+            "MARC_STATE[4:0]": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 588206
+            }
+          },
+          "0XF6": {
+            "TIME[15:8]": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 577456
+            }
+          },
+          "0XF7": {
+            "TIME[7:0]": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 576352
+            }
+          },
+          "0XF8": {
+            "CRC_OK": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 253594
+            },
+            "CS": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 253594
+            },
+            "PQT_REACHED": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 253594
+            },
+            "CCA": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 253594
+            },
+            "SFD": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 253594
+            },
+            "GDO2": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 253594
+            },
+            "RSVD_1": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 253594
+            },
+            "GDO0": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 253594
+            }
+          },
+          "0XF9": {
+            "VCO_VC_DAC[7:0]": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 233081
+            }
+          },
+          "0XFA": {
+            "TXFIFO_UNDERFLOW": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 239993
+            },
+            "NUM_TXBYTES": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 239993
+            }
+          },
+          "0XFB": {
+            "RXFIFO_OVERFLOW": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 239988
+            },
+            "NUM_RXBYTES": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 239988
+            }
+          },
+          "0XFC": {
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 225180
+            },
+            "RCCTRL1_STATUS[6:0]": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 225180
+            }
+          },
+          "0XFD": {
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 341901
+            },
+            "RCCTRL0_STATUS[6:0]": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 341901
+            }
+          }
+        },
+        "fields_consistent_promoted": 22,
+        "fields_cross_section_augmented": 90,
+        "fields_name_matched": 103,
+        "fields_bit_corrected": 7,
+        "fields_bit_llm_fallback": 1,
+        "diagnostic_summary": {
+          "verified_quote": 3,
+          "verified_name": 102,
+          "name_not_found": 5,
+          "reserved": 29,
+          "quote_not_found": 25,
+          "name_too_short": 1,
+          "already_verified": 23
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 2801,
+        "output_tokens": 86,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000603
+      },
+      "extraction": {
+        "input_tokens": 410661,
+        "output_tokens": 45396,
+        "thinking_tokens": 0,
+        "calls": 54,
+        "total_cost_usd": 0.10483
+      },
+      "evidence": {
+        "input_tokens": 9757,
+        "output_tokens": 512,
+        "thinking_tokens": 0,
+        "calls": 17,
+        "total_cost_usd": 0.002207
+      },
+      "correction": {
+        "input_tokens": 86595,
+        "output_tokens": 19708,
+        "thinking_tokens": 0,
+        "calls": 81,
+        "total_cost_usd": 0.027173
+      },
+      "agents": {
+        "input_tokens": 448999,
+        "output_tokens": 74765,
+        "thinking_tokens": 54933,
+        "calls": 118,
+        "total_cost_usd": 0.128044
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 1745,
+        "output_tokens": 376,
+        "thinking_tokens": 0,
+        "calls": 2,
+        "total_cost_usd": 0.000537
+      }
+    }
+  }
+}

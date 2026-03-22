@@ -1,0 +1,5246 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "ICM20948",
+  "description": "9-axis MEMS IMU (gyro + accel + AK09916 magnetometer), I2C/SPI",
+  "vendor": "InvenSense (TDK)",
+  "source": "ICM20948.pdf",
+  "source_type": "pdf",
+  "source_url": "https://invensense.tdk.com/wp-content/uploads/2021/10/DS-000189-ICM-20948-v1.5.pdf",
+  "peripherals": {
+    "I2C_Master": [
+      {
+        "name": "I2C_MST_ODR_CONFIG",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C master ODR configuration",
+        "fields": [
+          {
+            "name": "ODR_CONFIG",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "I2C master output data rate configuration",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "I2C_SLV1_DO",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data out register for I2C slave 1",
+        "fields": [
+          {
+            "name": "DO",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Slave 1 data out",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          39
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "I2C_SLV2_ADDR",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C slave 2 address register",
+        "fields": [
+          {
+            "name": "I2C_SLV2_RNW",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1 - Transfer is a read. 0 - Transfer is a write.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_ID_2",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Physical address of I^2 C slave 2.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "I2C_SLV2_REG",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C slave 2 register address register",
+        "fields": [
+          {
+            "name": "REG",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Slave 2 register address",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "I2C_SLV2_CTRL",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C slave 2 control register",
+        "fields": [
+          {
+            "name": "I2C_SLV2_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "I2C slave 2 enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_SLV2_BYTE_SW",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "I2C slave 2 byte swap",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "I2C_SLV2_REG_DIS",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "I2C slave 2 register disable",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "I2C_SLV2_GRP",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "I2C slave 2 group",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "I2C_SLV2_LENG",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "I2C slave 2 length",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "outlier field count (5 fields vs median 1.0)",
+          "all fields have default RW access (may be missing real access types)",
+          "outlier field count (5 fields vs median 1.0)",
+          "all fields have default RW access (may be missing real access types)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "I2C_SLV2_DO",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2C slave 2 data out",
+        "fields": [
+          {
+            "name": "DO",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Slave 2 data out",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          39
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Interrupts": [
+      {
+        "name": "INT_PIN_CFG",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INT PIN CFG register",
+        "fields": [
+          {
+            "name": "RSVD_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "INT1_ACTL",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 \u2013 The logic level for INT1 pin is active low. 0 \u2013 The logic level for INT1 pin is active high.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "INT1_OPEN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 \u2013 INT1 pin is configured as open drain. 0 \u2013 INT1 pin is configured as push-pull.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "INT1_LATCH__EN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 \u2013 INT1 pin level held until interrupt status is cleared. 0 \u2013 INT1 pin indicates interrupt pulse is width 50 \u00b5s.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "INT_ANYRD_2CLEAR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 \u2013 Any read operation clears interrupt status.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "ACTL_FSYNC",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 \u2013 FSYNC pin active low.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "FSYNC_INT_MODE_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 \u2013 Enable FSYNC as interrupt.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "BYPASS_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable bypass mode for I2C Master.",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_ENABLE",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "INT enable register",
+        "fields": [
+          {
+            "name": "RSVD_6_4",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "REG_WOF_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 - Enable wake on FSYNC interrupt. 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "WOM_INT_EN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 - Enable interrupt for wake on motion to propagate to interrupt pin 1. 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PLL_RDY_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 - Enable PLL RDY interrupt (PLL RDY means PLL is running and in use as the clock source for the system) to propagate to interrupt pin 1. 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DMP_INT1_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 - Enable DMP interrupt to propagate to interrupt pin 1. 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "I2C_MST_INT_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 - Enable I^2 C master interrupt to propagate to interrupt pin 1. 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_ENABLE_1",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INT enable 1 register",
+        "fields": [
+          {
+            "name": "Reserved",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "RAW_DATA_0_RDY_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable raw data ready interrupt from any sensor to propagate to interrupt pin 1.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_ENABLE_2",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "INT enable 2 register",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FIFO_OVERFLOW_EN",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 - Enable interrupt for FIFO overflow to propagate to interrupt pin 1. 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_ENABLE_3",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INT enable 3 register",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "7:5",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "7:5",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_STATUS",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt status register",
+        "fields": [
+          {
+            "name": "RSVD_7_4",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "WOM_INT",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "1 - Wake on motion interrupt occurred.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "PLL_RDY_INT",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "1 - Indicates that the PLL has been enabled and is ready (delay of 4 ms ensures lock).",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DMP_INT1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "1 - Indicates the DMP has generated INT1 interrupt.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "I2C_MST_INT",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "1 - Indicates I^2 C master has generated an interrupt.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_STATUS_2",
+        "address": "0x1B",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "INT status 2 register",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 15,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": null,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FIFO_OVERFLOW_INT",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "1 - FIFO Overflow interrupt occurred.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_STATUS_3",
+        "address": "0x1C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt status 3 register",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FIFO_WM_INT",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "1 - Watermark interrupt for FIFO occurred.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Gyroscope": [
+      {
+        "name": "WIA",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "WIA register",
+        "fields": [
+          {
+            "name": "D7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Device ID bit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "D6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Device ID bit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "D5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Device ID bit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "D4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Device ID bit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "D3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Device ID bit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "D2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Device ID bit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "D1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Device ID bit",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "D0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Device ID bit",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          78
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SELF_TEST_X_GYRO",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "X-axis gyroscope self-test data register",
+        "fields": [
+          {
+            "name": "XG_ST_DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "X gyroscope self-test data",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          38
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "XG_OFFS_USRH",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper byte of X gyro offset cancellation",
+        "fields": [
+          {
+            "name": "X_OFFS_USER",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "X-axis gyroscope user offset bits [15:8]",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          39
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "XG_OFFS_USRL",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "XG OFFS USRL register",
+        "fields": [
+          {
+            "name": "X_OFFS_USER[7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Lower byte of X gyro offset cancellation. Step size: 0.0305 dps/LSB.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          62
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ZG_OFFS_USRL",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Lower byte of Z gyro offset cancellation. Step size: 0.0305 dps/LSB.",
+        "fields": [
+          {
+            "name": "Z_OFFS_USER",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Lower byte of Z gyro offset cancellation. Step size: 0.0305 dps/LSB.",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          62
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DELAY_TIMEH",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "High-byte of delay time between FSYNC event and the 1st gyro ODR event (after the FSYNC event). Reading DELAY_TIMEH will lock DELAY_TIMEH and DELAY_TIMEL from the next update. Reading DELAY_TIMEL will unlock DELAY_TIMEH and DELAY_TIMEL to take the next update due to an FSYNC event.",
+        "fields": [
+          {
+            "name": "DELAY_TIMEH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "High-byte of delay time between FSYNC event and the 1st gyro ODR event (after the FSYNC event). Reading DELAY_TIMEH will lock DELAY_TIMEH and DELAY_TIMEL from the next update. Reading DELAY_TIMEL will unlock DELAY_TIMEH and DELAY_TIMEL to take the next update due to an FSYNC event.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          61,
+          62
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GYRO_YOUT_H",
+        "address": "0x35",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "High Byte of Gyroscope Y-axis data",
+        "fields": [
+          {
+            "name": "GYRO_YOUT_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "High Byte of Gyroscope Y-axis data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GYRO_YOUT_L",
+        "address": "0x36",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Low Byte of Gyroscope Y-axis data. To convert the output of the gyroscope to angular rate measurement use the formula below: Y_angular_rate = GYRO_YOUT/Gyro_Sensitivity",
+        "fields": [
+          {
+            "name": "GYRO_YOUT_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Low Byte of Gyroscope Y-axis data. To convert the output of the gyroscope to angular rate measurement use the formula below: Y_angular_rate = GYRO_YOUT/Gyro_Sensitivity",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GYRO_ZOUT_H",
+        "address": "0x37",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "High Byte of Gyroscope Z-axis data",
+        "fields": [
+          {
+            "name": "GYRO_ZOUT_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "High Byte of Gyroscope Z-axis data",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GYRO_ZOUT_L",
+        "address": "0x38",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope Z-axis low byte output",
+        "fields": [
+          {
+            "name": "GYRO_ZOUT_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z-axis gyro low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Accelerometer": [
+      {
+        "name": "ZA_OFFS_H",
+        "address": "0x1A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Upper bits of the Z accelerometer offset cancellation.",
+        "fields": [
+          {
+            "name": "ZA_OFFS",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Upper bits of the Z accelerometer offset cancellation. +/- 16g Offset cancellation in all Full Scale modes, 15 bit 0.98-mg steps.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ACCEL_XOUT_H",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "High Byte of Accelerometer X-axis data.",
+        "fields": [
+          {
+            "name": "ACCEL_XOUT_H[7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "High Byte of Accelerometer X-axis data.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ACCEL_XOUT_L",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Low Byte of Accelerometer X-axis data",
+        "fields": [
+          {
+            "name": "ACCEL_XOUT_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Low Byte of Accelerometer X-axis data. To convert the output of the accelerometer to acceleration measurement use the formula below: X_acceleration = ACCEL_XOUT/Accel_Sensitivity",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ACCEL_YOUT_H",
+        "address": "0x2F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "High Byte of Accelerometer Y-axis data",
+        "fields": [
+          {
+            "name": "ACCEL_YOUT_H[7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "High Byte of Accelerometer Y-axis data.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ACCEL_YOUT_L",
+        "address": "0x30",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Low Byte of Accelerometer Y-axis data",
+        "fields": [
+          {
+            "name": "ACCEL_YOUT_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "Low Byte of Accelerometer Y-axis data. To convert the output of the accelerometer to acceleration measurement use the formula below: Y_acceleration = ACCEL_YOUT/Accel_Sensitivity",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Temperature": [
+      {
+        "name": "TEMP_OUT_H",
+        "address": "0x39",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "High Byte of Temp sensor data.",
+        "fields": [
+          {
+            "name": "TEMP_OUT_H[7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "High Byte of Temp sensor data.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TEMP_OUT_L",
+        "address": "0x3A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Low Byte of Temp sensor data. To convert the output of the temperature sensor to degrees C use the following formula: TEMP_degC = ((TEMP_OUT - RoomTemp_Offset)/Temp_Sensitivity) + 21degC",
+        "fields": [
+          {
+            "name": "TEMP_OUT_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "Low Byte of Temp sensor data. To convert the output of the temperature sensor to degrees C use the following formula: TEMP_degC = ((TEMP_OUT - RoomTemp_Offset)/Temp_Sensitivity) + 21degC",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TEMP_CONFIG",
+        "address": "0x53",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature configuration register",
+        "fields": [
+          {
+            "name": "RSVD_7_3",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TEMP_DLPFCFG",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Temperature digital low pass filter configuration",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Offsets": [
+      {
+        "name": "YA_OFFS_L",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "YA OFFS L register",
+        "fields": [
+          {
+            "name": "RSVD_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "YA_OFFS",
+            "bit_high": 6,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Lower bits of the Y accelerometer offset cancellation. +/- 16g Offset cancellation in all Full Scale modes, 15 bit 0.98-mg steps.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          78,
+          80
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "FSYNC": [
+      {
+        "name": "DELAY_TIMEL",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Low-byte of delay time between FSYNC event and the 1st gyro ODR event (after the FSYNC event). Reading DELAY_TIMEH will lock DELAY_TIMEH and DELAY_TIMEL from the next update. Reading DELAY_TIMEL will unlock DELAY_TIMEH and DELAY_TIMEL to take the next update due to an FSYNC event. Delay time in \u00b5s = (DELAY_TIMEH * 256 + DELAY_TIMEL) * 0.9645",
+        "fields": [
+          {
+            "name": "DELAY_TIMEL[7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "Low-byte of delay time between FSYNC event and the 1st gyro ODR event (after the FSYNC event). Reading DELAY_TIMEH will lock DELAY_TIMEH and DELAY_TIMEL from the next update. Reading DELAY_TIMEL will unlock DELAY_TIMEH and DELAY_TIMEL to take the next update due to an FSYNC event. Delay time in \u00b5s = (DELAY_TIMEH * 256 + DELAY_TIMEL) * 0.9645",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "External_Sensor_Data": [
+      {
+        "name": "EXT_SLV_SENS_DATA_00",
+        "address": "0x3B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "EXT SLV SENS DATA 00 register",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_00[7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sensor data read from external I^2 C devices via the I^2 C master interface. The data stored is controlled by the I2C_SLV(0-4)_ADDR, I2C_SLV(0-4)_REG, and I2C_SLV(0- 4)_CTRL registers.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_01",
+        "address": "0x3C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Sensor data read from external I^2C devices via the I^2C master interface. The data stored is controlled by the I2C_SLV(0-4)_ADDR, I2C_SLV(0-4)_REG, and I2C_SLV(0-4)_CTRL registers.",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_01",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "Sensor data read from external I^2C devices via the I^2C master interface. The data stored is controlled by the I2C_SLV(0-4)_ADDR, I2C_SLV(0-4)_REG, and I2C_SLV(0-4)_CTRL registers.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_02",
+        "address": "0x3D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data 02",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_02",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data 02",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_03",
+        "address": "0x3E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data 03",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_03",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data 03",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_04",
+        "address": "0x3F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Sensor data read from external I^2C devices via the I^2C master interface. The data stored is controlled by the I2C_SLV(0-4)_ADDR, I2C_SLV(0-4)_REG, and I2C_SLV(0-4)_CTRL registers.",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_04[7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "Sensor data read from external I^2C devices via the I^2C master interface. The data stored is controlled by the I2C_SLV(0-4)_ADDR, I2C_SLV(0-4)_REG, and I2C_SLV(0-4)_CTRL registers.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_05",
+        "address": "0x40",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 05",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_05",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_06",
+        "address": "0x41",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 06",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_06",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_10",
+        "address": "0x45",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 10",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_10",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_11",
+        "address": "0x46",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 11",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_11",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_12",
+        "address": "0x47",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Sensor data read from external I^2C devices via the I^2C master interface. The data stored is controlled by the I2C_SLV(0-4)_ADDR, I2C_SLV(0-4)_REG, and I2C_SLV(0-4)_CTRL registers.",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_12[7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sensor data read from external I^2C devices via the I^2C master interface. The data stored is controlled by the I2C_SLV(0-4)_ADDR, I2C_SLV(0-4)_REG, and I2C_SLV(0-4)_CTRL registers.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_13",
+        "address": "0x48",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 13",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_13",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_14",
+        "address": "0x49",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 14",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_14",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "FIFO": [
+      {
+        "name": "FIFO_EN_1",
+        "address": "0x66",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "FIFO enable register 1",
+        "fields": [
+          {
+            "name": "RSVD_7_4",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SLV_3_FIFO_EN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 - Write EXT_SENS_DATA registers associated to SLV_3 (as determined by I2C_SLV2_CTRL, I2C_SLV1_CTRL, and I2C_SL20_CTRL) to the FIFO at the sample rate; 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLV_2_FIFO_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 - Write EXT_SENS_DATA registers associated to SLV_2 (as determined by I2C_SLV0_CTRL, I2C_SLV1_CTRL, and I2C_SL20_CTRL) to the FIFO at the sample rate; 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLV_1_FIFO_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 - Write EXT_SENS_DATA registers associated to SLV_1 (as determined by I2C_SLV0_CTRL and I2C_SLV1_CTRL) to the FIFO at the sample rate; 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SLV_0_FIFO_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "1 - Write EXT_SENS_DATA registers associated to SLV_0 (as determined by I2C_SLV0_CTRL) to the FIFO at the sample rate; 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_EN_2",
+        "address": "0x67",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FIFO enable register 2",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ACCEL_FIFO_EN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1 - Write ACCEL_XOUT_H, ACCEL_XOUT_L, ACCEL_YOUT_H, ACCEL_YOUT_L, ACCEL_ZOUT_H, and ACCEL_ZOUT_L to the FIFO at the sample rate; 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYRO_Z_FIFO_EN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1 - Write GYRO_ZOUT_H and GYRO_ZOUT_L to the FIFO at the sample rate. 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYRO_Y_FIFO_EN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1 - Write GYRO_YOUT_H and GYRO_YOUT_L to the FIFO at the sample rate. 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GYRO_X_FIFO_EN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1 - Write GYRO_XOUT_H and GYRO_XOUT_L to the FIFO at the sample rate. 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TEMP_FIFO_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1 - Write TEMP_OUT_H and TEMP_OUT_L to the FIFO at the sample rate. 0 - Function is disabled.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_RST",
+        "address": "0x68",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "FIFO reset register",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FIFO_RESET",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Software FIFO reset",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_MODE",
+        "address": "0x69",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "FIFO mode register",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FIFO_MODE",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO operating mode selection",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_COUNTH",
+        "address": "0x70",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "FIFO count register high byte",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FIFO_CNT",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "High bits of FIFO byte count",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_COUNTL",
+        "address": "0x71",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Low bits, count indicates the number of written bytes in the FIFO.",
+        "fields": [
+          {
+            "name": "FIFO_CNT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "Low bits, count indicates the number of written bytes in the FIFO.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_R_W",
+        "address": "0x72",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FIFO read/write register",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "FIFO data read/write",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA_RDY_STATUS",
+        "address": "0x74",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Data ready status register",
+        "fields": [
+          {
+            "name": "RSVD_6_4",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "WOF_STATUS",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "Wake on FSYNC interrupt status. Cleared on read.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RAW_DATA_RDY",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RC",
+            "reset_value": 0,
+            "description": "Data from sensors is copied to FIFO or SRAM. Set when sequence controller kicks off on a sensor data load. Only bit 0 is relevant in a single FIFO configuration. Cleared on read.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_CFG",
+        "address": "0x76",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "FIFO configuration register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FIFO_CFG",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO interrupt status configuration",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "System": [
+      {
+        "name": "ODR_ALIGN_EN",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "ODR alignment enable register",
+        "fields": [
+          {
+            "name": "_zone_idx",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved.",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "ODR_ALIGN_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "0: Disables ODR start-time alignment. 1: Enables ODR start-time alignment when any of the following registers is written (with the same value or with different values): GYRO_SMPLRT_DIV, ACCEL_SMPLRT_DIV_1, ACCEL_SMPLRT_DIV_2, I2C_MST_ODR_CONFIG.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "REG_BANK_SEL",
+        "address": "0x7F",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Register bank selection register",
+        "fields": [
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_3_0",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "USER_BANK",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Use the following values in this bit-field to select a USER BANK. 0: Select USER BANK 0. 1: Select USER BANK 1. 2: Select USER BANK 2. 3: Select USER BANK 3.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38,
+          39,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Magnetometer": [
+      {
+        "name": "HYH",
+        "address": "0x14",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "HYH register",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "HY15",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Y-axis measurement data higher bit 15",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HY14",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Y-axis measurement data higher bit 14",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HY13",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Y-axis measurement data higher bit 13",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HY12",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Y-axis measurement data higher bit 12",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HY11",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Y-axis measurement data higher bit 11",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          78
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "HZL",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Z-axis measurement data lower 8bit",
+        "fields": [
+          {
+            "name": "HZ7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis measurement data bit 7",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HZ6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis measurement data bit 6",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HZ5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis measurement data bit 5",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HZ4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis measurement data bit 4",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HZ3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis measurement data bit 3",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HZ2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis measurement data bit 2",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HZ1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis measurement data bit 1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "HZ0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis measurement data bit 0",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          78
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "HZH",
+        "address": "0x16",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Z-axis measurement data high byte",
+        "fields": [
+          {
+            "name": "HZH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z-axis measurement high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          78,
+          79
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TS2",
+        "address": "0x34",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Test register 2 for magnetometer",
+        "fields": [
+          {
+            "name": "TEST",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Test bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          78,
+          82
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "External Slave Sensor Data": [
+      {
+        "name": "EXT_SLV_SENS_DATA_07",
+        "address": "0x42",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "External slave sensor data 07",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_07",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sensor data read from external I^2 C devices via the I^2 C master interface.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0x42 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_08",
+        "address": "0x43",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "External slave sensor data 08",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_08",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sensor data read from external I^2 C devices via the I^2 C master interface.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0x43 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_09",
+        "address": "0x44",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "External slave sensor data 09",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_09",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sensor data read from external I^2 C devices via the I^2 C master interface.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence",
+          "address 0x44 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_15",
+        "address": "0x4A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 15",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_15",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_16",
+        "address": "0x4B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 16",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_16",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_17",
+        "address": "0x4C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 17",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_17",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_18",
+        "address": "0x4D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 18",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_18",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_19",
+        "address": "0x4E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 19",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_19",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_20",
+        "address": "0x4F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 20",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_20",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_21",
+        "address": "0x50",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 21",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_21",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_22",
+        "address": "0x51",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "External slave sensor data register 22",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_22",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "External slave sensor data bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          38
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EXT_SLV_SENS_DATA_23",
+        "address": "0x52",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "EXT SLV SENS DATA 23 register",
+        "fields": [
+          {
+            "name": "EXT_SLV_SENS_DATA_23",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sensor data read from external I2C devices via the I2C master interface. The data stored is controlled by the I2C_SLV(0-4)_ADDR, I2C_SLV(0-4)_REG, and I2C_SLV(0-4)_CTRL registers.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          51
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Power Management": [
+      {
+        "name": "PWR_MGMT_1",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "PWR MGMT 1 register",
+        "fields": [
+          {
+            "name": "RSVD_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_5_2",
+            "bit_high": 5,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "6",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "5",
+            "enum_values": null,
+            "source": "agent_unverified"
+          },
+          {
+            "name": "SLEEP",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "LP_EN",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "When set, the chip is in sleep mode.",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Low power enable.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PWR_MGMT_2",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "PWR MGMT 2 register",
+        "fields": [
+          {
+            "name": "RSVD_2_1",
+            "bit_high": 2,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "2:0",
+            "bit_high": 5,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "2:0",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DISABLE_GYRO",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Disable GYRO",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "000 - All axes on, 111 - All axes disabled",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "000 all axes on, 111 all axes disabled",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "I2C Master": [
+      {
+        "name": "I2C_MST_STATUS",
+        "address": "0x17",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "I2 C MST status register",
+        "fields": [
+          {
+            "name": "RSVD_4_0",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "6",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "5",
+            "enum_values": null,
+            "source": "agent_unverified"
+          },
+          {
+            "name": "I2C_SLV4_DONE",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "I2C_LOST_ARB",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Slave4 transfer complete",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Arbitration lost",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Configuration": [
+      {
+        "name": "LP_CONFIG",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LP config register",
+        "fields": [
+          {
+            "name": "RSVD_4_0",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "6",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "5",
+            "enum_values": null,
+            "source": "agent_unverified"
+          },
+          {
+            "name": "I2C_MST_CYCLE",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ACCEL_CYCLE",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "1 - Operate I2C master in duty cycled mode.",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1 - Operate ACCEL in duty cycled mode.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CNTL2",
+        "address": "0x31",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "CNTL2 register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved bits, always 0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "MODE4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Operation mode setting bit 4.",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "MODE3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Operation mode setting bit 3.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "MODE2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Operation mode setting bit 2.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "MODE1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Operation mode setting bit 1.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "MODE0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Operation mode setting bit 0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          79
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CNTL3",
+        "address": "0x32",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "CNTL3 register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved bits.",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "SRST",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Soft reset. 0: Normal, 1: Reset. When set, all registers are initialized. After reset, SRST bit turns to 0 automatically.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          80
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TS1",
+        "address": "0x33",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TS1 register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Test register for shipment test. Do not use these registers.",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          80
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_register_page: source pages exist but logical register page is unknown"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Module Control": [
+      {
+        "name": "MOD_CTRL_USR",
+        "address": "0x54",
+        "size_bits": 8,
+        "reset_value": "0x03",
+        "description": "Module control user register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "REG_LP_DMP_EN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Enable turning on DMP in Low Power Accelerometer mode.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          39
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {
+    "0": "Bank 0",
+    "1": "Bank 1",
+    "2": "Bank 2",
+    "3": "Bank 3"
+  },
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T14:58:52.973448+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 81,
+        "by_confidence": {
+          "high": 71,
+          "medium": 10,
+          "low": 0
+        },
+        "with_quality_issues": 43,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 168,
+        "by_source": {
+          "llm_consistent": 4,
+          "llm_only": 5,
+          "evidence_verified": 50,
+          "agent_verified": 68,
+          "synthetic": 27,
+          "llm_verified": 8,
+          "agent_unverified": 3,
+          "section_agent": 3
+        }
+      },
+      "peripherals": {
+        "total": 16,
+        "by_name": {
+          "I2C_Master": {
+            "registers": 6,
+            "confidence": {
+              "high": 4,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "Interrupts": {
+            "registers": 8,
+            "confidence": {
+              "high": 8,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Gyroscope": {
+            "registers": 10,
+            "confidence": {
+              "high": 8,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "Accelerometer": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Temperature": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Offsets": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "FSYNC": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "External_Sensor_Data": {
+            "registers": 12,
+            "confidence": {
+              "high": 12,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "FIFO": {
+            "registers": 9,
+            "confidence": {
+              "high": 8,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "System": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Magnetometer": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "External Slave Sensor Data": {
+            "registers": 12,
+            "confidence": {
+              "high": 12,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Power Management": {
+            "registers": 2,
+            "confidence": {
+              "high": 1,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "I2C Master": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Configuration": {
+            "registers": 4,
+            "confidence": {
+              "high": 1,
+              "medium": 3,
+              "low": 0
+            }
+          },
+          "Module Control": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 131,
+        "batches_total": 27,
+        "batches_sent": 27,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 45,
+          "outlier field count (5 fields vs median 1.0)": 2,
+          "all fields have default RW access (may be missing real access types)": 2,
+          "missing_register_page": 11,
+          "missing_source_location": 5,
+          "address 0x42 not found in register summary table": 1,
+          "address 0x43 not found in register summary table": 1,
+          "address 0x44 not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 107,
+        "fields_verified": 97,
+        "fields_unverified": 10,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 71,
+        "field_diagnostics": {
+          "0X05": {
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83341
+            },
+            "I2C_MST_CYCLE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83341
+            },
+            "ACCEL_CYCLE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83341
+            },
+            "GYRO_CYCLE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83341
+            },
+            "RSVD_3_0": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83341
+            },
+            "I2C_SLV0_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58425
+            },
+            "I2C_SLV0_BYTE_SW": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58425
+            },
+            "I2C_SLV0_REG_DIS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58425
+            },
+            "I2C_SLV0_GRP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58425
+            },
+            "I2C_SLV0_LENG": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58425
+            },
+            "Y_OFFS_USER": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 52077
+            }
+          },
+          "0X06": {
+            "DEVICE_RESET": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60075
+            },
+            "SLEEP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60075
+            },
+            "LP_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60075
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60075
+            },
+            "TEMP_DIS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60075
+            },
+            "CLKSEL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60075
+            },
+            "Y_OFFS_USER": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 59499
+            }
+          },
+          "0X00": {
+            "ID": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 75258
+            },
+            "DIV": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 81766
+            },
+            "ODR_CONFIG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 92926
+            }
+          },
+          "0X03": {
+            "DMP_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 91235
+            },
+            "FIFO_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 91235
+            },
+            "I2C_MST_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 91235
+            },
+            "I2C_IF_DIS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 91235
+            },
+            "DMP_RST": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 91235
+            },
+            "SRAM_RST": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 91235
+            },
+            "I2C_MST_RST": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 91235
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 91235
+            },
+            "I2C_SLV0_RNW": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90659
+            },
+            "I2C_ID_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90659
+            },
+            "YG_ST_DATA": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 91448
+            },
+            "X_OFFS_USER": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 90659
+            }
+          },
+          "0X07": {
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 75742
+            },
+            "DISABLE_ACCEL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 75742
+            },
+            "DISABLE_GYRO": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 75742
+            },
+            "I2C_SLV1_RNW": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 75166
+            },
+            "I2C_ID_1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 75166
+            },
+            "Z_OFFS_USER": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 75166
+            }
+          },
+          "0X0F": {
+            "INT1_ACTL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 124343
+            },
+            "INT1_OPEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 124343
+            },
+            "INT1_LATCH_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 124343
+            },
+            "INT_ANYRD_2CLEAR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 124343
+            },
+            "ACTL_FSYNC": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 124343
+            },
+            "FSYNC_INT_MODE_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 124343
+            },
+            "BYPASS_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 124343
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 124343
+            },
+            "I2C_SLV3_RNW": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 98511
+            },
+            "I2C_ID_3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 98511
+            },
+            "YA_ST_DATA": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 99300
+            }
+          },
+          "0X10": {
+            "REG_WOF_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 152906
+            },
+            "RSVD_6_4": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 152906
+            },
+            "WOM_INT_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 152906
+            },
+            "PLL_RDY_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 152906
+            },
+            "DMP_INT1_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 152906
+            },
+            "I2C_MST_INT_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 152906
+            },
+            "ZA_ST_DATA": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 127863
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 127074
+            },
+            "ACCEL_SMPLRT_DIV": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 127074
+            }
+          },
+          "0X11": {
+            "RSVD_7_1": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 90506
+            },
+            "RAW_DATA_0_RDY_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 90506
+            },
+            "I2C_SLV3_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90884
+            },
+            "I2C_SLV3_BYTE_SW": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90884
+            },
+            "I2C_SLV3_REG_DIS": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90884
+            },
+            "I2C_SLV3_GRP": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90884
+            },
+            "I2C_SLV3_LENG": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90884
+            },
+            "ACCEL_SMPLRT_DIV": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 89930
+            }
+          },
+          "0X12": {
+            "RSVD_7_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83973
+            },
+            "FIFO_OVERFLOW_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83973
+            },
+            "RSVD_7_2": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83397
+            },
+            "ACCEL_INTEL_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83397
+            },
+            "ACCEL_INTEL_MODE_INT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83397
+            }
+          },
+          "0X13": {
+            "RSVD_7_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83922
+            },
+            "FIFO_WM_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83922
+            },
+            "I2C_SLV4_RNW": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84300
+            },
+            "I2C_ID_4": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 84300
+            },
+            "WOM_THRESHOLD": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83346
+            }
+          },
+          "0X17": {
+            "PASS_THROUGH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 100503
+            },
+            "I2C_SLV4_DONE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 100503
+            },
+            "I2C_LOST_ARB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 100503
+            },
+            "I2C_SLV4_NACK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 100503
+            },
+            "I2C_SLV3_NACK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 100503
+            },
+            "I2C_SLV2_NACK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 100503
+            },
+            "I2C_SLV1_NACK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 100503
+            },
+            "I2C_SLV0_NACK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 100503
+            },
+            "YA_OFFS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 99927
+            }
+          },
+          "0X19": {
+            "RSVD_7_4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 77480
+            },
+            "WOM_INT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 77480
+            },
+            "PLL_RDY_INT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 77480
+            },
+            "DMP_INT1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 77480
+            },
+            "I2C_MST_INT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 77480
+            }
+          },
+          "0X1A": {
+            "RSVD_7_1": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 94325
+            },
+            "RAW_DATA_0_RDY_INT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 94325
+            },
+            "ZA_OFFS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 62703
+            }
+          },
+          "0X1B": {
+            "RSVD_7_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 92334
+            },
+            "FIFO_OVERFLOW_INT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 92334
+            },
+            "ZA_OFFS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 48542
+            },
+            "RSVD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 48542
+            }
+          },
+          "0X1C": {
+            "FIFO_WM_INT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 74056
+            },
+            "RSVD_7_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 74056
+            }
+          },
+          "0X28": {
+            "DELAY_TIMEH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 37899
+            },
+            "TBC_PLL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40017
+            }
+          },
+          "0X29": {
+            "DELAY_TIMEL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37899
+            }
+          },
+          "0X2D": {
+            "ACCEL_XOUT_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 33423
+            }
+          },
+          "0X2E": {
+            "ACCEL_XOUT_L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 47691
+            }
+          },
+          "0X2F": {
+            "ACCEL_YOUT_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 33478
+            }
+          },
+          "0X30": {
+            "ACCEL_YOUT_L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 47691
+            }
+          },
+          "0X31": {
+            "ACCEL_ZOUT_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 57395
+            },
+            "RSV7_5": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 66942
+            },
+            "MODE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 66942
+            },
+            "MODE4": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 66942
+            },
+            "MODE3": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 66942
+            },
+            "MODE2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 66942
+            },
+            "MODE1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 66942
+            },
+            "MODE0": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 66942
+            }
+          },
+          "0X32": {
+            "ACCEL_ZOUT_L": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 82493
+            },
+            "RSV7_1": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 70200
+            },
+            "SRST": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 70200
+            }
+          },
+          "0X33": {
+            "GYRO_XOUT_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 57794
+            },
+            "TEST": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56342
+            }
+          },
+          "0X34": {
+            "GYRO_XOUT_L": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 72357
+            },
+            "TEST": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56667
+            }
+          },
+          "0X35": {
+            "GYRO_YOUT_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 33338
+            }
+          },
+          "0X36": {
+            "GYRO_YOUT_L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 53811
+            }
+          },
+          "0X37": {
+            "GYRO_ZOUT_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 33603
+            }
+          },
+          "0X38": {
+            "GYRO_ZOUT_L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 45441
+            }
+          },
+          "0X39": {
+            "TEMP_OUT_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 33133
+            }
+          },
+          "0X3A": {
+            "TEMP_OUT_L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 47866
+            }
+          },
+          "0X3B": {
+            "EXT_SLV_SENS_DATA_00": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 70593
+            },
+            "EXT_SLV_SENS_DATA_01": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 70593
+            },
+            "EXT_SLV_SENS_DATA_02": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 70593
+            }
+          },
+          "0X3C": {
+            "EXT_SLV_SENS_DATA_01": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 36742
+            }
+          },
+          "0X3D": {
+            "EXT_SLV_SENS_DATA_02": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 38318
+            }
+          },
+          "0X52": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 27119
+            },
+            "DELAY_TIME_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29960
+            },
+            "RSVD_6": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29960
+            },
+            "WOF_DEGLITCH_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29960
+            },
+            "WOF_EDGE_INT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29960
+            },
+            "EXT_SYNC_SET": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29960
+            }
+          },
+          "0X66": {
+            "RSVD_7_4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40413
+            },
+            "SLV_3_FIFO_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40413
+            },
+            "SLV_2_FIFO_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40413
+            },
+            "SLV_1_FIFO_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40413
+            },
+            "SLV_0_FIFO_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40413
+            }
+          },
+          "0X67": {
+            "ACCEL_FIFO_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40447
+            },
+            "GYRO_Z_FIFO_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40447
+            },
+            "GYRO_Y_FIFO_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40447
+            },
+            "GYRO_X_FIFO_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40447
+            },
+            "TEMP_FIFO_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40447
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40447
+            }
+          },
+          "0X68": {
+            "RSVD_7_5": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40276
+            },
+            "FIFO_RESET": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40276
+            }
+          },
+          "0X69": {
+            "RSVD_7_5": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40357
+            },
+            "FIFO_MODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40357
+            }
+          },
+          "0X70": {
+            "RSVD_7_5": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40434
+            },
+            "FIFO_CNT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40434
+            }
+          },
+          "0X71": {
+            "COUNT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 25547
+            }
+          },
+          "0X72": {
+            "DATA": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 26521
+            }
+          },
+          "0X74": {
+            "WOF_STATUS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 50862
+            },
+            "RSVD_6_4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 50862
+            },
+            "RAW_DATA_RDY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 50862
+            }
+          },
+          "0X76": {
+            "RSVD_7_1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 51128
+            },
+            "FIFO_CFG": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 51128
+            }
+          },
+          "0X7F": {
+            "RSVD_7_6": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 70492
+            },
+            "USER_BANK": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 70492
+            },
+            "RSVD_3_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 70492
+            }
+          },
+          "0X02": {
+            "DELAY_ES_SHADOW": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67162
+            },
+            "I2C_SLV4_DELAY_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67162
+            },
+            "I2C_SLV3_DELAY_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67162
+            },
+            "I2C_SLV2_DELAY_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67162
+            },
+            "I2C_SLV1_DELAY_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67162
+            },
+            "I2C_SLV0_DELAY_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67162
+            },
+            "RSVD_7_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 67162
+            },
+            "XGYRO_CTEN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 67162
+            },
+            "YGYRO_CTEN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 67162
+            },
+            "ZGYRO_CTEN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 67162
+            },
+            "GYRO_AVGCFG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 67162
+            },
+            "XG_ST_DATA": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 67951
+            }
+          },
+          "0X04": {
+            "SELF_TEST": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 72190
+            },
+            "OFFS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 71401
+            },
+            "REG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 71401
+            }
+          },
+          "0X0E": {
+            "SELF_TEST": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 48878
+            },
+            "DO": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 48089
+            }
+          },
+          "0X14": {
+            "OFFS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 48344
+            },
+            "REG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 49298
+            },
+            "RSVD_7_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83318
+            },
+            "ACCEL_DLPFCFG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83318
+            },
+            "ACCEL_FS_SEL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83318
+            },
+            "ACCEL_FCHOICE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83318
+            }
+          },
+          "0X15": {
+            "I2C_SLV4_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 92989
+            },
+            "I2C_SLV4_BYTE_SW": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 92989
+            },
+            "I2C_SLV4_REG_DIS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 92989
+            },
+            "I2C_SLV4_DLY": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 92989
+            },
+            "XA_OFFS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83429
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 83429
+            },
+            "AX_ST_EN_REG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 66779
+            },
+            "AY_ST_EN_REG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 66779
+            },
+            "AZ_ST_EN_REG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 66779
+            },
+            "DEC3_CFG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 66779
+            }
+          },
+          "0X18": {
+            "YA_OFFS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20435
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20435
+            },
+            "STATUS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 49766
+            }
+          },
+          "0X01": {
+            "MULT_MST_EN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 29572
+            },
+            "I2C_MST_PNSR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 29572
+            },
+            "I2C_MST_CLK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 29572
+            },
+            "RSVD_7_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 29572
+            },
+            "GYRO_DLPFCFG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 29572
+            },
+            "GYRO_FS_SEL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 29572
+            },
+            "GYRO_FCHOICE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 29572
+            }
+          },
+          "0X08": {
+            "OFFS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 48189
+            },
+            "REG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 103825
+            }
+          },
+          "0X09": {
+            "I2C_SLV1_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 88946
+            },
+            "I2C_SLV1_BYTE_SW": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 88946
+            },
+            "I2C_SLV1_REG_DIS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 88946
+            },
+            "I2C_SLV1_GRP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 88946
+            },
+            "I2C_SLV1_LENG": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 88946
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 34910
+            },
+            "ODR_ALIGN_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 34910
+            }
+          },
+          "0X0A": {
+            "DO": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 26782
+            }
+          },
+          "0X0B": {
+            "I2C_SLV2_RNW": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 10014
+            },
+            "I2C_ID_2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 10014
+            }
+          },
+          "0X0C": {
+            "REG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 27868
+            }
+          },
+          "0X0D": {
+            "I2C_SLV2_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17418
+            },
+            "I2C_SLV2_BYTE_SW": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17418
+            },
+            "I2C_SLV2_REG_DIS": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17418
+            },
+            "I2C_SLV2_GRP": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17418
+            },
+            "I2C_SLV2_LENG": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17418
+            }
+          },
+          "0X16": {
+            "DO": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51333
+            },
+            "HZH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 50985
+            }
+          },
+          "0X3E": {
+            "EXT_SLV_SENS_DATA_03": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59215
+            }
+          },
+          "0X3F": {
+            "EXT_SLV_SENS_DATA_04": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 44017
+            }
+          },
+          "0X40": {
+            "EXT_SLV_SENS_DATA_05": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49869
+            }
+          },
+          "0X41": {
+            "EXT_SLV_SENS_DATA_06": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 43805
+            }
+          },
+          "0X45": {
+            "EXT_SLV_SENS_DATA_10": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 43805
+            }
+          },
+          "0X46": {
+            "EXT_SLV_SENS_DATA_11": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42076
+            }
+          },
+          "0X47": {
+            "EXT_SLV_SENS_DATA_12": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 43933
+            }
+          },
+          "0X48": {
+            "EXT_SLV_SENS_DATA_13": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 49953
+            }
+          },
+          "0X49": {
+            "EXT_SLV_SENS_DATA_14": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 43805
+            }
+          },
+          "0X4A": {
+            "EXT_SLV_SENS_DATA_15": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 41965
+            }
+          },
+          "0X4B": {
+            "EXT_SLV_SENS_DATA_16": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 44017
+            }
+          },
+          "0X4C": {
+            "EXT_SLV_SENS_DATA_17": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 41965
+            }
+          },
+          "0X4D": {
+            "EXT_SLV_SENS_DATA_18": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 41271
+            }
+          },
+          "0X4E": {
+            "EXT_SLV_SENS_DATA_19": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40360
+            }
+          },
+          "0X4F": {
+            "EXT_SLV_SENS_DATA_20": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 41367
+            }
+          },
+          "0X50": {
+            "EXT_SLV_SENS_DATA_21": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 47070
+            }
+          },
+          "0X51": {
+            "EXT_SLV_SENS_DATA_22": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 41271
+            }
+          },
+          "0X53": {
+            "TEMP_DLPFCFG": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 21883
+            }
+          },
+          "0X54": {
+            "RSVD_7_1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28529
+            },
+            "REG_LP_DMP_EN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 28529
+            }
+          },
+          "0X42": {
+            "EXT_SLV_SENS_DATA_07": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 41850
+            }
+          },
+          "0X43": {
+            "EXT_SLV_SENS_DATA_08": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 44199
+            }
+          },
+          "0X44": {
+            "EXT_SLV_SENS_DATA_09": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 45086
+            }
+          }
+        },
+        "fields_cross_section_augmented": 58,
+        "fields_name_matched": 66,
+        "fields_bit_corrected": 2,
+        "fields_consistent_promoted": 55,
+        "fields_bit_llm_fallback": 3,
+        "diagnostic_summary": {
+          "reserved": 22,
+          "verified_name": 66,
+          "verified_quote": 96,
+          "quote_not_found": 10,
+          "name_not_found": 54,
+          "name_too_short": 4
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 2805,
+        "output_tokens": 102,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000612
+      },
+      "extraction": {
+        "input_tokens": 305736,
+        "output_tokens": 83426,
+        "thinking_tokens": 0,
+        "calls": 46,
+        "total_cost_usd": 0.10286
+      },
+      "evidence": {
+        "input_tokens": 3336,
+        "output_tokens": 138,
+        "thinking_tokens": 0,
+        "calls": 6,
+        "total_cost_usd": 0.000736
+      },
+      "correction": {
+        "input_tokens": 115334,
+        "output_tokens": 27661,
+        "thinking_tokens": 0,
+        "calls": 124,
+        "total_cost_usd": 0.036897
+      },
+      "agents": {
+        "input_tokens": 405683,
+        "output_tokens": 61436,
+        "thinking_tokens": 35678,
+        "calls": 74,
+        "total_cost_usd": 0.123562
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 2851,
+        "output_tokens": 575,
+        "thinking_tokens": 0,
+        "calls": 2,
+        "total_cost_usd": 0.000858
+      }
+    }
+  }
+}

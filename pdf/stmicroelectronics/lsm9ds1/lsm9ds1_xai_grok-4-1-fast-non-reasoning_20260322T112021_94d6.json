@@ -1,0 +1,3941 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "LSM9DS1",
+  "description": "iNEMO 9-axis IMU: 3D accelerometer + 3D gyroscope + 3D magnetometer, I2C/SPI",
+  "vendor": "STMicroelectronics",
+  "source": "LSM9DS1.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn.sparkfun.com/assets/learn_tutorials/3/7/3/LSM9DS1_Datasheet.pdf",
+  "peripherals": {
+    "Device ID": [
+      {
+        "name": "WHO_AM_I_M",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Device identification register",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": null,
+            "description": "Device ID value: 0x4B (01001011)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          8
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Activity Detection": [
+      {
+        "name": "ACT_THS",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Activity threshold register",
+        "fields": [
+          {
+            "name": "SLEEP_ON_INACT",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope operating mode during inactivity",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ACT_THS",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Activity threshold",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          2
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ACT_DUR",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "ACT DUR register",
+        "fields": [
+          {
+            "name": "ACT_DUR [7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ACT DUR [7:0]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Accelerometer": [
+      {
+        "name": "INT_GEN_CFG_XL",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INT GEN CFG XL register",
+        "fields": [
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "AOI_XL",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "AOI XL",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_GEN_THS_X_XL",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INT GEN THS X XL register",
+        "fields": [
+          {
+            "name": "THS_XL_X [7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "THS XL X [7:0]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_GEN_THS_Y_XL",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INT GEN THS Y XL register",
+        "fields": [
+          {
+            "name": "THS_XL_Y [7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "THS XL Y [7:0]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_GEN_THS_Z_XL",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INT GEN THS Z XL register",
+        "fields": [
+          {
+            "name": "THS_XL_Z [7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "THS XL Z [7:0]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_GEN_DUR_XL",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INT GEN DUR XL register",
+        "fields": [
+          {
+            "name": "DUR_XL [7:0]",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DUR XL [7:0]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_REG5_XL",
+        "address": "0x1F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Linear acceleration sensor Control Register 5",
+        "fields": [
+          {
+            "name": "RSVD_2_0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "These bits must be set to '0' for the correct operation of the device",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "DEC",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Decimation of acceleration data on OUT REG and FIFO. Default value: 00 (00: no decimation; 01: update every 2 samples; 10: update every 4 samples; 11: update every 8 samples)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "Zen_XL",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Accelerometer's Z-axis output enable. Default value: 1 (0: Z-axis output disabled; 1: Z-axis output enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "Yen_XL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Accelerometer's Y-axis output enable. Default value: 1 (0: Y-axis output disabled; 1: Y-axis output enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "Xen_XL",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Accelerometer's X-axis output enable. Default value: 1 (0: X-axis output disabled; 1: X-axis output enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 13,
+        "source_pages": [
+          5,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_GEN_SRC_XL",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Linear acceleration sensor interrupt source register",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "IA_XL",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Interrupt active",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ZH_XL",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z high",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ZL_XL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z low",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YH_XL",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y high",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YL_XL",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y low",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "XH_XL",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X high",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "XL_XL",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X low",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          6,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Gyroscope": [
+      {
+        "name": "CTRL_REG1_G",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gyroscope control register 1",
+        "fields": [
+          {
+            "name": "RSVD_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ODR_G",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope output data rate selection",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "FS_G",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope full-scale selection",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BW_G",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope bandwidth selection",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          3,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_REG2_G",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Angular rate sensor Control Register 2",
+        "fields": [
+          {
+            "name": "RSVD_7_4",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Must be set to 0 for correct operation",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "INT_SEL",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "INT selection configuration. Default value: 00",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OUT_SEL",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Out selection configuration. Default value: 00",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 10,
+        "source_pages": [
+          3,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_REG3_G",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Angular rate sensor Control Register 3",
+        "fields": [
+          {
+            "name": "RSVD_5_4",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Must be set to 0 for correct operation",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LP_MODE",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Low-power mode enable. Default value: 0 (0: Low-power disabled; 1: Low-power enabled)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HP_EN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "High-pass filter enable. Default value: 0 (0: HPF disabled; 1: HPF enabled)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "HPCF_G",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope high-pass filter cutoff frequency selection. Default value: 0000",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 10,
+        "source_pages": [
+          3,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ORIENT_CFG_G",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Angular rate sensor sign and orientation register",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved bit must be set to 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "SIGN_X_G",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Pitch axis (X) angular rate sign",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SIGN_Y_G",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Roll axis (Y) angular rate sign",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SIGN_Z_G",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Yaw axis (Z) angular rate sign",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ORIENT",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Directional user orientation selection",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          3,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_GEN_SRC_G",
+        "address": "0x14",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt generator source register for gyroscope",
+        "fields": [
+          {
+            "name": "RSVD_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "IA_G",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Interrupt active. Default value: 0 (0: no interrupt has been generated; 1: one or more interrupts have been generated)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ZH_G",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Yaw (Z) high. Default value: 0 (0: no interrupt, 1: Z high event has occurred)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ZL_G",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Yaw (Z) low. Default value: 0 (0: no interrupt; 1: Z low event has occurred)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YH_G",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Roll (Y) high. Default value: 0 (0: no interrupt, 1: Y high event has occurred)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YL_G",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Roll (Y) low. Default value: 0 (0: no interrupt, 1: Y low event has occurred)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "XH_G",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Pitch (X) high. Default value: 0 (0: no interrupt, 1: X high event has occurred)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "XL_G",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Pitch (X) low. Default value: 0 (0: no interrupt, 1: X low event has occurred)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 13,
+        "source_pages": [
+          3,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_X_L_G",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope X-axis output low register",
+        "fields": [
+          {
+            "name": "X_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X-axis low byte",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          41
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_X_H_G",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope X-axis output high register",
+        "fields": [
+          {
+            "name": "X_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X-axis high byte",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          41
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_Y_L_G",
+        "address": "0x1A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope Y-axis output low register",
+        "fields": [
+          {
+            "name": "Y_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y-axis low byte",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_Y_H_G",
+        "address": "0x1B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope Y-axis output high register",
+        "fields": [
+          {
+            "name": "Y_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y-axis high byte",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_Z_L_G",
+        "address": "0x1C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope Z-axis output low byte",
+        "fields": [
+          {
+            "name": "OUT_Z_L_G",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z-axis low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_Z_H_G",
+        "address": "0x1D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope Z-axis output high byte",
+        "fields": [
+          {
+            "name": "OUT_Z_H_G",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z-axis high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_GEN_THS_X_G",
+        "address": "0x31",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Angular rate sensor interrupt generator threshold registers for X axis (high byte)",
+        "fields": [
+          {
+            "name": "DCRM_G",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Decrement or reset counter mode selection",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "THS_G_X",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Angular rate sensor interrupt threshold on pitch (X) axis [14:8]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 24,
+        "source_pages": [
+          9,
+          67
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_GEN_THS_YL_G",
+        "address": "0x34",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gyroscope interrupt generator threshold Y low byte",
+        "fields": [
+          {
+            "name": "INT_GEN_THS_YL_G",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt generator threshold Y low",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_GEN_THS_Z_G",
+        "address": "0x35",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Angular rate sensor interrupt thresholds on yaw (Z) axis register",
+        "fields": [
+          {
+            "name": "RSVD_15",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "THS_G_Z",
+            "bit_high": 14,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Angular rate sensor interrupt thresholds on yaw (Z) axis",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 29,
+        "source_pages": [
+          58
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_GEN_THS_ZL_G",
+        "address": "0x36",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Gyroscope interrupt generator threshold Z low byte",
+        "fields": [
+          {
+            "name": "INT_GEN_THS_ZL_G",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt generator threshold Z low",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_GEN_DUR_G",
+        "address": "0x37",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt generator duration register for gyroscope",
+        "fields": [
+          {
+            "name": "WAIT_G",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Exit from interrupt wait function enable. Default value: 0 (0: wait function off; 1: wait for DUR_G [6:0] samples before exiting interrupt)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DUR_G",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enter/exit interrupt duration value. Default Value: 000 0000",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 30,
+        "source_pages": [
+          7,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Magnetometer": [
+      {
+        "name": "CTRL_REG1_M",
+        "address": "0x20",
+        "size_bits": 8,
+        "reset_value": "0x50",
+        "description": "Magnetometer control register 1",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "TEMP_COMP",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Temperature compensation enable. Default value: 0 (0: temperature compensation disabled; 1: temperature compensation enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "OM",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "X and Y axes operative mode selection. Default value: 00",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DO",
+            "bit_high": 4,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 4,
+            "description": "Output data rate selection. Default value: 100",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ST",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Self-test enable. Default value: 0 (0: self-test disabled; 1: self-test enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 31,
+        "source_pages": [
+          8,
+          42,
+          65
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_REG2_M",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Magnetometer control register 2",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FS",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Full-scale configuration. Default value: 00",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "REBOOT",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reboot memory content. Default value: 0 (0: normal mode; 1: reboot memory content)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SOFT_RST",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Configuration registers and user register reset function. (0: default value; 1: reset operation)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 31,
+        "source_pages": [
+          8,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_REG3_M",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": "0x03",
+        "description": "Magnetometer control register 3",
+        "fields": [
+          {
+            "name": "RSVD_6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_4_3",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "I2C_DISABLE",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Disable I2C interface. Default value 0. (0: I2C enable; 1: I2C disable)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LP",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Low-power mode configuration. Default value: 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SIM",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SPI Serial Interface mode selection. Default value: 0 (0: SPI only write operations enabled; 1: SPI read and write operations enable)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MD",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "Operating mode selection. Default value: 11",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 31,
+        "source_pages": [
+          8,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_REG4_M",
+        "address": "0x23",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "CTRL REG4 M register",
+        "fields": [
+          {
+            "name": "RSVD_3_0",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "CTRL_REG4_M",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "CTRL REG4 M",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_REG5_M",
+        "address": "0x24",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Control register 5 magnetic",
+        "fields": [
+          {
+            "name": "RSVD_7_2",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Must be set to 0 for correct operation",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Must be set to 0 for correct operation",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ST_G",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Angular rate sensor self-test enable. 0: disabled; 1: enabled",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          6,
+          41
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_REG5_M",
+        "address": "0x25",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Magnetometer control register 5",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_5_0",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "BDU",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Block data update for magnetic data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          66
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)",
+          "address 0x25 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_X_L_M",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "OUT X L M register",
+        "fields": [
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "OUT_X_L_M",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "OUT X L M",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_X_H_M",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "OUT X H M register",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Magnetometer X-axis data output (high byte). The value of the magnetic field is expressed as two\u2019s complement.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          66
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_Y_L_M",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "OUT Y L M register",
+        "fields": [
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "OUT_Y_L_M",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "OUT Y L M",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_Y_H_M",
+        "address": "0x2B",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "OUT Y H M register",
+        "fields": [
+          {
+            "name": "RSVD_15_1",
+            "bit_high": 15,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1 1 1 1 0 1",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          9
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_Z_L_M",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "OUT Z L M register",
+        "fields": [
+          {
+            "name": "RSVD_6_0",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "OUT_Z_L_M",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "OUT Z L M",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_Z_H_M",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "OUT Z H M register",
+        "fields": [
+          {
+            "name": "OUT_Z_H_M",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Magnetometer Z-axis data output. The value of the magnetic field is expressed as two\u2019s complement.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          66
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_CFG_M",
+        "address": "0x30",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Magnetometer interrupt configuration register",
+        "fields": [
+          {
+            "name": "XIEN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable interrupt generation on X-axis. 0: disable; 1: enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YIEN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable interrupt generation on Y-axis. 0: disable; 1: enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ZIEN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Enable interrupt generation on Z-axis. 0: disable; 1: enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RSV",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Must be set to 0 for correct operation",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IEA",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt active configuration on INT_MAG. 0: low; 1: high",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IEL",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Latch interrupt request. 0: latched; 1: not latched",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IEN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt enable on INT_M pin. 0: disable; 1: enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 34,
+        "source_pages": [
+          9,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Temperature": [
+      {
+        "name": "OUT_TEMP_L",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature output low register",
+        "fields": [
+          {
+            "name": "TEMP_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature low byte",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          3
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Interrupts": [
+      {
+        "name": "INT1_CTRL",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "INT1 interrupt control register",
+        "fields": [
+          {
+            "name": "INT1_IG_G",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope interrupt enable on INT 1_A/G pin. Default value: 0 (0: disabled; 1: enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT_IG_XL",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer interrupt generator on INT 1_A/G pin. Default value: 0 (0: disabled; 1: enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT_FSS5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FSS5 interrupt enable on INT 1_A/G pin. Default value: 0 (0: disabled; 1: enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT_OVR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Overrun interrupt on INT 1_A/G pin. Default value: 0 (0: disabled; 1: enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT_FTH",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO threshold interrupt on INT 1_A/G pin. Default value: 0 (0: disabled; 1: enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT_BOOT",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Boot status available on INT 1_A/G pin. Default value: 0 (0: disabled; 1: enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT_DRDY_G",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gyroscope data ready on INT 1_A/G pin. Default value: 0 (0: disabled; 1: enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT_DRDY_XL",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Accelerometer data ready on INT 1_A/G pin. Default value: 0 (0: disabled; 1: enabled)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 9,
+        "source_pages": [
+          2,
+          40
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT2_CTRL",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Interrupt 2 control register",
+        "fields": [
+          {
+            "name": "CTRL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Interrupt 2 control",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          3
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "STATUS_REG",
+        "address": "0x17",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Status register",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "IG_XL",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Accelerometer interrupt output signal",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "IG_G",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Gyroscope interrupt output signal",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INACT",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Inactivity interrupt output signal",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "BOOT_STATUS",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Boot running flag signal",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TDA",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Temperature sensor new data available",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GDA",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Gyroscope new data available",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "XLDA",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Accelerometer new data available",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          3,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "STATUS_REG_M",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Magnetometer status register with overrun and new data flags",
+        "fields": [
+          {
+            "name": "ZYXOR",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "X, Y and Z-axis data overrun. 0: no overrun; 1: new data overwritten previous",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ZOR",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis data overrun. 0: no overrun; 1: new data overwritten previous",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YOR",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Y-axis data overrun. 0: no overrun; 1: new data overwritten previous",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "XOR",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "X-axis data overrun. 0: no overrun; 1: new data overwritten previous",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ZYXDA",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "X, Y and Z-axis new data available. 0: not available; 1: available",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ZDA",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis new data available. 0: not available; 1: available",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YDA",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Y-axis new data available. 0: not available; 1: available",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "XDA",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "X-axis new data available. 0: not available; 1: available",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 34,
+        "source_pages": [
+          9,
+          42
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_THS_L",
+        "address": "0x32",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INT THS L register",
+        "fields": [
+          {
+            "name": "THRESHOLD",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt threshold low",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          5
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_THS_H",
+        "address": "0x33",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INT THS H register",
+        "fields": [
+          {
+            "name": "THS_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "High byte of interrupt threshold value.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          5
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "FIFO": [
+      {
+        "name": "FIFO_CTRL",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "FIFO Control Register",
+        "fields": [
+          {
+            "name": "FMODE",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO mode selection bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FTH",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FIFO threshold level setting",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 20,
+        "source_pages": [
+          6,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FIFO_SRC",
+        "address": "0x2F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "FIFO status control register",
+        "fields": [
+          {
+            "name": "FTH",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "FIFO threshold status. (0: FIFO filling is lower than threshold level; 1: FIFO filling is equal or higher than threshold level)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "OVRN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "FIFO overrun status. (0: FIFO is not completely filled; 1: FIFO is completely filled and at least one samples has been overwritten)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "FSS",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Number of unread samples stored into FIFO. (000000: FIFO empty; 100000: FIFO full, 32 unread samples)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 22,
+        "source_pages": [
+          6,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Control": [
+      {
+        "name": "REFERENCE_G",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gyroscope reference register",
+        "fields": [
+          {
+            "name": "REF",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reference value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          2
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_REG4",
+        "address": "0x1E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Control register 4",
+        "fields": [
+          {
+            "name": "RSVD_",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved bit must be set to 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved bit must be set to 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ZEN_G",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Z-axis enable gyroscope",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YEN_G",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Y-axis enable gyroscope",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "XEN_G",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "X-axis enable gyroscope",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LIR_XL1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Latched interrupt XL1",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "4D_XL1",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "4D interrupt XL1",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          4,
+          41
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T15:20:21.662594+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 50,
+        "by_confidence": {
+          "high": 45,
+          "medium": 5,
+          "low": 0
+        },
+        "with_quality_issues": 18,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 146,
+        "by_source": {
+          "agent_verified": 40,
+          "synthetic": 28,
+          "evidence_verified": 70,
+          "llm_only": 4,
+          "llm_consistent": 2,
+          "section_agent": 2
+        }
+      },
+      "peripherals": {
+        "total": 9,
+        "by_name": {
+          "Device ID": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Activity Detection": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Accelerometer": {
+            "registers": 7,
+            "confidence": {
+              "high": 7,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Gyroscope": {
+            "registers": 16,
+            "confidence": {
+              "high": 13,
+              "medium": 3,
+              "low": 0
+            }
+          },
+          "Magnetometer": {
+            "registers": 13,
+            "confidence": {
+              "high": 12,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Temperature": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Interrupts": {
+            "registers": 6,
+            "confidence": {
+              "high": 5,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "FIFO": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Control": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 73,
+        "batches_total": 40,
+        "batches_sent": 40,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "missing_source_location": 10,
+          "zone_validation": 12,
+          "all fields have default RW access (may be missing real access types)": 1,
+          "address 0x25 not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 89,
+        "fields_verified": 89,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 41,
+        "field_diagnostics": {
+          "0X04": {
+            "SLEEP_ON_INACT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 75693
+            },
+            "ACT_THS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 75693
+            }
+          },
+          "0X05": {
+            "DUR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76314
+            },
+            "AOI_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51865
+            },
+            "6D": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51865
+            },
+            "ZHIE_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51865
+            },
+            "ZLIE_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51865
+            },
+            "YHIE_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51865
+            },
+            "YLIE_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51865
+            },
+            "XHIE_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51865
+            },
+            "XLIE_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51865
+            }
+          },
+          "0X07": {
+            "THS_X": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76041
+            },
+            "OFFSET_Y_L": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 74163
+            }
+          },
+          "0X0B": {
+            "REF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40392
+            }
+          },
+          "0X0D": {
+            "CTRL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40760
+            }
+          },
+          "0X0F": {
+            "ID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 77322
+            }
+          },
+          "0X15": {
+            "TEMP_L": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 67485
+            },
+            "TEMP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22060
+            }
+          },
+          "0X18": {
+            "X_L": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20277
+            }
+          },
+          "0X19": {
+            "X_H": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20397
+            }
+          },
+          "0X1A": {
+            "Y_L": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 20018
+            }
+          },
+          "0X1B": {
+            "Y_H": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 28300
+            }
+          },
+          "0X27": {
+            "STATUS": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 72764
+            },
+            "ZYXOR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16615
+            },
+            "ZOR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16615
+            },
+            "YOR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16615
+            },
+            "XOR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16615
+            },
+            "ZYXDA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16615
+            },
+            "ZDA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16615
+            },
+            "YDA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16615
+            },
+            "XDA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16615
+            }
+          },
+          "0X09": {
+            "OFFSET_Z_L": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 59416
+            },
+            "WAIT_XL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5410
+            },
+            "DUR_XL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 5410
+            }
+          },
+          "0X32": {
+            "INT_THS_L": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 39168
+            },
+            "INT_GEN_THS_XL_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38313
+            }
+          },
+          "0X23": {
+            "CTRL_REG4_M": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 80027
+            },
+            "I2C_DISABLE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17251
+            },
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17251
+            },
+            "SLEEP_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17251
+            },
+            "RSVD_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17251
+            },
+            "FIFO_TEMP_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17251
+            },
+            "DRDY_MASK_BIT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17251
+            },
+            "FIFO_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17251
+            },
+            "STOP_ON_FTH": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17251
+            }
+          },
+          "0X24": {
+            "CTRL_REG5_M": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 81322
+            },
+            "RSVD_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 18057
+            },
+            "RSVD_7_2": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 18057
+            },
+            "ST_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 18057
+            },
+            "ST_XL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 18057
+            }
+          },
+          "0X1C": {
+            "OUT_Z_L_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22106
+            }
+          },
+          "0X1D": {
+            "OUT_Z_H_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22106
+            }
+          },
+          "0X28": {
+            "OUT_X_L_XL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38313
+            },
+            "OUT_X_L_M": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56251
+            },
+            "OUT_X": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 14041
+            }
+          },
+          "0X2A": {
+            "OUT_Y_L_XL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38313
+            },
+            "OUT_Y_L_M": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56251
+            },
+            "OUT_Y": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 14041
+            }
+          },
+          "0X2C": {
+            "OUT_Z_L_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 41795
+            },
+            "OUT_Z_L_M": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 209184
+            },
+            "OUT_Z": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 14041
+            }
+          },
+          "0X31": {
+            "INT_GEN_THS_XH_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38313
+            },
+            "DCRM_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 18769
+            },
+            "THS_G_X": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 18769
+            },
+            "PTH_X": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11503
+            },
+            "PTH_Y": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11503
+            },
+            "PTH_Z": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11503
+            },
+            "NTH_X": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11503
+            },
+            "NTH_Y": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11503
+            },
+            "NTH_Z": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11503
+            },
+            "MROI": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11503
+            },
+            "INT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 11503
+            }
+          },
+          "0X34": {
+            "INT_GEN_THS_YL_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13755
+            }
+          },
+          "0X35": {
+            "INT_GEN_THS_ZH_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 45009
+            },
+            "THS_G_Z": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 5457
+            }
+          },
+          "0X36": {
+            "INT_GEN_THS_ZL_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 43800
+            }
+          },
+          "0X0C": {
+            "INT1_IG_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7112
+            },
+            "INT_IG_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7112
+            },
+            "INT_FSS5": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7112
+            },
+            "INT_OVR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7112
+            },
+            "INT_FTH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7112
+            },
+            "INT_BOOT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7112
+            },
+            "INT_DRDY_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7112
+            },
+            "INT_DRDY_XL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7112
+            }
+          },
+          "0X11": {
+            "RSVD_7_4": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 10557
+            },
+            "INT_SEL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 10557
+            },
+            "OUT_SEL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 10557
+            }
+          },
+          "0X12": {
+            "LP_MODE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 10349
+            },
+            "HP_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 10349
+            },
+            "RSVD_5_4": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 10349
+            },
+            "HPCF_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 10349
+            }
+          },
+          "0X10": {
+            "ODR_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 22492
+            },
+            "FS_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 22492
+            },
+            "BW_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 22492
+            }
+          },
+          "0X13": {
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 22194
+            },
+            "SIGN_X_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 22194
+            },
+            "SIGN_Y_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 22194
+            },
+            "SIGN_Z_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 22194
+            },
+            "ORIENT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 22194
+            }
+          },
+          "0X17": {
+            "IG_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 34318
+            },
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 34318
+            },
+            "IG_G": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 34318
+            },
+            "INACT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 34318
+            },
+            "BOOT_STATUS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 34318
+            },
+            "TDA": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 34318
+            },
+            "GDA": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 34318
+            },
+            "XLDA": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 34318
+            }
+          },
+          "0X1E": {
+            "ZEN_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 33251
+            },
+            "YEN_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 33251
+            },
+            "XEN_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 33251
+            },
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 33251
+            },
+            "RSVD_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 33251
+            },
+            "RSVD_2": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 33251
+            },
+            "LIR_XL1": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 33251
+            },
+            "4D_XL1": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 33251
+            }
+          },
+          "0X1F": {
+            "DEC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17342
+            },
+            "Zen_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17342
+            },
+            "Yen_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17342
+            },
+            "Xen_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17342
+            },
+            "RSVD_2_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17342
+            }
+          },
+          "0X20": {
+            "ODR_XL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7317
+            },
+            "FS_XL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7317
+            },
+            "BW_SCAL_ODR": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7317
+            },
+            "BW_XL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7317
+            },
+            "TEMP_COMP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15812
+            },
+            "OM": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15812
+            },
+            "DO": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15812
+            },
+            "RSVD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15812
+            },
+            "ST": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15812
+            }
+          },
+          "0X14": {
+            "IA_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19484
+            },
+            "ZH_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19484
+            },
+            "ZL_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19484
+            },
+            "YH_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19484
+            },
+            "YL_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19484
+            },
+            "XH_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19484
+            },
+            "XL_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19484
+            }
+          },
+          "0X21": {
+            "HR": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 8954
+            },
+            "DCF": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 8954
+            },
+            "FDS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 8954
+            },
+            "HPIS1": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 8954
+            },
+            "RSVD_7": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 14868
+            },
+            "FS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 14868
+            },
+            "RSVD_4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 14868
+            },
+            "REBOOT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 14868
+            },
+            "SOFT_RST": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 14868
+            },
+            "RSVD_1_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 14868
+            }
+          },
+          "0X22": {
+            "SIM": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 185673
+            },
+            "BOOT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 8815
+            },
+            "BDU": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 8815
+            },
+            "H_LACTIVE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 8815
+            },
+            "PP_OD": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 8815
+            },
+            "IF_ADD_INC": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 8815
+            },
+            "BLE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 8815
+            },
+            "SW_RESET": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 8815
+            },
+            "I2C_DISABLE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 185673
+            },
+            "RSVD_6": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 185673
+            },
+            "LP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 185673
+            },
+            "RSVD_4_3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 185673
+            },
+            "MD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 185673
+            }
+          },
+          "0X26": {
+            "RSVD_7": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17371
+            },
+            "IA_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17371
+            },
+            "ZH_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17371
+            },
+            "ZL_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17371
+            },
+            "YH_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17371
+            },
+            "YL_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17371
+            },
+            "XH_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17371
+            },
+            "XL_XL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17371
+            }
+          },
+          "0X2E": {
+            "FMODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 21167
+            },
+            "FTH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 21167
+            }
+          },
+          "0X2F": {
+            "FTH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16835
+            },
+            "OVRN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16835
+            },
+            "FSS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16835
+            }
+          },
+          "0X30": {
+            "AOI_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17273
+            },
+            "LIR_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17273
+            },
+            "ZHIE_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17273
+            },
+            "ZLIE_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17273
+            },
+            "YHIE_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17273
+            },
+            "YLIE_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17273
+            },
+            "XHIE_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17273
+            },
+            "XLIE_G": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 17273
+            },
+            "XIEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12812
+            },
+            "YIEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12812
+            },
+            "ZIEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12812
+            },
+            "RSV": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12812
+            },
+            "IEA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12812
+            },
+            "IEL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12812
+            },
+            "IEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12812
+            }
+          },
+          "0X37": {
+            "WAIT_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40412
+            },
+            "DUR_G": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40412
+            }
+          },
+          "0X25": {
+            "RSVD_7": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13237
+            },
+            "BDU": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13237
+            },
+            "RSVD_5_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13237
+            }
+          },
+          "0X06": {
+            "AOI_XL": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136259
+            },
+            "6D": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136259
+            },
+            "ZHIE_XL": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136259
+            },
+            "ZLIE_XL": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136259
+            },
+            "YHIE_XL": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136259
+            },
+            "YLIE_XL": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136259
+            },
+            "XHIE_XL": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136259
+            },
+            "XLIE_XL": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136259
+            }
+          },
+          "0X08": {
+            "THS_XL_Y": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 132880
+            }
+          },
+          "0X0A": {
+            "WAIT_XL": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 99977
+            },
+            "DUR_XL": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 99977
+            }
+          }
+        },
+        "fields_bit_llm_fallback": 30,
+        "fields_consistent_promoted": 20,
+        "fields_cross_section_augmented": 32,
+        "fields_name_matched": 25,
+        "fields_bit_corrected": 2,
+        "diagnostic_summary": {
+          "name_not_found": 67,
+          "verified_quote": 88,
+          "verified_name": 25,
+          "name_too_short": 2,
+          "reserved": 10,
+          "already_verified": 11
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 2970,
+        "output_tokens": 106,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000647
+      },
+      "extraction": {
+        "input_tokens": 272539,
+        "output_tokens": 65139,
+        "thinking_tokens": 0,
+        "calls": 48,
+        "total_cost_usd": 0.087077
+      },
+      "evidence": {
+        "input_tokens": 12697,
+        "output_tokens": 1468,
+        "thinking_tokens": 0,
+        "calls": 22,
+        "total_cost_usd": 0.003273
+      },
+      "correction": {
+        "input_tokens": 75503,
+        "output_tokens": 26590,
+        "thinking_tokens": 0,
+        "calls": 64,
+        "total_cost_usd": 0.028396
+      },
+      "agents": {
+        "input_tokens": 366298,
+        "output_tokens": 57159,
+        "thinking_tokens": 38997,
+        "calls": 79,
+        "total_cost_usd": 0.108668
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 3818,
+        "output_tokens": 1660,
+        "thinking_tokens": 0,
+        "calls": 2,
+        "total_cost_usd": 0.001594
+      }
+    }
+  }
+}

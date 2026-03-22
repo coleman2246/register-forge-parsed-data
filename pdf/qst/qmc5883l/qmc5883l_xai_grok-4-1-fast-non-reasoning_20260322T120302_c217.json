@@ -1,0 +1,832 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "QMC5883L",
+  "description": "3-axis magnetic sensor",
+  "vendor": "QST",
+  "source": "QMC5883L.pdf",
+  "source_type": "pdf",
+  "source_url": "https://datasheet.lcsc.com/lcsc/2012221837_QST-QMC5883L_C976032.pdf",
+  "peripherals": {
+    "Data Output": [
+      {
+        "name": "XOUT_LSB",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output X LSB Register XOUT[7:0]",
+        "fields": [
+          {
+            "name": "XOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X LSB data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "XOUT_MSB",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output X MSB Register XOUT[15:8]",
+        "fields": [
+          {
+            "name": "XOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X MSB data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          13,
+          14,
+          15,
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x00"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "YOUT_LSB",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output Y LSB Register YOUT[7:0]",
+        "fields": [
+          {
+            "name": "YOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y LSB data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "YOUT_MSB",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output Y MSB Register YOUT[15:8]",
+        "fields": [
+          {
+            "name": "YOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y MSB data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x02"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ZOUT_LSB",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output Z LSB Register ZOUT[7:0]",
+        "fields": [
+          {
+            "name": "ZOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z LSB data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ZOUT_MSB",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Data Output Z MSB Register ZOUT[15:8]",
+        "fields": [
+          {
+            "name": "ZOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ZOUT[15:8]",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Temperature Output": [
+      {
+        "name": "TOUT_LSB",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature output LSB TOUT[7:0]",
+        "fields": [
+          {
+            "name": "TOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature LSB data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TOUT_MSB",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature output MSB TOUT[15:8]",
+        "fields": [
+          {
+            "name": "TOUT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature MSB data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x07"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Configuration": [
+      {
+        "name": "CONTROL_REGISTER_1",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Control register 1",
+        "fields": [
+          {
+            "name": "OSR",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Over Sample Ratio",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "RNG",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Full Scale",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "ODR",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Output Data Rate",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "MODE",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Mode Control",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          14,
+          15
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Interrupt": [
+      {
+        "name": "INT_ENB",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Interrupt enable",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "INT_ENB",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Status": [
+      {
+        "name": "Status Register 1",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Status register 1 register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DOR",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "DOR",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OVL",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "OVL",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DRDY",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "DRDY",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "SET/RESET": [
+      {
+        "name": "SET/RESET Period Register",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "SET RESET period register register",
+        "fields": [
+          {
+            "name": "SET/RESET Period",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SET/RESET Period is controlled by FBR [7:0]. It is recommended that the register 0BH is written by 0x01.",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "ID": [
+      {
+        "name": "Chip ID Register",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Chip ID register register",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 255,
+            "description": "Chip identification register. Returns 0xFF.",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T16:03:02.971017+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 13,
+        "by_confidence": {
+          "high": 11,
+          "medium": 2,
+          "low": 0
+        },
+        "with_quality_issues": 4,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 20,
+        "by_source": {
+          "evidence_verified": 9,
+          "agent_verified": 5,
+          "llm_only": 3,
+          "synthetic": 1,
+          "llm_verified": 1,
+          "section_agent": 1
+        }
+      },
+      "peripherals": {
+        "total": 7,
+        "by_name": {
+          "Data Output": {
+            "registers": 6,
+            "confidence": {
+              "high": 6,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Temperature Output": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Configuration": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Interrupt": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Status": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "SET/RESET": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "ID": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 1,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 3,
+        "batches_sent": 3,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "identical field layout as adjacent register 0x00": 1,
+          "identical field layout as adjacent register 0x02": 1,
+          "identical field layout as adjacent register 0x07": 1,
+          "zone_validation": 2
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 20,
+        "fields_verified": 20,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 23,
+        "field_diagnostics": {
+          "0X00": {
+            "XOUT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 33076
+            }
+          },
+          "0X01": {
+            "XOUT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 39338
+            }
+          },
+          "0X02": {
+            "YOUT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37116
+            }
+          },
+          "0X03": {
+            "YOUT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37116
+            }
+          },
+          "0X04": {
+            "ZOUT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37116
+            }
+          },
+          "0X05": {
+            "ZOUT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37116
+            }
+          },
+          "0X06": {
+            "DRDY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 91075
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 108184
+            },
+            "DOR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 88751
+            },
+            "OVL": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 88751
+            }
+          },
+          "0X07": {
+            "TOUT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37183
+            }
+          },
+          "0X08": {
+            "TOUT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37183
+            }
+          },
+          "0X09": {
+            "OSR": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 64993
+            },
+            "RNG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 64993
+            },
+            "ODR": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 64993
+            },
+            "MODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 10935
+            }
+          },
+          "0X0A": {
+            "SOFT_RST": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56660
+            },
+            "ROL_PNT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56660
+            },
+            "INT_ENB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 7911
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56660
+            }
+          },
+          "0X0B": {
+            "FBR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 7911
+            }
+          },
+          "0X0D": {
+            "CHIP_ID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37116
+            },
+            "ID": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7911
+            }
+          },
+          "0X0C": {
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 77055
+            }
+          }
+        },
+        "fields_bit_llm_fallback": 12,
+        "fields_cross_section_augmented": 7,
+        "fields_name_matched": 6,
+        "fields_consistent_promoted": 7,
+        "diagnostic_summary": {
+          "verified_quote": 13,
+          "reserved": 3,
+          "verified_name": 3,
+          "name_not_found": 4,
+          "name_too_short": 1
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1258,
+        "output_tokens": 69,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000286
+      },
+      "extraction": {
+        "input_tokens": 21647,
+        "output_tokens": 4433,
+        "thinking_tokens": 0,
+        "calls": 3,
+        "total_cost_usd": 0.006546
+      },
+      "evidence": {
+        "input_tokens": 5255,
+        "output_tokens": 224,
+        "thinking_tokens": 0,
+        "calls": 8,
+        "total_cost_usd": 0.001163
+      },
+      "correction": {
+        "input_tokens": 29376,
+        "output_tokens": 7179,
+        "thinking_tokens": 0,
+        "calls": 29,
+        "total_cost_usd": 0.009465
+      },
+      "agents": {
+        "input_tokens": 237626,
+        "output_tokens": 29746,
+        "thinking_tokens": 17740,
+        "calls": 28,
+        "total_cost_usd": 0.078945
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 654,
+        "output_tokens": 93,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000177
+      }
+    }
+  }
+}

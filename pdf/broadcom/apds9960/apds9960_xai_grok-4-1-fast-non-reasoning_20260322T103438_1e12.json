@@ -1,0 +1,2807 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "APDS9960",
+  "description": "Digital proximity, ambient light, RGB, and gesture sensor, I2C",
+  "vendor": "Broadcom",
+  "source": "APDS9960.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn.sparkfun.com/assets/learn_tutorials/3/2/1/Avago-APDS-9960-datasheet.pdf",
+  "peripherals": {
+    "Global": [
+      {
+        "name": "RAM",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "RAM",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "RAM data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": 128,
+        "dim_increment": 1,
+        "page": null,
+        "source_pages": [
+          19,
+          28
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x00 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Enable Register",
+        "address": "0x80",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Enable register register",
+        "fields": [
+          {
+            "name": "Reserved",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GEN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gesture Enable.  When asserted, the gesture state machine can be activated. Activation is subject to the states of PEN and GMODE bits.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PIEN",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Proximity Interrupt Enable. When asserted, it permits proximity interrupts to be generated, subject to the persistence filter settings.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "AIEN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ALS Interrupt Enable. When asserted, it permits ALS interrupts to be generated, subject to the persistence filter settings.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "WEN",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Wait Enable. This bit activates the wait feature. Writing a one activates the wait timer. Writing a zero disables the wait timer.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PEN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Proximity Detect Enable. This field activates the proximity detection. Writing a one activates the proximity. Writing a zero disables the proximity.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "AEN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ALS Enable. This field activates ALS function. Writing a one activates the ALS. Writing a zero disables the ALS.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PON",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power ON. This field activates the internal oscillator to permit the timers and ADC channels to operate. Writing a one activates the oscillator. Writing a zero disables the oscillator and puts the device into a low power sleep mode. During reads and writes over the I2C interface, this bit is temporarily overridden and the oscillator is enabled, independent of the state of PON.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ADC Integration Time Register",
+        "address": "0x81",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "ADC integration time register register",
+        "fields": [
+          {
+            "name": "ATIME",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 255,
+            "description": "Controls the internal integration time of ALS/Color analog to digital converters.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PERS",
+        "address": "0x8C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Interrupt persistence settings",
+        "fields": [
+          {
+            "name": "PPERS",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity Interrupt Persistence",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "APERS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ALS Interrupt Persistence",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CONFIG1",
+        "address": "0x8D",
+        "size_bits": 8,
+        "reset_value": "0x40",
+        "description": "Wait long time configuration",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Reserved. Write as 1.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Reserved. Write as 1.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "WLONG",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Wait Long",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CONTROL",
+        "address": "0x8F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED drive and gain control",
+        "fields": [
+          {
+            "name": "RSVD_5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LDRIVE",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "LED Drive Strength",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PGAIN",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity Gain Control",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "AGAIN",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ALS and Color Gain Control",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CONFIG2",
+        "address": "0x90",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Saturation interrupts and LED boost",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "PSIEN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity Saturation Interrupt Enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CPSIEN",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Clear Photodiode Saturation Interrupt Enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "LED_BOOST",
+            "bit_high": 5,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Additional LDR current",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ID Register",
+        "address": "0x92",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "The ID Register provides the device identification.",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Part number identification. 0xAB = APDS-9960",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Status Register",
+        "address": "0x93",
+        "size_bits": 8,
+        "reset_value": "0x04",
+        "description": "The Status Register provides the status of the device.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Do not care.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CPSAT",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Clear Photodiode Saturation. When asserted, the analog sensor was at the upper end of its dynamic range. The bit can be de-asserted by sending a Clear channel interrupt command (0xE6 CICLEAR) or by disabling the ADC (AEN=0). This bit triggers an interrupt if CPSIEN is set.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PGSAT",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Indicates that an analog saturation event occurred during a previous proximity or gesture cycle. Once set, this bit remains set until cleared by clear proximity interrupt special function command (0xE5 PICLEAR) or by disabling Prox (PEN=0). This bit triggers an interrupt if PSIEN is set.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PINT",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Proximity Interrupt. This bit triggers an interrupt if PIEN in ENABLE is set.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "AINT",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ALS Interrupt. This bit triggers an interrupt if AIEN in ENABLE is set.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GINT",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gesture Interrupt. GINT is asserted when GFVLV becomes greater than GFIFOTH or if GVALID has become asserted when GMODE transitioned to zero. The bit is reset when FIFO is completely emptied (read).",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PVALID",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Proximity Valid. Indicates that a proximity cycle has completed since PEN was asserted or since PDATA was last read. A read of PDATA automatically clears PVALID.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "AVALID",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "ALS Valid. Indicates that an ALS cycle has completed since AEN was asserted or since a read from any of the ALS/Color data registers.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 25,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "ALS": [
+      {
+        "name": "ATIME",
+        "address": "0x82",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "ALS integration time",
+        "fields": [
+          {
+            "name": "ATIME",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ALS integration time value",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          8
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x81"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "WTIME",
+        "address": "0x83",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Wait time",
+        "fields": [
+          {
+            "name": "WTIME",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Wait time value",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          8,
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AILTL",
+        "address": "0x84",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "ALS interrupt low threshold low byte",
+        "fields": [
+          {
+            "name": "AILTL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ALS interrupt low threshold low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          8,
+          16,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AILTH",
+        "address": "0x85",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "ALS interrupt low threshold high byte",
+        "fields": [
+          {
+            "name": "AILTH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ALS interrupt low threshold high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          8,
+          16,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AIHTL",
+        "address": "0x86",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "ALS interrupt high threshold low byte",
+        "fields": [
+          {
+            "name": "AIHTL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ALS interrupt high threshold low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          8,
+          16,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AIHTH",
+        "address": "0x87",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "ALS interrupt high threshold high byte",
+        "fields": [
+          {
+            "name": "AIHTH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ALS interrupt high threshold high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          8,
+          16,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CDATAL",
+        "address": "0x94",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "The CDATAL Register contains the low byte of clear channel data.",
+        "fields": [
+          {
+            "name": "CDATAL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Low Byte of clear channel data.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CDATAH",
+        "address": "0x95",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Clear channel data high byte",
+        "fields": [
+          {
+            "name": "CDATAH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Clear channel data high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          8,
+          16,
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RDATAL",
+        "address": "0x96",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "The RDATAL Register contains the low byte of red channel data.",
+        "fields": [
+          {
+            "name": "RDATAL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Low Byte of red channel data.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RDATAH",
+        "address": "0x97",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Red channel data high byte",
+        "fields": [
+          {
+            "name": "RDATAH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Red channel data high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          8,
+          16,
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GDATAL",
+        "address": "0x98",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "The GDATAL Register contains the low byte of green channel data.",
+        "fields": [
+          {
+            "name": "GDATAL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Low Byte of green channel data.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GDATAH",
+        "address": "0x99",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Green channel data high byte",
+        "fields": [
+          {
+            "name": "GDATAH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Green channel data high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          8,
+          16,
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "BDATAL",
+        "address": "0x9A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "The BDATAL Register contains the low byte of blue channel data.",
+        "fields": [
+          {
+            "name": "BDATAL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Low Byte of blue channel data.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "BDATAH",
+        "address": "0x9B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Blue channel data high byte",
+        "fields": [
+          {
+            "name": "BDATAH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Blue channel data high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          9,
+          16,
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AICLEAR",
+        "address": "0xE7",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "ALS interrupt clear",
+        "fields": [
+          {
+            "name": "AICLEAR",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Clear ALS interrupt",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          7,
+          9,
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Proximity": [
+      {
+        "name": "PILT",
+        "address": "0x89",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Proximity interrupt low threshold",
+        "fields": [
+          {
+            "name": "PILT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity interrupt low threshold value",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          7,
+          16,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PIHT",
+        "address": "0x8B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "PIHT register",
+        "fields": [
+          {
+            "name": "PIHT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "PIHT value (signed 8-bit).",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          19,
+          21
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PPULSE",
+        "address": "0x8E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Proximity pulse control register",
+        "fields": [
+          {
+            "name": "PPLEN",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity Pulse Length",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PPULSE",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity Pulse Count",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "PDATA",
+        "address": "0x9C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Proximity Data Register",
+        "fields": [
+          {
+            "name": "PDATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Proximity data.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          8,
+          16,
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "POFFSET_UR",
+        "address": "0x9D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Proximity offset upper right",
+        "fields": [
+          {
+            "name": "POFFSET_UR",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity offset upper right value. 00000000 = 0, 10000001 = -1, \u2026, 11111111 = -127",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          7,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "POFFSET_DL",
+        "address": "0x9E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Proximity Offset DOWN / LEFT Register",
+        "fields": [
+          {
+            "name": "POFFSET_DL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity offset down left value",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          7,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CONFIG3",
+        "address": "0x9F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Configuration register 3 for proximity photodiode selection",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "PCMP",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity Gain Compensation Enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SAI",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Sleep After Interrupt",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PMASK_U",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity Mask UP Enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PMASK_D",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity Mask DOWN Enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PMASK_L",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity Mask LEFT Enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PMASK_R",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity Mask RIGHT Enable",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IFORCE",
+        "address": "0xE4",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Proximity LED current force",
+        "fields": [
+          {
+            "name": "IFORCE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Proximity LED current force value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Gesture": [
+      {
+        "name": "GPENTH",
+        "address": "0xA0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture proximity enter threshold high byte",
+        "fields": [
+          {
+            "name": "GPENTH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gesture proximity enter threshold high byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          10,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Gesture Exit Threshold Register",
+        "address": "0xA1",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "The Gesture Exit Threshold Register sets the threshold for gesture exit.",
+        "fields": [
+          {
+            "name": "GEXTH",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gesture Exit Threshold. This register sets the threshold value used to determine a \u201cgesture end\u201d and subsequent exit of the gesture state machine. Setting GTHR_OUT to 0x00 will prevent gesture exit until GMODE is set to 0.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Gesture Configuration One Register",
+        "address": "0xA2",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "The Gesture Configuration One Register contains settings that govern gesture detector masking and FIFO interrupt generation.",
+        "fields": [
+          {
+            "name": "GFIFOTH",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gesture FIFO Threshold. This value is compared with the FIFO Level (i.e. the number of UDLR datasets) to generate an interrupt (if enabled).",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GEXMSK",
+            "bit_high": 5,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gesture Exit Mask. Controls which of the gesture detector photodiodes (UDLR) will be included to determine a \u201cgesture end\u201d and subsequent exit of the gesture state machine. Unmasked UDLR data will be compared with the value in GTHR_OUT. Field value bits correspond to UDLR detectors.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GEXPERS",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Gesture Exit Persistence. When a number of consecutive \u201cgesture end\u201d occurrences become equal or greater to the GEPERS value, the Gesture state machine is exited.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GCONF2",
+        "address": "0xA3",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture Configuration Two register. Contains settings for wait time, LDR drive current strength and Gesture gain control.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "GGAIN",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gesture Gain Control. Sets the gain of the proximity receiver in gesture mode.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GLDRIVE",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gesture LED Drive Strength. Sets LED Drive Strength in gesture mode.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GWTIME",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gesture Wait Time. Controls the amount of time in a low power mode between gesture detection cycles.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GOFFSET_U",
+        "address": "0xA4",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture offset up",
+        "fields": [
+          {
+            "name": "GOFFSET_U",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gesture offset up value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          10,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GOFFSET_D",
+        "address": "0xA5",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture offset down",
+        "fields": [
+          {
+            "name": "GOFFSET_D",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gesture offset down value",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          10,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GPULSE",
+        "address": "0xA6",
+        "size_bits": 8,
+        "reset_value": "0x40",
+        "description": "Gesture Pulse Count and Length register. Sets Pulse Width Modified current during a Gesture Pulse and number of pulses on LDR pin.",
+        "fields": [
+          {
+            "name": "GPLEN",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gesture Pulse Length. Sets the LED_ON pulse width during a Gesture LDR Pulse.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GPULSE",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Number of Gesture Pulses. Specifies the number of pulses to be generated on LDR. Number of pulses is set by GPULSE value plus 1.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GOFFSET_L",
+        "address": "0xA7",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture offset left",
+        "fields": [
+          {
+            "name": "GOFFSET_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gesture offset left value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          10,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GOFFSET_R",
+        "address": "0xA9",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture offset right",
+        "fields": [
+          {
+            "name": "GOFFSET_R",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gesture offset right value",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          10,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GCONF3",
+        "address": "0xAA",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture Configuration Three Register. Controls which gesture photodiode pairs are enabled.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "GDIMS",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gesture Dimension Select. 0=Both pairs active, 1=UP-DOWN only, 2=LEFT-RIGHT only, 3=Both pairs active.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GCONF4",
+        "address": "0xAB",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture Configuration Four Register. Controls gesture interrupts and mode.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved. Write as 0.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "GIEN",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gesture interrupt enable.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "GMODE",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Gesture Mode. 1=Gesture active, 0=ALS/Proximity/Color.",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GFLVL",
+        "address": "0xAE",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture FIFO Level Register. Indicates the number of datasets that are currently available in the FIFO for read. Reading a complete FIFO dataset (from address 0xFC to 0xFF) constitutes the reduction of the GPENTH register by one.",
+        "fields": [
+          {
+            "name": "GFLVL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gesture FIFO level value",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          11,
+          18,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GSTATUS",
+        "address": "0xAF",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture Status Register. Indicates gesture state machine status.",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Do not care.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "GFOV",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gesture FIFO Overflow. 1=FIFO full, data lost.",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "GVALID",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gesture FIFO Data valid.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GFIFO_U",
+        "address": "0xFC",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture FIFO up",
+        "fields": [
+          {
+            "name": "GFIFO_U",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gesture FIFO up value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          11,
+          18,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GFIFO_D",
+        "address": "0xFD",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture FIFO down",
+        "fields": [
+          {
+            "name": "GFIFO_D",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gesture FIFO down value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          11,
+          18,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GFIFO_L",
+        "address": "0xFE",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture FIFO left",
+        "fields": [
+          {
+            "name": "GFIFO_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gesture FIFO left value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          11,
+          18,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "GFIFO_R",
+        "address": "0xFF",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Gesture FIFO right",
+        "fields": [
+          {
+            "name": "GFIFO_R",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Gesture FIFO right value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          11,
+          18,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Interrupts": [
+      {
+        "name": "CICLEAR",
+        "address": "0xE5",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Clear channel interrupt clear",
+        "fields": [
+          {
+            "name": "CICLEAR",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Clear clear channel interrupt",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          9
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CICLEAR",
+        "address": "0xE6",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Clear channel interrupt clear",
+        "fields": [
+          {
+            "name": "CICLEAR",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Clear clear channel interrupt",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          34
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T14:34:38.623973+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 51,
+        "by_confidence": {
+          "high": 51,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 10,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 98,
+        "by_source": {
+          "evidence_verified": 25,
+          "agent_verified": 51,
+          "synthetic": 15,
+          "llm_consistent": 7
+        }
+      },
+      "peripherals": {
+        "total": 5,
+        "by_name": {
+          "Global": {
+            "registers": 9,
+            "confidence": {
+              "high": 9,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "ALS": {
+            "registers": 15,
+            "confidence": {
+              "high": 15,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Proximity": {
+            "registers": 8,
+            "confidence": {
+              "high": 8,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Gesture": {
+            "registers": 17,
+            "confidence": {
+              "high": 17,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Interrupts": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 52,
+        "batches_total": 11,
+        "batches_sent": 11,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "address 0x00 not found in register summary table": 1,
+          "zone_validation": 11,
+          "identical field layout as adjacent register 0x81": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 48,
+        "fields_verified": 38,
+        "fields_unverified": 10,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 43,
+        "field_diagnostics": {
+          "0X92": {
+            "ID": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 6568
+            }
+          },
+          "0X89": {
+            "PILT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 9696
+            }
+          },
+          "0X9C": {
+            "PDATA": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 18804
+            }
+          },
+          "0X9D": {
+            "POFFSET_UR": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 5647
+            }
+          },
+          "0X9E": {
+            "POFFSET_DL": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 5647
+            }
+          },
+          "0XE5": {
+            "PICLEAR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 23423
+            },
+            "CICLEAR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 23322
+            }
+          },
+          "0XE7": {
+            "AICLEAR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19736
+            }
+          },
+          "0X82": {
+            "ATIME": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 30550
+            }
+          },
+          "0X83": {
+            "WTIME": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 8130
+            }
+          },
+          "0X84": {
+            "AILTL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13926
+            }
+          },
+          "0X85": {
+            "AILTH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 14300
+            }
+          },
+          "0X86": {
+            "AIHTL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16520
+            }
+          },
+          "0X87": {
+            "AIHTH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16146
+            }
+          },
+          "0X94": {
+            "CDATAL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 42755
+            },
+            "CDATAH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 42755
+            }
+          },
+          "0X95": {
+            "CDATAH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 24411
+            }
+          },
+          "0X96": {
+            "RDATAL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40599
+            },
+            "RDATAH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40599
+            }
+          },
+          "0X97": {
+            "RDATAH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22961
+            }
+          },
+          "0X98": {
+            "GDATAL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40599
+            },
+            "GDATAH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40599
+            }
+          },
+          "0X99": {
+            "GDATAH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16116
+            }
+          },
+          "0X9A": {
+            "BDATAL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 40599
+            },
+            "BDATAH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 40599
+            }
+          },
+          "0X9B": {
+            "BDATAH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16796
+            }
+          },
+          "0XA0": {
+            "GPENTH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 31503
+            }
+          },
+          "0XA1": {
+            "GEXTH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16536
+            }
+          },
+          "0XA4": {
+            "GOFFSET_U": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 7818
+            }
+          },
+          "0XA5": {
+            "GOFFSET_D": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 7189
+            }
+          },
+          "0XA7": {
+            "GOFFSET_L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 8093
+            }
+          },
+          "0XA9": {
+            "GOFFSET_R": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 6815
+            }
+          },
+          "0XAE": {
+            "GFLVL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 38362
+            }
+          },
+          "0XFC": {
+            "GFIFO_U": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 22873
+            }
+          },
+          "0XFD": {
+            "GFIFO_D": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26837
+            }
+          },
+          "0XFE": {
+            "GFIFO_L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26824
+            }
+          },
+          "0XFF": {
+            "GFIFO_R": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26670
+            }
+          },
+          "0X81": {
+            "ATIME": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 31889
+            }
+          },
+          "0XA2": {
+            "GCONF1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 6264
+            }
+          },
+          "0XE4": {
+            "IFORCE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15693
+            }
+          },
+          "0XE6": {
+            "CICLEAR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 21087
+            }
+          },
+          "0X80": {
+            "GEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 189361
+            },
+            "WEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 189361
+            },
+            "PEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 189361
+            },
+            "AEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 189361
+            },
+            "PON": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 189361
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 189361
+            },
+            "PIEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 189361
+            },
+            "AIEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 189361
+            }
+          },
+          "0X8C": {
+            "PPERS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38461
+            },
+            "APERS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38461
+            }
+          },
+          "0X8E": {
+            "PPULSE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 13426
+            },
+            "PPLEN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 13426
+            }
+          },
+          "0X8F": {
+            "LDRIVE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56491
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56491
+            },
+            "PGAIN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56491
+            },
+            "AGAIN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 56491
+            }
+          },
+          "0X90": {
+            "PSIEN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 37641
+            },
+            "CPSIEN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 37641
+            },
+            "LED_BOOST": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 37641
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 37641
+            }
+          },
+          "0X93": {
+            "CPSAT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 43689
+            },
+            "PGSAT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 43689
+            },
+            "PINT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 43689
+            },
+            "AINT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 43689
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 43689
+            },
+            "GINT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 43689
+            },
+            "PVALID": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 43689
+            },
+            "AVALID": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 43689
+            }
+          },
+          "0X9F": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38966
+            },
+            "PCMP": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38966
+            },
+            "SAI": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38966
+            },
+            "PMASK_U": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38966
+            },
+            "PMASK_D": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38966
+            },
+            "PMASK_L": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38966
+            },
+            "PMASK_R": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38966
+            }
+          },
+          "0X00": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 23826
+            }
+          },
+          "0X8D": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38508
+            },
+            "WLONG": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38508
+            }
+          },
+          "0XA3": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 37695
+            },
+            "GGAIN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 37695
+            },
+            "GLDRIVE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 37695
+            },
+            "GWTIME": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 37695
+            }
+          },
+          "0XA6": {
+            "GPULSE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 36862
+            },
+            "GPLEN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 36862
+            }
+          },
+          "0XAA": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 27714
+            },
+            "GDIMS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 27714
+            }
+          },
+          "0XAB": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 28051
+            },
+            "GIEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 28051
+            },
+            "GMODE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 28051
+            }
+          },
+          "0XAF": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 27714
+            },
+            "GFOV": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 27714
+            },
+            "GVALID": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 27714
+            }
+          }
+        },
+        "fields_bit_llm_fallback": 27,
+        "fields_consistent_promoted": 35,
+        "fields_cross_section_augmented": 39,
+        "fields_name_matched": 10,
+        "fields_camelcase_matched": 1,
+        "fields_bit_corrected": 1,
+        "diagnostic_summary": {
+          "quote_not_found": 10,
+          "verified_quote": 34,
+          "verified_name": 11,
+          "reserved": 10,
+          "name_not_found": 28
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1136,
+        "output_tokens": 104,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000279
+      },
+      "extraction": {
+        "input_tokens": 114373,
+        "output_tokens": 23581,
+        "thinking_tokens": 0,
+        "calls": 15,
+        "total_cost_usd": 0.034665
+      },
+      "evidence": {
+        "input_tokens": 8513,
+        "output_tokens": 265,
+        "thinking_tokens": 0,
+        "calls": 18,
+        "total_cost_usd": 0.001835
+      },
+      "correction": {
+        "input_tokens": 49572,
+        "output_tokens": 7600,
+        "thinking_tokens": 0,
+        "calls": 55,
+        "total_cost_usd": 0.013714
+      },
+      "agents": {
+        "input_tokens": 339164,
+        "output_tokens": 48645,
+        "thinking_tokens": 29304,
+        "calls": 56,
+        "total_cost_usd": 0.110833
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 1206,
+        "output_tokens": 247,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000365
+      }
+    }
+  }
+}

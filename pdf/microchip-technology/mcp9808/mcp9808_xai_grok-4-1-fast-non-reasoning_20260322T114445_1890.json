@@ -1,0 +1,1220 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "MCP9808",
+  "description": "\u00b10.5\u00b0C maximum accuracy digital I2C temperature sensor",
+  "vendor": "Microchip Technology",
+  "source": "MCP9808.pdf",
+  "source_type": "pdf",
+  "source_url": "https://ww1.microchip.com/downloads/en/DeviceDoc/MCP9808-0.5C-Maximum-Accuracy-Digital-Temperature-Sensor-Data-Sheet-DS20005095B.pdf",
+  "peripherals": {
+    "Pointer": [
+      {
+        "name": "REGISTER_POINTER",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Register Pointer (WRITE-ONLY)",
+        "fields": [
+          {
+            "name": "UNIMP_7_4",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Unimplemented: Write ignored",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "PTR",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Pointer bits: the pointer or the address of each register",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x00 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Configuration": [
+      {
+        "name": "CONFIG",
+        "address": "0x01",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "16-bit configuration register for temperature monitoring functions including hysteresis, shutdown, locks, and alert configuration",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 15,
+            "bit_low": 11,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "THYST",
+            "bit_high": 10,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "TUPPER/TLOWER hysteresis select: 00=0\u00b0C, 01=+1.5\u00b0C, 10=+3.0\u00b0C, 11=+6.0\u00b0C",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SHDN",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Shutdown mode: 0=Continuous conversion, 1=Shutdown (Low-Power mode)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CRIT_LOCK",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Critical temperature lock: 0=Unlocked, 1=Locked",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "WIN_LOCK",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "TUPPER/TLOWER window lock: 0=Unlocked, 1=Locked",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "INT_CLEAR",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt clear: 1=Clears interrupt (returns to 0 when read)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ALERT_STAT",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Alert output status: 1=Alert asserted",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ALERT_CNT",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert output control: 0=Disabled, 1=Enabled",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ALERT_SEL",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert select: 0=TUPPER/TLOWER/TCRIT, 1=TCRIT only",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ALERT_POL",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert polarity: 0=Active-low, 1=Active-high",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ALERT_MOD",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert mode: 0=Comparator, 1=Interrupt",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Temperature Limits": [
+      {
+        "name": "T_UPPER",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Upper temperature limit register",
+        "fields": [
+          {
+            "name": "UNIMP_15_13",
+            "bit_high": 15,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = T_A \u2265 0\u00b0C, 1 = T_A < 0\u00b0C",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TEMP_BOUNDARY",
+            "bit_high": 11,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Temperature boundary bits in two's complement format",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "UNIMP_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          37
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "address 0x02 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TUPPER",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Tupper register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "Register Address",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register address",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Register Data (Hex)",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register data (hex)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Description",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Description",
+            "enum_values": null,
+            "source": "agent_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: Register Address[0:0] and Register Data (Hex)[0:0]",
+          "Overlapping fields: Register Data (Hex)[0:0] and Description[0:0]",
+          "Overlapping fields: Register Address[0:0] and Register Data (Hex)[0:0]",
+          "Overlapping fields: Register Data (Hex)[0:0] and Description[0:0]",
+          "address 0x02 not found in register summary table",
+          "fields 'Register Address' [0:0] and 'Register Data (Hex)' [0:0] overlap",
+          "fields 'Register Data (Hex)' [0:0] and 'Description' [0:0] overlap",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "T_LOWER",
+        "address": "0x03",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Lower temperature limit register",
+        "fields": [
+          {
+            "name": "UNIMP_15_13",
+            "bit_high": 15,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = T_A \u2265 0\u00b0C, 1 = T_A < 0\u00b0C",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TEMP_BOUNDARY",
+            "bit_high": 11,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Temperature boundary bits in two's complement format",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "UNIMP_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          37
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "address 0x03 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TLOWER",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Tlower register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "Register Address",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register address",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Register Data (Hex)",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register data (hex)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Description",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Description",
+            "enum_values": null,
+            "source": "agent_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: Register Address[0:0] and Register Data (Hex)[0:0]",
+          "Overlapping fields: Register Data (Hex)[0:0] and Description[0:0]",
+          "Overlapping fields: Register Address[0:0] and Register Data (Hex)[0:0]",
+          "Overlapping fields: Register Data (Hex)[0:0] and Description[0:0]",
+          "address 0x03 not found in register summary table",
+          "fields 'Register Address' [0:0] and 'Register Data (Hex)' [0:0] overlap",
+          "fields 'Register Data (Hex)' [0:0] and 'Description' [0:0] overlap",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "T_CRIT",
+        "address": "0x04",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Critical temperature limit register",
+        "fields": [
+          {
+            "name": "UNIMP_15_13",
+            "bit_high": 15,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = T_A \u2265 0\u00b0C, 1 = T_A < 0\u00b0C",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TEMP_BOUNDARY",
+            "bit_high": 11,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Temperature boundary bits in two's complement format",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "UNIMP_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          37
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf",
+          "address 0x04 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TCRIT",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TCRIT register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "Register Address",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register address",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Register Data (Hex)",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register data (hex)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Description",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Description",
+            "enum_values": null,
+            "source": "agent_unverified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: Register Address[0:0] and Register Data (Hex)[0:0]",
+          "Overlapping fields: Register Data (Hex)[0:0] and Description[0:0]",
+          "Overlapping fields: Register Address[0:0] and Register Data (Hex)[0:0]",
+          "Overlapping fields: Register Data (Hex)[0:0] and Description[0:0]",
+          "address 0x04 not found in register summary table",
+          "fields 'Register Address' [0:0] and 'Register Data (Hex)' [0:0] overlap",
+          "fields 'Register Data (Hex)' [0:0] and 'Description' [0:0] overlap",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Ambient Temperature": [
+      {
+        "name": "TA",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TA register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "Register Address",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register address",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Register Data (Hex)",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register data (hex)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Description",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Description",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: Register Address[0:0] and Register Data (Hex)[0:0]",
+          "Overlapping fields: Register Data (Hex)[0:0] and Description[0:0]",
+          "Overlapping fields: Register Address[0:0] and Register Data (Hex)[0:0]",
+          "Overlapping fields: Register Data (Hex)[0:0] and Description[0:0]",
+          "address 0x05 not found in register summary table",
+          "fields 'Register Address' [0:0] and 'Register Data (Hex)' [0:0] overlap",
+          "fields 'Register Data (Hex)' [0:0] and 'Description' [0:0] overlap",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Manufacturer ID": [
+      {
+        "name": "Manufacturer ID",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Manufacturer ID register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "Register Address",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register address",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Register Data (Hex)",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register data (hex)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Description",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Description",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: Register Address[0:0] and Register Data (Hex)[0:0]",
+          "Overlapping fields: Register Data (Hex)[0:0] and Description[0:0]",
+          "Overlapping fields: Register Address[0:0] and Register Data (Hex)[0:0]",
+          "Overlapping fields: Register Data (Hex)[0:0] and Description[0:0]",
+          "fields 'Register Address' [0:0] and 'Register Data (Hex)' [0:0] overlap",
+          "fields 'Register Data (Hex)' [0:0] and 'Description' [0:0] overlap",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Device ID": [
+      {
+        "name": "Device ID/Device Revision",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Device ID device revision register",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "Register Address",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register address",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Register Data (Hex)",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Register data (hex)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "Description",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Description",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: Register Address[0:0] and Register Data (Hex)[0:0]",
+          "Overlapping fields: Register Data (Hex)[0:0] and Description[0:0]",
+          "Overlapping fields: Register Address[0:0] and Register Data (Hex)[0:0]",
+          "Overlapping fields: Register Data (Hex)[0:0] and Description[0:0]",
+          "address 0x07 not found in register summary table",
+          "fields 'Register Address' [0:0] and 'Register Data (Hex)' [0:0] overlap",
+          "fields 'Register Data (Hex)' [0:0] and 'Description' [0:0] overlap",
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Resolution": [
+      {
+        "name": "Resolution",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Resolution register",
+        "fields": [
+          {
+            "name": "RSVD_7_4",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RESOLUTION",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "User-selectable measurement resolution: 0.5\u00b0C, 0.25\u00b0C, 0.125\u00b0C, 0.0625\u00b0C",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T15:44:45.964094+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 12,
+        "by_confidence": {
+          "high": 3,
+          "medium": 3,
+          "low": 6
+        },
+        "with_quality_issues": 10,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 51,
+        "by_source": {
+          "llm_verified": 1,
+          "agent_verified": 17,
+          "synthetic": 8,
+          "evidence_verified": 12,
+          "llm_only": 9,
+          "agent_unverified": 3,
+          "llm_consistent": 1
+        }
+      },
+      "peripherals": {
+        "total": 7,
+        "by_name": {
+          "Pointer": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Configuration": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Temperature Limits": {
+            "registers": 6,
+            "confidence": {
+              "high": 0,
+              "medium": 3,
+              "low": 3
+            }
+          },
+          "Ambient Temperature": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 0,
+              "low": 1
+            }
+          },
+          "Manufacturer ID": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 0,
+              "low": 1
+            }
+          },
+          "Device ID": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 0,
+              "low": 1
+            }
+          },
+          "Resolution": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 5,
+        "batches_total": 5,
+        "batches_sent": 5,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 12,
+        "warnings_detail": [
+          "TUPPER (0x02): fields 'Register Address' [0:0] and 'Register Data (Hex)' [0:0] overlap",
+          "TUPPER (0x02): fields 'Register Data (Hex)' [0:0] and 'Description' [0:0] overlap",
+          "TLOWER (0x03): fields 'Register Address' [0:0] and 'Register Data (Hex)' [0:0] overlap",
+          "TLOWER (0x03): fields 'Register Data (Hex)' [0:0] and 'Description' [0:0] overlap",
+          "TCRIT (0x04): fields 'Register Address' [0:0] and 'Register Data (Hex)' [0:0] overlap",
+          "TCRIT (0x04): fields 'Register Data (Hex)' [0:0] and 'Description' [0:0] overlap",
+          "TA (0x05): fields 'Register Address' [0:0] and 'Register Data (Hex)' [0:0] overlap",
+          "TA (0x05): fields 'Register Data (Hex)' [0:0] and 'Description' [0:0] overlap",
+          "Manufacturer ID (0x06): fields 'Register Address' [0:0] and 'Register Data (Hex)' [0:0] overlap",
+          "Manufacturer ID (0x06): fields 'Register Data (Hex)' [0:0] and 'Description' [0:0] overlap",
+          "Device ID/Device Revision (0x07): fields 'Register Address' [0:0] and 'Register Data (Hex)' [0:0] overlap",
+          "Device ID/Device Revision (0x07): fields 'Register Data (Hex)' [0:0] and 'Description' [0:0] overlap"
+        ],
+        "issue_breakdown": {
+          "address 0x00 not found in register summary table": 1,
+          "zone_validation": 3,
+          "address 0x02 not found in register summary table": 2,
+          "Overlapping fields": 24,
+          "fields 'Register Address' [0": 6,
+          "fields 'Register Data (Hex)' [0": 6,
+          "missing_source_location": 6,
+          "address 0x03 not found in register summary table": 2,
+          "address 0x04 not found in register summary table": 2,
+          "address 0x05 not found in register summary table": 1,
+          "address 0x07 not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 22,
+        "fields_verified": 18,
+        "fields_unverified": 4,
+        "fields_bit_mismatch": 3,
+        "regs_upgraded": 7,
+        "field_diagnostics": {
+          "0X06": {
+            "MANUFACTURER_ID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19373
+            }
+          },
+          "0X08": {},
+          "0X00": {
+            "POINTER": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19746
+            },
+            "RSVD": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 19746
+            }
+          },
+          "0X01": {
+            "RSVD": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 106579
+            },
+            "THYST": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 106579
+            },
+            "SHDN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 106579
+            },
+            "CRIT_LOCK": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 106579
+            },
+            "WIN_LOCK": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 106579
+            },
+            "INT_CLEAR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 106579
+            },
+            "ALERT_STAT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 106579
+            },
+            "ALERT_CNT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 106579
+            },
+            "ALERT_SEL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 106579
+            },
+            "ALERT_POL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 106579
+            },
+            "ALERT_MOD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 106579
+            }
+          },
+          "0X05": {
+            "T_GE_TCRIT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 171142
+            },
+            "T_GT_TUPPER": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 171142
+            },
+            "T_LT_TLOWER": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 171142
+            },
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 171142
+            },
+            "TEMP": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 171142
+            }
+          },
+          "0X02": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 101007
+            },
+            "UNIMP_15_13": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 101007
+            },
+            "TEMP_BOUNDARY": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 101007
+            },
+            "UNIMP_1_0": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 101007
+            }
+          },
+          "0X03": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 100708
+            },
+            "UNIMP_15_13": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 100708
+            },
+            "TEMP_BOUNDARY": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 100708
+            },
+            "UNIMP_1_0": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 100708
+            }
+          },
+          "0X04": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 101160
+            },
+            "UNIMP_15_13": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 101160
+            },
+            "TEMP_BOUNDARY": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 101160
+            },
+            "UNIMP_1_0": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 101160
+            }
+          },
+          "0X07": {
+            "DEVICE_ID": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 7716
+            },
+            "DEVICE_REVISION": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 16247
+            }
+          }
+        },
+        "fields_cross_section_augmented": 9,
+        "fields_consistent_promoted": 3,
+        "fields_bit_llm_fallback": 3,
+        "fields_name_matched": 2,
+        "diagnostic_summary": {
+          "verified_quote": 18,
+          "bit_mismatch": 3,
+          "quote_not_found": 1,
+          "name_not_found": 10,
+          "verified_name": 1
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1501,
+        "output_tokens": 96,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000348
+      },
+      "extraction": {
+        "input_tokens": 34660,
+        "output_tokens": 5585,
+        "thinking_tokens": 0,
+        "calls": 6,
+        "total_cost_usd": 0.009725
+      },
+      "evidence": {
+        "input_tokens": 1104,
+        "output_tokens": 30,
+        "thinking_tokens": 0,
+        "calls": 2,
+        "total_cost_usd": 0.000236
+      },
+      "correction": {
+        "input_tokens": 14722,
+        "output_tokens": 2175,
+        "thinking_tokens": 0,
+        "calls": 13,
+        "total_cost_usd": 0.004032
+      },
+      "agents": {
+        "input_tokens": 120814,
+        "output_tokens": 22033,
+        "thinking_tokens": 12513,
+        "calls": 21,
+        "total_cost_usd": 0.042854
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 450,
+        "output_tokens": 70,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000125
+      }
+    }
+  }
+}

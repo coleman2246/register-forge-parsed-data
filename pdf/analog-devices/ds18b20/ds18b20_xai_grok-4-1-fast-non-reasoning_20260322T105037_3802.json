@@ -1,0 +1,447 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "DS18B20",
+  "description": "1-Wire digital temperature sensor",
+  "vendor": "Analog Devices",
+  "source": "DS18B20.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/DS18B20.pdf",
+  "peripherals": {
+    "Configuration": [
+      {
+        "name": "Configuration",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Configuration Register",
+        "fields": [
+          {
+            "name": "RSVD_4_0",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "R1",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved for internal use",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "R0",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved for internal use",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          6
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Tx": [
+      {
+        "name": "Tx",
+        "address": "0x44",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Statistics counter (from manifest, no field details in source)",
+        "fields": [
+          {
+            "name": "tx",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "TX",
+            "enum_values": null,
+            "source": "manifest_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": null,
+        "confidence": "medium",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Tx",
+        "address": "0x55",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "TX register",
+        "fields": [
+          {
+            "name": "RESERVED10",
+            "bit_high": 31,
+            "bit_low": 10,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved bits",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "TX_DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Transmit data byte",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "TX_READY",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Transmit ready flag",
+            "enum_values": null,
+            "source": "llm_consistent"
+          },
+          {
+            "name": "TX_ERROR",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Transmit error flag",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Tx",
+        "address": "0xCC",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TX register",
+        "fields": [
+          {
+            "name": "PARAMETER",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Parameter",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SYMBOL",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Symbol",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "CONDITIONS",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Conditions",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "MIN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "MIN",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "TYP",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "TYP",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "MAX",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "MAX",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "UNITS",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "UNITS",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "NOTES",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "NOTES",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [],
+        "confidence": "high",
+        "quality_issues": [
+          "missing_source_location: no register page or source pages recorded"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T14:50:37.890724+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 4,
+        "by_confidence": {
+          "high": 3,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 2,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 17,
+        "by_source": {
+          "synthetic": 2,
+          "agent_verified": 10,
+          "section_agent": 1,
+          "llm_consistent": 3,
+          "manifest_only": 1
+        }
+      },
+      "peripherals": {
+        "total": 2,
+        "by_name": {
+          "Configuration": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Tx": {
+            "registers": 3,
+            "confidence": {
+              "high": 2,
+              "medium": 1,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 4,
+        "batches_total": 3,
+        "batches_sent": 3,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "missing_source_location": 2
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 0,
+        "fields_verified": 0,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 1,
+        "field_diagnostics": {
+          "0X28": {
+            "CODE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 51017
+            }
+          },
+          "0XCC": {
+            "PARAMETER": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 24260
+            },
+            "SYMBOL": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 24260
+            },
+            "CONDITIONS": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 24260
+            },
+            "MIN": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 24260
+            },
+            "TYP": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 24260
+            },
+            "MAX": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 24260
+            },
+            "UNITS": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 24260
+            },
+            "NOTES": {
+              "result": "already_verified",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 24260
+            }
+          }
+        },
+        "fields_cross_section_augmented": 1,
+        "fields_name_matched": 1,
+        "diagnostic_summary": {
+          "verified_name": 1,
+          "already_verified": 8
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 988,
+        "output_tokens": 85,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.00024
+      },
+      "extraction": {
+        "input_tokens": 18999,
+        "output_tokens": 484,
+        "thinking_tokens": 0,
+        "calls": 3,
+        "total_cost_usd": 0.004042
+      },
+      "evidence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "correction": {
+        "input_tokens": 945,
+        "output_tokens": 183,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000281
+      },
+      "agents": {
+        "input_tokens": 7429,
+        "output_tokens": 2966,
+        "thinking_tokens": 2542,
+        "calls": 9,
+        "total_cost_usd": 0.002366
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 318,
+        "output_tokens": 26,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 7.7e-05
+      }
+    }
+  }
+}

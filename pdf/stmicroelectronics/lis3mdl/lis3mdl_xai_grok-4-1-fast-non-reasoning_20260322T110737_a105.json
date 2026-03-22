@@ -1,0 +1,1279 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "LIS3MDL",
+  "description": "3-axis magnetometer",
+  "vendor": "STMicroelectronics",
+  "source": "LIS3MDL.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.st.com/resource/en/datasheet/lis3mdl.pdf",
+  "peripherals": {
+    "Identity": [
+      {
+        "name": "WHO_AM_I",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": "0x3D",
+        "description": "Dummy register",
+        "fields": [
+          {
+            "name": "WHO_AM_I",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 61,
+            "description": "Device identification register",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          2
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Control": [
+      {
+        "name": "CTRL_REG1",
+        "address": "0x20",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "Control register 1",
+        "fields": [
+          {
+            "name": "TEMP_EN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Temperature sensor enable. Default value: 0 (0: temperature sensor disabled; 1: temperature sensor enabled)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OM",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "X and Y axes operative mode selection. Default value: 00 (Refer to Table 21)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "DO",
+            "bit_high": 4,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 4,
+            "description": "Output data rate selection. Default value: 100 (Refer to Table 22)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "FAST_ODR",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "FAST_ODR enables data rates higher than 80 Hz (refer to Table 20). Default value: 0 (0: Fast_ODR disabled; 1: FAST_ODR enabled)",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "ST",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Self-test enable. Default value: 0 (0: self-test disabled; 1: self-test enabled)",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          2,
+          22,
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_REG2",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Control register 2",
+        "fields": [
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "RSVD_",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FS",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Full-scale configuration",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "REBOOT",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reboot memory content. 0: normal mode; 1: reboot memory content",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "SOFT_RST",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Configuration registers and user register reset function. 0: Default value; 1: Reset operation",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          2,
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:address_not_in_pdf"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_REG3",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": "0x03",
+        "description": "Control register 3",
+        "fields": [
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved. Must be set to 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_4_3",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved. Must be set to 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LP",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Low-power mode configuration",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SIM",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "SPI serial interface mode selection. 0: 4-wire interface; 1: 3-wire interface",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MD",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "Operating mode selection",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          2,
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_REG4",
+        "address": "0x23",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Control register 4",
+        "fields": [
+          {
+            "name": "RSVD_",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved. Must be set to 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved. Must be set to 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "BLE",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Big/Little Endian data selection. 0: data LSb at lower address; 1: data MSb at lower address",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "OMZ",
+            "bit_high": 3,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Z-axis operative mode selection",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 3,
+        "source_pages": [
+          2,
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CTRL_REG5",
+        "address": "0x24",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Control register 5",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Register data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Status": [
+      {
+        "name": "STATUS_REG",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Status register",
+        "fields": [
+          {
+            "name": "Reserved",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "Output",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Output data available status",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 8,
+        "source_pages": [
+          3,
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Data Output": [
+      {
+        "name": "OUT_X_L",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "X-axis output low byte",
+        "fields": [
+          {
+            "name": "X_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X-axis LSB",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_X_H",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "OUT X H register",
+        "fields": [
+          {
+            "name": "OUT_X_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "High byte of X-axis output.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          3
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_Y_L",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Y-axis output low byte",
+        "fields": [
+          {
+            "name": "Y_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y-axis LSB",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_Y_H",
+        "address": "0x2B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "OUT Y H register",
+        "fields": [
+          {
+            "name": "OUT_Y_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "High byte of Y-axis acceleration output.",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          3
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_Z_L",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Z-axis output low byte",
+        "fields": [
+          {
+            "name": "Z_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z-axis LSB",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_Z_H",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "OUT Z H register",
+        "fields": [
+          {
+            "name": "OUT_Z_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "High byte of Z-axis output",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          3
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Temperature": [
+      {
+        "name": "TEMP_OUT_L",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature output low byte",
+        "fields": [
+          {
+            "name": "TEMP_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature LSB",
+            "enum_values": null,
+            "source": "agent_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TEMP_OUT_H",
+        "address": "0x2F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "TEMP OUT H register",
+        "fields": [
+          {
+            "name": "TEMP_OUT_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "High byte of temperature output",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          3
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Interrupt": [
+      {
+        "name": "INT_CFG",
+        "address": "0x30",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Interrupt configuration",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Register data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 2,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_SRC",
+        "address": "0x31",
+        "size_bits": 8,
+        "reset_value": "0x01",
+        "description": "Interrupt source register",
+        "fields": [
+          {
+            "name": "PTH_X",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "X-axis exceeds threshold on positive side",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PTH_Y",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Y-axis exceeds threshold on positive side",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "PTH_Z",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis exceeds threshold on positive side",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "NTH_X",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "X-axis exceeds threshold on negative side",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "NTH_Y",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Y-axis exceeds threshold on negative side",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "NTH_Z",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis exceeds threshold on negative side",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "MROI",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Internal measurement range overflow",
+            "enum_values": null,
+            "source": "agent_verified"
+          },
+          {
+            "name": "INT",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Interrupt event occurred",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          4
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "zone_validation:weak_field_evidence",
+          "outlier field count (8 fields vs median 1)"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "INT_THS_H",
+        "address": "0x33",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "INT THS H register",
+        "fields": [
+          {
+            "name": "INT_THS_H",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "High byte of interrupt threshold",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          4
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T15:07:37.746208+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 18,
+        "by_confidence": {
+          "high": 18,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 3,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 42,
+        "by_source": {
+          "agent_verified": 23,
+          "synthetic": 7,
+          "llm_verified": 1,
+          "evidence_verified": 6,
+          "llm_consistent": 5
+        }
+      },
+      "peripherals": {
+        "total": 6,
+        "by_name": {
+          "Identity": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Control": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Status": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Data Output": {
+            "registers": 6,
+            "confidence": {
+              "high": 6,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Temperature": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Interrupt": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 19,
+        "batches_total": 10,
+        "batches_sent": 10,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "zone_validation": 3,
+          "outlier field count (8 fields vs median 1)": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 6,
+        "fields_verified": 6,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 6,
+        "field_diagnostics": {
+          "0X0F": {
+            "WHO_AM_I": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 78016
+            }
+          },
+          "0X30": {
+            "XIEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 73282
+            },
+            "YI EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 73282
+            },
+            "ZIEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 73282
+            },
+            "IEA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 73282
+            },
+            "LIR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 73282
+            },
+            "IEN": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 73282
+            }
+          },
+          "0X31": {
+            "PTH_X": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128354
+            },
+            "PTH_Y": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128354
+            },
+            "PTH_Z": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128354
+            },
+            "NTH_X": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128354
+            },
+            "NTH_Y": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128354
+            },
+            "NTH_Z": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128354
+            },
+            "MROI": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128354
+            },
+            "INT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128354
+            }
+          },
+          "0X20": {
+            "TEMP_EN": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 72859
+            },
+            "OM": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 72859
+            },
+            "DO": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 72859
+            },
+            "FAST_ODR": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 72859
+            },
+            "ST": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 72859
+            }
+          },
+          "0X24": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 65809
+            }
+          },
+          "0X28": {
+            "X_L": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11722
+            }
+          },
+          "0X2A": {
+            "Y_L": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 11466
+            }
+          },
+          "0X2C": {
+            "Z_L": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 53186
+            }
+          },
+          "0X2E": {
+            "TEMP_L": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 53302
+            }
+          },
+          "0X32": {
+            "THS_L": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 87194
+            },
+            "THS": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 6876
+            }
+          },
+          "0X21": {
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58410
+            },
+            "FS": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58410
+            },
+            "RSVD_4": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58410
+            },
+            "REBOOT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58410
+            },
+            "SOFT_RST": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58410
+            },
+            "RSVD_1": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58410
+            },
+            "RSVD_0": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58410
+            }
+          },
+          "0X22": {
+            "LP": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 60464
+            },
+            "SIM": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 60464
+            },
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60464
+            },
+            "RSVD_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60464
+            },
+            "RSVD_4": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60464
+            },
+            "RSVD_3": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60464
+            },
+            "MD": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60464
+            }
+          },
+          "0X23": {
+            "BLE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 60506
+            },
+            "RSVD_7": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60506
+            },
+            "RSVD_6": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60506
+            },
+            "RSVD_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60506
+            },
+            "RSVD_4": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60506
+            },
+            "OMZ": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60506
+            },
+            "RSVD_0": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 60506
+            }
+          },
+          "0X27": {
+            "Reserved": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 7991
+            },
+            "Output": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 7991
+            }
+          }
+        },
+        "fields_consistent_promoted": 1,
+        "fields_cross_section_augmented": 11,
+        "fields_name_matched": 8,
+        "fields_bit_llm_fallback": 9,
+        "fields_bit_corrected": 6,
+        "diagnostic_summary": {
+          "verified_quote": 6,
+          "verified_name": 8,
+          "name_not_found": 18,
+          "name_too_short": 5,
+          "reserved": 13
+        }
+      }
+    },
+    "stage_costs": {
+      "discovery": {
+        "input_tokens": 1176,
+        "output_tokens": 112,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000291
+      },
+      "extraction": {
+        "input_tokens": 109582,
+        "output_tokens": 14323,
+        "thinking_tokens": 0,
+        "calls": 17,
+        "total_cost_usd": 0.029078
+      },
+      "evidence": {
+        "input_tokens": 4713,
+        "output_tokens": 425,
+        "thinking_tokens": 0,
+        "calls": 8,
+        "total_cost_usd": 0.001155
+      },
+      "correction": {
+        "input_tokens": 17538,
+        "output_tokens": 3469,
+        "thinking_tokens": 0,
+        "calls": 15,
+        "total_cost_usd": 0.005242
+      },
+      "agents": {
+        "input_tokens": 102974,
+        "output_tokens": 25966,
+        "thinking_tokens": 18082,
+        "calls": 27,
+        "total_cost_usd": 0.038737
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 4807,
+        "output_tokens": 188,
+        "thinking_tokens": 0,
+        "calls": 2,
+        "total_cost_usd": 0.001055
+      }
+    }
+  }
+}
