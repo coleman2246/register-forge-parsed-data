@@ -1,0 +1,968 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "INA260",
+  "description": "Precision digital current, voltage, and power monitor, I2C/SMBus",
+  "vendor": "Texas Instruments",
+  "source": "INA260.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/ina260.pdf",
+  "peripherals": {
+    "Configuration and Control": [
+      {
+        "name": "CONFIGURATION",
+        "address": "0x00",
+        "size_bits": 16,
+        "reset_value": "0x6126",
+        "description": "Configuration register controls operating modes, conversion times, averaging, and mode selection",
+        "fields": [
+          {
+            "name": "RSVD_14_12",
+            "bit_high": 14,
+            "bit_low": 12,
+            "access": "R",
+            "reset_value": 6,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RST",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reset bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AVG2",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Averaging mode bit 2",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "AVG1",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Averaging mode bit 1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "AVG0",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Averaging mode bit 0",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "VBUSC_T2",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "VBUS conversion time bit 2",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "VBUSC_T1",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "VBUS conversion time bit 1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "VBUSC_T0",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "VBUS conversion time bit 0",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "ISHCT2",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Shunt current conversion time bit 2",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "ISHCT1",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Shunt current conversion time bit 1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "ISHCT0",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Shunt current conversion time bit 0",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "MODE3",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Operating mode bit 3",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "MODE2",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Operating mode bit 2",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "MODE1",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Operating mode bit 1",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          21
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x00 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MASK_ENABLE",
+        "address": "0x06",
+        "size_bits": 16,
+        "reset_value": "0x2008",
+        "description": "Mask/Enable Register (06h) Settings for Figure 39 and Figure 40",
+        "fields": [
+          {
+            "name": "RSVD_9_5",
+            "bit_high": 9,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "OCL",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Over current limit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "UCL",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Under current limit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BOL",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Bus over limit",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "BUL",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Bus under limit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "POL",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Power over limit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CNVR",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Conversion ready",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AFF",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Alert function flag",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CVRF",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "R",
+            "reset_value": 1,
+            "description": "Conversion ready flag",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "OVF",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Overflow flag",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "APOL",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert polarity",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LEN",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert latch enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x06 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALERT_LIMIT",
+        "address": "0x07",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "ALERT LIMIT register",
+        "fields": [
+          {
+            "name": "AUL15",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 15",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL14",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 14",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL13",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 13",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL12",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 12",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL11",
+            "bit_high": 11,
+            "bit_low": 11,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 11",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL10",
+            "bit_high": 10,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 10",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL9",
+            "bit_high": 9,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 9",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL8",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 8",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 7",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 6",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 5",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 4",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 3",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 2",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 1",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "AUL0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert limit bit 0",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Measurements": [
+      {
+        "name": "CURRENT",
+        "address": "0x01",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Current measurement value in two's complement format, LSB = 1.25mA",
+        "fields": [
+          {
+            "name": "CURRENT_DATA",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Shunt current measurement data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x01 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "BUS_VOLTAGE",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Bus voltage measurement, full scale 40.96V, LSB = 1.25mV",
+        "fields": [
+          {
+            "name": "BIT15",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Always zero (bus voltage can only be positive)",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "VBUS_DATA",
+            "bit_high": 14,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Bus voltage measurement data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x02 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "POWER",
+        "address": "0x03",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Calculated power value, LSB = 10mW, max 419.43W",
+        "fields": [
+          {
+            "name": "POWER_DATA",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Power calculation result (current \u00d7 bus voltage)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x03 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Identification": [
+      {
+        "name": "MANUFACTURER_ID",
+        "address": "0xFE",
+        "size_bits": 16,
+        "reset_value": "0x5449",
+        "description": "Manufacturer identification number",
+        "fields": [
+          {
+            "name": "MANUFACTURER_ID_DATA",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 21577,
+            "description": "Manufacturer ID value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xFE not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DIE_ID",
+        "address": "0xFF",
+        "size_bits": 16,
+        "reset_value": "0x02B0",
+        "description": "Die ID and revision ID register",
+        "fields": [
+          {
+            "name": "DID",
+            "bit_high": 15,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 555,
+            "description": "Device identification bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RID",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Die revision identification bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T02:15:04.094189+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 8,
+        "by_confidence": {
+          "high": 7,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 6,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 49,
+        "by_source": {
+          "synthetic": 2,
+          "evidence_verified": 16,
+          "llm_verified": 15,
+          "section_agent": 16
+        }
+      },
+      "peripherals": {
+        "total": 3,
+        "by_name": {
+          "Configuration and Control": {
+            "registers": 3,
+            "confidence": {
+              "high": 2,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Measurements": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Identification": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 1,
+        "batches_total": 9,
+        "batches_sent": 7,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "address 0x00 not found in register summary table": 1,
+          "address 0x06 not found in register summary table": 1,
+          "address 0x01 not found in register summary table": 1,
+          "address 0x02 not found in register summary table": 1,
+          "address 0x03 not found in register summary table": 1,
+          "address 0xFE not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 23,
+        "fields_verified": 23,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 8,
+        "field_diagnostics": {
+          "0XFF": {
+            "DID": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 100774
+            },
+            "RID": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 100774
+            }
+          },
+          "0X00": {
+            "RST": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76588
+            },
+            "RSVD_14_12": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76588
+            },
+            "AVG": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76588
+            },
+            "VBUSCT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76588
+            },
+            "ISHCT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76588
+            },
+            "MODE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 76588
+            }
+          },
+          "0X06": {
+            "OCL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49594
+            },
+            "UCL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49594
+            },
+            "BOL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49594
+            },
+            "BUL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49594
+            },
+            "POL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49594
+            },
+            "CNVR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49594
+            },
+            "RSVD_9_5": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49594
+            },
+            "AFF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49594
+            },
+            "CVRF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49594
+            },
+            "OVF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49594
+            },
+            "APOL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49594
+            },
+            "LEN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 49594
+            }
+          },
+          "0X01": {
+            "CURRENT_DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 68547
+            }
+          },
+          "0X02": {
+            "VBUS_DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 29972
+            }
+          },
+          "0X03": {
+            "POWER_DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67635
+            }
+          },
+          "0X07": {
+            "ALERT_LIMIT_DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 50168
+            }
+          },
+          "0XFE": {
+            "MANUFACTURER_ID_DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 50344
+            }
+          }
+        },
+        "fields_name_matched": 2,
+        "fields_bit_llm_fallback": 4,
+        "fields_cross_section_augmented": 3,
+        "fields_consistent_promoted": 5,
+        "diagnostic_summary": {
+          "verified_name": 2,
+          "verified_quote": 23
+        }
+      }
+    },
+    "stage_costs": {
+      "extraction": {
+        "input_tokens": 43118,
+        "output_tokens": 3741,
+        "thinking_tokens": 0,
+        "calls": 8,
+        "total_cost_usd": 0.010494
+      },
+      "evidence": {
+        "input_tokens": 3924,
+        "output_tokens": 668,
+        "thinking_tokens": 0,
+        "calls": 6,
+        "total_cost_usd": 0.001119
+      },
+      "correction": {
+        "input_tokens": 4283,
+        "output_tokens": 1841,
+        "thinking_tokens": 0,
+        "calls": 3,
+        "total_cost_usd": 0.001777
+      },
+      "agents": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "convergence": {
+        "input_tokens": 827,
+        "output_tokens": 948,
+        "thinking_tokens": 390,
+        "calls": 1,
+        "total_cost_usd": 0.000346
+      },
+      "grouping": {
+        "input_tokens": 443,
+        "output_tokens": 51,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000114
+      }
+    }
+  }
+}

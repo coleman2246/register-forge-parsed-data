@@ -1,0 +1,522 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "BMP180",
+  "description": "Digital pressure sensor",
+  "vendor": "Bosch Sensortec",
+  "source": "BMP180.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/BST-BMP180-DS000-09.pdf",
+  "peripherals": {
+    "Calibration": [
+      {
+        "name": "AC4",
+        "address": "0xB0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Calibration register AC4",
+        "fields": [
+          {
+            "name": "AC4",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Calibration coefficient AC4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "AC4_LSB",
+        "address": "0xB1",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Calibration coefficient AC4 (LSB)",
+        "fields": [
+          {
+            "name": "AC4_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Calibration coefficient AC4 LSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xB1 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "ADC Output": [
+      {
+        "name": "OUT_MSB",
+        "address": "0xF6",
+        "size_bits": 8,
+        "reset_value": "0x80",
+        "description": "ADC output MSB",
+        "fields": [
+          {
+            "name": "ADC_OUT_MSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 128,
+            "description": "ADC output MSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF6 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_LSB",
+        "address": "0xF7",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "ADC output LSB",
+        "fields": [
+          {
+            "name": "ADC_OUT_LSB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ADC output LSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF7 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "OUT_XLSB",
+        "address": "0xF8",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "ADC output extra LSB",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ADC_OUT_XLSB",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "ADC output extra LSB bits",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF8 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Control": [
+      {
+        "name": "CTRL_MEAS",
+        "address": "0xF4",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Measurement control register",
+        "fields": [
+          {
+            "name": "OSS",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Oversampling ratio (00:single,01:2x,10:4x,11:8x)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SCO",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Start of conversion. Stays '1' during conversion and resets to '0' after conversion is complete",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MEAS_CTRL",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Controls measurements. Refer to Figure 6 for usage details.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xF4 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "System": [
+      {
+        "name": "ID",
+        "address": "0xD0",
+        "size_bits": 8,
+        "reset_value": "0x55",
+        "description": "Chip ID register",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 85,
+            "description": "Chip ID, fixed value 0x55",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xD0 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SOFT_RESET",
+        "address": "0xE0",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Soft reset register",
+        "fields": [
+          {
+            "name": "RESET",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "Write 0xB6 to perform soft reset",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0xE0 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T02:04:18.415975+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 8,
+        "by_confidence": {
+          "high": 8,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 7,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 11,
+        "by_source": {
+          "evidence_verified": 9,
+          "synthetic": 1,
+          "llm_consistent": 1
+        }
+      },
+      "peripherals": {
+        "total": 4,
+        "by_name": {
+          "Calibration": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "ADC Output": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Control": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "System": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 1,
+        "batches_total": 4,
+        "batches_sent": 4,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "address 0xB1 not found in register summary table": 1,
+          "address 0xF6 not found in register summary table": 1,
+          "address 0xF7 not found in register summary table": 1,
+          "address 0xF8 not found in register summary table": 1,
+          "address 0xF4 not found in register summary table": 1,
+          "address 0xD0 not found in register summary table": 1,
+          "address 0xE0 not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 11,
+        "fields_verified": 10,
+        "fields_unverified": 1,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 8,
+        "field_diagnostics": {
+          "0XB0": {
+            "AC4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 24259
+            }
+          },
+          "0XB1": {
+            "AC4_LSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16029
+            }
+          },
+          "0XF8": {
+            "ADC_OUT_XLSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16361
+            },
+            "RSVD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16361
+            }
+          },
+          "0XF7": {
+            "ADC_OUT_LSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16307
+            }
+          },
+          "0XF6": {
+            "ADC_OUT_MSB": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17689
+            }
+          },
+          "0XF4": {
+            "OSS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16345
+            },
+            "SCO": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16345
+            },
+            "MEAS_CTRL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16345
+            }
+          },
+          "0XE0": {
+            "RESET": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 25083
+            }
+          },
+          "0XD0": {
+            "ID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 20748
+            }
+          }
+        },
+        "fields_consistent_promoted": 2,
+        "fields_bit_llm_fallback": 4,
+        "fields_cross_section_augmented": 2,
+        "diagnostic_summary": {
+          "verified_quote": 10,
+          "quote_not_found": 1
+        }
+      }
+    },
+    "stage_costs": {
+      "extraction": {
+        "input_tokens": 19513,
+        "output_tokens": 1619,
+        "thinking_tokens": 0,
+        "calls": 4,
+        "total_cost_usd": 0.004712
+      },
+      "evidence": {
+        "input_tokens": 2507,
+        "output_tokens": 62,
+        "thinking_tokens": 0,
+        "calls": 4,
+        "total_cost_usd": 0.000532
+      },
+      "correction": {
+        "input_tokens": 1173,
+        "output_tokens": 317,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000393
+      },
+      "agents": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 391,
+        "output_tokens": 61,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000109
+      }
+    }
+  }
+}

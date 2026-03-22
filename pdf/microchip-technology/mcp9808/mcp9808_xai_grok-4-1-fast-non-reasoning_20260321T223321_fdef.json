@@ -1,0 +1,922 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "MCP9808",
+  "description": "\u00b10.5\u00b0C maximum accuracy digital I2C temperature sensor",
+  "vendor": "Microchip Technology",
+  "source": "MCP9808.pdf",
+  "source_type": "pdf",
+  "source_url": "https://ww1.microchip.com/downloads/en/DeviceDoc/MCP9808-0.5C-Maximum-Accuracy-Digital-Temperature-Sensor-Data-Sheet-DS20005095B.pdf",
+  "peripherals": {
+    "Temperature Sensor Core": [
+      {
+        "name": "CONFIG",
+        "address": "0x01",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Configuration register for temperature monitoring functions including hysteresis, shutdown, lock bits, and alert output configuration",
+        "fields": [
+          {
+            "name": "UNIMPLEMENTED",
+            "bit_high": 15,
+            "bit_low": 11,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "T_HYST",
+            "bit_high": 10,
+            "bit_low": 9,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "T_UPPER and T_LOWER Limit Hysteresis bits: 00=0\u00b0C, 01=+1.5\u00b0C, 10=+3.0\u00b0C, 11=+6.0\u00b0C",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "SHDN",
+            "bit_high": 8,
+            "bit_low": 8,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Shutdown Mode bit: 0=Continuous conversion, 1=Shutdown (Low-Power mode)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CRIT_LOCK",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "T_CRIT Lock bit: 0=Unlocked, 1=Locked",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "WIN_LOCK",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "T_UPPER and T_LOWER Window Lock bit: 0=Unlocked, 1=Locked",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "INT_CLEAR",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Interrupt Clear bit: 0=No effect, 1=Clear interrupt output",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "ALERT_STAT",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Alert Output Status bit: 0=Not asserted, 1=Asserted",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "ALERT_CNT",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert Output Control bit: 0=Disabled, 1=Enabled",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "ALERT_SEL",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert Output Select bit: 0=T_UPPER/T_LOWER/T_CRIT, 1=T_CRIT only",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "ALERT_POL",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert Output Polarity bit: 0=Active-low, 1=Active-high",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "ALERT_MOD",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Alert Output Mode bit: 0=Comparator, 1=Interrupt",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          37
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "T_UPPER",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Upper temperature limit register",
+        "fields": [
+          {
+            "name": "UNIMP_15_13",
+            "bit_high": 15,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = T_A \u2265 0\u00b0C, 1 = T_A < 0\u00b0C",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TEMP",
+            "bit_high": 11,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Temperature boundary bits in two's complement format",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "UNIMP_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          37
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0x02 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "T_LOWER",
+        "address": "0x03",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Alert Temperature Lower Boundary Trip register",
+        "fields": [
+          {
+            "name": "UNIMP_15_13",
+            "bit_high": 15,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = T_A \u2265 0\u00b0C, 1 = T_A < 0\u00b0C",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TEMP",
+            "bit_high": 11,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "T_LOWER: Temperature Boundary bits. Temperature boundary trip data in two's complement format.",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "UNIMP_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          37
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0x03 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "T_CRIT",
+        "address": "0x04",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Critical Temperature Trip register",
+        "fields": [
+          {
+            "name": "UNIMP_15_13",
+            "bit_high": 15,
+            "bit_low": 13,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Sign bit. 0 = T_A \u2265 0\u00b0C, 1 = T_A < 0\u00b0C",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TEMP",
+            "bit_high": 11,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "T_CRIT: Temperature Boundary bits. Temperature boundary trip data in two's complement format.",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "UNIMP_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented: Read as '0'",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          37
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0x04 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "T_A",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature register",
+        "fields": [
+          {
+            "name": "T_A_GE_T_CRIT",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "T_A \u2265 T_CRIT flag",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "T_A_GT_T_UPPER",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "T_A > T_UPPER flag",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "T_A_LT_T_LOWER",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "T_A < T_LOWER flag",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "SIGN",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sign bit",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "TEMP",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Temperature bits 2^7 to 2^4 \u00b0C",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "TEMP_FRAC",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Temperature fractional bits 2^-1 to 2^-4 \u00b0C",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          37
+        ],
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: T_A_GE_T_CRIT[7:7] and TEMP[7:5]",
+          "Overlapping fields: TEMP[7:5] and T_A_GT_T_UPPER[6:6]",
+          "Overlapping fields: T_A_GE_T_CRIT[7:7] and TEMP[7:5]",
+          "Overlapping fields: TEMP[7:5] and T_A_GT_T_UPPER[6:6]",
+          "Overlapping fields: T_A_GE_T_CRIT[7:7] and TEMP[7:5]",
+          "Overlapping fields: TEMP[7:5] and T_A_GT_T_UPPER[6:6]",
+          "address 0x05 not found in register summary table",
+          "fields 'T_A_LT_T_LOWER' [5:5] and 'TEMP' [7:5] overlap",
+          "fields 'TEMP' [7:5] and 'T_A_GT_T_UPPER' [6:6] overlap"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RESOLUTION",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": "0x03",
+        "description": "Sensor resolution selection register",
+        "fields": [
+          {
+            "name": "UNIMPLEMENTED",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Unimplemented, read as 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RESOLUTION",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 3,
+            "description": "Resolution selection: 00=+0.5\u00b0C, 01=+0.25\u00b0C, 10=+0.125\u00b0C, 11=+0.0625\u00b0C (default)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          37
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x08 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Device Identification": [
+      {
+        "name": "MANUFACTURER_ID",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": "0x01",
+        "description": "Manufacturer ID register",
+        "fields": [
+          {
+            "name": "ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Manufacturer ID",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17,
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x06 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DEVICE_ID_REVISION",
+        "address": "0x07",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Device ID and revision register",
+        "fields": [
+          {
+            "name": "DEVICE_ID",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": 4,
+            "description": "Device identification",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DEVICE_REVISION",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Device revision",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17,
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x07 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DEVICE_ID_DEVICE_REVISION",
+        "address": "0x07",
+        "size_bits": 16,
+        "reset_value": "0x0400",
+        "description": "Device ID and revision register",
+        "fields": [
+          {
+            "name": "DEVICE_ID_DEVICE_REVISION",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 1024,
+            "description": "0x0400 (hex)",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17,
+          33
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x07 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T02:33:21.155515+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 9,
+        "by_confidence": {
+          "high": 4,
+          "medium": 4,
+          "low": 1
+        },
+        "with_quality_issues": 8,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 35,
+        "by_source": {
+          "synthetic": 2,
+          "llm_only": 21,
+          "evidence_verified": 11,
+          "llm_consistent": 1
+        }
+      },
+      "peripherals": {
+        "total": 2,
+        "by_name": {
+          "Temperature Sensor Core": {
+            "registers": 6,
+            "confidence": {
+              "high": 1,
+              "medium": 4,
+              "low": 1
+            }
+          },
+          "Device Identification": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 1,
+        "batches_total": 14,
+        "batches_sent": 10,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 3,
+        "warnings_detail": [
+          "T_A (0x05): fields 'T_A_LT_T_LOWER' [5:5] and 'TEMP' [7:5] overlap",
+          "T_A (0x05): fields 'TEMP' [7:5] and 'T_A_GT_T_UPPER' [6:6] overlap",
+          "duplicate address 0x07: 'DEVICE_ID_REVISION' and 'DEVICE_ID_DEVICE_REVISION'"
+        ],
+        "issue_breakdown": {
+          "address 0x02 not found in register summary table": 1,
+          "address 0x03 not found in register summary table": 1,
+          "address 0x04 not found in register summary table": 1,
+          "Overlapping fields": 6,
+          "address 0x05 not found in register summary table": 1,
+          "fields 'T_A_LT_T_LOWER' [5": 1,
+          "fields 'TEMP' [7": 1,
+          "address 0x08 not found in register summary table": 1,
+          "address 0x06 not found in register summary table": 1,
+          "address 0x07 not found in register summary table": 2
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 16,
+        "fields_verified": 8,
+        "fields_unverified": 8,
+        "fields_bit_mismatch": 8,
+        "regs_upgraded": 3,
+        "field_diagnostics": {
+          "0X01": {
+            "SHDN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 58980
+            },
+            "UNIMPLEMENTED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58980
+            },
+            "T_HYST": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58980
+            },
+            "CRIT_LOCK": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58980
+            },
+            "WIN_LOCK": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58980
+            },
+            "INT_CLEAR": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58980
+            },
+            "ALERT_STAT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58980
+            },
+            "ALERT_CNT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58980
+            },
+            "ALERT_SEL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58980
+            },
+            "ALERT_POL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58980
+            },
+            "ALERT_MOD": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 58980
+            }
+          },
+          "0X02": {
+            "UNIMP_15_13": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "TEMP": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "UNIMP_1_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            }
+          },
+          "0X03": {
+            "UNIMP_15_13": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "TEMP": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "UNIMP_1_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            }
+          },
+          "0X04": {
+            "UNIMP_15_13": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "TEMP": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "UNIMP_1_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            }
+          },
+          "0X05": {
+            "SIGN": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "TEMP": {
+              "result": "bit_mismatch",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "T_A_GE_T_CRIT": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "T_A_GT_T_UPPER": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "T_A_LT_T_LOWER": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 37262
+            },
+            "TEMP_FRAC": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 37262
+            }
+          },
+          "0X06": {
+            "ID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 30690
+            }
+          },
+          "0X07": {
+            "DEVICE_ID": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 30782
+            },
+            "DEVICE_REVISION": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 30782
+            },
+            "DEVICE_ID_DEVICE_REVISION": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 30782
+            }
+          },
+          "0X08": {
+            "UNIMPLEMENTED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38745
+            },
+            "RESOLUTION": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 38745
+            }
+          }
+        },
+        "fields_cross_section_augmented": 6,
+        "fields_bit_llm_fallback": 4,
+        "fields_consistent_promoted": 3,
+        "fields_name_matched": 3,
+        "diagnostic_summary": {
+          "verified_quote": 8,
+          "reserved": 2,
+          "name_not_found": 14,
+          "bit_mismatch": 8,
+          "verified_name": 3
+        }
+      }
+    },
+    "stage_costs": {
+      "extraction": {
+        "input_tokens": 68828,
+        "output_tokens": 7411,
+        "thinking_tokens": 0,
+        "calls": 13,
+        "total_cost_usd": 0.017471
+      },
+      "evidence": {
+        "input_tokens": 1505,
+        "output_tokens": 40,
+        "thinking_tokens": 0,
+        "calls": 3,
+        "total_cost_usd": 0.000321
+      },
+      "correction": {
+        "input_tokens": 3934,
+        "output_tokens": 1206,
+        "thinking_tokens": 0,
+        "calls": 3,
+        "total_cost_usd": 0.00139
+      },
+      "agents": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 418,
+        "output_tokens": 54,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000111
+      }
+    }
+  }
+}

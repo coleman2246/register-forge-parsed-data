@@ -1,0 +1,936 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "TMP117",
+  "description": "High-accuracy digital temperature sensor",
+  "vendor": "Texas Instruments",
+  "source": "TMP117.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.ti.com/lit/ds/symlink/tmp117.pdf",
+  "peripherals": {
+    "Temperature Core": [
+      {
+        "name": "TEMP_RESULT",
+        "address": "0x00",
+        "size_bits": 16,
+        "reset_value": "0x8000",
+        "description": "Temperature result register",
+        "fields": [
+          {
+            "name": "T",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 32768,
+            "description": "16-bit, read-only register that stores the most recent temperature conversion results.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x00 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "THIGH_LIMIT",
+        "address": "0x02",
+        "size_bits": 16,
+        "reset_value": "0x6000",
+        "description": "Temperature high limit register",
+        "fields": [
+          {
+            "name": "H",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 24576,
+            "description": "16-bit, read/write register that stores the high limit for comparison with the temperature result.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x02 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TLow_Limit",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Low limit register",
+        "fields": [
+          {
+            "name": "TLOW_LIMIT",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Low temperature limit value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TEMP_OFFSET",
+        "address": "0x07",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "Temperature Offset Register. This 16-bit register is to be used as a user-defined temperature offset register during system calibration. The offset will be added to the temperature result after linearization. It has a same resolution of 7.8125 m\u00b0C and same range of \u00b1256 \u00b0C as the temperature result register. The data format is the same as the temperature register.",
+        "fields": [
+          {
+            "name": "TEMP_OFFSET",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "16-bit temperature offset value in binary two's complement format. One LSB equals 7.8125 m\u00b0C. Range: \u00b1256 \u00b0C.",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x07 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Configuration": [
+      {
+        "name": "CONFIGURATION",
+        "address": "0x01",
+        "size_bits": 16,
+        "reset_value": "0x0220",
+        "description": "Configuration register",
+        "fields": [
+          {
+            "name": "RSVD_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "HIGH_ALERT",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "R",
+            "reset_value": 0,
+            "description": "High Alert flag: 1: Set when the conversion result is higher than the high limit 0: Cleared on read of configuration register",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LOW_ALERT",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Low Alert flag: 1: Set when the conversion result is lower than the low limit 0: Cleared when the configuration register is read",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DATA_READY",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Data ready flag. This flag indicates that the conversion is complete and the temperature register can be read.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "EEPROM_BUSY",
+            "bit_high": 12,
+            "bit_low": 12,
+            "access": "R",
+            "reset_value": 0,
+            "description": "EEPROM busy flag. The value of the flag indicates that the EEPROM is busy during programming or power-up.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MOD",
+            "bit_high": 11,
+            "bit_low": 10,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Set conversion mode. 00: Continuous conversion (CC) 01: Shutdown (SD) 10: Continuous conversion (CC), Same as 00 11: One-shot conversion (OS)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CONV",
+            "bit_high": 9,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 4,
+            "description": "Conversion cycle bit. See Table 7-7 for the standby time between conversions.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AVG",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Conversion averaging modes. Determines the number of conversion results that are collected and averaged before updating the temperature register.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "T_N_A",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Therm/alert mode select. 1: Therm mode 0: Alert mode",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "POL",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ALERT pin polarity bit. 1: Active high 0: Active low",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DR_ALERT",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "ALERT pin select bit. 1: ALERT pin reflects the status of the data ready flag 0: ALERT pin reflects the status of the alert flags",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SOFT_RESET",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Software reset bit. When set to 1 it triggers software reset with a duration of 2 ms This bit will always read back 0",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "outlier field count (12 fields vs median 1)",
+          "address 0x01 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "EEPROM": [
+      {
+        "name": "EEPROM_UL",
+        "address": "0x04",
+        "size_bits": 16,
+        "reset_value": "0x0000",
+        "description": "EEPROM unlock register",
+        "fields": [
+          {
+            "name": "RSVD_12_0",
+            "bit_high": 12,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_14",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Not used",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "EUN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "EEPROM unlock. 0: EEPROM is locked for programming 1: EEPROM unlocked for programming",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "EEPROM_BUSY",
+            "bit_high": 13,
+            "bit_low": 13,
+            "access": "R",
+            "reset_value": 0,
+            "description": "EEPROM busy. This flag is the mirror of the EEPROM busy flag (bit 12) in the configuration register.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x04 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EEPROM1",
+        "address": "0x05",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Eeprom1 register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 13,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved bits, not used.",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "EUN",
+            "bit_high": 15,
+            "bit_low": 15,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "EEPROM Unlock bit; write to unlock EEPROM for programming.",
+            "enum_values": null,
+            "source": "section_agent"
+          },
+          {
+            "name": "EEPROM_BUSY",
+            "bit_high": 14,
+            "bit_low": 14,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Indicates EEPROM is busy during programming.",
+            "enum_values": null,
+            "source": "section_agent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EEPROM2",
+        "address": "0x06",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "EEPROM2 register. This register function is the same as the EEPROM1 register.",
+        "fields": [
+          {
+            "name": "D",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "This 16-bit register can be used as a scratch pad by the customer to store general purpose data. This register has a corresponding EEPROM location.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x06 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "EEPROM3",
+        "address": "0x08",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "This register function is the same as the EEPROM1 register. To support NIST traceability, do not delete or reprogram the EEPROM[1] register.",
+        "fields": [
+          {
+            "name": "EEPROM",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "EEPROM data storage",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x08 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "System": [
+      {
+        "name": "DEVICE_ID",
+        "address": "0x0F",
+        "size_bits": 16,
+        "reset_value": "0x0117",
+        "description": "Device ID register",
+        "fields": [
+          {
+            "name": "REV",
+            "bit_high": 15,
+            "bit_low": 12,
+            "access": "R",
+            "reset_value": 0,
+            "description": "Indicates the revision number.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DID",
+            "bit_high": 11,
+            "bit_low": 0,
+            "access": "R",
+            "reset_value": 279,
+            "description": "Indicates the device ID.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0F not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T02:44:44.831236+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 10,
+        "by_confidence": {
+          "high": 9,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 8,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 27,
+        "by_source": {
+          "evidence_verified": 19,
+          "llm_verified": 2,
+          "synthetic": 3,
+          "section_agent": 3
+        }
+      },
+      "peripherals": {
+        "total": 4,
+        "by_name": {
+          "Temperature Core": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Configuration": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "EEPROM": {
+            "registers": 4,
+            "confidence": {
+              "high": 3,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "System": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 1,
+        "batches_total": 10,
+        "batches_sent": 7,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "address 0x00 not found in register summary table": 1,
+          "address 0x02 not found in register summary table": 1,
+          "address 0x07 not found in register summary table": 1,
+          "outlier field count (12 fields vs median 1)": 1,
+          "address 0x01 not found in register summary table": 1,
+          "address 0x04 not found in register summary table": 1,
+          "address 0x06 not found in register summary table": 1,
+          "address 0x08 not found in register summary table": 1,
+          "address 0x0F not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 23,
+        "fields_verified": 23,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 11,
+        "field_diagnostics": {
+          "0X03": {
+            "TLOW_LIMIT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 98467
+            }
+          },
+          "0X00": {
+            "POINTER": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 43072
+            },
+            "T": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 62838
+            }
+          },
+          "0X01": {
+            "HIGH_ALERT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57008
+            },
+            "LOW_ALERT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57008
+            },
+            "DATA_READY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57008
+            },
+            "EEPROM_BUSY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57008
+            },
+            "MOD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57008
+            },
+            "CONV": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57008
+            },
+            "AVG": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57008
+            },
+            "T_N_A": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57008
+            },
+            "POL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57008
+            },
+            "DR_ALERT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57008
+            },
+            "SOFT_RESET": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57008
+            },
+            "RSVD_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57008
+            }
+          },
+          "0X02": {
+            "H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 55481
+            }
+          },
+          "0X04": {
+            "EUN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 56939
+            },
+            "EEPROM_BUSY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 56939
+            },
+            "RSVD_13_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 56939
+            }
+          },
+          "0X05": {
+            "D": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64203
+            }
+          },
+          "0X06": {
+            "D": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 56939
+            }
+          },
+          "0X07": {
+            "D": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 55816
+            }
+          },
+          "0X08": {
+            "D": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 59934
+            }
+          },
+          "0X0F": {
+            "REV": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 55291
+            },
+            "DID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 55291
+            }
+          }
+        },
+        "fields_consistent_promoted": 4,
+        "fields_cross_section_augmented": 8,
+        "fields_name_matched": 2,
+        "fields_bit_llm_fallback": 5,
+        "fields_bit_corrected": 1,
+        "diagnostic_summary": {
+          "verified_name": 2,
+          "verified_quote": 23
+        }
+      }
+    },
+    "stage_costs": {
+      "extraction": {
+        "input_tokens": 53136,
+        "output_tokens": 2441,
+        "thinking_tokens": 0,
+        "calls": 10,
+        "total_cost_usd": 0.011848
+      },
+      "evidence": {
+        "input_tokens": 2262,
+        "output_tokens": 41,
+        "thinking_tokens": 0,
+        "calls": 4,
+        "total_cost_usd": 0.000473
+      },
+      "correction": {
+        "input_tokens": 6098,
+        "output_tokens": 1287,
+        "thinking_tokens": 0,
+        "calls": 5,
+        "total_cost_usd": 0.001863
+      },
+      "agents": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "convergence": {
+        "input_tokens": 9668,
+        "output_tokens": 7670,
+        "thinking_tokens": 7303,
+        "calls": 8,
+        "total_cost_usd": 0.003026
+      },
+      "grouping": {
+        "input_tokens": 506,
+        "output_tokens": 64,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000133
+      }
+    }
+  }
+}

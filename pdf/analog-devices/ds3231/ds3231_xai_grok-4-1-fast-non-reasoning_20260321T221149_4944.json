@@ -1,0 +1,1512 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "DS3231",
+  "description": "Extremely accurate RTC",
+  "vendor": "Analog Devices",
+  "source": "DS3231.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn.sparkfun.com/datasheets/Dev/Beagle/DS3231M.pdf",
+  "peripherals": {
+    "RTC Timekeeping": [
+      {
+        "name": "Seconds",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Seconds register",
+        "fields": [
+          {
+            "name": "ST",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Seconds tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SECONDS_UNITS",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Seconds units (00-59)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Minutes",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Minutes register",
+        "fields": [
+          {
+            "name": "MT",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Minutes tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MINUTES_UNITS",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Minutes units (00-59)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Hours",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Hours register",
+        "fields": [
+          {
+            "name": "H",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12/24 hour mode",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOURS_UNITS",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Hours units (1-12+AM/PM or 00-23)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Day",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Day register",
+        "fields": [
+          {
+            "name": "RSVD_7_3",
+            "bit_high": 7,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved (0)",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "DAY_UNITS",
+            "bit_high": 2,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Day units (1-7)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Date",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Date register",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved (0)",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "DATE_UNITS",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Date units (01-31)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MONTH_CENTURY",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Month and century register",
+        "fields": [
+          {
+            "name": "RSVD_6_5",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved (0)",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "CENTURY",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Century bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MONTH_UNITS",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Month units (01-12)",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "all fields have default RW access (may be missing real access types)",
+          "address 0x05 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Year",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Year register",
+        "fields": [
+          {
+            "name": "YEAR_TENS",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Year tens",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "YEAR_UNITS",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Year units (00-99)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Alarm 1": [
+      {
+        "name": "ALARM1_SECONDS",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 1 seconds register",
+        "fields": [
+          {
+            "name": "A1M1",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 1 seconds match bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "A1_SECONDS_UNITS",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 1 seconds units (00-59)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x07 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALARM1_MINUTES",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 1 minutes register",
+        "fields": [
+          {
+            "name": "A1M2",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 1 minutes match bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "A1_MINUTES_UNITS",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 1 minutes units (00-59)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x08 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALARM1_HOURS",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 1 hours register",
+        "fields": [
+          {
+            "name": "A1M3",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 1 hours match bit (mask bit)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "H6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12/24 or AM/PM",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOURS_UNITS",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 1 hours units (1-12+AM/PM or 00-23)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x09 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALARM1_DAY_DATE",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 1 day/date register",
+        "fields": [
+          {
+            "name": "A1M4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 1 day/date match and DY/DT select",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DY_DT",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DY/DT: 0=date of month, 1=day of week",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "DAY_DATE_UNITS",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 1 day (1-7) or date (1-31)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0A not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Alarm 2": [
+      {
+        "name": "ALARM2_MINUTES",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 2 minutes register",
+        "fields": [
+          {
+            "name": "A2M2",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 2 minutes match bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "A2_MINUTES_UNITS",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 2 minutes units (00-59)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0B not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALARM2_HOURS",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 2 hours register",
+        "fields": [
+          {
+            "name": "A2M3",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 2 mask bit 3 (hours)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "H6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12/24 or AM/PM",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "HOURS_UNITS",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 2 hours units (1-12+AM/PM or 00-23)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0C not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALARM2_DAY_DATE",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Alarm 2 day/date register",
+        "fields": [
+          {
+            "name": "A2M4",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 2 day/date match and DY/DT select",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DY_DT",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "DY/DT: 0=date of month, 1=day of week",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "DAY_DATE_UNITS",
+            "bit_high": 5,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 2 day (1-7) or date (1-31)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x0D not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Control and Status": [
+      {
+        "name": "Control",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Control register",
+        "fields": [
+          {
+            "name": "EOSC",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Enable oscillator. When set to logic 0, the oscillator is started. When set to logic 1, the oscillator is stopped when the device switches to V_BAT. This bit is clear (logic 0) when power is first applied. When the device is powered by V_CC, the oscillator is always on regardless of the status of the EOSC bit. When the oscillator is disabled, all register data is static.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BBSQW",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Battery-backed square wave",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "CONV",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Convert temperature",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "NA",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "R",
+            "reset_value": null,
+            "description": "Not available",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "INTCN",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Interrupt control. When logic 1, pin defaults to interrupt output with alarms disabled.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "A2IE",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 2 interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "A1IE",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Alarm 1 interrupt enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          6,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "Status",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Status register",
+        "fields": [
+          {
+            "name": "RSVD_6_5",
+            "bit_high": 6,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved (0)",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_4_3",
+            "bit_high": 4,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved (0)",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "OSF",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Oscillator stop flag",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "EN32KHZ",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "32kHz output enable",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "BSY",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Busy flag",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "A2F",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Alarm 2 flag",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          6,
+          15
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Temperature Sensor": [
+      {
+        "name": "TEMPERATURE_MSB",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Temperature MSB register",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sign bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DATA",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Temperature data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "identical field layout as adjacent register 0x10",
+          "address 0x11 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TEMPERATURE_UPPER",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Temperature register upper byte (integer portion)",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Sign bit for temperature",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "DATA",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Temperature integer data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x11 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "TEMPERATURE_LSB",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Temperature register lower bits (fractional portion)",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved/data",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "TEMP_FRAC",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Temperature fractional portion (2 LSBs)",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x12 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Aging Offset": [
+      {
+        "name": "AGING_OFFSET",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Aging Offset Register",
+        "fields": [
+          {
+            "name": "SIGN",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Sign bit",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "DATA",
+            "bit_high": 6,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Data bits",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          10,
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x10 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T02:11:49.929762+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 20,
+        "by_confidence": {
+          "high": 19,
+          "medium": 1,
+          "low": 0
+        },
+        "with_quality_issues": 12,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 54,
+        "by_source": {
+          "evidence_verified": 41,
+          "synthetic": 5,
+          "llm_only": 1,
+          "llm_verified": 7
+        }
+      },
+      "peripherals": {
+        "total": 6,
+        "by_name": {
+          "RTC Timekeeping": {
+            "registers": 7,
+            "confidence": {
+              "high": 6,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Alarm 1": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Alarm 2": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Control and Status": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Temperature Sensor": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Aging Offset": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 9,
+        "batches_total": 6,
+        "batches_sent": 6,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 1,
+        "warnings_detail": [
+          "duplicate address 0x11: 'TEMPERATURE_MSB' and 'TEMPERATURE_UPPER'"
+        ],
+        "issue_breakdown": {
+          "all fields have default RW access (may be missing real access types)": 1,
+          "address 0x05 not found in register summary table": 1,
+          "address 0x07 not found in register summary table": 1,
+          "address 0x08 not found in register summary table": 1,
+          "address 0x09 not found in register summary table": 1,
+          "address 0x0A not found in register summary table": 1,
+          "address 0x0B not found in register summary table": 1,
+          "address 0x0C not found in register summary table": 1,
+          "address 0x0D not found in register summary table": 1,
+          "identical field layout as adjacent register 0x10": 1,
+          "address 0x11 not found in register summary table": 2,
+          "address 0x12 not found in register summary table": 1,
+          "address 0x10 not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 55,
+        "fields_verified": 54,
+        "fields_unverified": 1,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 20,
+        "field_diagnostics": {
+          "0X0E": {
+            "EOSC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120414
+            },
+            "BBSQW": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120414
+            },
+            "CONV": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120414
+            },
+            "NA_4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120414
+            },
+            "NA_3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120414
+            },
+            "INTCN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120414
+            },
+            "A2IE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120414
+            },
+            "A1IE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 120414
+            }
+          },
+          "0X0F": {
+            "OSF": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 103666
+            },
+            "RSVD_6_5": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 103666
+            },
+            "RSVD_4_3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 103666
+            },
+            "EN32KHZ": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 103666
+            },
+            "BSY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 103666
+            },
+            "A2F": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 103666
+            }
+          },
+          "0X00": {
+            "ST": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 73687
+            },
+            "SECONDS_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 73687
+            }
+          },
+          "0X01": {
+            "MT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54074
+            },
+            "MINUTES_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 54074
+            }
+          },
+          "0X02": {
+            "H7": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64183
+            },
+            "H6": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64183
+            },
+            "HOURS_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 64183
+            }
+          },
+          "0X03": {
+            "RSVD_7_3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57502
+            },
+            "DAY_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 57502
+            }
+          },
+          "0X04": {
+            "RSVD_7_5": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 82931
+            },
+            "DATE_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 82931
+            }
+          },
+          "0X05": {
+            "CENTURY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15640
+            },
+            "RSVD_6_5": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15640
+            },
+            "MONTH_UNITS": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 15640
+            }
+          },
+          "0X06": {
+            "YEAR_TENS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 60298
+            },
+            "YEAR_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 60298
+            }
+          },
+          "0X07": {
+            "A1M1": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16262
+            },
+            "A1_SECONDS_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16262
+            }
+          },
+          "0X08": {
+            "A1M2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16262
+            },
+            "A1_MINUTES_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16262
+            }
+          },
+          "0X09": {
+            "A1M3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16262
+            },
+            "H6": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16262
+            },
+            "HOURS_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16262
+            }
+          },
+          "0X0A": {
+            "A1M4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16385
+            },
+            "DAY_DATE_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16385
+            }
+          },
+          "0X0B": {
+            "A2M2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16262
+            },
+            "A2_MINUTES_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16262
+            }
+          },
+          "0X0C": {
+            "A2M3": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16262
+            },
+            "H6": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16262
+            },
+            "HOURS_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16262
+            }
+          },
+          "0X0D": {
+            "A2M4": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16385
+            },
+            "DAY_DATE_UNITS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 16385
+            }
+          },
+          "0X10": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 65557
+            },
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 65557
+            }
+          },
+          "0X11": {
+            "SIGN": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 62560
+            },
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 62560
+            }
+          },
+          "0X12": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 62740
+            },
+            "RSVD_2_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 53916
+            },
+            "RSVD_1_0": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 62740
+            }
+          }
+        },
+        "fields_cross_section_augmented": 8,
+        "fields_bit_llm_fallback": 4,
+        "fields_consistent_promoted": 2,
+        "diagnostic_summary": {
+          "verified_quote": 51,
+          "quote_not_found": 1,
+          "reserved": 1
+        }
+      }
+    },
+    "stage_costs": {
+      "extraction": {
+        "input_tokens": 58655,
+        "output_tokens": 7641,
+        "thinking_tokens": 0,
+        "calls": 11,
+        "total_cost_usd": 0.015551
+      },
+      "evidence": {
+        "input_tokens": 3958,
+        "output_tokens": 95,
+        "thinking_tokens": 0,
+        "calls": 6,
+        "total_cost_usd": 0.000839
+      },
+      "correction": {
+        "input_tokens": 9616,
+        "output_tokens": 2534,
+        "thinking_tokens": 0,
+        "calls": 9,
+        "total_cost_usd": 0.00319
+      },
+      "agents": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 593,
+        "output_tokens": 130,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000184
+      }
+    }
+  }
+}

@@ -1,0 +1,1290 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "CCS811",
+  "description": "Ultra-low power digital VOC/CO2 air quality sensor, I2C",
+  "vendor": "ams-OSRAM",
+  "source": "CCS811.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn.sparkfun.com/assets/2/4/2/9/6/CCS811_Datasheet.pdf",
+  "peripherals": {
+    "Status and Mode": [
+      {
+        "name": "STATUS",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Status register should be accessed to check if there is a valid application present.",
+        "fields": [
+          {
+            "name": "RSVD_2_1",
+            "bit_high": 2,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "FW_MODE",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "0: Firmware is in boot mode, this allows new firmware to be loaded 1: Firmware is in application mode. CCS811 is ready to take ADC measurements",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "APP_ERASE",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "0: No erase completed 1: Application erase operation completed successfully (flag is cleared by APP_DATA and also by APP_START, SW_RESET, nRESET and APP_VERIFY). The 6th bit (0x40) is initialised to 0 and set to a 1 on completion of the APP_ERASE function.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "APP_VERIFY",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Boot Mode only. 0: No verify completed 1: Application verify operation completed successfully (flag is cleared by APP_START, SW_RESET and nRESET)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "APP_VALID",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "0: No application firmware loaded 1: Valid application firmware loaded",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "DATA_READY",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "0: No new data samples are ready 1: A new data sample is ready in ALG_RESULT_DATA, this bit is cleared when ALG_RESULT_DATA is read",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ERROR",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "This bit is cleared by reading ERROR_ID 0: No error has occurred 1: There is an error on the I\u00b2C or sensor, the ERROR_ID register (0xE0) contains the error source",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17,
+          27
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MEAS_MODE",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Single byte register, which is used to enable sensor drive mode and interrupts.",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved - write 0",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_1_0",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Reserved - write 00",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "DRIVE_MODE",
+            "bit_high": 6,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Drive mode selection: 000=Idle, 001=1s IAQ, 010=10s IAQ, 011=60s IAQ, 100=250ms raw",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "INT_DATARDY",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": null,
+            "description": "0: Interrupt disabled 1: nINT asserted when new sample ready",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "INT_THRESH",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": null,
+            "description": "1: Interrupt only if ALG_RESULT_DATA crosses threshold",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Measurement Data": [
+      {
+        "name": "ALG_RESULT_DATA",
+        "address": "0x02",
+        "size_bits": 64,
+        "reset_value": null,
+        "description": "Multi-byte read only register containing eCO2 (bytes 0-1), eTVOC (bytes 2-3), STATUS (byte 4), ERROR_ID (byte 5), RAW_DATA (bytes 6-7).",
+        "fields": [
+          {
+            "name": "ECO2",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "eCO2 equivalent value in ppm (bytes 0-1)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ETVOC",
+            "bit_high": 31,
+            "bit_low": 16,
+            "access": "RO",
+            "reset_value": null,
+            "description": "eTVOC equivalent value in ppb (bytes 2-3)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "STATUS",
+            "bit_high": 39,
+            "bit_low": 32,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Embedded STATUS register (byte 4)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ERROR_ID",
+            "bit_high": 47,
+            "bit_low": 40,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Embedded ERROR_ID register (byte 5)",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "RAW_DATA",
+            "bit_high": 63,
+            "bit_low": 48,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Embedded RAW_DATA register (bytes 6-7)",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "RAW_DATA",
+        "address": "0x03",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Two byte read only register containing sensor current (MSB 6 bits of byte 0) and raw ADC voltage reading (10 bits across bytes 0-1).",
+        "fields": [
+          {
+            "name": "RSVD_15_14",
+            "bit_high": 15,
+            "bit_low": 14,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "CURRENT",
+            "bit_high": 13,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Current selected through sensor (0-63\u00b5A)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ADC_READING",
+            "bit_high": 9,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Raw ADC voltage reading across sensor (1023=1.65V)",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: CURRENT[13:8] and ADC_READING[9:0]",
+          "Overlapping fields: ADC_READING[9:0] and CURRENT[7:2]",
+          "Overlapping fields: CURRENT[13:8] and ADC_READING[9:0]",
+          "Overlapping fields: ADC_READING[9:0] and CURRENT[7:2]",
+          "fields 'ADC_READING' [9:0] and 'CURRENT' [13:2] overlap"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Environmental Data": [
+      {
+        "name": "ENV_DATA",
+        "address": "0x05",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "Multi-byte register that can be written with current Humidity (bytes 0-1) and Temperature (bytes 2-3) values.",
+        "fields": [
+          {
+            "name": "HUMIDITY",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Relative humidity as unsigned 16-bit in 1/512%RH. Default 50%=0x6400",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "TEMPERATURE",
+            "bit_high": 31,
+            "bit_low": 16,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Temperature as unsigned 16-bit in 1/512\u00b0C with -25\u00b0C offset. Default 25\u00b0C=0x6400",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Algorithm Config": [
+      {
+        "name": "THRESHOLDS",
+        "address": "0x10",
+        "size_bits": 32,
+        "reset_value": "0x05DC09C4",
+        "description": "Multi-byte write only register containing Low-to-Medium threshold (bytes 0-1, default 1500ppm) and Medium-to-High threshold (bytes 2-3, default 2500ppm).",
+        "fields": [
+          {
+            "name": "LOW_MED_THRESH",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 1500,
+            "description": "Low to Medium eCO2 threshold in ppm (default 1500ppm=0x05DC)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MED_HIGH_THRESH",
+            "bit_high": 31,
+            "bit_low": 16,
+            "access": "WO",
+            "reset_value": 2500,
+            "description": "Medium to High eCO2 threshold in ppm (default 2500ppm=0x09C4)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "BASELINE",
+        "address": "0x11",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Two byte read/write register containing encoded current baseline value used in algorithm calculations.",
+        "fields": [
+          {
+            "name": "BASELINE_VAL",
+            "bit_high": 15,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Encoded baseline value for algorithm calculations",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Version Info": [
+      {
+        "name": "HW_ID",
+        "address": "0x20",
+        "size_bits": 8,
+        "reset_value": "0x81",
+        "description": "Single byte read only register which holds the HW ID (0x81 for CCS81x devices).",
+        "fields": [
+          {
+            "name": "HW_ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 129,
+            "description": "Hardware ID value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "HWVersion",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Single byte read only register holding major (bits 7:4) and minor/build (bits 3:0) hardware versions.",
+        "fields": [
+          {
+            "name": "MAJOR",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": 1,
+            "description": "Major hardware version (1=CCS811)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "MINOR",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Minor hardware version/build variant",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FW_Boot_Version",
+        "address": "0x23",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Two byte read only register containing bootloader firmware version in Major.Minor.Trivial format.",
+        "fields": [
+          {
+            "name": "MAJOR",
+            "bit_high": 15,
+            "bit_low": 12,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Major bootloader version",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "MINOR",
+            "bit_high": 11,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Minor bootloader version",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "TRIVIAL",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Trivial bootloader version",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17,
+          27
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "FW_App_Version",
+        "address": "0x24",
+        "size_bits": 16,
+        "reset_value": null,
+        "description": "Two byte read only register which contain the version of the firmware application stored in the CCS811 in the format Major.Minor.Trivial. FW_App_Version will read FFFF when there is no firmware application (see APP_VALID in STATUS).",
+        "fields": [
+          {
+            "name": "Major",
+            "bit_high": 15,
+            "bit_low": 8,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Major version",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "Minor",
+            "bit_high": 7,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Minor version",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "Trivial",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Trivial version",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Error Handling": [
+      {
+        "name": "ERROR_ID",
+        "address": "0xE0",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Single byte read only register indicating error source(s) when STATUS ERROR bit is set.",
+        "fields": [
+          {
+            "name": "RSVD_7_6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "RSVD_7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "WRITE_REG_INVALID",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "I2C write to invalid register address",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "READ_REG_INVALID",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": null,
+            "description": "I2C read from invalid mailbox",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "MEASMODE_INVALID",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Write to unsupported MEAS_MODE",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "MAX_RESISTANCE",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Sensor resistance exceeded max range",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "HEATER_FAULT",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Heater current out of range",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "HEATER_SUPPLY",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Heater voltage incorrectly applied",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17,
+          27
+        ],
+        "confidence": "low",
+        "quality_issues": [
+          "outlier field count (8 fields vs median 2)",
+          "Overlapping fields: RSVD[7:7] and RSVD[7:6]",
+          "Overlapping fields: RSVD[7:7] and RSVD[7:6]",
+          "Overlapping fields: RSVD[7:7] and RSVD[7:6]",
+          "fields 'RSVD_7_6' [7:6] and 'RSVD_7' [7:7] overlap"
+        ],
+        "suspicious_injection": false
+      }
+    ],
+    "Bootloader": [
+      {
+        "name": "APP_ERASE",
+        "address": "0xF1",
+        "size_bits": 32,
+        "reset_value": null,
+        "description": "Application erase register. Write sequence 0xE7,0xA7,0xE6,0x09 to erase application.",
+        "fields": [
+          {
+            "name": "ERASE_SEQ",
+            "bit_high": 31,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Write 0xE7,0xA7,0xE6,0x09 sequence to start app erase",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "APP_DATA",
+        "address": "0xF2",
+        "size_bits": 72,
+        "reset_value": null,
+        "description": "Nine byte write only register for sending application firmware data chunks.",
+        "fields": [
+          {
+            "name": "APP_DATA",
+            "bit_high": 71,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Application firmware data chunk",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "APP_VERIFY",
+        "address": "0xF3",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Single byte write only register to start application verify process.",
+        "fields": [
+          {
+            "name": "VERIFY_CMD",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Write to start application verification process",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "APP_START",
+        "address": "0xF4",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Write only register to transition from boot mode to application mode.",
+        "fields": [
+          {
+            "name": "START_CMD",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Write 0xF4 to start application if valid",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SW_RESET",
+        "address": "0xFF",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Software reset register. Write sequence 0x11,0xE5,0x72,0x8A to restart in boot mode.",
+        "fields": [
+          {
+            "name": "RESET_SEQ",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": null,
+            "description": "Write 0x11,0xE5,0x72,0x8A sequence for software reset",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          17,
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T02:10:59.541836+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 17,
+        "by_confidence": {
+          "high": 12,
+          "medium": 3,
+          "low": 2
+        },
+        "with_quality_issues": 2,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 47,
+        "by_source": {
+          "synthetic": 6,
+          "llm_only": 13,
+          "evidence_verified": 25,
+          "llm_verified": 3
+        }
+      },
+      "peripherals": {
+        "total": 7,
+        "by_name": {
+          "Status and Mode": {
+            "registers": 2,
+            "confidence": {
+              "high": 0,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "Measurement Data": {
+            "registers": 2,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 1
+            }
+          },
+          "Environmental Data": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Algorithm Config": {
+            "registers": 2,
+            "confidence": {
+              "high": 2,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Version Info": {
+            "registers": 4,
+            "confidence": {
+              "high": 3,
+              "medium": 1,
+              "low": 0
+            }
+          },
+          "Error Handling": {
+            "registers": 1,
+            "confidence": {
+              "high": 0,
+              "medium": 0,
+              "low": 1
+            }
+          },
+          "Bootloader": {
+            "registers": 5,
+            "confidence": {
+              "high": 5,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 18,
+        "batches_total": 4,
+        "batches_sent": 4,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 2,
+        "warnings_detail": [
+          "RAW_DATA (0x03): fields 'ADC_READING' [9:0] and 'CURRENT' [13:2] overlap",
+          "ERROR_ID (0xE0): fields 'RSVD_7_6' [7:6] and 'RSVD_7' [7:7] overlap"
+        ],
+        "issue_breakdown": {
+          "Overlapping fields": 7,
+          "fields 'ADC_READING' [9": 1,
+          "outlier field count (8 fields vs median 2)": 1,
+          "fields 'RSVD_7_6' [7": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 39,
+        "fields_verified": 26,
+        "fields_unverified": 13,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 14,
+        "field_diagnostics": {
+          "0X00": {
+            "DATA_READY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 139946
+            },
+            "ERROR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 139946
+            },
+            "FW_MODE": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 139946
+            },
+            "APP_ERASE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 139946
+            },
+            "APP_VERIFY": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 139946
+            },
+            "APP_VALID": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 139946
+            },
+            "RSVD_2_1": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 139946
+            }
+          },
+          "0X01": {
+            "RSVD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 86093
+            },
+            "DRIVE_MODE": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 86093
+            },
+            "INT_DATARDY": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 86093
+            },
+            "INT_THRESH": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 86093
+            },
+            "RSVD_1_0": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 86093
+            }
+          },
+          "0X02": {
+            "ECO2": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 117037
+            },
+            "ETVOC": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 117037
+            },
+            "STATUS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 117037
+            }
+          },
+          "0X03": {
+            "CURRENT": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90841
+            },
+            "ADC_READING": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90841
+            }
+          },
+          "0X05": {
+            "HUMIDITY": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 84833
+            },
+            "TEMPERATURE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 84833
+            }
+          },
+          "0X10": {
+            "LOW_MED_THRESH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 102316
+            },
+            "MED_HIGH_THRESH": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 102316
+            }
+          },
+          "0X11": {
+            "BASELINE_VAL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 96355
+            }
+          },
+          "0X20": {
+            "HW_ID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 91097
+            }
+          },
+          "0X21": {
+            "MAJOR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 91250
+            },
+            "MINOR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 91250
+            }
+          },
+          "0X23": {
+            "MAJOR": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 92586
+            },
+            "MINOR": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 92586
+            },
+            "TRIVIAL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 92586
+            }
+          },
+          "0X24": {
+            "MAJOR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 103258
+            },
+            "MINOR": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 103258
+            },
+            "TRIVIAL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 103258
+            }
+          },
+          "0XA0": {},
+          "0XE0": {
+            "WRITE_REG_INVALID": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 114963
+            },
+            "READ_REG_INVALID": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 114963
+            },
+            "MEASMODE_INVALID": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 114963
+            },
+            "MAX_RESISTANCE": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 114963
+            },
+            "HEATER_FAULT": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 114963
+            },
+            "HEATER_SUPPLY": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 114963
+            },
+            "RSVD": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 114963
+            }
+          },
+          "0XFF": {
+            "RESET_SEQ": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 90945
+            }
+          },
+          "0XF1": {
+            "ERASE_SEQ": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 66823
+            }
+          },
+          "0XF2": {
+            "APP_DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 66478
+            }
+          },
+          "0XF3": {
+            "VERIFY_CMD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 67071
+            }
+          },
+          "0XF4": {
+            "START_CMD": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 78281
+            }
+          },
+          "0X40": {}
+        },
+        "fields_cross_section_augmented": 15,
+        "fields_name_matched": 2,
+        "fields_bit_llm_fallback": 4,
+        "fields_consistent_promoted": 6,
+        "fields_bit_corrected": 3,
+        "diagnostic_summary": {
+          "verified_quote": 26,
+          "name_not_found": 2,
+          "verified_name": 2,
+          "reserved": 1,
+          "quote_not_found": 12
+        }
+      }
+    },
+    "stage_costs": {
+      "extraction": {
+        "input_tokens": 65848,
+        "output_tokens": 13283,
+        "thinking_tokens": 0,
+        "calls": 11,
+        "total_cost_usd": 0.019811
+      },
+      "evidence": {
+        "input_tokens": 4387,
+        "output_tokens": 186,
+        "thinking_tokens": 0,
+        "calls": 8,
+        "total_cost_usd": 0.00097
+      },
+      "correction": {
+        "input_tokens": 6934,
+        "output_tokens": 2148,
+        "thinking_tokens": 0,
+        "calls": 6,
+        "total_cost_usd": 0.002461
+      },
+      "agents": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 850,
+        "output_tokens": 119,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.00023
+      }
+    }
+  }
+}

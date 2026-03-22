@@ -1,0 +1,1175 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "HMC5883L",
+  "description": "3-axis digital compass/magnetometer",
+  "vendor": "Honeywell",
+  "source": "HMC5883L.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn-shop.adafruit.com/datasheets/HMC5883L_3-Axis_Digital_Compass_IC.pdf",
+  "peripherals": {
+    "Configuration": [
+      {
+        "name": "CRA",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "Configuration register A (CRA). Used to configure the device for setting the data output rate and measurement configuration. CRA default is 0x10.",
+        "fields": [
+          {
+            "name": "RSVD_7_1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": null,
+            "description": "Reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "CRA7",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "CRA7",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "CRA6",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "CRA6",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "CRA5",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "CRA5",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "CRA4",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "CRA4",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "CRA3",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "CRA3",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "CRA2",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "CRA2",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "CRA1",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "CRA1",
+            "enum_values": null,
+            "source": "llm_verified"
+          },
+          {
+            "name": "CRA0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "CRA0",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19
+        ],
+        "confidence": "low",
+        "quality_issues": [
+          "Overlapping fields: CRA7[0:0] and CRA6[0:0]",
+          "Overlapping fields: CRA6[0:0] and CRA5[0:0]",
+          "Overlapping fields: CRA5[0:0] and CRA4[0:0]",
+          "Overlapping fields: CRA4[0:0] and CRA3[0:0]",
+          "Overlapping fields: CRA3[0:0] and CRA2[0:0]",
+          "Overlapping fields: CRA2[0:0] and CRA1[0:0]",
+          "Overlapping fields: CRA1[0:0] and CRA0[0:0]",
+          "Overlapping fields: CRA7[0:0] and CRA6[0:0]",
+          "Overlapping fields: CRA6[0:0] and CRA5[0:0]",
+          "Overlapping fields: CRA5[0:0] and CRA4[0:0]",
+          "Overlapping fields: CRA4[0:0] and CRA3[0:0]",
+          "Overlapping fields: CRA3[0:0] and CRA2[0:0]",
+          "Overlapping fields: CRA2[0:0] and CRA1[0:0]",
+          "Overlapping fields: CRA1[0:0] and CRA0[0:0]",
+          "Overlapping fields: CRA7[0:0] and CRA6[0:0]",
+          "Overlapping fields: CRA6[0:0] and CRA5[0:0]",
+          "Overlapping fields: CRA5[0:0] and CRA4[0:0]",
+          "Overlapping fields: CRA4[0:0] and CRA3[0:0]",
+          "Overlapping fields: CRA3[0:0] and CRA2[0:0]",
+          "Overlapping fields: CRA2[0:0] and CRA1[0:0]",
+          "Overlapping fields: CRA1[0:0] and CRA0[0:0]",
+          "Overlapping fields: CRA7[0:0] and CRA6[0:0]",
+          "Overlapping fields: CRA6[0:0] and CRA5[0:0]",
+          "Overlapping fields: CRA5[0:0] and CRA4[0:0]",
+          "Overlapping fields: CRA4[0:0] and CRA3[0:0]",
+          "Overlapping fields: CRA3[0:0] and CRA2[0:0]",
+          "Overlapping fields: CRA2[0:0] and CRA1[0:0]",
+          "Overlapping fields: CRA1[0:0] and CRA0[0:0]",
+          "Overlapping fields: CRA7[0:0] and CRA6[0:0]",
+          "Overlapping fields: CRA6[0:0] and CRA5[0:0]",
+          "Overlapping fields: CRA5[0:0] and CRA4[0:0]",
+          "Overlapping fields: CRA4[0:0] and CRA3[0:0]",
+          "Overlapping fields: CRA3[0:0] and CRA2[0:0]",
+          "Overlapping fields: CRA2[0:0] and CRA1[0:0]",
+          "Overlapping fields: CRA1[0:0] and CRA0[0:0]",
+          "Overlapping fields: CRA7[0:0] and CRA6[0:0]",
+          "Overlapping fields: CRA6[0:0] and CRA5[0:0]",
+          "Overlapping fields: CRA5[0:0] and CRA4[0:0]",
+          "Overlapping fields: CRA4[0:0] and CRA3[0:0]",
+          "Overlapping fields: CRA3[0:0] and CRA2[0:0]",
+          "Overlapping fields: CRA2[0:0] and CRA1[0:0]",
+          "Overlapping fields: CRA1[0:0] and CRA0[0:0]",
+          "fields 'CRA7' [0:0] and 'CRA6' [0:0] overlap",
+          "fields 'CRA6' [0:0] and 'CRA5' [0:0] overlap",
+          "fields 'CRA5' [0:0] and 'CRA4' [0:0] overlap",
+          "fields 'CRA4' [0:0] and 'CRA3' [0:0] overlap",
+          "fields 'CRA3' [0:0] and 'CRA2' [0:0] overlap",
+          "fields 'CRA2' [0:0] and 'CRA1' [0:0] overlap",
+          "fields 'CRA1' [0:0] and 'CRA0' [0:0] overlap"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "CONFIGURATION_REGISTER_B",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": "0x20",
+        "description": "Configuration register B for setting the device gain",
+        "fields": [
+          {
+            "name": "RSVD",
+            "bit_high": 4,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "These bits must be cleared for correct operation.",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "GN",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Gain configuration bits. These bits configure the gain for the device. The gain configuration is common for all channels.",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          14,
+          18,
+          19
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IDENTIFICATION_REGISTER_B",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": "0x34",
+        "description": "Identification register B containing ASCII value '4'",
+        "fields": [
+          {
+            "name": "IRB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 52,
+            "description": "Identification bits IRB7-IRB0",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          14,
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MODE_REGISTER",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": "0x01",
+        "description": "Mode register used to select the operating mode of the device",
+        "fields": [
+          {
+            "name": "HS",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Set this pin to enable High Speed I2C, 3400kHz.",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "MD",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Mode select bits. These bits select the operation mode of this device.",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IDENTIFICATION_REGISTER_C",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": "0x33",
+        "description": "Identification register C containing ASCII value '3'",
+        "fields": [
+          {
+            "name": "IRC",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 51,
+            "description": "Identification bits IRC7-IRC0",
+            "enum_values": null,
+            "source": "llm_consistent"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Data Output": [
+      {
+        "name": "DATA_OUTPUT_X_MSB_REGISTER",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "MSB of X-axis measurement data",
+        "fields": [
+          {
+            "name": "X_DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X-axis data MSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA_OUTPUT_X_A",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Data output X register A (MSB)",
+        "fields": [
+          {
+            "name": "DXRA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "X-axis measurement MSB (2's complement)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA_OUTPUT_X_LSB_REGISTER",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LSB of X-axis measurement data",
+        "fields": [
+          {
+            "name": "X_DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "X-axis data LSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA_OUTPUT_X_B",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Data output X register B (LSB)",
+        "fields": [
+          {
+            "name": "DXRB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "X-axis measurement LSB (2's complement)",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA_OUTPUT_Z_MSB_REGISTER",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "MSB of Z-axis measurement data",
+        "fields": [
+          {
+            "name": "Z_DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z-axis data MSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA_OUTPUT_Y_A",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Data output Y register A (MSB)",
+        "fields": [
+          {
+            "name": "DYRA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Y-axis measurement MSB (2's complement)",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA_OUTPUT_Z_LSB_REGISTER",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LSB of Z-axis measurement data",
+        "fields": [
+          {
+            "name": "Z_DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Z-axis data LSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA_OUTPUT_Y_B",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Data output Y register B (LSB)",
+        "fields": [
+          {
+            "name": "DYRB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Y-axis measurement LSB (2's complement)",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          18,
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA_OUTPUT_Y_MSB_REGISTER",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "MSB of Y-axis measurement data",
+        "fields": [
+          {
+            "name": "Y_DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y-axis data MSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA_OUTPUT_Z_A",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Data output Z register A (MSB)",
+        "fields": [
+          {
+            "name": "DZRA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis measurement MSB (2's complement)",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA_OUTPUT_Y_LSB_REGISTER",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LSB of Y-axis measurement data",
+        "fields": [
+          {
+            "name": "Y_DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Y-axis data LSB",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "DATA_OUTPUT_Z_B",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Data output Z register B (LSB)",
+        "fields": [
+          {
+            "name": "DZRB",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Z-axis measurement LSB (2's complement)",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Status": [
+      {
+        "name": "STATUS",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "Status register indicating device status",
+        "fields": [
+          {
+            "name": "RSVD_7_2",
+            "bit_high": 7,
+            "bit_low": 2,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Reserved bits",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LOCK",
+            "bit_high": 1,
+            "bit_low": 1,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Data output register lock",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "RDY",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "Ready bit",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          16,
+          17
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "Identification": [
+      {
+        "name": "IDENTIFICATION_REGISTER_A",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Identification Register A",
+        "fields": [
+          {
+            "name": "ID_A",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Identification data A",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IDENTIFICATION_REGISTER_B",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Identification Register B",
+        "fields": [
+          {
+            "name": "ID_B",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Identification data B",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "IDENTIFICATION_REGISTER_C",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Identification Register C",
+        "fields": [
+          {
+            "name": "ID_C",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Identification data C",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          11,
+          12,
+          13
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T02:12:17.198935+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 21,
+        "by_confidence": {
+          "high": 14,
+          "medium": 6,
+          "low": 1
+        },
+        "with_quality_issues": 1,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 33,
+        "by_source": {
+          "synthetic": 3,
+          "llm_verified": 8,
+          "llm_only": 7,
+          "llm_consistent": 2,
+          "evidence_verified": 13
+        }
+      },
+      "peripherals": {
+        "total": 4,
+        "by_name": {
+          "Configuration": {
+            "registers": 5,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 1
+            }
+          },
+          "Data Output": {
+            "registers": 12,
+            "confidence": {
+              "high": 8,
+              "medium": 4,
+              "low": 0
+            }
+          },
+          "Status": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "Identification": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 0,
+        "batches_total": 8,
+        "batches_sent": 8,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 15,
+        "warnings_detail": [
+          "CRA (0x00): fields 'CRA7' [0:0] and 'CRA6' [0:0] overlap",
+          "CRA (0x00): fields 'CRA6' [0:0] and 'CRA5' [0:0] overlap",
+          "CRA (0x00): fields 'CRA5' [0:0] and 'CRA4' [0:0] overlap",
+          "CRA (0x00): fields 'CRA4' [0:0] and 'CRA3' [0:0] overlap",
+          "CRA (0x00): fields 'CRA3' [0:0] and 'CRA2' [0:0] overlap",
+          "CRA (0x00): fields 'CRA2' [0:0] and 'CRA1' [0:0] overlap",
+          "CRA (0x00): fields 'CRA1' [0:0] and 'CRA0' [0:0] overlap",
+          "duplicate address 0x01: 'CONFIGURATION_REGISTER_B' and 'IDENTIFICATION_REGISTER_B'",
+          "duplicate address 0x02: 'MODE_REGISTER' and 'IDENTIFICATION_REGISTER_C'",
+          "duplicate address 0x03: 'DATA_OUTPUT_X_MSB_REGISTER' and 'DATA_OUTPUT_X_A'",
+          "duplicate address 0x04: 'DATA_OUTPUT_X_LSB_REGISTER' and 'DATA_OUTPUT_X_B'",
+          "duplicate address 0x05: 'DATA_OUTPUT_Z_MSB_REGISTER' and 'DATA_OUTPUT_Y_A'",
+          "duplicate address 0x06: 'DATA_OUTPUT_Z_LSB_REGISTER' and 'DATA_OUTPUT_Y_B'",
+          "duplicate address 0x07: 'DATA_OUTPUT_Y_MSB_REGISTER' and 'DATA_OUTPUT_Z_A'",
+          "duplicate address 0x08: 'DATA_OUTPUT_Y_LSB_REGISTER' and 'DATA_OUTPUT_Z_B'"
+        ],
+        "issue_breakdown": {
+          "Overlapping fields": 42,
+          "fields 'CRA7' [0": 1,
+          "fields 'CRA6' [0": 1,
+          "fields 'CRA5' [0": 1,
+          "fields 'CRA4' [0": 1,
+          "fields 'CRA3' [0": 1,
+          "fields 'CRA2' [0": 1,
+          "fields 'CRA1' [0": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 14,
+        "fields_verified": 10,
+        "fields_unverified": 4,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 11,
+        "field_diagnostics": {
+          "0X00": {
+            "CRA7": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 36303
+            },
+            "MA": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 36303
+            },
+            "DO": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 36303
+            },
+            "MS": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 36303
+            },
+            "IRA": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 36303
+            }
+          },
+          "0X01": {
+            "GN": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 47023
+            },
+            "RSVD": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 47023
+            },
+            "IRB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 47023
+            }
+          },
+          "0X02": {
+            "MD": {
+              "result": "quote_not_found",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 45177
+            },
+            "HS": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 45177
+            },
+            "IRC": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 45177
+            }
+          },
+          "0X03": {
+            "X_DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26555
+            },
+            "DXRA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 26555
+            }
+          },
+          "0X04": {
+            "X_DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26271
+            },
+            "DXRB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 24704
+            }
+          },
+          "0X05": {
+            "Z_DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26167
+            },
+            "DYRA": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 24600
+            }
+          },
+          "0X06": {
+            "Z_DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26752
+            },
+            "DYRB": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 26752
+            }
+          },
+          "0X07": {
+            "Y_DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 25889
+            },
+            "DZRA": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 24322
+            }
+          },
+          "0X08": {
+            "Y_DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 26468
+            },
+            "DZRB": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 24901
+            }
+          },
+          "0X09": {
+            "RSVD_7_2": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 26884
+            },
+            "LOCK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 26884
+            },
+            "RDY": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 26884
+            }
+          },
+          "0X0A": {
+            "ID_A": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 12815
+            }
+          },
+          "0X0B": {
+            "ID_B": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17690
+            }
+          },
+          "0X0C": {
+            "ID_C": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 17427
+            }
+          }
+        },
+        "fields_bit_llm_fallback": 5,
+        "fields_cross_section_augmented": 2,
+        "fields_name_matched": 4,
+        "fields_consistent_promoted": 6,
+        "diagnostic_summary": {
+          "quote_not_found": 4,
+          "verified_quote": 10,
+          "name_not_found": 7,
+          "name_too_short": 2,
+          "reserved": 2,
+          "verified_name": 4
+        }
+      }
+    },
+    "stage_costs": {
+      "extraction": {
+        "input_tokens": 41461,
+        "output_tokens": 5041,
+        "thinking_tokens": 0,
+        "calls": 9,
+        "total_cost_usd": 0.010813
+      },
+      "evidence": {
+        "input_tokens": 3013,
+        "output_tokens": 296,
+        "thinking_tokens": 0,
+        "calls": 5,
+        "total_cost_usd": 0.000751
+      },
+      "correction": {
+        "input_tokens": 2909,
+        "output_tokens": 1267,
+        "thinking_tokens": 0,
+        "calls": 3,
+        "total_cost_usd": 0.001215
+      },
+      "agents": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 767,
+        "output_tokens": 65,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000186
+      }
+    }
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "VL53L0X",
+  "description": "Time-of-flight ranging sensor, up to 2m range, I2C interface",
+  "vendor": "STMicroelectronics",
+  "source": "VL53L0X.pdf",
+  "source_type": "pdf",
+  "source_url": "https://cdn.sparkfun.com/assets/8/9/9/a/6/VL53L0X_DS.pdf",
+  "peripherals": {
+    "Identification": [
+      {
+        "name": "MODEL_ID",
+        "address": "0x10F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Model ID register",
+        "fields": [
+          {
+            "name": "MODEL_ID",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": null,
+            "description": "Model identification value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 0,
+        "source_pages": [
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x10F not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MODULE_TYPE",
+        "address": "0x110",
+        "size_bits": 8,
+        "reset_value": "0xCC",
+        "description": "Module type register for I2C interface validation",
+        "fields": [
+          {
+            "name": "MODULE_TYPE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 204,
+            "description": "Module type identification value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x110 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MASK_REVISION",
+        "address": "0x111",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "Mask revision register for I2C interface validation",
+        "fields": [
+          {
+            "name": "MASK_REVISION",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 16,
+            "description": "Mask revision identification value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": 1,
+        "source_pages": [
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x111 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {
+    "1": "Page 1",
+    "3": "Page 3"
+  },
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T02:46:00.509829+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 3,
+        "by_confidence": {
+          "high": 3,
+          "medium": 0,
+          "low": 0
+        },
+        "with_quality_issues": 3,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 3,
+        "by_source": {
+          "evidence_verified": 3
+        }
+      },
+      "peripherals": {
+        "total": 1,
+        "by_name": {
+          "Identification": {
+            "registers": 3,
+            "confidence": {
+              "high": 3,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 1,
+        "batches_total": 5,
+        "batches_sent": 5,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "address 0x10F not found in register summary table": 1,
+          "address 0x110 not found in register summary table": 1,
+          "address 0x111 not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 3,
+        "fields_verified": 3,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 3,
+        "field_diagnostics": {
+          "0X10F": {
+            "MODEL_ID": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 56131
+            }
+          },
+          "0X110": {
+            "MODULE_TYPE": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 10066
+            }
+          },
+          "0X111": {
+            "MASK_REVISION": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 10066
+            }
+          }
+        },
+        "fields_consistent_promoted": 3,
+        "fields_bit_llm_fallback": 3,
+        "diagnostic_summary": {
+          "verified_quote": 3
+        }
+      }
+    },
+    "stage_costs": {
+      "extraction": {
+        "input_tokens": 26450,
+        "output_tokens": 586,
+        "thinking_tokens": 0,
+        "calls": 5,
+        "total_cost_usd": 0.005583
+      },
+      "evidence": {
+        "input_tokens": 1045,
+        "output_tokens": 40,
+        "thinking_tokens": 0,
+        "calls": 2,
+        "total_cost_usd": 0.000229
+      },
+      "correction": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "agents": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 345,
+        "output_tokens": 19,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 7.9e-05
+      }
+    }
+  }
+}

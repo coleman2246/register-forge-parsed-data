@@ -1,0 +1,4326 @@
+{
+  "version": "1.1.0",
+  "category": "peripheral",
+  "device": "PCA9685",
+  "description": "16-channel 12-bit PWM Fm+ I2C LED/servo driver",
+  "vendor": "NXP Semiconductors",
+  "source": "PCA9685.pdf",
+  "source_type": "pdf",
+  "source_url": "https://www.nxp.com/docs/en/data-sheet/PCA9685.pdf",
+  "peripherals": {
+    "I2C Configuration": [
+      {
+        "name": "MODE1",
+        "address": "0x00",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Mode register 1",
+        "fields": [
+          {
+            "name": "RESTART",
+            "bit_high": 7,
+            "bit_low": 7,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Restart control. Read shows state, write 1 clears to 0, write 0 no effect.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "EXTCLK",
+            "bit_high": 6,
+            "bit_low": 6,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "External clock enable. Sticky bit, cleared by power cycle or reset.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "AI",
+            "bit_high": 5,
+            "bit_low": 5,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Register Auto-Increment enable.",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "SLEEP",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "Low power mode, oscillator off.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SUB1",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Respond to I2C subaddress 1.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SUB2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Respond to I2C subaddress 2.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "SUB3",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Respond to I2C subaddress 3.",
+            "enum_values": null,
+            "source": "llm_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15,
+          16
+        ],
+        "confidence": "medium",
+        "quality_issues": [
+          "address 0x00 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "MODE2",
+        "address": "0x01",
+        "size_bits": 8,
+        "reset_value": "0x05",
+        "description": "Mode register 2",
+        "fields": [
+          {
+            "name": "RSVD_7_5",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "INVRT",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Output logic state not inverted. Value to use when external driver used. Applicable when OE = 0.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "OCH",
+            "bit_high": 3,
+            "bit_low": 3,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "Outputs change on STOP command",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "OUTDRV",
+            "bit_high": 2,
+            "bit_low": 2,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "The 16 LEDn outputs are configured with a totem pole structure.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "OUTNE",
+            "bit_high": 1,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "When OE = 1 (output drivers not enabled), LEDn = 0.",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          15,
+          16
+        ],
+        "confidence": "high",
+        "quality_issues": [
+          "address 0x01 not found in register summary table"
+        ],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SUBADR1",
+        "address": "0x02",
+        "size_bits": 8,
+        "reset_value": "0xE2",
+        "description": "I^2C-bus subaddress 1 register",
+        "fields": [
+          {
+            "name": "A1",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 113,
+            "description": "I^2C-bus subaddress 1",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "A1_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SUBADR2",
+        "address": "0x03",
+        "size_bits": 8,
+        "reset_value": "0xE4",
+        "description": "I^2C-bus subaddress 2 register",
+        "fields": [
+          {
+            "name": "A2",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 114,
+            "description": "I^2C-bus subaddress 2",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "A2_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "SUBADR3",
+        "address": "0x04",
+        "size_bits": 8,
+        "reset_value": "0xE8",
+        "description": "I^2C-bus subaddress 3 register",
+        "fields": [
+          {
+            "name": "A3",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 116,
+            "description": "I^2C-bus subaddress 3",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "A3_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          28
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALLCALLADR",
+        "address": "0x05",
+        "size_bits": 8,
+        "reset_value": "0xE0",
+        "description": "LED All Call I^2C-bus address register",
+        "fields": [
+          {
+            "name": "AC",
+            "bit_high": 7,
+            "bit_low": 1,
+            "access": "RW",
+            "reset_value": 112,
+            "description": "ALLCALL I^2C-bus address register",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "AC_0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "access": "RO",
+            "reset_value": 0,
+            "description": "reserved",
+            "enum_values": null,
+            "source": "llm_only"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          29
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED0": [
+      {
+        "name": "LED0_ON_L",
+        "address": "0x06",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED0 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "LED0_ON_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED0 ON time low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED0_ON_H",
+        "address": "0x07",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED0 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED0_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED0 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED0_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED0, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED0_OFF_L",
+        "address": "0x08",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED0 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "LED0_OFF_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED0 OFF time low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED0_OFF_H",
+        "address": "0x09",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "LED0 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED0_OFF_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED0 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED0_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for LED0, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED1": [
+      {
+        "name": "LED1_ON_L",
+        "address": "0x0A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED1 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "LED1_ON_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED1 ON time low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED1_ON_H",
+        "address": "0x0B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED1 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED1_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED1 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED1_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED1, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED1_OFF_L",
+        "address": "0x0C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED1 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "LED1_OFF_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED1 OFF time low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED1_OFF_H",
+        "address": "0x0D",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "LED1 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED1_OFF_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED1 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED1_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for LED1, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED2": [
+      {
+        "name": "LED2_ON_L",
+        "address": "0x0E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED2 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "LED2_ON_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED2 ON time low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED2_ON_H",
+        "address": "0x0F",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED2 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED2_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED2 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED2_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED2, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED2_OFF_L",
+        "address": "0x10",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED2 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "LED2_OFF_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED2 OFF time low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED2_OFF_H",
+        "address": "0x11",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "LED2 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED2_OFF_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED2 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED2_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for LED2, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          19
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED3": [
+      {
+        "name": "LED3_ON_L",
+        "address": "0x12",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED3 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "LED3_ON_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED3 ON time low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED3_ON_H",
+        "address": "0x13",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED3 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED3_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED3 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED3_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED3, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED3_OFF_L",
+        "address": "0x14",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED3 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "LED3_OFF_L",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED3 OFF time low byte",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED3_OFF_H",
+        "address": "0x15",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "LED3 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED3_OFF_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED3 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED3_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for LED3, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED4": [
+      {
+        "name": "LED4_ON_L",
+        "address": "0x16",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED4 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM on-time low byte data for LED4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED4_ON_H",
+        "address": "0x17",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED4 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED4_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED4 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED4_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED4, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          20
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED4_OFF_L",
+        "address": "0x18",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED4 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM off-time low byte data for LED4",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          21
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED4_OFF_H",
+        "address": "0x19",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "LED4 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED4_OFF_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED4 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED4_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for LED4, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          21
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED5": [
+      {
+        "name": "LED5_ON_L",
+        "address": "0x1A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED5 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM on-time low byte data for LED5",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED5_ON_H",
+        "address": "0x1B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED5 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED5_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED5 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED5_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED5, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED5_OFF_L",
+        "address": "0x1C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED5 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM off-time low byte data for LED5",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED5_OFF_H",
+        "address": "0x1D",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "LED5 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED5_OFF_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED5 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED5_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for LED5, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED6": [
+      {
+        "name": "LED6_ON_L",
+        "address": "0x1E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED6 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM on-time low byte data for LED6",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          22
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED6_ON_H",
+        "address": "0x1F",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED6 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED6_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED6 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED6_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED6, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED6_OFF_L",
+        "address": "0x20",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED6 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM off-time low byte data for LED6",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED6_OFF_H",
+        "address": "0x21",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "LED6 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED6_OFF_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED6 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED6_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for LED6, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED7": [
+      {
+        "name": "LED7_ON_L",
+        "address": "0x22",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED7 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM on-time low byte data for LED7",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED7_ON_H",
+        "address": "0x23",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED7 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED7_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED7 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED7_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED7, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          23
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED7_OFF_L",
+        "address": "0x24",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED7 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM off-time low byte data for LED7",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED7_OFF_H",
+        "address": "0x25",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "LED7 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED7_OFF_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED7 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED7_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for LED7, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED8": [
+      {
+        "name": "LED8_ON_L",
+        "address": "0x26",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED8 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM on-time low byte data for LED8",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED8_ON_H",
+        "address": "0x27",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED8 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED8_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED8 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED8_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED8, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED8_OFF_L",
+        "address": "0x28",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED8 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM off-time low byte data for LED8",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED8_OFF_H",
+        "address": "0x29",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "LED8 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED8_OFF_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED8 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED8_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for LED8, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          24
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED9": [
+      {
+        "name": "LED9_ON_L",
+        "address": "0x2A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED9 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM on-time low byte data for LED9",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED9_ON_H",
+        "address": "0x2B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED9 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED9_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED9 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED9_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED9, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED9_OFF_L",
+        "address": "0x2C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED9 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM off-time low byte data for LED9",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED9_OFF_H",
+        "address": "0x2D",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "LED9 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED9_OFF_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED9 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED9_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for LED9, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED10": [
+      {
+        "name": "LED10_ON_L",
+        "address": "0x2E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED10 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM on-time low byte data for LED10",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED10_ON_H",
+        "address": "0x2F",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED10 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED10_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED10 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED10_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED10, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED10_OFF_L",
+        "address": "0x30",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED10 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM off-time low byte data for LED10",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED10_OFF_H",
+        "address": "0x31",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "LED10 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED10_OFF_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED10 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED10_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for LED10, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED11": [
+      {
+        "name": "LED11_ON_L",
+        "address": "0x32",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED11 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM on-time low byte data for LED11",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED11_ON_H",
+        "address": "0x33",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED11 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED11_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED11 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED11_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED11, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED11_OFF_L",
+        "address": "0x34",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED11 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM off-time low byte data for LED11",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED11_OFF_H",
+        "address": "0x35",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "LED11 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED11_OFF_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED11 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED11_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for LED11, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED12": [
+      {
+        "name": "LED12_ON_L",
+        "address": "0x36",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED12 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM on-time low byte data for LED12",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED12_ON_H",
+        "address": "0x37",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED12 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED12_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED12 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED12_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED12, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED12_OFF_L",
+        "address": "0x38",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED12 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM off-time low byte data for LED12",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED12_OFF_H",
+        "address": "0x39",
+        "size_bits": 8,
+        "reset_value": "0x10",
+        "description": "LED12 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED12_OFF_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED12 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED12_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for LED12, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED13": [
+      {
+        "name": "LED13_ON_L",
+        "address": "0x3A",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED13 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM on-time low byte data for LED13",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED13_ON_H",
+        "address": "0x3B",
+        "size_bits": 8,
+        "reset_value": "0x00",
+        "description": "LED13 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED13_ON_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED13 full ON",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED13_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LEDn_ON count for LED13, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          25
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED13_OFF_L",
+        "address": "0x3C",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED13 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "12-bit PWM off-time low byte data for LED13",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED13_OFF_H",
+        "address": "0x3D",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED13 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "reserved, non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED13_OFF_H_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED13 full OFF",
+            "enum_values": null,
+            "source": "llm_only"
+          },
+          {
+            "name": "LED13_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED13_OFF count for LED13, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26
+        ],
+        "confidence": "medium",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED14": [
+      {
+        "name": "LED14_ON_L",
+        "address": "0x3E",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED14 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "LED14 ON low byte data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED14_ON_H",
+        "address": "0x3F",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED14 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "reserved, non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED14_ON_H_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED14 full ON",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LED14_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED14_ON count for LED14, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED14_OFF_L",
+        "address": "0x40",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED14 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "LED14 OFF low byte data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED14_OFF_H",
+        "address": "0x41",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED14 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "reserved, non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED14_OFF_H_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED14 full OFF",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LED14_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED14_OFF count for LED14, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "LED15": [
+      {
+        "name": "LED15_ON_L",
+        "address": "0x42",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED15 output and brightness control byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "LED15 ON low byte data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED15_ON_H",
+        "address": "0x43",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED15 ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "reserved, non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED15_ON_H_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED15 full ON",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LED15_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED15_ON count for LED15, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED15_OFF_L",
+        "address": "0x44",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED15 output and brightness control byte 2",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "LED15 OFF low byte data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "LED15_OFF_H",
+        "address": "0x45",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "LED15 OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "reserved, non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "LED15_OFF_H_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "RW",
+            "reset_value": 1,
+            "description": "LED15 full OFF",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "LED15_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": 0,
+            "description": "LED15_OFF count for LED15, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          26
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "All_LED": [
+      {
+        "name": "ALL_LED_ON_L",
+        "address": "0xFA",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Load all the LEDn_ON registers, byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ALL LED ON low byte data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALL_LED_ON_H",
+        "address": "0xFB",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "All LEDs ON high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "reserved, non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ALL_LED_ON_H_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "WO",
+            "reset_value": 1,
+            "description": "ALL_LED full ON",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ALL_LED_ON_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "LEDn_ON count for ALL_LED, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALL_LED_OFF_L",
+        "address": "0xFC",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Load all the LEDn_OFF registers, byte 0",
+        "fields": [
+          {
+            "name": "DATA",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "ALL LED OFF low byte data",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      },
+      {
+        "name": "ALL_LED_OFF_H",
+        "address": "0xFD",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "All LEDs OFF high byte register",
+        "fields": [
+          {
+            "name": "RESERVED",
+            "bit_high": 7,
+            "bit_low": 5,
+            "access": "R",
+            "reset_value": 0,
+            "description": "reserved, non-writable",
+            "enum_values": null,
+            "source": "synthetic"
+          },
+          {
+            "name": "ALL_LED_OFF_H_FULL",
+            "bit_high": 4,
+            "bit_low": 4,
+            "access": "WO",
+            "reset_value": 1,
+            "description": "ALL_LED full OFF",
+            "enum_values": null,
+            "source": "evidence_verified"
+          },
+          {
+            "name": "ALL_LED_OFF_H",
+            "bit_high": 3,
+            "bit_low": 0,
+            "access": "WO",
+            "reset_value": 0,
+            "description": "LEDn_OFF count for ALL_LED, 4 MSBs",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ],
+    "PWM_Timing": [
+      {
+        "name": "PRE_SCALE",
+        "address": "0xFE",
+        "size_bits": 8,
+        "reset_value": null,
+        "description": "Prescaler for PWM output frequency",
+        "fields": [
+          {
+            "name": "PRESCALE",
+            "bit_high": 7,
+            "bit_low": 0,
+            "access": "RW",
+            "reset_value": null,
+            "description": "PWM prescaler value",
+            "enum_values": null,
+            "source": "evidence_verified"
+          }
+        ],
+        "dim": null,
+        "dim_increment": null,
+        "page": null,
+        "source_pages": [
+          27
+        ],
+        "confidence": "high",
+        "quality_issues": [],
+        "suspicious_injection": false
+      }
+    ]
+  },
+  "register_pages": {},
+  "parse_status": "ok",
+  "parse_notes": [],
+  "metadata": {
+    "parsed_date": "2026-03-22T02:36:33.882693+00:00",
+    "provider": "xai",
+    "model": "grok-4-1-fast-non-reasoning",
+    "pipeline": "docling",
+    "analytics": {
+      "registers": {
+        "total": 75,
+        "by_confidence": {
+          "high": 42,
+          "medium": 33,
+          "low": 0
+        },
+        "with_quality_issues": 2,
+        "empty_descriptions": 0
+      },
+      "fields": {
+        "total": 157,
+        "by_source": {
+          "evidence_verified": 84,
+          "llm_only": 37,
+          "llm_verified": 1,
+          "synthetic": 35
+        }
+      },
+      "peripherals": {
+        "total": 19,
+        "by_name": {
+          "I2C Configuration": {
+            "registers": 6,
+            "confidence": {
+              "high": 1,
+              "medium": 5,
+              "low": 0
+            }
+          },
+          "LED0": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED1": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED2": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED3": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED4": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED5": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED6": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED7": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED8": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED9": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED10": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED11": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED12": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED13": {
+            "registers": 4,
+            "confidence": {
+              "high": 2,
+              "medium": 2,
+              "low": 0
+            }
+          },
+          "LED14": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "LED15": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "All_LED": {
+            "registers": 4,
+            "confidence": {
+              "high": 4,
+              "medium": 0,
+              "low": 0
+            }
+          },
+          "PWM_Timing": {
+            "registers": 1,
+            "confidence": {
+              "high": 1,
+              "medium": 0,
+              "low": 0
+            }
+          }
+        }
+      },
+      "extraction": {
+        "manifest_entries": 73,
+        "batches_total": 19,
+        "batches_sent": 18,
+        "batches_failed": 0
+      },
+      "validation": {
+        "warnings_total": 0,
+        "warnings_detail": [],
+        "issue_breakdown": {
+          "address 0x00 not found in register summary table": 1,
+          "address 0x01 not found in register summary table": 1
+        }
+      },
+      "evidence": {
+        "fields_with_evidence": 48,
+        "fields_verified": 48,
+        "fields_unverified": 0,
+        "fields_bit_mismatch": 0,
+        "regs_upgraded": 48,
+        "field_diagnostics": {
+          "0X00": {
+            "RESTART": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 151939
+            },
+            "EXTCLK": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 151939
+            },
+            "AI": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 151939
+            },
+            "SLEEP": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 151939
+            },
+            "SUB1": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 151939
+            },
+            "SUB2": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 151939
+            }
+          },
+          "0X01": {
+            "RSVD_7_5": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 133281
+            },
+            "INVRT": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 133281
+            },
+            "OCH": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 133281
+            },
+            "OUTDRV": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 133281
+            },
+            "OUTNE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 133281
+            }
+          },
+          "0X02": {
+            "A1": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 133163
+            },
+            "A1_0": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 133163
+            }
+          },
+          "0X03": {
+            "A2": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 127266
+            },
+            "A2_0": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 127266
+            }
+          },
+          "0X04": {
+            "A3": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 133125
+            },
+            "A3_0": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 133125
+            }
+          },
+          "0X05": {
+            "AC": {
+              "result": "name_too_short",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 134357
+            },
+            "AC_0": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 134357
+            }
+          },
+          "0X06": {
+            "LED0_ON_L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 126051
+            }
+          },
+          "0X07": {
+            "LED0_ON_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 126051
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 126051
+            },
+            "LED0_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 126051
+            }
+          },
+          "0X08": {
+            "LED0_OFF_L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 126051
+            }
+          },
+          "0X09": {
+            "LED0_OFF_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 126051
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 126051
+            },
+            "LED0_OFF_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 126051
+            }
+          },
+          "0X0A": {
+            "LED1_ON_L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 126051
+            }
+          },
+          "0X0B": {
+            "LED1_ON_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 126051
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 126051
+            },
+            "LED1_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 126051
+            }
+          },
+          "0X0C": {
+            "LED1_OFF_L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 126051
+            }
+          },
+          "0X0D": {
+            "LED1_OFF_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 126051
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 126051
+            },
+            "LED1_OFF_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 126051
+            }
+          },
+          "0X0E": {
+            "LED2_ON_L": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 126051
+            }
+          },
+          "0X0F": {
+            "LED2_ON_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 126051
+            },
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 126051
+            },
+            "LED2_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 126051
+            }
+          },
+          "0X10": {
+            "LED2_OFF_L": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 134724
+            }
+          },
+          "0X11": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 134724
+            },
+            "LED2_OFF_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 134724
+            },
+            "LED2_OFF_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 134724
+            }
+          },
+          "0X12": {
+            "LED3_ON_L": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 135257
+            }
+          },
+          "0X13": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 135257
+            },
+            "LED3_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 135257
+            },
+            "LED3_ON_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 135257
+            }
+          },
+          "0X14": {
+            "LED3_OFF_L": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 135257
+            }
+          },
+          "0X15": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 135700
+            },
+            "LED3_OFF_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 135700
+            },
+            "LED3_OFF_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 135700
+            }
+          },
+          "0X16": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 127710
+            }
+          },
+          "0X17": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 127710
+            },
+            "LED4_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 127710
+            },
+            "LED4_ON_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 127710
+            }
+          },
+          "0X18": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 128931
+            }
+          },
+          "0X19": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128931
+            },
+            "LED4_OFF_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128931
+            },
+            "LED4_OFF_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128931
+            }
+          },
+          "0X1A": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 128982
+            }
+          },
+          "0X1B": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128982
+            },
+            "LED5_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128982
+            },
+            "LED5_ON_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128982
+            }
+          },
+          "0X1C": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 128982
+            }
+          },
+          "0X1D": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128982
+            },
+            "LED5_OFF_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128982
+            },
+            "LED5_OFF_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128982
+            }
+          },
+          "0X1E": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 128982
+            }
+          },
+          "0X1F": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129030
+            },
+            "LED6_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129030
+            },
+            "LED6_ON_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129030
+            }
+          },
+          "0X20": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 129030
+            }
+          },
+          "0X21": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129030
+            },
+            "LED6_OFF_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129030
+            },
+            "LED6_OFF_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129030
+            }
+          },
+          "0X22": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 129030
+            }
+          },
+          "0X23": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129030
+            },
+            "LED7_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129030
+            },
+            "LED7_ON_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129030
+            }
+          },
+          "0X24": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 128831
+            }
+          },
+          "0X25": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128831
+            },
+            "LED7_OFF_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128831
+            },
+            "LED7_OFF_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128831
+            }
+          },
+          "0X26": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 128851
+            }
+          },
+          "0X27": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128831
+            },
+            "LED8_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128831
+            },
+            "LED8_ON_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 128831
+            }
+          },
+          "0X28": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 128831
+            }
+          },
+          "0X29": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129278
+            },
+            "LED8_OFF_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129278
+            },
+            "LED8_OFF_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129278
+            }
+          },
+          "0X2A": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 129124
+            }
+          },
+          "0X2B": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED9_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED9_ON_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            }
+          },
+          "0X2C": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 129124
+            }
+          },
+          "0X2D": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED9_OFF_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED9_OFF_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            }
+          },
+          "0X2E": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 129124
+            }
+          },
+          "0X2F": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED10_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED10_ON_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            }
+          },
+          "0X30": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 129124
+            }
+          },
+          "0X31": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED10_OFF_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED10_OFF_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            }
+          },
+          "0X32": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 129124
+            }
+          },
+          "0X33": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED11_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED11_ON_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            }
+          },
+          "0X34": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 129124
+            }
+          },
+          "0X35": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED11_OFF_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED11_OFF_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            }
+          },
+          "0X36": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 129145
+            }
+          },
+          "0X37": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED12_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            },
+            "LED12_ON_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 129124
+            }
+          },
+          "0X38": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 147486
+            }
+          },
+          "0X39": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 147486
+            },
+            "LED12_OFF_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 147486
+            },
+            "LED12_OFF_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 147486
+            }
+          },
+          "0X3A": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 153969
+            }
+          },
+          "0X3B": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 153969
+            },
+            "LED13_ON_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 153969
+            },
+            "LED13_ON_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 153969
+            }
+          },
+          "0X3C": {
+            "DATA": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 144081
+            }
+          },
+          "0X3D": {
+            "RESERVED": {
+              "result": "reserved",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 146665
+            },
+            "LED13_OFF_H_FULL": {
+              "result": "name_not_found",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 146665
+            },
+            "LED13_OFF_H": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 146665
+            }
+          },
+          "0X3E": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136466
+            }
+          },
+          "0X3F": {
+            "RESERVED": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 136466
+            },
+            "LED14_ON_H_FULL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 136466
+            },
+            "LED14_ON_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 136466
+            }
+          },
+          "0X40": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136466
+            }
+          },
+          "0X41": {
+            "RESERVED": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 136466
+            },
+            "LED14_OFF_H_FULL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 136466
+            },
+            "LED14_OFF_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 136466
+            }
+          },
+          "0X42": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136466
+            }
+          },
+          "0X43": {
+            "RESERVED": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 136466
+            },
+            "LED15_ON_H_FULL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 136466
+            },
+            "LED15_ON_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 136466
+            }
+          },
+          "0X44": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 136487
+            }
+          },
+          "0X45": {
+            "RESERVED": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 137692
+            },
+            "LED15_OFF_H_FULL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 137692
+            },
+            "LED15_OFF_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 137692
+            }
+          },
+          "0XFA": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 135838
+            }
+          },
+          "0XFB": {
+            "RESERVED": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 135838
+            },
+            "ALL_LED_ON_H_FULL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 135838
+            },
+            "ALL_LED_ON_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 135838
+            }
+          },
+          "0XFC": {
+            "DATA": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 154496
+            }
+          },
+          "0XFD": {
+            "RESERVED": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 136134
+            },
+            "ALL_LED_OFF_H_FULL": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 136134
+            },
+            "ALL_LED_OFF_H": {
+              "result": "verified_quote",
+              "had_evidence_quote": true,
+              "had_source_text": true,
+              "source_text_len": 136134
+            }
+          },
+          "0XFE": {
+            "PRESCALE": {
+              "result": "verified_name",
+              "had_evidence_quote": false,
+              "had_source_text": true,
+              "source_text_len": 147533
+            }
+          }
+        },
+        "fields_cross_section_augmented": 74,
+        "fields_name_matched": 42,
+        "fields_consistent_promoted": 21,
+        "diagnostic_summary": {
+          "verified_name": 42,
+          "name_too_short": 5,
+          "reserved": 29,
+          "name_not_found": 32,
+          "verified_quote": 48
+        }
+      }
+    },
+    "stage_costs": {
+      "extraction": {
+        "input_tokens": 109982,
+        "output_tokens": 23600,
+        "thinking_tokens": 0,
+        "calls": 19,
+        "total_cost_usd": 0.033796
+      },
+      "evidence": {
+        "input_tokens": 2042,
+        "output_tokens": 47,
+        "thinking_tokens": 0,
+        "calls": 4,
+        "total_cost_usd": 0.000432
+      },
+      "correction": {
+        "input_tokens": 1226,
+        "output_tokens": 555,
+        "thinking_tokens": 0,
+        "calls": 1,
+        "total_cost_usd": 0.000523
+      },
+      "agents": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "convergence": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "thinking_tokens": 0,
+        "calls": 0,
+        "total_cost_usd": 0.0
+      },
+      "grouping": {
+        "input_tokens": 2018,
+        "output_tokens": 488,
+        "thinking_tokens": 0,
+        "calls": 2,
+        "total_cost_usd": 0.000648
+      }
+    }
+  }
+}
