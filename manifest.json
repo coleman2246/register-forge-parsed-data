@@ -242,8 +242,7 @@
     "source_url": "https://cdn-shop.adafruit.com/datasheets/TCS34725.pdf",
     "filename": "TCS34725.pdf",
     "category": "peripheral",
-    "family": "Light Sensor",
-    "path": "pdf/taos/tcs34725/tcs34725_xai_grok-4-1-fast-non-reasoning_20260322T122824_9f93.json"
+    "family": "Light Sensor"
   },
   {
     "device": "TSL2561",
@@ -272,8 +271,7 @@
     "source_url": "https://www.ti.com/lit/ds/symlink/ina219.pdf",
     "filename": "INA219.pdf",
     "category": "peripheral",
-    "family": "Current Monitor",
-    "path": "pdf/texas-instruments/ina219/ina219_xai_grok-4-1-fast-non-reasoning_20260322T110053_30b4.json"
+    "family": "Current Monitor"
   },
   {
     "device": "TMP117",
@@ -332,8 +330,7 @@
     "source_url": "https://www.waveshare.com/w/upload/2/20/Lps22hb.pdf",
     "filename": "LPS22HB.pdf",
     "category": "peripheral",
-    "family": "Pressure Sensor",
-    "path": "pdf/stmicroelectronics/lps22hb/lps22hb_xai_grok-4-1-fast-non-reasoning_20260322T111215_2b9c.json"
+    "family": "Pressure Sensor"
   },
   {
     "device": "INA260",
@@ -342,8 +339,7 @@
     "source_url": "https://www.ti.com/lit/ds/symlink/ina260.pdf",
     "filename": "INA260.pdf",
     "category": "peripheral",
-    "family": "Current Monitor",
-    "path": "pdf/texas-instruments/ina260/ina260_xai_grok-4-1-fast-non-reasoning_20260322T110340_3f9f.json"
+    "family": "Current Monitor"
   },
   {
     "device": "INA3221",
